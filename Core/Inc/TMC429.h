@@ -15,7 +15,7 @@
 #ifndef TMC_IC_TMC429_H_
 #define TMC_IC_TMC429_H_
 
-	#include "../../tmc/helpers/API_Header.h"
+	#include "tmc/helpers/API_Header.h"
 	#include "TMC429_Register.h"
 	#include "main.h"
 

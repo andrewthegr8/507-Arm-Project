@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TMC429.h"
+#include "stepper_driver.h"
 
 /* USER CODE END Includes */
 
@@ -64,6 +65,29 @@ static MotionIC_Config_t motionICs[2] =
     { &hspi1, MP2_NSCS_GPIO_Port, MP2_NSCS_Pin }
 };
 
+//Set-up stepper driver config. This is used by the stepper driver library to know which pins to use for each function
+static StepperDriverConfig_t stepperConfig =
+{
+    .sleepPort = Motor_Sleep_GPIO_Port,
+    .sleepPin  = Motor_Sleep_Pin,
+
+    .enablePort = Motor_Enable_GPIO_Port,
+    .enablePin  = Motor_Enable_Pin,
+
+    .decay1Port = Motor_Decay1_GPIO_Port,
+    .decay1Pin  = Motor_Decay1_Pin,
+
+    .decay2Port = Motor_Decay_2_GPIO_Port,
+    .decay2Pin  = Motor_Decay_2_Pin,
+
+    .drivers =
+    {
+        { Motor_1_Reset_GPIO_Port, Motor_1_Reset_Pin },
+        { Motor_2_Reset_GPIO_Port, Motor_2_Reset_Pin },
+        { Motor_3_Reset_GPIO_Port, Motor_3_Reset_Pin },
+        { Motor_4_Reset_GPIO_Port, Motor_4_Reset_Pin }
+    }
+};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,6 +104,7 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+
 
 /* USER CODE END 0 */
 
@@ -129,6 +154,15 @@ int main(void)
 
   SelectMotionIC(MOTION_IC_2);
   Init429();
+
+  //Init stepper drivers. Sets sleep and enable pins to the proper levels and resets all drivers.
+  StepperDriver_Init(&stepperConfig);
+
+  StepperDriver_ResetAll();
+  StepperDriver_SetDecay(GPIO_PIN_RESET, GPIO_PIN_RESET);
+
+  StepperDriver_Wake();
+  StepperDriver_Enable();
 
   /* USER CODE END 2 */
 

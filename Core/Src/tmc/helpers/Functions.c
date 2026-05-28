@@ -6,7 +6,7 @@
 *******************************************************************************/
 
 
-#include "Functions.h"
+#include "tmc/helpers/Functions.h"
 
 int32_t tmc_limitInt(int32_t value, int32_t min, int32_t max)
 {

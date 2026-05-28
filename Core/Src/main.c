@@ -21,6 +21,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "TMC429.h"
 
 /* USER CODE END Includes */
 
@@ -57,6 +58,11 @@ TIM_HandleTypeDef htim3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
+static MotionIC_Config_t motionICs[2] =
+{
+    { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin },
+    { &hspi1, MP2_NSCS_GPIO_Port, MP2_NSCS_Pin }
+};
 
 /* USER CODE END PV */
 
@@ -116,6 +122,8 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
+  TMC429_SetMotionICs(motionICs);
+
   SelectMotionIC(MOTION_IC_1);
   Init429();
 

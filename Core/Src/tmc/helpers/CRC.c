@@ -28,7 +28,7 @@
  *  (2): Tested by toggling a GPIO pin, generating a table in-between and measuring the GPIO pulse width.
  */
 
-#include "CRC.h"
+#include "tmc/helpers/CRC.h"
 
 typedef struct {
 	uint8_t table[256];

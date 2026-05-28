@@ -15,9 +15,13 @@
 #ifndef TMC_IC_TMC429_H_
 #define TMC_IC_TMC429_H_
 
-	#include "../../tmc/helpers/API_Header.h"
+	#include "tmc/helpers/API_Header.h"
 	#include "TMC429_Register.h"
 	#include "main.h"
+
+	//Redefine some functions names. This fix was suggested by chat and should be re-evaluated if we run into errors in deployment
+	#define Write429U16(Address, Value) Write429Short((Address), (Value))
+	#define Write429U24(Address, Value) Write429Int((Address), (Value))
 
 	#define SPI_DEV_TMC429 (&hspi1) //Both chips on the same SPI bus, so we can use the same handle for both
 
@@ -49,8 +53,13 @@
 	void Write429Zero(uint8_t Address);
 	void Write429Bytes(uint8_t Address, uint8_t *Bytes);
 	void Write429Datagram(uint8_t Address, uint8_t HighByte, uint8_t MidByte, uint8_t LowByte);
-	void Write429U16(uint8_t Address, uint16_t Value);
-	void Write429U24(uint8_t Address, uint32_t Value);
+	//void Write429U16(uint8_t Address, uint16_t Value);
+	//void Write429U24(uint8_t Address, uint32_t Value);
+	
+	//Added these 2 functions as wrappers for the Write429U16 and Write429U24 functions
+	void Write429Short(uint8_t Address, int32_t Value);
+	void Write429Int(uint8_t Address, int32_t Value);
+	
 	uint8_t Read429Status(void);
 	uint8_t Read429Bytes(uint8_t Address, uint8_t *Bytes);
 	uint8_t Read429SingleByte(uint8_t Address, uint8_t Index);

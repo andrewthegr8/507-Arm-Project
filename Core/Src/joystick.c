@@ -6,18 +6,17 @@
 #define JOY_CENTER_X        2048
 #define JOY_CENTER_Y        2048
 #define JOY_DEADBAND        300
-
-// Dominance ratio threshold:
-// dominant axis must be at least this much stronger than the other
-#define DOMINANCE_NUM       3
-#define DOMINANCE_DEN       2   // 3/2 = 1.5
+#define JOY_RELEASE_BAND    200
 
 extern ADC_HandleTypeDef hadc1;
 extern uint16_t adc_buffer[2];
 
+static JoystickAxis locked_axis = JOY_AXIS_NONE;
+
 void Joystick_Init(void)
 {
     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
+    locked_axis = JOY_AXIS_NONE;
 }
 
 uint16_t Joystick_ReadXRaw(void)
@@ -55,43 +54,49 @@ void Joystick_UpdateManualControl(void)
 
     if (Joystick_ButtonPressed()) {
         StopAllMotion();
+        locked_axis = JOY_AXIS_NONE;
         return;
     }
 
-    // Both near center: stop both motors
-    if (abs_x < JOY_DEADBAND && abs_y < JOY_DEADBAND) {
+    // Release lock only when joystick is near center
+    if (abs_x < JOY_RELEASE_BAND && abs_y < JOY_RELEASE_BAND) {
+        locked_axis = JOY_AXIS_NONE;
         StopAllMotion();
         return;
     }
 
-    // X is dominant: control only motor 3
-    if ((abs_x >= JOY_DEADBAND) &&
-        (abs_x * DOMINANCE_DEN > abs_y * DOMINANCE_NUM)) {
+    // If no axis locked yet, choose the stronger one
+    if (locked_axis == JOY_AXIS_NONE) {
+        if (abs_x > abs_y && abs_x > JOY_DEADBAND) {
+            locked_axis = JOY_AXIS_X;
+        } else if (abs_y > abs_x && abs_y > JOY_DEADBAND) {
+            locked_axis = JOY_AXIS_Y;
+        } else {
+            StopAllMotion();
+            return;
+        }
+    }
 
+    if (locked_axis == JOY_AXIS_X) {
         Motor2_Stop();
 
-        if (x > 0) {
+        if (x > JOY_DEADBAND) {
             Motor3_RunPositive();
-        } else {
+        } else if (x < -JOY_DEADBAND) {
             Motor3_RunNegative();
+        } else {
+            Motor3_Stop();
         }
-        return;
     }
-
-    // Y is dominant: control only motor 2
-    if ((abs_y >= JOY_DEADBAND) &&
-        (abs_y * DOMINANCE_DEN > abs_x * DOMINANCE_NUM)) {
-
+    else if (locked_axis == JOY_AXIS_Y) {
         Motor3_Stop();
 
-        if (y > 0) {
+        if (y > JOY_DEADBAND) {
             Motor2_RunPositive();
-        } else {
+        } else if (y < -JOY_DEADBAND) {
             Motor2_RunNegative();
+        } else {
+            Motor2_Stop();
         }
-        return;
     }
-
-    // If neither axis is clearly dominant, ignore both
-    StopAllMotion();
 }

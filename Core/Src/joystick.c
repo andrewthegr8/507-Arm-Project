@@ -3,35 +3,20 @@
 #include "motion.h"
 #include <stdlib.h>
 
-#define JOY_CENTER_X   2048
-#define JOY_CENTER_Y   2048
-#define JOY_DEADBAND   150
-#define JOY_MAX_CMD    1000
+#define JOY_CENTER_X        2048
+#define JOY_CENTER_Y        2048
+#define JOY_DEADBAND        300
+#define JOY_RELEASE_BAND    200
 
 extern ADC_HandleTypeDef hadc1;
 extern uint16_t adc_buffer[2];
 
-static int16_t ApplyDeadband(int16_t value)
-{
-    if (abs(value) < JOY_DEADBAND) {
-        return 0;
-    }
-    return value;
-}
-
-static int16_t ScaleValue(int16_t value)
-{
-    int32_t scaled = ((int32_t)value * JOY_MAX_CMD) / 2048;
-
-    if (scaled > JOY_MAX_CMD) scaled = JOY_MAX_CMD;
-    if (scaled < -JOY_MAX_CMD) scaled = -JOY_MAX_CMD;
-
-    return (int16_t)scaled;
-}
+static JoystickAxis locked_axis = JOY_AXIS_NONE;
 
 void Joystick_Init(void)
 {
     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
+    locked_axis = JOY_AXIS_NONE;
 }
 
 uint16_t Joystick_ReadXRaw(void)
@@ -44,16 +29,14 @@ uint16_t Joystick_ReadYRaw(void)
     return adc_buffer[1];
 }
 
-int16_t Joystick_GetX(void)
+int16_t Joystick_GetXCentered(void)
 {
-    int16_t v = (int16_t)Joystick_ReadXRaw() - JOY_CENTER_X;
-    return ScaleValue(ApplyDeadband(v));
+    return (int16_t)Joystick_ReadXRaw() - JOY_CENTER_X;
 }
 
-int16_t Joystick_GetY(void)
+int16_t Joystick_GetYCentered(void)
 {
-    int16_t v = (int16_t)Joystick_ReadYRaw() - JOY_CENTER_Y;
-    return ScaleValue(ApplyDeadband(v));
+    return (int16_t)Joystick_ReadYRaw() - JOY_CENTER_Y;
 }
 
 uint8_t Joystick_ButtonPressed(void)
@@ -61,20 +44,59 @@ uint8_t Joystick_ButtonPressed(void)
     return (HAL_GPIO_ReadPin(JOYSW_GPIO_Port, JOYSW_Pin) == GPIO_PIN_RESET);
 }
 
-uint8_t Joystick_IsMoved(void)
+void Joystick_UpdateManualControl(void)
 {
-    return (Joystick_GetX() != 0 || Joystick_GetY() != 0);
-}
+    int16_t x = Joystick_GetXCentered();
+    int16_t y = Joystick_GetYCentered();
 
-void ManualControl_UpdateFromJoystick(void)
-{
-    int16_t x_cmd = Joystick_GetX();
-    int16_t y_cmd = Joystick_GetY();
+    int16_t abs_x = abs(x);
+    int16_t abs_y = abs(y);
 
-    Motion_SetManualVelocity(x_cmd, y_cmd, 0, 0);
-}
+    if (Joystick_ButtonPressed()) {
+        StopAllMotion();
+        locked_axis = JOY_AXIS_NONE;
+        return;
+    }
 
-uint8_t ManualLimitReached(void)
-{
-    return 0;
+    // Release lock only when joystick is near center
+    if (abs_x < JOY_RELEASE_BAND && abs_y < JOY_RELEASE_BAND) {
+        locked_axis = JOY_AXIS_NONE;
+        StopAllMotion();
+        return;
+    }
+
+    // If no axis locked yet, choose the stronger one
+    if (locked_axis == JOY_AXIS_NONE) {
+        if (abs_x > abs_y && abs_x > JOY_DEADBAND) {
+            locked_axis = JOY_AXIS_X;
+        } else if (abs_y > abs_x && abs_y > JOY_DEADBAND) {
+            locked_axis = JOY_AXIS_Y;
+        } else {
+            StopAllMotion();
+            return;
+        }
+    }
+
+    if (locked_axis == JOY_AXIS_X) {
+        Motor2_Stop();
+
+        if (x > JOY_DEADBAND) {
+            Motor3_RunPositive();
+        } else if (x < -JOY_DEADBAND) {
+            Motor3_RunNegative();
+        } else {
+            Motor3_Stop();
+        }
+    }
+    else if (locked_axis == JOY_AXIS_Y) {
+        Motor3_Stop();
+
+        if (y > JOY_DEADBAND) {
+            Motor2_RunPositive();
+        } else if (y < -JOY_DEADBAND) {
+            Motor2_RunNegative();
+        } else {
+            Motor2_Stop();
+        }
+    }
 }

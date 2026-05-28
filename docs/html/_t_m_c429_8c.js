@@ -1,0 +1,27 @@
+var _t_m_c429_8c =
+[
+    [ "FALSE", "_t_m_c429_8c.html#aa93f0eb578d23995850d61f7d61c55c1", null ],
+    [ "TRUE", "_t_m_c429_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d", null ],
+    [ "HardStop", "_t_m_c429_8c.html#a6fd7bc68c872350f73b806e4e3a61aa7", null ],
+    [ "Init429", "_t_m_c429_8c.html#a8301ac7f272d51ac0c84d7be55a9f410", null ],
+    [ "Read429Bytes", "_t_m_c429_8c.html#ae8e6872ca48b587e491d49c1d99a6163", null ],
+    [ "Read429Int12", "_t_m_c429_8c.html#a5955b8d23669f32088fa62aef008414f", null ],
+    [ "Read429Int24", "_t_m_c429_8c.html#a44a3d7a64b6bd4271b1a5da18cc6e07c", null ],
+    [ "Read429SingleByte", "_t_m_c429_8c.html#a645026166ccd6ba4df58f730c656c3c8", null ],
+    [ "Read429Status", "_t_m_c429_8c.html#ae6276c868acfddd6d0eb2b0b37309d28", null ],
+    [ "ReadWrite429", "_t_m_c429_8c.html#a8c3da7c2fab63dfd98da7db40e886be1", null ],
+    [ "ReadWriteSPI", "_t_m_c429_8c.html#a41ad442f5b8bd6cbc9f85525097a4554", null ],
+    [ "SelectMotionIC", "_t_m_c429_8c.html#a6e5f4e4ed907df97a096276d33b05660", null ],
+    [ "Set429RampMode", "_t_m_c429_8c.html#a8257811715ce1abc318682c4e2f987a9", null ],
+    [ "Set429SwitchMode", "_t_m_c429_8c.html#a307f653e02dc97c36a14d2b686ff1612", null ],
+    [ "SetAMax", "_t_m_c429_8c.html#ae4e37f2fadff616e4ca1e29160410433", null ],
+    [ "TMC429_SetMotionICs", "_t_m_c429_8c.html#a32608f8b10d545ccddba4339a9318999", null ],
+    [ "Write429Bytes", "_t_m_c429_8c.html#a86865d616854acebb75f7e9dfe4a1ec6", null ],
+    [ "Write429Datagram", "_t_m_c429_8c.html#a8991639672e224d03f640022e658affc", null ],
+    [ "Write429Int", "_t_m_c429_8c.html#a7863536af17af2507bba7d34a6a000e7", null ],
+    [ "Write429Short", "_t_m_c429_8c.html#ad48045a5146646256c15e493bf67f8d2", null ],
+    [ "Write429Zero", "_t_m_c429_8c.html#a0da9a8c5a240e18e77fa36c74de33167", null ],
+    [ "activeMotionIC", "_t_m_c429_8c.html#afcf4e05124907d896903050ef88bc7a2", null ],
+    [ "hspi1", "_t_m_c429_8c.html#a9c6222bae4d0328dd843ae099623b40b", null ],
+    [ "motionICs", "_t_m_c429_8c.html#ad34ee36d2f840d11762a99cdf2ce6dd8", null ]
+];

@@ -54,6 +54,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     #Core/Src/joystick.c
     #Core/Src/servo.c
     Core/Src/stepper_driver.c
+    Core/Src/motion.c
 )
 
 # Add include paths

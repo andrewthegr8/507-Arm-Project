@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "TMC429.h"
 #include "stepper_driver.h"
+#include "motion.h"
 
 /* USER CODE END Includes */
 
@@ -40,6 +41,7 @@ testtype testvar;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
+#define MICROSTEPS 1 //number of microsteps per step. this is set by jumpers on the board.
 
 /* USER CODE END PD */
 
@@ -88,6 +90,16 @@ static StepperDriverConfig_t stepperConfig =
         { Motor_4_Reset_GPIO_Port, Motor_4_Reset_Pin }
     }
 };
+
+//Set-up configuration for each motor. This is used by the motion library to know which TMC429 chip and which axis of that chip each motor is connected to, as well as the conversion factor for that motor which is used to convert between radians and steps.
+motor_config_t motorConfigs[4] =
+{
+    { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 0 },
+    { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 1 },
+    { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 2 },
+    { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -104,7 +116,6 @@ static void MX_TIM3_Init(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
 
 /* USER CODE END 0 */
 
@@ -163,6 +174,13 @@ int main(void)
 
   StepperDriver_Wake();
   StepperDriver_Enable();
+
+  /* Compute motor conversion parameters based on microstepping, gearbox ratio and steps per revolution */
+  //store in motor configuration struct so we can use it later for motion planning
+  motorConfigs[0].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
+  motorConfigs[1].conversion_factor = compute_motor_params(MICROSTEPS, 10, 200);
+  motorConfigs[2].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
+  motorConfigs[3].conversion_factor = compute_motor_params(MICROSTEPS, 1, 200);
 
   /* USER CODE END 2 */
 

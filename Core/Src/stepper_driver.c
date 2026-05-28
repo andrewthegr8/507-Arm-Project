@@ -58,6 +58,7 @@ void StepperDriver_Sleep(void)
 }
 
 void StepperDriver_Reset(StepperID_t motor)
+//Warning: Contains a 1 ms delay
 {
     HAL_GPIO_WritePin(
         stepperConfig->drivers[motor].resetPort,
@@ -75,6 +76,7 @@ void StepperDriver_Reset(StepperID_t motor)
 }
 
 void StepperDriver_ResetAll(void)
+//Warning: Contains a 1 ms delay
 {
     for (uint8_t i = 0; i < 4; i++)
     {

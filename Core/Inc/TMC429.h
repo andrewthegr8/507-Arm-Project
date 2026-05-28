@@ -17,8 +17,28 @@
 
 	#include "../../tmc/helpers/API_Header.h"
 	#include "TMC429_Register.h"
+	#include "main.h"
+
+	#define SPI_DEV_TMC429 (&hspi1) //Both chips on the same SPI bus, so we can use the same handle for both
+
+	//We need to add functionality so that we can select which TMC chip we want to talk to
+	typedef enum
+	{
+		MOTION_IC_1 = 0,
+		MOTION_IC_2 = 1
+	} MotionIC_t;
+
+	typedef struct
+	{
+		SPI_HandleTypeDef *hspi;
+		GPIO_TypeDef *csPort;
+		uint16_t csPin;
+	} MotionIC_Config_t;
+
+
 
 	// user must provide this function
+	void SelectMotionIC(MotionIC_t ic);
 	uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data,bool endTransaction);
 
 	// TMC429 library functions

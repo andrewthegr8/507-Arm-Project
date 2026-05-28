@@ -22,8 +22,62 @@
 
 	The function shall return the byte that has been received via SPI.
 */
-
 #include "TMC429.h"
+#include "main.h"
+#include <stdbool.h>
+
+//stupid provided code used all caps for bools so had to fix that
+#define TRUE true
+#define FALSE false
+
+
+extern SPI_HandleTypeDef hspi1;
+
+//Setup SPI comm parameters for both chips
+static MotionIC_Config_t motionICs[2] =
+{
+    { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin }, // IC 1 CS pin
+	{ &hspi1, MP2_NSCS_GPIO_Port, MP2_NSCS_Pin }   // IC 2 CS pin
+
+};
+
+//Default to MP 1
+static MotionIC_t activeMotionIC = MOTION_IC_1;
+
+//Chip select function
+void SelectMotionIC(MotionIC_t ic)
+{
+	// Deassert both chip-selects first
+	HAL_GPIO_WritePin(motionICs[0].csPort, motionICs[0].csPin, GPIO_PIN_SET);
+	HAL_GPIO_WritePin(motionICs[1].csPort, motionICs[1].csPin, GPIO_PIN_SET);
+
+    activeMotionIC = ic;
+}
+
+
+
+//Function for SPI communication. sends/recieves one byte and handles the chip select line
+uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data, bool endTransaction)
+{
+    uint8_t rx = 0;
+
+    MotionIC_Config_t *dev = &motionICs[activeMotionIC]; //Get config for active motion IC
+
+    HAL_GPIO_WritePin(dev->csPort, dev->csPin, GPIO_PIN_RESET); //Set CS line low
+
+    if (HAL_SPI_TransmitReceive(dev->hspi, &data, &rx, 1, HAL_MAX_DELAY) != HAL_OK) //send/recieve data
+    {
+        rx = 0;
+    }
+
+    if (endTransaction)
+    {
+        HAL_GPIO_WritePin(dev->csPort, dev->csPin, GPIO_PIN_SET);
+    }
+
+    return rx;
+}
+
 
 /***************************************************************//**
 	 \fn ReadWrite429(uint8_t *Read, uint8_t *Write)
@@ -35,6 +89,8 @@
 	 the TMC429. It sends a 32 bit SPI telegramme to the TMC429 and
 	 receives the 32 bit answer telegramme from the TMC429.
 ********************************************************************/
+
+
 void ReadWrite429(uint8_t *Read, uint8_t *Write)
 {
 	Read[0] = ReadWriteSPI(SPI_DEV_TMC429, Write[0], FALSE);

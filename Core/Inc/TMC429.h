@@ -39,6 +39,8 @@
 
 	// user must provide this function
 	void SelectMotionIC(MotionIC_t ic);
+	void TMC429_SetMotionICs(MotionIC_Config_t *configs);
+
 	uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data,bool endTransaction);
 
 	// TMC429 library functions

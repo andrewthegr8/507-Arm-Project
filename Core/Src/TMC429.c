@@ -34,15 +34,13 @@
 extern SPI_HandleTypeDef hspi1;
 
 //Setup SPI comm parameters for both chips
-static MotionIC_Config_t motionICs[2] =
-{
-    { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin }, // IC 1 CS pin
-	{ &hspi1, MP2_NSCS_GPIO_Port, MP2_NSCS_Pin }   // IC 2 CS pin
+static MotionIC_Config_t *motionICs; //Pointer to where the motion IC configs are stored. This is set by the user in main.c
+static MotionIC_t activeMotionIC = MOTION_IC_1; //Default to motion IC 1
 
-};
-
-//Default to MP 1
-static MotionIC_t activeMotionIC = MOTION_IC_1;
+void TMC429_SetMotionICs(MotionIC_Config_t *configs) {
+//Function to setup the motion IC configs.
+    motionICs = configs;
+}
 
 //Chip select function
 void SelectMotionIC(MotionIC_t ic)

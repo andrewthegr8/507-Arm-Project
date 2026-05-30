@@ -11,6 +11,8 @@ typedef struct {
 } motor_config_t;
 
 double compute_motor_params(int microstep, int gearboxRatio, int stepsPerRev);
+double get_current_pos(motor_config_t *motor);
+void move_to_pos(motor_config_t *motor, double target_pos_rad);
 
 
 

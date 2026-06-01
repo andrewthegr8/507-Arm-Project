@@ -194,41 +194,45 @@ int main(void)
   //Start timer 15 for test led
   HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1);
   
-  char sendbuff[50]; //Init uart tx buff
-  int char_count = 0; //length of rx buffer
-  double pos = 0.0; //Variable to store current position of motor for printing over uart
-  memset(&sendbuff,0, sizeof(sendbuff));
-  char_count = sprintf(sendbuff, "Hello world!\r\n"); //Send a test message over uart to show we're alive
-  HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-
+  char rx[5]; //Init spi rx buff
+  int char_count; //Variable to store number of characters in uart send buff
+  double pos; //Variable to store current position of motor for printing over uart
+  char sendbuff[100]; //Init uart send buff
+  memset(sendbuff, 0, sizeof(sendbuff)); //Clear uart send buff
+  uint8_t readReg[4] = {
+        0x1B,
+        0x00,
+        0x00,
+        0x00
+    };
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    //HAL_GPIO_TogglePin(test_led_GPIO_Port, test_led_Pin); //Toggle test LED to show we're alive
-    //__HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, 1600); 
-    //HAL_Delay(1000); 
-    //__HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, 3200); 
-    //HAL_Delay(1000); 
-    //__HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, 4800); 
-    //HAL_Delay(1000); 
-    //__HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, 6400); 
-    //HAL_Delay(1000);
+    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
+    HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
+    //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, strlen(sendbuff), HAL_MAX_DELAY);
+    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET); //Set CS line high to deselect chip
+
     //Move Motor 1 90 degrees as a test
-    move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
+    //SelectMotionIC(motorConfigs[0].motionIC); //Select the correct TMC429 chip
+    //uint32_t steps = 10000;
+    //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
+    move_to_pos(&motorConfigs[3], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
     char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[0]);
+    pos = get_current_pos(&motorConfigs[3]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);
-    move_to_pos(&motorConfigs[0], 0.0);
+    move_to_pos(&motorConfigs[3], 0.0);
     char_count = sprintf(sendbuff, "Sent motor 1 command - 0 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[0]);
+    pos = get_current_pos(&motorConfigs[3]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);
@@ -265,8 +269,10 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_HSE;
   RCC_OscInitStruct.HSEState = RCC_HSE_ON;
+  RCC_OscInitStruct.HSIState = RCC_HSI_DIV1;
+  RCC_OscInitStruct.HSICalibrationValue = 64;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSE;
   RCC_OscInitStruct.PLL.PLLM = 2;
@@ -299,7 +305,7 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
-  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_1);
+  HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSI, RCC_MCODIV_1);
 }
 
 /**
@@ -620,18 +626,18 @@ static void MX_GPIO_Init(void)
                           |Motor_1_Reset_Pin|Motor_3_Reset_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(MP2_NSCS_GPIO_Port, MP2_NSCS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
-  HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET);
+  HAL_GPIO_WritePin(MP2_NSCS_GPIO_Port, MP2_NSCS_Pin, GPIO_PIN_SET);
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOB, Motor_Decay1_Pin|Motor_Decay_2_Pin, GPIO_PIN_RESET);
 
   /*Configure GPIO pins : Motor_Enable_Pin Motor_Sleep_Pin Motor_6_Reset_Pin Motor_5_Reset_Pin
-                           MP2_NSCS_Pin Motor_1_Reset_Pin Motor_3_Reset_Pin */
+                           MP1_NSCS_Pin Motor_1_Reset_Pin Motor_3_Reset_Pin */
   GPIO_InitStruct.Pin = Motor_Enable_Pin|Motor_Sleep_Pin|Motor_6_Reset_Pin|Motor_5_Reset_Pin
-                          |MP2_NSCS_Pin|Motor_1_Reset_Pin|Motor_3_Reset_Pin;
+                          |MP1_NSCS_Pin|Motor_1_Reset_Pin|Motor_3_Reset_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
@@ -649,8 +655,8 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : MP1_NSCS_Pin Motor_Decay1_Pin Motor_Decay_2_Pin */
-  GPIO_InitStruct.Pin = MP1_NSCS_Pin|Motor_Decay1_Pin|Motor_Decay_2_Pin;
+  /*Configure GPIO pins : MP2_NSCS_Pin Motor_Decay1_Pin Motor_Decay_2_Pin */
+  GPIO_InitStruct.Pin = MP2_NSCS_Pin|Motor_Decay1_Pin|Motor_Decay_2_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;

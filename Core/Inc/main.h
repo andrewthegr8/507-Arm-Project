@@ -75,13 +75,13 @@ void Error_Handler(void);
 #define HORIX_GPIO_Port GPIOA
 #define SEL_Pin GPIO_PIN_2
 #define SEL_GPIO_Port GPIOA
-#define MP2_NSCS_Pin GPIO_PIN_4
-#define MP2_NSCS_GPIO_Port GPIOC
+#define MP1_NSCS_Pin GPIO_PIN_4
+#define MP1_NSCS_GPIO_Port GPIOC
 #define MP1_NINT_Pin GPIO_PIN_5
 #define MP1_NINT_GPIO_Port GPIOC
 #define MP1_NINT_EXTI_IRQn EXTI9_5_IRQn
-#define MP1_NSCS_Pin GPIO_PIN_0
-#define MP1_NSCS_GPIO_Port GPIOB
+#define MP2_NSCS_Pin GPIO_PIN_0
+#define MP2_NSCS_GPIO_Port GPIOB
 #define MP2_NINT_Pin GPIO_PIN_1
 #define MP2_NINT_GPIO_Port GPIOB
 #define Motor_Decay1_Pin GPIO_PIN_12

@@ -55,25 +55,17 @@ void SelectMotionIC(MotionIC_t ic)
 
 
 //Function for SPI communication. sends/recieves one byte and handles the chip select line
-uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data, bool endTransaction)
+void ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t * rx, uint8_t * tx)
 {
-    uint8_t rx = 0;
 
-    MotionIC_Config_t *dev = &motionICs[activeMotionIC]; //Get config for active motion IC
+    MotionIC_Config_t * ICconfig = &motionICs[activeMotionIC]; //Get config for active motion IC
 
-    HAL_GPIO_WritePin(dev->csPort, dev->csPin, GPIO_PIN_RESET); //Set CS line low
+    HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_RESET); //Set CS line low
 
-    if (HAL_SPI_TransmitReceive(dev->hspi, &data, &rx, 1, HAL_MAX_DELAY) != HAL_OK) //send/recieve data
-    {
-        rx = 0;
-    }
+    HAL_SPI_TransmitReceive(ICconfig->hspi, tx, rx, 4, HAL_MAX_DELAY);
+    
+    HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_SET); //Set the CS line high
 
-    if (endTransaction)
-    {
-        HAL_GPIO_WritePin(dev->csPort, dev->csPin, GPIO_PIN_SET);
-    }
-
-    return rx;
 }
 
 
@@ -91,10 +83,11 @@ uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data, bool endTransaction
 
 void ReadWrite429(uint8_t *Read, uint8_t *Write)
 {
-	Read[0] = ReadWriteSPI(SPI_DEV_TMC429, Write[0], FALSE);
-	Read[1] = ReadWriteSPI(SPI_DEV_TMC429, Write[1], FALSE);
-	Read[2] = ReadWriteSPI(SPI_DEV_TMC429, Write[2], FALSE);
-	Read[3] = ReadWriteSPI(SPI_DEV_TMC429, Write[3], TRUE);
+	ReadWriteSPI(SPI_DEV_TMC429, Read, Write);
+	//Read[0] = ReadWriteSPI(SPI_DEV_TMC429, Write[0], FALSE);
+	//Read[1] = ReadWriteSPI(SPI_DEV_TMC429, Write[1], FALSE);
+	//Read[2] = ReadWriteSPI(SPI_DEV_TMC429, Write[2], FALSE);
+	//Read[3] = ReadWriteSPI(SPI_DEV_TMC429, Write[3], TRUE);
 }
 
 /***************************************************************//**
@@ -204,10 +197,10 @@ void Write429Int(uint8_t Address, int32_t Value)
 	 This functions reads just the status byte of the TMC429 using
 	 a single byte SPI access which makes this a little bit faster.
 ********************************************************************/
-uint8_t Read429Status(void)
-{
-	return ReadWriteSPI(SPI_DEV_TMC429, 0x01, TRUE);
-}
+//uint8_t Read429Status(void)
+//{
+//	return ReadWriteSPI(SPI_DEV_TMC429, 0x01, TRUE);
+//}
 
 /***************************************************************//**
 	 \fn Read429Bytes(uint8_t Address, uint8_t *Bytes)

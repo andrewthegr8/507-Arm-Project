@@ -45,7 +45,7 @@
 	void SelectMotionIC(MotionIC_t ic);
 	void TMC429_SetMotionICs(MotionIC_Config_t *configs);
 
-	uint8_t ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t data,bool endTransaction);
+	void ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t * rx, uint8_t * tx);
 
 	// TMC429 library functions
 	void Init429(void);
@@ -60,7 +60,7 @@
 	void Write429Short(uint8_t Address, int32_t Value);
 	void Write429Int(uint8_t Address, int32_t Value);
 	
-	uint8_t Read429Status(void);
+	//uint8_t Read429Status(void);
 	uint8_t Read429Bytes(uint8_t Address, uint8_t *Bytes);
 	uint8_t Read429SingleByte(uint8_t Address, uint8_t Index);
 	int32_t Read429Int12(uint8_t Address);

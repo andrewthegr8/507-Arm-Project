@@ -211,11 +211,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
-    //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
+    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
+    HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, strlen(sendbuff), HAL_MAX_DELAY);
-    //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET); //Set CS line high to deselect chip
+    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET); //Set CS line high to deselect chip
 
     //Move Motor 1 90 degrees as a test
     //SelectMotionIC(motorConfigs[0].motionIC); //Select the correct TMC429 chip

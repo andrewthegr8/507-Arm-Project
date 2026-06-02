@@ -95,7 +95,7 @@ void FSM_Update(void)
         }
         break;
 
-    case S4_PLAN_MOVE:
+    case S4_PLOT_MOVE:
         if (robot.state_entry) {
             robot.state_entry = 0;
             robot.move_plan_ready = PlanMoveFromColor(robot.color_id, &robot.target_bin);

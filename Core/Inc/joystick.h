@@ -12,8 +12,8 @@ typedef enum {
 void Joystick_Init(void);
 uint16_t Joystick_ReadXRaw(void);
 uint16_t Joystick_ReadYRaw(void);
-int16_t Joystick_GetXCentered(void);
-int16_t Joystick_GetYCentered(void);
+int16_t Joystick_Get_XCentered(void);
+int16_t Joystick_Get_YCentered(void);
 uint8_t Joystick_ButtonPressed(void);
 void Joystick_UpdateManualControl(void);
 

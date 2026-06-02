@@ -5,8 +5,8 @@
 
 #define JOY_CENTER_X        2048
 #define JOY_CENTER_Y        2048
-#define JOY_DEADBAND        300
-#define JOY_RELEASE_BAND    200
+#define JOY_DEADBAND        250
+#define JOY_RELEASE_BAND    250
 
 extern ADC_HandleTypeDef hadc1;
 extern uint16_t adc_buffer[2];
@@ -29,12 +29,12 @@ uint16_t Joystick_ReadYRaw(void)
     return adc_buffer[1];
 }
 
-int16_t Joystick_GetXCentered(void)
+int16_t Joystick_Get_XCentered(void)
 {
     return (int16_t)Joystick_ReadXRaw() - JOY_CENTER_X;
 }
 
-int16_t Joystick_GetYCentered(void)
+int16_t Joystick_Get_YCentered(void)
 {
     return (int16_t)Joystick_ReadYRaw() - JOY_CENTER_Y;
 }
@@ -46,8 +46,8 @@ uint8_t Joystick_ButtonPressed(void)
 
 void Joystick_UpdateManualControl(void)
 {
-    int16_t x = Joystick_GetXCentered();
-    int16_t y = Joystick_GetYCentered();
+    int16_t x = Joystick_Get_XCentered();
+    int16_t y = Joystick_Get_YCentered();
 
     int16_t abs_x = abs(x);
     int16_t abs_y = abs(y);

@@ -41,7 +41,7 @@ int16_t Joystick_Get_YCentered(void)
 
 uint8_t Joystick_ButtonPressed(void)
 {
-    return (HAL_GPIO_ReadPin(JOYSW_GPIO_Port, JOYSW_Pin) == GPIO_PIN_RESET);
+    return (HAL_GPIO_ReadPin(JOYSW_GPIO_Port, SEL_Pin) == GPIO_PIN_RESET);
 }
 
 void Joystick_UpdateManualControl(void)

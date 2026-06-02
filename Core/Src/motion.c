@@ -4,6 +4,8 @@
 #include "TMC429.h"
 #include <stdint.h>
 
+extern motor_config_t motorConfigs[4];
+
 int microstepStep; //Micro step configuration for all motors
 
 
@@ -40,3 +42,38 @@ double get_current_pos(motor_config_t *motor) {
     return pos_rad;
 }
 
+void StopAllMotion(void)
+{
+    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]));
+    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]));
+}
+
+void Motor2_RunPositive(void)
+{
+    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]) + 0.1);
+}
+
+void Motor2_RunNegative(void)
+{
+    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]) - 0.1);
+}
+
+void Motor2_Stop(void)
+{
+    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]));
+}
+
+void Motor3_RunPositive(void)
+{
+    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]) + 0.1);
+}
+
+void Motor3_RunNegative(void)
+{
+    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]) - 0.1);
+}
+
+void Motor3_Stop(void)
+{
+    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]));
+}

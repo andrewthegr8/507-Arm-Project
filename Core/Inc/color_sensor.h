@@ -23,6 +23,7 @@ uint8_t my_i2c_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);
 uint8_t my_i2c_init(void);
 uint8_t my_i2c_deinit(void);
 void my_delay_ms(uint32_t ms);
+void my_debug_print(const char *fmt, ...);
 
 
 #endif

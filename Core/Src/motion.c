@@ -14,7 +14,7 @@ void compute_motor_params(motor_config_t * motor, int microstep, int gearboxRati
    motor->rad_to_steps = (double)gearboxRatio * (double)stepsPerRev * (double)microstep / (2 * M_PI);
    // = Steps/s * 2^Pulse_div * 2048 * 32 / f_clk
    motor->steps_sec_to_IC_units = (1UL << PULSE_DIV) * 2048.0 * 32.0 / (double)F_CLK;
-   motor->accel_to_IC_units = ldexp(steps_per_s2, PULSE_DIV + RAMP_DIV + 29) / ((double)F_CLK * F_CLK);
+   motor->accel_to_IC_units = ldexp(2, PULSE_DIV + RAMP_DIV + 29) / ((double)F_CLK * F_CLK);
 }
 
 static int _rads_to_steps(double motor_conversion_factor, double rads) {

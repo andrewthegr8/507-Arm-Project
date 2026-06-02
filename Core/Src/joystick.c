@@ -2,7 +2,8 @@
 #include "main.h"
 #include "motion.h"
 #include <stdlib.h>
-
+#include <stdio.h>
+extern UART_HandleTypeDef huart3;
 #define JOY_CENTER_X        32768
 #define JOY_CENTER_Y        32768
 #define JOY_DEADBAND        4000
@@ -54,6 +55,12 @@ void Joystick_UpdateManualControl(void)
 {
     int16_t x = Joystick_Get_XCentered();
     int16_t y = Joystick_Get_YCentered();
+
+    //JOYSTICK TESTING 
+    char dbg[100];
+    int len = sprintf(dbg, "X: %d  Y: %d  BTN: %d\r\n", x, y, Joystick_ButtonPressed());
+    HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY);
+    //END JOYSTICK TESTING
 
     int16_t abs_x = abs(x);
     int16_t abs_y = abs(y);

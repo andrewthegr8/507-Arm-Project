@@ -3,30 +3,31 @@
 #include "motion.h"
 #include <stdlib.h>
 
-#define JOY_CENTER_X        2048
-#define JOY_CENTER_Y        2048
-#define JOY_DEADBAND        250
-#define JOY_RELEASE_BAND    250
+#define JOY_CENTER_X        32768
+#define JOY_CENTER_Y        32768
+#define JOY_DEADBAND        4000
+#define JOY_RELEASE_BAND    4000
 
 extern ADC_HandleTypeDef hadc1;
-extern uint16_t adc_buffer[2];
 
 static JoystickAxis locked_axis = JOY_AXIS_NONE;
 
 void Joystick_Init(void)
 {
-    HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
+    HAL_ADC_Start(&hadc1);
     locked_axis = JOY_AXIS_NONE;
 }
 
 uint16_t Joystick_ReadXRaw(void)
 {
-    return adc_buffer[0];
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    return HAL_ADC_GetValue(&hadc1);
 }
 
 uint16_t Joystick_ReadYRaw(void)
 {
-    return adc_buffer[1];
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    return HAL_ADC_GetValue(&hadc1);
 }
 
 int16_t Joystick_Get_XCentered(void)
@@ -43,7 +44,12 @@ uint8_t Joystick_ButtonPressed(void)
 {
     return (HAL_GPIO_ReadPin(JOYSW_GPIO_Port, SEL_Pin) == GPIO_PIN_RESET);
 }
-
+uint8_t Joystick_IsMoved(void)
+{
+    int16_t x = Joystick_Get_XCentered();
+    int16_t y = Joystick_Get_YCentered();
+    return (abs(x) > JOY_DEADBAND || abs(y) > JOY_DEADBAND);
+}
 void Joystick_UpdateManualControl(void)
 {
     int16_t x = Joystick_Get_XCentered();

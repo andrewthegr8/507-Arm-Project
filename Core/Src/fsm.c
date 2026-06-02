@@ -2,7 +2,7 @@
 #include "main.h"
 #include "joystick.h"
 #include "servo.h"
-#include "stepper.h"
+#include "stepper_driver.h"
 #include "color_sensor.h"
 #include "motion.h"
 
@@ -57,17 +57,13 @@ void FSM_Update(void)
             robot.state_entry = 0;
         }
 
-        ManualControl_UpdateFromJoystick();
+        Joystick_UpdateManualControl();
 
         if (Joystick_ButtonPressed()) {
             StopAllMotion();
             FSM_SetState(S2_CLOSE_GRIPPER);
         }
 
-        if (ManualLimitReached()) {
-            StopAllMotion();
-            FSM_SetState(S0_IDLE);
-        }
         break;
 
     case S2_CLOSE_GRIPPER:
@@ -88,7 +84,7 @@ void FSM_Update(void)
         }
 
         if (ColorSensor_Read(&robot.color_id)) {
-            FSM_SetState(S4_PLAN_MOVE);
+            FSM_SetState(S4_PLOT_MOVE);
         } else {
             Claw_Open();
             FSM_SetState(S7_RETURN_HOME);

@@ -8,8 +8,6 @@ extern motor_config_t motorConfigs[4];
 
 int microstepStep; //Micro step configuration for all motors
 
-
-
 double compute_motor_params(int microstep, int gearboxRatio, int stepsPerRev)
 //Call at ruuntime to compute the conversion factor for a motor once.
 {
@@ -76,4 +74,15 @@ void Motor3_RunNegative(void)
 void Motor3_Stop(void)
 {
     move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]));
+}
+
+uint8_t PlanMoveFromColor(uint8_t color_id, uint8_t *target_bin)
+{
+    switch (color_id) {
+        case 1: *target_bin = 1; return 1; // yellow
+        case 2: *target_bin = 2; return 1; // red
+        case 3: *target_bin = 3; return 1; // blue
+        case 4: *target_bin = 4; return 1; // orange
+        default: return 0; // unknown color
+    }
 }

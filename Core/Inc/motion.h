@@ -24,4 +24,11 @@ void Motion_StartMoveHome(void);
 uint8_t Motion_IsDone(void);
 void StopAllMotion(void);
 
+void Motor2_RunPositive(void);
+void Motor2_RunNegative(void);
+void Motor2_Stop(void);
+void Motor3_RunPositive(void);
+void Motor3_RunNegative(void);
+void Motor3_Stop(void);
+
 #endif

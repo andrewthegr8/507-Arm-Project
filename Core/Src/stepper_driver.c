@@ -63,7 +63,7 @@ void StepperDriver_Reset(StepperID_t motor)
     HAL_GPIO_WritePin(
         stepperConfig->drivers[motor].resetPort,
         stepperConfig->drivers[motor].resetPin,
-        GPIO_PIN_RESET
+        GPIO_PIN_SET
     );
 
     HAL_Delay(1);
@@ -71,7 +71,7 @@ void StepperDriver_Reset(StepperID_t motor)
     HAL_GPIO_WritePin(
         stepperConfig->drivers[motor].resetPort,
         stepperConfig->drivers[motor].resetPin,
-        GPIO_PIN_SET
+        GPIO_PIN_RESET
     );
 }
 

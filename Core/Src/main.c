@@ -211,28 +211,28 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
-    HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
+    //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
+    //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, strlen(sendbuff), HAL_MAX_DELAY);
-    HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET); //Set CS line high to deselect chip
+    //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_SET); //Set CS line high to deselect chip
 
     //Move Motor 1 90 degrees as a test
     //SelectMotionIC(motorConfigs[0].motionIC); //Select the correct TMC429 chip
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
-    move_to_pos(&motorConfigs[3], M_PI / 2); //Move to 90 degrees
+    move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
     char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[3]);
+    pos = get_current_pos(&motorConfigs[0]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);
-    move_to_pos(&motorConfigs[3], 0.0);
+    move_to_pos(&motorConfigs[0], 0.0);
     char_count = sprintf(sendbuff, "Sent motor 1 command - 0 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[3]);
+    pos = get_current_pos(&motorConfigs[0]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);

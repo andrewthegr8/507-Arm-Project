@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TMC429.h"
+#include "TMC429_Register.h"
 #include "stepper_driver.h"
 #include "motion.h"
 #include <string.h>
@@ -43,7 +44,7 @@ testtype testvar;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MICROSTEPS 1 //number of microsteps per step. this is set by jumpers on the board.
+#define MICROSTEPS 32 //number of microsteps per step. this is set by jumpers on the board.
 
 /* USER CODE END PD */
 
@@ -175,6 +176,14 @@ int main(void)
   SelectMotionIC(MOTION_IC_2);
   Init429();
 
+
+  //Limit max acceleration on motor 1
+  SelectMotionIC(motorConfigs[0].motionIC);
+  SetAMax(motorConfigs[0].MotionIC_motorNum, 50);
+
+
+
+
   //Init stepper drivers. Sets sleep and enable pins to the proper levels and resets all drivers.
   StepperDriver_Init(&stepperConfig);
 
@@ -186,13 +195,11 @@ int main(void)
 
   /* Compute motor conversion parameters based on microstepping, gearbox ratio and steps per revolution */
   //store in motor configuration struct so we can use it later for motion planning
-  motorConfigs[0].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
-  motorConfigs[1].conversion_factor = compute_motor_params(MICROSTEPS, 10, 200);
-  motorConfigs[2].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
-  motorConfigs[3].conversion_factor = compute_motor_params(MICROSTEPS, 1, 200);
+  compute_motor_params(&motorConfigs[0], MICROSTEPS, 5, 200);
+  compute_motor_params(&motorConfigs[1], MICROSTEPS, 10, 200);
+  compute_motor_params(&motorConfigs[2], MICROSTEPS, 5, 200);
+  compute_motor_params(&motorConfigs[3], MICROSTEPS, 1, 200);
 
-  //Start timer 15 for test led
-  HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1);
   
   char rx[5]; //Init spi rx buff
   int char_count; //Variable to store number of characters in uart send buff
@@ -200,7 +207,7 @@ int main(void)
   char sendbuff[100]; //Init uart send buff
   memset(sendbuff, 0, sizeof(sendbuff)); //Clear uart send buff
   uint8_t readReg[4] = {
-        0x1B,
+        0x00,
         0x00,
         0x00,
         0x00
@@ -221,21 +228,32 @@ int main(void)
     //SelectMotionIC(motorConfigs[0].motionIC); //Select the correct TMC429 chip
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
+    //SelectMotionIC(MOTION_IC_1);
+
+    //Try run the motor at a constant velocity
+    SelectMotionIC(MOTION_IC_1);
+    SetAMax(motorConfigs[0].MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
+    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_VELOCITY);
+    move_at_velocity(&motorConfigs[0], 5); //Move at 5 rad/s
+    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_RAMP);
     move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
+    HAL_Delay(2000);
+
+    //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
-    char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
-    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[0]);
-    char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
-    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    HAL_Delay(2000);
-    move_to_pos(&motorConfigs[0], 0.0);
-    char_count = sprintf(sendbuff, "Sent motor 1 command - 0 degrees\r\n"); 
-    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[0]);
-    char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
-    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    HAL_Delay(2000);
+    //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //pos = get_current_pos(&motorConfigs[0]);
+    //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //HAL_Delay(2000);
+    //move_to_pos(&motorConfigs[0], 0.0);
+    //char_count = sprintf(sendbuff, "Sent motor 1 command - 0 degrees\r\n"); 
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //pos = get_current_pos(&motorConfigs[0]);
+    //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //HAL_Delay(2000);
         
     /* USER CODE END WHILE */
 

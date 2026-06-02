@@ -28,6 +28,7 @@
 #include "motion.h"
 #include <string.h>
 #include <stdio.h>
+#include "fsm.h"
 
 /* USER CODE END Includes */
 
@@ -56,7 +57,6 @@ testtype testvar;
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -70,7 +70,6 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
-uint16_t adc_buffer[2];
 static MotionIC_Config_t motionICs[2] =
 {
     { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin },
@@ -190,6 +189,7 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   Joystick_Init();
+  FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
 
@@ -245,7 +245,6 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    Joystick_UpdateManualControl();
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
@@ -303,7 +302,8 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  }
+  FSM_Update();
+  }  
   /* USER CODE END 3 */
 }
 

@@ -32,5 +32,5 @@ void Motor2_Stop(void);
 void Motor3_RunPositive(void);
 void Motor3_RunNegative(void);
 void Motor3_Stop(void);
-
+uint8_t PlanMoveFromColor(uint8_t color_id, uint8_t *target_bin);
 #endif

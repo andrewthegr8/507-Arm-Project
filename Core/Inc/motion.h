@@ -5,14 +5,16 @@
 #include "TMC429.h"
 
 typedef struct {
-    double conversion_factor; //Steps (or microsteps) per radian
+    double rad_to_steps; //Steps (or microsteps) per radian
+    double steps_sec_to_IC_units; //Steps (or microsteps) per second per rad/s
     MotionIC_t motionIC; //Which TMC429 chip the motor is connected to
     uint8_t MotionIC_motorNum; //Which axis of the TMC429 the motor is connected to (0, 1 or 2)
 } motor_config_t;
 
-double compute_motor_params(int microstep, int gearboxRatio, int stepsPerRev);
+void compute_motor_params(motor_config_t * motor, int microstep, int gearboxRatio, int stepsPerRev);
 double get_current_pos(motor_config_t *motor);
 void move_to_pos(motor_config_t *motor, double target_pos_rad);
+void move_at_velocity(motor_config_t *motor, double target_vel_rad_per_sec);
 
 
 
@@ -21,5 +23,12 @@ void Motion_StartMoveToBin(uint8_t bin);
 void Motion_StartMoveHome(void);
 uint8_t Motion_IsDone(void);
 void StopAllMotion(void);
+
+void Motor2_RunPositive(void);
+void Motor2_RunNegative(void);
+void Motor2_Stop(void);
+void Motor3_RunPositive(void);
+void Motor3_RunNegative(void);
+void Motor3_Stop(void);
 
 #endif

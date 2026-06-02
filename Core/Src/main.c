@@ -105,6 +105,15 @@ motor_config_t motorConfigs[4] =
     { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
 };
 
+tcs34725_handle_t sensor_handle = {
+    .iic_init    = my_i2c_init,
+    .iic_deinit  = my_i2c_deinit,
+    .iic_read    = my_i2c_read,
+    .iic_write   = my_i2c_write,
+    .delay_ms    = my_delay_ms,
+    .debug_print = my_debug_print,
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -205,6 +214,10 @@ int main(void)
         0x00,
         0x00
     };
+
+  tcs34725_init(&sensor_handle);
+  COLOR_SENSOR_Init(&sensor_handle);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -236,7 +249,10 @@ int main(void)
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);
-        
+      
+    COLOR_SENSOR_Read(&sensor_handle);
+    HAL_Delay(500); 
+
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

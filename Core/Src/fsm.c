@@ -7,6 +7,7 @@
 #include "motion.h"
 
 static RobotContext robot;
+static tcs34725_handle_t sensor_handle;
 
 void FSM_SetState(RobotState new_state)
 {
@@ -32,6 +33,16 @@ void FSM_Init(void)
     robot.target_bin = 0;
     robot.grip_ok = 0;
     robot.move_plan_ready = 0;
+
+    memset(&sensor_handle, 0, sizeof(tcs34725_handle_t));
+    sensor_handle.iic_init    = my_i2c_init;
+    sensor_handle.iic_deinit  = my_i2c_deinit;
+    sensor_handle.iic_read    = my_i2c_read;
+    sensor_handle.iic_write   = my_i2c_write;
+    sensor_handle.delay_ms    = my_delay_ms;
+    sensor_handle.debug_print = my_debug_print;
+    tcs34725_init(&sensor_handle);
+    COLOR_SENSOR_Init(&sensor_handle);
 }
 
 void FSM_Update(void)
@@ -83,7 +94,8 @@ void FSM_Update(void)
             robot.state_entry = 0;
         }
 
-        if (ColorSensor_Read(&robot.color_id)) {
+        robot.color_id = (uint8_t)COLOR_SENSOR_Read(&sensor_handle);
+        if (robot.color_id != COLOR_UNKNOWN) {
             FSM_SetState(S4_PLOT_MOVE);
         } else {
             Claw_Open();

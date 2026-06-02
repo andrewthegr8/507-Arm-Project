@@ -22,6 +22,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "TMC429.h"
+#include "TMC429_Register.h"
 #include "stepper_driver.h"
 #include "joystick.h"
 #include "motion.h"
@@ -45,7 +46,7 @@ testtype testvar;
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define MICROSTEPS 1 //number of microsteps per step. this is set by jumpers on the board.
+#define MICROSTEPS 32 //number of microsteps per step. this is set by jumpers on the board.
 
 /* USER CODE END PD */
 
@@ -55,6 +56,8 @@ testtype testvar;
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -108,18 +111,29 @@ motor_config_t motorConfigs[4] =
     { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
 };
 
+tcs34725_handle_t sensor_handle = {
+    .iic_init    = my_i2c_init,
+    .iic_deinit  = my_i2c_deinit,
+    .iic_read    = my_i2c_read,
+    .iic_write   = my_i2c_write,
+    .delay_ms    = my_delay_ms,
+    .debug_print = my_debug_print,
+};
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_TIM3_Init(void);
 static void MX_TIM15_Init(void);
 static void MX_USART3_UART_Init(void);
+static void MX_ADC1_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -161,12 +175,14 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USB_OTG_HS_PCD_Init();
   MX_I2C1_Init();
   MX_TIM3_Init();
   MX_TIM15_Init();
   MX_USART3_UART_Init();
+  MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
   Joystick_Init();
   FSM_Init();
@@ -179,6 +195,14 @@ int main(void)
   SelectMotionIC(MOTION_IC_2);
   Init429();
 
+
+  //Limit max acceleration on motor 1
+  SelectMotionIC(motorConfigs[0].motionIC);
+  SetAMax(motorConfigs[0].MotionIC_motorNum, 50);
+
+
+
+
   //Init stepper drivers. Sets sleep and enable pins to the proper levels and resets all drivers.
   StepperDriver_Init(&stepperConfig);
 
@@ -190,13 +214,11 @@ int main(void)
 
   /* Compute motor conversion parameters based on microstepping, gearbox ratio and steps per revolution */
   //store in motor configuration struct so we can use it later for motion planning
-  motorConfigs[0].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
-  motorConfigs[1].conversion_factor = compute_motor_params(MICROSTEPS, 10, 200);
-  motorConfigs[2].conversion_factor = compute_motor_params(MICROSTEPS, 5, 200);
-  motorConfigs[3].conversion_factor = compute_motor_params(MICROSTEPS, 1, 200);
+  compute_motor_params(&motorConfigs[0], MICROSTEPS, 5, 200);
+  compute_motor_params(&motorConfigs[1], MICROSTEPS, 10, 200);
+  compute_motor_params(&motorConfigs[2], MICROSTEPS, 5, 200);
+  compute_motor_params(&motorConfigs[3], MICROSTEPS, 1, 200);
 
-  //Start timer 15 for test led
-  HAL_TIM_PWM_Start(&htim15, TIM_CHANNEL_1);
   
   char rx[5]; //Init spi rx buff
   int char_count; //Variable to store number of characters in uart send buff
@@ -204,11 +226,15 @@ int main(void)
   char sendbuff[100]; //Init uart send buff
   memset(sendbuff, 0, sizeof(sendbuff)); //Clear uart send buff
   uint8_t readReg[4] = {
-        0x1B,
+        0x00,
         0x00,
         0x00,
         0x00
     };
+
+  tcs34725_init(&sensor_handle);
+  COLOR_SENSOR_Init(&sensor_handle);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -225,7 +251,18 @@ int main(void)
     //SelectMotionIC(motorConfigs[0].motionIC); //Select the correct TMC429 chip
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
+    //SelectMotionIC(MOTION_IC_1);
+
+    //Try run the motor at a constant velocity
+    SelectMotionIC(MOTION_IC_1);
+    SetAMax(motorConfigs[0].MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
+    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_VELOCITY);
+    move_at_velocity(&motorConfigs[0], 5); //Move at 5 rad/s
+    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_RAMP);
     move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
+    HAL_Delay(2000);
+
+    //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
     char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
@@ -240,6 +277,23 @@ int main(void)
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);
+      
+    COLOR_SENSOR_Read(&sensor_handle);
+    HAL_Delay(500); 
+
+    //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //pos = get_current_pos(&motorConfigs[0]);
+    //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //HAL_Delay(2000);
+    //move_to_pos(&motorConfigs[0], 0.0);
+    //char_count = sprintf(sendbuff, "Sent motor 1 command - 0 degrees\r\n"); 
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //pos = get_current_pos(&motorConfigs[0]);
+    //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
+    //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
+    //HAL_Delay(2000);
         
     /* USER CODE END WHILE */
 
@@ -309,6 +363,83 @@ void SystemClock_Config(void)
     Error_Handler();
   }
   HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_HSE, RCC_MCODIV_1);
+}
+
+/**
+  * @brief ADC1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_ADC1_Init(void)
+{
+
+  /* USER CODE BEGIN ADC1_Init 0 */
+
+  /* USER CODE END ADC1_Init 0 */
+
+  ADC_MultiModeTypeDef multimode = {0};
+  ADC_ChannelConfTypeDef sConfig = {0};
+
+  /* USER CODE BEGIN ADC1_Init 1 */
+
+  /* USER CODE END ADC1_Init 1 */
+
+  /** Common config
+  */
+  hadc1.Instance = ADC1;
+  hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+  hadc1.Init.Resolution = ADC_RESOLUTION_16B;
+  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.LowPowerAutoWait = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.DiscontinuousConvMode = DISABLE;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
+  hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+  hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
+  hadc1.Init.OversamplingMode = DISABLE;
+  if (HAL_ADC_Init(&hadc1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure the ADC multi-mode
+  */
+  multimode.Mode = ADC_MODE_INDEPENDENT;
+  if (HAL_ADCEx_MultiModeConfigChannel(&hadc1, &multimode) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_16;
+  sConfig.Rank = ADC_REGULAR_RANK_1;
+  sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
+  sConfig.SingleDiff = ADC_SINGLE_ENDED;
+  sConfig.OffsetNumber = ADC_OFFSET_NONE;
+  sConfig.Offset = 0;
+  sConfig.OffsetSignedSaturation = DISABLE;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+
+  /** Configure Regular Channel
+  */
+  sConfig.Channel = ADC_CHANNEL_17;
+  sConfig.Rank = ADC_REGULAR_RANK_2;
+  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN ADC1_Init 2 */
+
+  /* USER CODE END ADC1_Init 2 */
+
 }
 
 /**
@@ -607,6 +738,22 @@ static void MX_USB_OTG_HS_PCD_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -652,11 +799,11 @@ static void MX_GPIO_Init(void)
   GPIO_InitStruct.Pull = GPIO_NOPULL;
   HAL_GPIO_Init(GPIOC, &GPIO_InitStruct);
 
-  /*Configure GPIO pins : VERT_Pin HORIX_Pin SEL_Pin */
-  GPIO_InitStruct.Pin = VERT_Pin|HORIX_Pin|SEL_Pin;
+  /*Configure GPIO pin : SEL_Pin */
+  GPIO_InitStruct.Pin = SEL_Pin;
   GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
   GPIO_InitStruct.Pull = GPIO_NOPULL;
-  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+  HAL_GPIO_Init(SEL_GPIO_Port, &GPIO_InitStruct);
 
   /*Configure GPIO pins : MP2_NSCS_Pin Motor_Decay1_Pin Motor_Decay_2_Pin */
   GPIO_InitStruct.Pin = MP2_NSCS_Pin|Motor_Decay1_Pin|Motor_Decay_2_Pin;

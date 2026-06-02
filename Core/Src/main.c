@@ -24,6 +24,8 @@
 #include "TMC429.h"
 #include "TMC429_Register.h"
 #include "stepper_driver.h"
+#include "driver_tcs34725.h"
+#include "color_sensor.h"
 #include "joystick.h"
 #include "motion.h"
 #include <string.h>
@@ -68,7 +70,6 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
-uint16_t adc_buffer[2];
 static MotionIC_Config_t motionICs[2] =
 {
     { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin },
@@ -177,7 +178,7 @@ int main(void)
   MX_TIM15_Init();
   MX_USART3_UART_Init();
   /* USER CODE BEGIN 2 */
-  Joystick_Init();
+  //Joystick_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
 
@@ -233,7 +234,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    Joystick_UpdateManualControl();
+    //Joystick_UpdateManualControl();
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
@@ -246,7 +247,7 @@ int main(void)
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
     //SelectMotionIC(MOTION_IC_1);
 
-    //Try run the motor at a constant velocity
+    /* //Try run the motor at a constant velocity
     SelectMotionIC(MOTION_IC_1);
     SetAMax(motorConfigs[0].MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
     Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_VELOCITY);
@@ -269,7 +270,7 @@ int main(void)
     pos = get_current_pos(&motorConfigs[0]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    HAL_Delay(2000);
+    HAL_Delay(2000); */
       
     COLOR_SENSOR_Read(&sensor_handle);
     HAL_Delay(500); 

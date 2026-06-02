@@ -60,6 +60,8 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     #Core/Src/servo.c
     Core/Src/stepper_driver.c
     Core/Src/motion.c
+    Core/Src/driver_tcs34725.c
+    Core/Src/color_sensor.c
 )
 
 # Add include paths

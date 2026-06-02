@@ -4,9 +4,8 @@
 #include "TMC429.h"
 #include <stdint.h>
 
-extern motor_config_t motorConfigs[4];
-
 #define PULSE_DIV 3 //Pulse div register value on motion planning chip (default is 3)
+#define RAMP_DIV 7 //Ramp div register value on motion planning chip (default is 7)
 #define F_CLK 8000000 //Frequency for clock input for MC
 
 void compute_motor_params(motor_config_t * motor, int microstep, int gearboxRatio, int stepsPerRev)
@@ -14,7 +13,8 @@ void compute_motor_params(motor_config_t * motor, int microstep, int gearboxRati
 {
    motor->rad_to_steps = (double)gearboxRatio * (double)stepsPerRev * (double)microstep / (2 * M_PI);
    // = Steps/s * 2^Pulse_div * 2048 * 32 / f_clk
-   motor->steps_sec_to_IC_units = (1UL << PULSE_DIV) * 2048.0 * 32.0 / F_CLK;
+   motor->steps_sec_to_IC_units = (1UL << PULSE_DIV) * 2048.0 * 32.0 / (double)F_CLK;
+   motor->accel_to_IC_units = ldexp(steps_per_s2, PULSE_DIV + RAMP_DIV + 29) / ((double)F_CLK * F_CLK);
 }
 
 static int _rads_to_steps(double motor_conversion_factor, double rads) {
@@ -42,6 +42,12 @@ void move_at_velocity(motor_config_t *motor, double target_velo_rad_s) {
     Write429Datagram(TMC429_IDX_VTARGET(motor->MotionIC_motorNum), (velocity >> 16) & 0xFF, (velocity >> 8) & 0xFF, velocity & 0xFF); //Write the target velocity to the TMC429
 }
 
+void set_max_accel(motor_config_t *motor, double max_accel_rad_s2) {
+    //Set max acceleration for a single motor
+    int32_t accel = (int32_t)round(max_accel_rad_s2*motor->rad_to_steps * motor->accel_to_IC_units);
+    SelectMotionIC(motor->motionIC);
+    SetAMax(motor->MotionIC_motorNum, accel); //Set max acceleration higher so we can reach target velocity faster
+}
 
 double get_current_pos(motor_config_t *motor) {
     uint8_t fromTMC[3]; //allocate buffer to store response from TMC
@@ -52,38 +58,11 @@ double get_current_pos(motor_config_t *motor) {
     return pos_rad;
 }
 
-void StopAllMotion(void)
-{
-    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]));
-    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]));
-}
-
-void Motor2_RunPositive(void)
-{
-    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]) + 0.1);
-}
-
-void Motor2_RunNegative(void)
-{
-    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]) - 0.1);
-}
-
-void Motor2_Stop(void)
-{
-    move_to_pos(&motorConfigs[1], get_current_pos(&motorConfigs[1]));
-}
-
-void Motor3_RunPositive(void)
-{
-    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]) + 0.1);
-}
-
-void Motor3_RunNegative(void)
-{
-    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]) - 0.1);
-}
-
-void Motor3_Stop(void)
-{
-    move_to_pos(&motorConfigs[2], get_current_pos(&motorConfigs[2]));
+double get_current_velocity(motor_config_t *motor) {
+    uint8_t fromTMC[3]; //allocate buffer to store response from TMC
+    SelectMotionIC(motor->motionIC); //Select the correct TMC429 chip
+    Read429Bytes(TMC429_IDX_VACTUAL(motor->MotionIC_motorNum), (uint8_t *)fromTMC); //Read actual velocity from the TMC
+    int32_t steps = (fromTMC[0] << 16) | (fromTMC[1] << 8) | fromTMC[2]; //Combine the 3 bytes from the TMC into a single 24 bit integer
+    double vel_rad_per_sec = _steps_to_rads(motor->rad_to_steps, steps)*1.0/motor->steps_sec_to_IC_units; //Convert the velocity from steps to radians per second
+    return vel_rad_per_sec;
 }

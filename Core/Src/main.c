@@ -109,6 +109,12 @@ motor_config_t motorConfigs[4] =
     { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 2 },
     { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
 };
+//Do some defining to make life easier 
+#define Motor1 (&motorConfigs[0])
+#define Motor2 (&motorConfigs[1])
+#define Motor3 (&motorConfigs[2])
+#define Motor4 (&motorConfigs[3])
+
 
 tcs34725_handle_t sensor_handle = {
     .iic_init    = my_i2c_init,
@@ -212,10 +218,10 @@ int main(void)
 
   /* Compute motor conversion parameters based on microstepping, gearbox ratio and steps per revolution */
   //store in motor configuration struct so we can use it later for motion planning
-  compute_motor_params(&motorConfigs[0], MICROSTEPS, 5, 200);
-  compute_motor_params(&motorConfigs[1], MICROSTEPS, 10, 200);
-  compute_motor_params(&motorConfigs[2], MICROSTEPS, 5, 200);
-  compute_motor_params(&motorConfigs[3], MICROSTEPS, 1, 200);
+  compute_motor_params(Motor1, MICROSTEPS, 5, 200);
+  compute_motor_params(Motor2, MICROSTEPS, 10, 200);
+  compute_motor_params(Motor3, MICROSTEPS, 5, 200);
+  compute_motor_params(Motor4, MICROSTEPS, 1, 200);
 
   
   char rx[5]; //Init spi rx buff
@@ -254,18 +260,18 @@ int main(void)
 
     //Try run the motor at a constant velocity
     SelectMotionIC(MOTION_IC_1);
-    SetAMax(motorConfigs[0].MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
-    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_VELOCITY);
-    move_at_velocity(&motorConfigs[0], 5); //Move at 5 rad/s
-    Set429RampMode(motorConfigs[0].MotionIC_motorNum, TMC429_RM_RAMP);
-    move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
+    SetAMax(Motor1->MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
+    Set429RampMode(Motor1->MotionIC_motorNum, TMC429_RM_VELOCITY);
+    move_at_velocity(Motor1, 5); //Move at 5 rad/s
+    Set429RampMode(Motor1->MotionIC_motorNum, TMC429_RM_RAMP);
+    move_to_pos(Motor1, M_PI / 2); //Move to 90 degrees
     HAL_Delay(2000);
 
     //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
     char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    pos = get_current_pos(&motorConfigs[0]);
+    pos = get_current_pos(Motor1);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000);

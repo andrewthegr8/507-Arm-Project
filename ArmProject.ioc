@@ -2,7 +2,7 @@
 ADC1.Channel-0\#ChannelRegularConversion=ADC_CHANNEL_16
 ADC1.Channel-1\#ChannelRegularConversion=ADC_CHANNEL_17
 ADC1.ContinuousConvMode=ENABLE
-ADC1.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,OffsetNumber-0\#ChannelRegularConversion,OffsetSignedSaturation-0\#ChannelRegularConversion,NbrOfConversionFlag,master,Resolution,ContinuousConvMode,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,OffsetNumber-1\#ChannelRegularConversion,OffsetSignedSaturation-1\#ChannelRegularConversion,NbrOfConversion
+ADC1.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,OffsetNumber-0\#ChannelRegularConversion,OffsetSignedSaturation-0\#ChannelRegularConversion,NbrOfConversionFlag,Resolution,ContinuousConvMode,Rank-1\#ChannelRegularConversion,Channel-1\#ChannelRegularConversion,SamplingTime-1\#ChannelRegularConversion,OffsetNumber-1\#ChannelRegularConversion,OffsetSignedSaturation-1\#ChannelRegularConversion,NbrOfConversion,master
 ADC1.NbrOfConversion=2
 ADC1.NbrOfConversionFlag=1
 ADC1.OffsetNumber-0\#ChannelRegularConversion=ADC_OFFSET_NONE

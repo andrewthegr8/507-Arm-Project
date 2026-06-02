@@ -59,6 +59,7 @@ testtype testvar;
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -190,8 +191,8 @@ int main(void)
   MX_USART3_UART_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  Joystick_Init();
-  FSM_Init();
+  //Joystick_Init();
+  //FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
 
@@ -304,7 +305,7 @@ int main(void)
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
-  FSM_Update();
+  //FSM_Update();
   }  
   /* USER CODE END 3 */
 }

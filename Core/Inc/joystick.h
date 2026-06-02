@@ -16,5 +16,5 @@ int16_t Joystick_Get_XCentered(void);
 int16_t Joystick_Get_YCentered(void);
 uint8_t Joystick_ButtonPressed(void);
 void Joystick_UpdateManualControl(void);
-
+uint8_t Joystick_IsMoved(void);
 #endif

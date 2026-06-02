@@ -2,7 +2,7 @@
 #include "main.h"
 #include "joystick.h"
 #include "servo.h"
-#include "stepper.h"
+#include "stepper_driver.h"
 #include "color_sensor.h"
 #include "motion.h"
 
@@ -68,17 +68,13 @@ void FSM_Update(void)
             robot.state_entry = 0;
         }
 
-        ManualControl_UpdateFromJoystick();
+        Joystick_UpdateManualControl();
 
         if (Joystick_ButtonPressed()) {
             StopAllMotion();
             FSM_SetState(S2_CLOSE_GRIPPER);
         }
 
-        if (ManualLimitReached()) {
-            StopAllMotion();
-            FSM_SetState(S0_IDLE);
-        }
         break;
 
     case S2_CLOSE_GRIPPER:

@@ -70,10 +70,10 @@ extern UART_HandleTypeDef huart3;
 #define Motor_6_Reset_GPIO_Port GPIOC
 #define Motor_5_Reset_Pin GPIO_PIN_2
 #define Motor_5_Reset_GPIO_Port GPIOC
-#define VERT_Pin GPIO_PIN_0
-#define VERT_GPIO_Port GPIOA
-#define HORIX_Pin GPIO_PIN_1
-#define HORIX_GPIO_Port GPIOA
+#define VERTICAL_Pin GPIO_PIN_0
+#define VERTICAL_GPIO_Port GPIOA
+#define HORIZONTAL_Pin GPIO_PIN_1
+#define HORIZONTAL_GPIO_Port GPIOA
 #define SEL_Pin GPIO_PIN_2
 #define SEL_GPIO_Port GPIOA
 #define MP1_NSCS_Pin GPIO_PIN_4

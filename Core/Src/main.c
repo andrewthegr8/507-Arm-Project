@@ -59,7 +59,6 @@ testtype testvar;
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -134,7 +133,6 @@ tcs34725_handle_t sensor_handle = {
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_I2C1_Init(void);
@@ -183,7 +181,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USB_OTG_HS_PCD_Init();
   MX_I2C1_Init();
@@ -261,17 +258,21 @@ int main(void)
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
     //SelectMotionIC(MOTION_IC_1);
 
-    /* //Try run the motor at a constant velocity
-    SelectMotionIC(MOTION_IC_1);
-    SetAMax(Motor1->MotionIC_motorNum, 42); //Set max acceleration higher so we can reach target velocity faster
-    Set429RampMode(Motor1->MotionIC_motorNum, TMC429_RM_VELOCITY);
-    move_at_velocity(Motor1, 5); //Move at 5 rad/s
-    Set429RampMode(Motor1->MotionIC_motorNum, TMC429_RM_RAMP);
-    move_to_pos(Motor1, M_PI / 2); //Move to 90 degrees
-    HAL_Delay(2000);
+    //Try run the motor at a constant velocity
+    set_max_accel(Motor1, 1); //Set max acceleration for motor 1
+    set_max_accel(Motor2, 1); //Set max acceleration for motor 2
+    set_max_accel(Motor3, 1); //Set max acceleration for motor 3
+   
+    //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
+    //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
+    HAL_Delay(3000);
+    //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees
+    //move_to_pos(Motor3, -M_PI / 4); //Move to 90 degrees
+    HAL_Delay(3000);
 
     //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
+    /*
     char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     pos = get_current_pos(Motor1);
@@ -284,11 +285,12 @@ int main(void)
     pos = get_current_pos(&motorConfigs[0]);
     char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
-    HAL_Delay(2000); */
+    HAL_Delay(2000); 
+    */
       
     //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(500); 
-    Joystick_UpdateManualControl();
+    //Joystick_UpdateManualControl();
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);
@@ -400,12 +402,12 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
   hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = ENABLE;
+  hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR;
+  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
   hadc1.Init.OversamplingMode = DISABLE;
@@ -742,22 +744,6 @@ static void MX_USB_OTG_HS_PCD_Init(void)
   /* USER CODE BEGIN USB_OTG_HS_PCD_Init 2 */
 
   /* USER CODE END USB_OTG_HS_PCD_Init 2 */
-
-}
-
-/**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
 
 }
 

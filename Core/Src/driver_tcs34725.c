@@ -923,7 +923,7 @@ uint8_t tcs34725_read_rgbc(tcs34725_handle_t *handle, uint16_t *red, uint16_t *g
         res = handle->iic_write(TCS34725_ADDRESS, TCS34725_REG_CLEAR, NULL, 0);                  /* clear interrupt */
         if (res != 0)                                                                            /* check result */
         {
-            handle->debug_print("tcs34725: clear interrupt failed.\n");                          /* clear interrupt failed */
+            handle->debug_print("tcs34725: clear interrupt failed.\r\n");                          /* clear interrupt failed */
             
             return 1;                                                                            /* return error */
         }

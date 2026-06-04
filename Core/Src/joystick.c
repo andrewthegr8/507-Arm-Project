@@ -94,9 +94,13 @@ void Joystick_UpdateManualControl(void)
         Motor2_Stop();
 
         if (x > JOY_DEADBAND) {
-            Motor3_RunPositive();
+            //Motor3_RunPositive();
+            sprintf(dbg, "+x: %d\r\n", x);
+            HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else if (x < -JOY_DEADBAND) {
-            Motor3_RunNegative();
+            //Motor3_RunNegative();
+            sprintf(dbg, "-x: %d\r\n", x);
+            HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else {
             Motor3_Stop();
         }
@@ -105,9 +109,13 @@ void Joystick_UpdateManualControl(void)
         Motor3_Stop();
 
         if (y > JOY_DEADBAND) {
-            Motor2_RunPositive();
+            //Motor2_RunPositive();
+            sprintf(dbg, "+y: %d\r\n", y);
+            HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else if (y < -JOY_DEADBAND) {
-            Motor2_RunNegative();
+            //Motor2_RunNegative();
+            sprintf(dbg, "-y: %d\r\n", y);
+            HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else {
             Motor2_Stop();
         }

@@ -285,8 +285,8 @@ int main(void)
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000); */
       
-    COLOR_SENSOR_Read(&sensor_handle);
-    HAL_Delay(500); 
+    //COLOR_SENSOR_Read(&sensor_handle);
+    //HAL_Delay(500); 
 
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);

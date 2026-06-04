@@ -65,6 +65,18 @@ uint8_t my_i2c_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len) {
 }
 
 uint8_t my_i2c_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len) {
+    if (buf == NULL || len == 0) {
+        // Just send the register address with no data bytes
+        HAL_StatusTypeDef result = HAL_I2C_Master_Transmit(
+            &hi2c1,
+            addr,
+            &reg,       // send only the register byte
+            1,
+            HAL_MAX_DELAY
+        );
+        return (result == HAL_OK) ? 0 : 1;
+    }
+
     HAL_StatusTypeDef result = HAL_I2C_Mem_Write(
         &hi2c1,
         addr,

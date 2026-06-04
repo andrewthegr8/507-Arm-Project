@@ -17,6 +17,7 @@ static JoystickAxis locked_axis = JOY_AXIS_NONE;
 
 void Joystick_Init(void)
 {
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
     HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
     locked_axis = JOY_AXIS_NONE;
 }

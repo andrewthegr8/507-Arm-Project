@@ -67,7 +67,9 @@ void Joystick_UpdateManualControl(void)
     int16_t abs_y = abs(y);
 
     if (Joystick_ButtonPressed()) {
-        StopAllMotion();
+        //StopAllMotion();
+        sprintf(dbg, "Button Pressed! Stopping all motion.\r\n");
+        HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         locked_axis = JOY_AXIS_NONE;
         return;
     }
@@ -75,7 +77,9 @@ void Joystick_UpdateManualControl(void)
     // Release lock only when joystick is near center
     if (abs_x < JOY_RELEASE_BAND && abs_y < JOY_RELEASE_BAND) {
         locked_axis = JOY_AXIS_NONE;
-        StopAllMotion();
+        //StopAllMotion();
+        sprintf(dbg, "Joystick released. Stopping all motion.\r\n");
+        HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         return;
     }
 
@@ -86,13 +90,13 @@ void Joystick_UpdateManualControl(void)
         } else if (abs_y > abs_x && abs_y > JOY_DEADBAND) {
             locked_axis = JOY_AXIS_Y;
         } else {
-            StopAllMotion();
+            //StopAllMotion();
             return;
         }
     }
 
     if (locked_axis == JOY_AXIS_X) {
-        Motor2_Stop();
+        //Motor2_Stop();
 
         if (x > JOY_DEADBAND) {
             //Motor3_RunPositive();
@@ -103,11 +107,11 @@ void Joystick_UpdateManualControl(void)
             sprintf(dbg, "-x: %d\r\n", x);
             HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else {
-            Motor3_Stop();
+            //Motor3_Stop();
         }
     }
     else if (locked_axis == JOY_AXIS_Y) {
-        Motor3_Stop();
+        //Motor3_Stop();
 
         if (y > JOY_DEADBAND) {
             //Motor2_RunPositive();
@@ -118,7 +122,7 @@ void Joystick_UpdateManualControl(void)
             sprintf(dbg, "-y: %d\r\n", y);
             HAL_UART_Transmit(&huart3, (uint8_t *)dbg, strlen(dbg), HAL_MAX_DELAY);
         } else {
-            Motor2_Stop();
+            //Motor2_Stop();
         }
     }
 }

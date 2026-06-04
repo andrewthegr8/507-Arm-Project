@@ -3,6 +3,7 @@
 #include "motion.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 extern UART_HandleTypeDef huart3;
 #define JOY_CENTER_X        32768
 #define JOY_CENTER_Y        32768

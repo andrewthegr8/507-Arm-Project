@@ -26,7 +26,7 @@
 #include "stepper_driver.h"
 #include "driver_tcs34725.h"
 #include "color_sensor.h"
-#include "joystick.h"
+//#include "joystick.h"
 #include "motion.h"
 #include <string.h>
 #include <stdio.h>
@@ -189,7 +189,7 @@ int main(void)
   MX_USART3_UART_Init();
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
-  Joystick_Init();
+  //Joystick_Init();
   //FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
@@ -246,6 +246,15 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    uint32_t hor = HAL_ADC_GetValue(&hadc1);
+
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    uint32_t vert = HAL_ADC_GetValue(&hadc1);
+
+    printf("Horizontal: %lu  Vertical: %lu\n", hor, vert);
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string

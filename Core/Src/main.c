@@ -111,11 +111,7 @@ motor_config_t motorConfigs[4] =
     { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 2 },
     { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
 };
-//Do some defining to make life easier 
-#define Motor1 (&motorConfigs[0])
-#define Motor2 (&motorConfigs[1])
-#define Motor3 (&motorConfigs[2])
-#define Motor4 (&motorConfigs[3])
+
 
 
 tcs34725_handle_t sensor_handle = {
@@ -259,16 +255,16 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
 
     //Try run the motor at a constant velocity
-    set_max_accel(Motor1, 1); //Set max acceleration for motor 1
-    set_max_accel(Motor2, 1); //Set max acceleration for motor 2
-    set_max_accel(Motor3, 1); //Set max acceleration for motor 3
+    //set_max_accel(Motor1, 1); //Set max acceleration for motor 1
+    //set_max_accel(Motor2, 1); //Set max acceleration for motor 2
+    //set_max_accel(Motor3, 1); //Set max acceleration for motor 3
    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
-    HAL_Delay(3000);
+    //HAL_Delay(3000);
     //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees
     //move_to_pos(Motor3, -M_PI / 4); //Move to 90 degrees
-    HAL_Delay(3000);
+    //HAL_Delay(3000);
 
     //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart

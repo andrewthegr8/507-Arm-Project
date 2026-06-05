@@ -104,6 +104,11 @@ extern UART_HandleTypeDef huart3;
 #define USB_D_A12_GPIO_Port GPIOA
 
 /* USER CODE BEGIN Private defines */
+//Do some defining to make life easier 
+#define Motor1 (&motorConfigs[0])
+#define Motor2 (&motorConfigs[1])
+#define Motor3 (&motorConfigs[2])
+#define Motor4 (&motorConfigs[3])
 
 /* USER CODE END Private defines */
 

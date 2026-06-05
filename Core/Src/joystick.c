@@ -5,7 +5,6 @@
 #include <stdio.h>
 #include <string.h>
 extern UART_HandleTypeDef huart3;
-extern uint16_t adc_buffer[2];
 #define JOY_CENTER_X        32768
 #define JOY_CENTER_Y        32768
 #define JOY_DEADBAND        4000
@@ -18,18 +17,21 @@ static JoystickAxis locked_axis = JOY_AXIS_NONE;
 void Joystick_Init(void)
 {
     HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-    HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
     locked_axis = JOY_AXIS_NONE;
 }
 
 uint16_t Joystick_ReadXRaw(void)
 {
-    return adc_buffer[0];
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    return HAL_ADC_GetValue(&hadc1);
 }
 
 uint16_t Joystick_ReadYRaw(void)
 {
-    return adc_buffer[1];
+    HAL_ADC_Start(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    return HAL_ADC_GetValue(&hadc1);
 }
 
 int16_t Joystick_Get_XCentered(void)

@@ -2,7 +2,7 @@
 #define SERVO_H
 
 void Servo_Init(void);
-void Claw_Open(void);
-void Claw_Close(void);
+void Servo_Open(void);
+void Servo_Close(void);
 
 #endif

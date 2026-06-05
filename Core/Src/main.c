@@ -166,7 +166,7 @@ int main(void)
   /* USER CODE END 1 */
 
   /* MPU Configuration--------------------------------------------------------*/
-  MPU_Config();
+tor  MPU_Config();
 
   /* MCU Configuration--------------------------------------------------------*/
 
@@ -279,11 +279,11 @@ int main(void)
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
     //SelectMotionIC(MOTION_IC_1);
-    zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
-    execute_trajectory(motorConfigs, &test_trajectory1);
+    //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
+    //execute_trajectory(motorConfigs, &test_trajectory1);
     HAL_Delay(5000000);    
-    move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
-    m2pos = get_current_pos(Motor2);
+    //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
+    //m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
     //HAL_Delay(3000);
     //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees

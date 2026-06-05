@@ -31,7 +31,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "fsm.h"
-
+#include "maneuvers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -230,6 +230,12 @@ int main(void)
   compute_motor_params(Motor3, MICROSTEPS, 5, 200);
   compute_motor_params(Motor4, MICROSTEPS, 1, 200);
 
+  //Set max accelerations
+  set_max_accel(Motor1, 1); //Set max acceleration for motor 1
+  set_max_accel(Motor2, 1); //Set max acceleration for motor 2
+  set_max_accel(Motor3, 1); //Set max acceleration for motor 3
+  set_max_accel(Motor4, 1); //Set max acceleration for motor 4
+
   
   char rx[5]; //Init spi rx buff
   int char_count; //Variable to store number of characters in uart send buff
@@ -254,6 +260,7 @@ int main(void)
 
   HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_Base_Start(&htim8);
+  double m2pos = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -272,13 +279,11 @@ int main(void)
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
     //SelectMotionIC(MOTION_IC_1);
-
-    //Try run the motor at a constant velocity
-    //set_max_accel(Motor1, 1); //Set max acceleration for motor 1
-    //set_max_accel(Motor2, 1); //Set max acceleration for motor 2
-    //set_max_accel(Motor3, 1); //Set max acceleration for motor 3
-   
-    //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
+    zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
+    execute_trajectory(motorConfigs, &test_trajectory1);
+    HAL_Delay(5000000);    
+    move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
+    m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
     //HAL_Delay(3000);
     //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees

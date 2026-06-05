@@ -53,7 +53,8 @@ double get_current_pos(motor_config_t *motor) {
     uint8_t fromTMC[3]; //allocate buffer to store response from TMC
     SelectMotionIC(motor->motionIC); //Select the correct TMC429 chip
     Read429Bytes(TMC429_IDX_XACTUAL(motor->MotionIC_motorNum), (uint8_t *)fromTMC); //Read actual position from the TMC
-    int32_t steps = (fromTMC[0] << 16) | (fromTMC[1] << 8) | fromTMC[2]; //Combine the 3 bytes from the TMC into a single 24 bit integer
+    int32_t steps = ((int32_t)fromTMC[0] << 16) | ((int32_t)fromTMC[1] << 8) | ((int32_t)fromTMC[2]); //Combine the 3 bytes from the TMC into a single 24 bit integer
+    if (steps & 0x00800000) { steps |= 0xFF000000;}     // Sign-extend 24-bit signed value to 32-bit signed value
     double pos_rad = _steps_to_rads(motor->rad_to_steps, steps); //Convert the position from steps to radians
     return pos_rad;
 }
@@ -62,7 +63,20 @@ double get_current_velocity(motor_config_t *motor) {
     uint8_t fromTMC[3]; //allocate buffer to store response from TMC
     SelectMotionIC(motor->motionIC); //Select the correct TMC429 chip
     Read429Bytes(TMC429_IDX_VACTUAL(motor->MotionIC_motorNum), (uint8_t *)fromTMC); //Read actual velocity from the TMC
-    int32_t steps = (fromTMC[0] << 16) | (fromTMC[1] << 8) | fromTMC[2]; //Combine the 3 bytes from the TMC into a single 24 bit integer
+    int32_t steps = ((int32_t)fromTMC[0] << 16) | ((int32_t)fromTMC[1] << 8) | ((int32_t)fromTMC[2]); //Combine the 3 bytes from the TMC into a single 24 bit integer
+    if (steps & 0x00800000) { steps |= 0xFF000000;}     // Sign-extend 24-bit signed value to 32-bit signed value
     double vel_rad_per_sec = _steps_to_rads(motor->rad_to_steps, steps)*1.0/motor->steps_sec_to_IC_units; //Convert the velocity from steps to radians per second
     return vel_rad_per_sec;
 }
+
+void zero_motors(motor_config_t *motorConfigs, int num_motors) {
+    //Function to set current position of all motors to be the zero position. This can be useful for homing at the beginning of the program.
+    for (int i = 0; i < num_motors; i++) {
+        SelectMotionIC(motorConfigs[i].motionIC); //Select the correct TMC429 chip
+        Set429RampMode(motorConfigs[i].MotionIC_motorNum, TMC429_RM_VELOCITY); //Set velocity mode so we can change xactual register
+        Write429Datagram(TMC429_IDX_XACTUAL(motorConfigs[i].MotionIC_motorNum), 0x00, 0x00, 0x00); //Set XACTUAL register to zero
+        Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[i].MotionIC_motorNum), 0x00, 0x00, 0x00); //Set XTARGET register to zero
+        Set429RampMode(motorConfigs[i].MotionIC_motorNum, TMC429_RM_RAMP); //Set back to position mode
+    }
+}
+

@@ -290,7 +290,7 @@ int main(void)
       
     //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(500); 
-    //Joystick_UpdateManualControl();
+    Joystick_UpdateManualControl();
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);

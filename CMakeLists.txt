@@ -60,6 +60,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/motion.c
     Core/Src/driver_tcs34725.c
     Core/Src/color_sensor.c
+    Core/Src/maneuvers.c
 )
 
 # Add include paths

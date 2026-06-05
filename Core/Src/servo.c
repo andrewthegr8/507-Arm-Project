@@ -5,8 +5,8 @@
 
 extern TIM_HandleTypeDef htim3;
 
-#define SERVO_MIN_PULSE    // 1ms equivalent in timer counts
-#define SERVO_MAX_PULSE    // 2ms equivalent in timer counts
+#define SERVO_MIN_PULSE 50u   // 0.5ms equivalent in timer counts
+#define SERVO_MAX_PULSE 250u  // 2.5ms equivalent in timer counts
 
 void Servo_Init(void)
 {

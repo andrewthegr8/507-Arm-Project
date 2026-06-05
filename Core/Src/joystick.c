@@ -23,14 +23,14 @@ void Joystick_Init(void)
 uint16_t Joystick_ReadXRaw(void)
 {
     HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    HAL_ADC_PollForConversion(&hadc1, 100);
     return HAL_ADC_GetValue(&hadc1);
 }
 
 uint16_t Joystick_ReadYRaw(void)
 {
     HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
+    HAL_ADC_PollForConversion(&hadc1, 100);
     return HAL_ADC_GetValue(&hadc1);
 }
 

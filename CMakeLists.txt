@@ -54,13 +54,13 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/tmc/helpers/CRC.c
     Core/Src/tmc/helpers/Functions.c
     #Core/Src/fsm.c
-    #Core/Src/joystick.c
+    Core/Src/joystick.c
     #Core/Src/servo.c
     Core/Src/stepper_driver.c
     Core/Src/motion.c
     Core/Src/driver_tcs34725.c
     Core/Src/color_sensor.c
-    Core/Src/maneuvers.c
+    #Core/Src/maneuvers.c
 )
 
 # Add include paths

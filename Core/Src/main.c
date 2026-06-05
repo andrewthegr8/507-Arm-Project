@@ -124,6 +124,13 @@ tcs34725_handle_t sensor_handle = {
     .debug_print = my_debug_print,
 };
 
+//Joystick interrupt variables
+volatile uint16_t joy_x_raw = 0;
+volatile uint16_t joy_y_raw = 0;
+
+volatile uint8_t adc_rank_index = 0;
+volatile uint8_t joy_new_sample = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -239,12 +246,21 @@ int main(void)
   tcs34725_init(&sensor_handle);
   COLOR_SENSOR_Init(&sensor_handle);
   uint32_t adc;
+
+  HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+
+  adc_rank_index = 0;
+  joy_new_sample = 0;
+
+  HAL_ADC_Start_IT(&hadc1);
+  HAL_TIM_Base_Start(&htim8);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
@@ -286,10 +302,10 @@ int main(void)
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000); 
     */
-      
+    
     //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(500); 
-    Joystick_UpdateManualControl();
+    //Joystick_UpdateManualControl();
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);
@@ -879,6 +895,22 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    uint16_t value = HAL_ADC_GetValue(hadc);
+
+    if (adc_rank_index == 0)
+    {
+        joy_x_raw = value;
+        adc_rank_index = 1;
+    }
+    else
+    {
+        joy_y_raw = value;
+        adc_rank_index = 0;
+        joy_new_sample = 1;
+    }
+}
 
 /* USER CODE END 4 */
 

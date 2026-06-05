@@ -111,11 +111,7 @@ motor_config_t motorConfigs[4] =
     { .motionIC = MOTION_IC_1, .MotionIC_motorNum = 2 },
     { .motionIC = MOTION_IC_2, .MotionIC_motorNum = 0 }
 };
-//Do some defining to make life easier 
-#define Motor1 (&motorConfigs[0])
-#define Motor2 (&motorConfigs[1])
-#define Motor3 (&motorConfigs[2])
-#define Motor4 (&motorConfigs[3])
+
 
 
 tcs34725_handle_t sensor_handle = {
@@ -268,16 +264,16 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
 
     //Try run the motor at a constant velocity
-    set_max_accel(Motor1, 1); //Set max acceleration for motor 1
-    set_max_accel(Motor2, 1); //Set max acceleration for motor 2
-    set_max_accel(Motor3, 1); //Set max acceleration for motor 3
+    //set_max_accel(Motor1, 1); //Set max acceleration for motor 1
+    //set_max_accel(Motor2, 1); //Set max acceleration for motor 2
+    //set_max_accel(Motor3, 1); //Set max acceleration for motor 3
    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
-    HAL_Delay(3000);
+    //HAL_Delay(3000);
     //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees
     //move_to_pos(Motor3, -M_PI / 4); //Move to 90 degrees
-    HAL_Delay(3000);
+    //HAL_Delay(3000);
 
     //move_to_pos(&motorConfigs[0], M_PI / 2); //Move to 90 degrees
     //confirm move command was sent and print current position over uart
@@ -299,7 +295,7 @@ int main(void)
       
     //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(500); 
-    //Joystick_UpdateManualControl();
+    Joystick_UpdateManualControl();
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);
@@ -576,9 +572,9 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 0;
+  htim3.Init.Prescaler = 63;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-  htim3.Init.Period = 65535;
+  htim3.Init.Period = 19999;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
   htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
   if (HAL_TIM_PWM_Init(&htim3) != HAL_OK)

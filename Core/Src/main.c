@@ -26,6 +26,7 @@
 #include "stepper_driver.h"
 #include "driver_tcs34725.h"
 #include "color_sensor.h"
+#include "servo.h"
 #include "joystick.h"
 #include "motion.h"
 #include <string.h>
@@ -253,6 +254,8 @@ int main(void)
   COLOR_SENSOR_Init(&sensor_handle);
   uint32_t adc;
 
+  Servo_Init();
+
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
 
   adc_rank_index = 0;
@@ -267,7 +270,11 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    
+    //servo test
+    Servo_Open();
+    //HAL_Delay(1000);
+    //Servo_Close();
+
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
@@ -281,7 +288,7 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
     //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
     //execute_trajectory(motorConfigs, &test_trajectory1);
-    HAL_Delay(5000000);    
+    HAL_Delay(500);    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees

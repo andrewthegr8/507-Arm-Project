@@ -20,19 +20,25 @@ void Joystick_Init(void)
     locked_axis = JOY_AXIS_NONE;
 }
 
-uint16_t Joystick_ReadXRaw(void)
+static uint16_t joy_x_raw = 0;
+static uint16_t joy_y_raw = 0;
+
+void Joystick_ReadBoth(void)
 {
+    // Read X (rank 1, ch16)
     HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-    return HAL_ADC_GetValue(&hadc1);
+    HAL_ADC_PollForConversion(&hadc1, 100);
+    joy_x_raw = HAL_ADC_GetValue(&hadc1);
+
+    // Read Y (rank 2, ch17) — poll again for second conversion
+    HAL_ADC_PollForConversion(&hadc1, 100);
+    joy_y_raw = HAL_ADC_GetValue(&hadc1);
+
+    HAL_ADC_Stop(&hadc1);
 }
 
-uint16_t Joystick_ReadYRaw(void)
-{
-    HAL_ADC_Start(&hadc1);
-    HAL_ADC_PollForConversion(&hadc1, HAL_MAX_DELAY);
-    return HAL_ADC_GetValue(&hadc1);
-}
+uint16_t Joystick_ReadXRaw(void) { return joy_x_raw; }
+uint16_t Joystick_ReadYRaw(void) { return joy_y_raw; }
 
 int16_t Joystick_Get_XCentered(void)
 {
@@ -56,6 +62,7 @@ uint8_t Joystick_IsMoved(void)
 }
 void Joystick_UpdateManualControl(void)
 {
+    Joystick_ReadBoth();   // add this line
     int16_t x = Joystick_Get_XCentered();
     int16_t y = Joystick_Get_YCentered();
 

@@ -17,6 +17,8 @@ double get_current_pos(motor_config_t *motor);
 void move_to_pos(motor_config_t *motor, double target_pos_rad);
 void move_at_velocity(motor_config_t *motor, double target_vel_rad_per_sec);
 void set_max_accel(motor_config_t *motor, double max_accel_rad_s2);
+void zero_motors(motor_config_t *motorConfigs, int num_motors);
+
 
 
 

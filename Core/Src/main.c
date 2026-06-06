@@ -31,7 +31,7 @@
 #include <string.h>
 #include <stdio.h>
 #include "fsm.h"
-
+#include "maneuvers.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -65,6 +65,7 @@ I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
 
 TIM_HandleTypeDef htim3;
+TIM_HandleTypeDef htim8;
 TIM_HandleTypeDef htim15;
 
 UART_HandleTypeDef huart3;
@@ -123,6 +124,13 @@ tcs34725_handle_t sensor_handle = {
     .debug_print = my_debug_print,
 };
 
+//Joystick interrupt variables
+volatile uint16_t joy_x_raw = 0;
+volatile uint16_t joy_y_raw = 0;
+
+volatile uint8_t adc_rank_index = 0;
+volatile uint8_t joy_new_sample = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -136,6 +144,7 @@ static void MX_TIM3_Init(void);
 static void MX_TIM15_Init(void);
 static void MX_USART3_UART_Init(void);
 static void MX_ADC1_Init(void);
+static void MX_TIM8_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -184,6 +193,7 @@ int main(void)
   MX_TIM15_Init();
   MX_USART3_UART_Init();
   MX_ADC1_Init();
+  MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
   Joystick_Init();
   //FSM_Init();
@@ -220,6 +230,12 @@ int main(void)
   compute_motor_params(Motor3, MICROSTEPS, 5, 200);
   compute_motor_params(Motor4, MICROSTEPS, 1, 200);
 
+  //Set max accelerations
+  set_max_accel(Motor1, 1); //Set max acceleration for motor 1
+  set_max_accel(Motor2, 1); //Set max acceleration for motor 2
+  set_max_accel(Motor3, 1); //Set max acceleration for motor 3
+  set_max_accel(Motor4, 1); //Set max acceleration for motor 4
+
   
   char rx[5]; //Init spi rx buff
   int char_count; //Variable to store number of characters in uart send buff
@@ -235,13 +251,23 @@ int main(void)
 
   tcs34725_init(&sensor_handle);
   COLOR_SENSOR_Init(&sensor_handle);
+  uint32_t adc;
 
+  HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+
+  adc_rank_index = 0;
+  joy_new_sample = 0;
+
+  HAL_ADC_Start_IT(&hadc1);
+  HAL_TIM_Base_Start(&htim8);
+  double m2pos = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
     //HAL_GPIO_WritePin(MP1_NSCS_GPIO_Port, MP1_NSCS_Pin, GPIO_PIN_RESET); //Set CS line low to select chip
     //HAL_SPI_TransmitReceive(&hspi1, (uint8_t *)readReg, (uint8_t *)rx, 4, HAL_MAX_DELAY); //send/recieve data
     //sprintf(sendbuff, "TMC429 Response:%b%b%br\n", rx[1], rx[2], rx[3]); //Format received data into string
@@ -253,13 +279,11 @@ int main(void)
     //uint32_t steps = 10000;
     //Write429Datagram(TMC429_IDX_XTARGET(motorConfigs[0].MotionIC_motorNum), (steps >> 16) & 0xFF, (steps >> 8) & 0xFF, steps & 0xFF); //Write the target position to the TMC429
     //SelectMotionIC(MOTION_IC_1);
-
-    //Try run the motor at a constant velocity
-    //set_max_accel(Motor1, 1); //Set max acceleration for motor 1
-    //set_max_accel(Motor2, 1); //Set max acceleration for motor 2
-    //set_max_accel(Motor3, 1); //Set max acceleration for motor 3
-   
+    //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
+    //execute_trajectory(motorConfigs, &test_trajectory1);
+    HAL_Delay(5000000);    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
+    //m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
     //HAL_Delay(3000);
     //move_to_pos(Motor2, -M_PI / 4); //Move to 90 degrees
@@ -283,10 +307,10 @@ int main(void)
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     HAL_Delay(2000); 
     */
-      
+    
     //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(500); 
-    Joystick_UpdateManualControl();
+    //Joystick_UpdateManualControl();
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);
@@ -396,13 +420,13 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_16B;
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
   hadc1.Init.ContinuousConvMode = DISABLE;
   hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T8_TRGO;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
   hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
@@ -563,7 +587,7 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 1 */
   htim3.Instance = TIM3;
-  htim3.Init.Prescaler = 63;
+  htim3.Init.Prescaler = 6399;
   htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
   htim3.Init.Period = 19999;
   htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
@@ -590,6 +614,53 @@ static void MX_TIM3_Init(void)
 
   /* USER CODE END TIM3_Init 2 */
   HAL_TIM_MspPostInit(&htim3);
+
+}
+
+/**
+  * @brief TIM8 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM8_Init(void)
+{
+
+  /* USER CODE BEGIN TIM8_Init 0 */
+
+  /* USER CODE END TIM8_Init 0 */
+
+  TIM_ClockConfigTypeDef sClockSourceConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM8_Init 1 */
+
+  /* USER CODE END TIM8_Init 1 */
+  htim8.Instance = TIM8;
+  htim8.Init.Prescaler = 6399;
+  htim8.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim8.Init.Period = 9999;
+  htim8.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim8.Init.RepetitionCounter = 0;
+  htim8.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_Base_Init(&htim8) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sClockSourceConfig.ClockSource = TIM_CLOCKSOURCE_INTERNAL;
+  if (HAL_TIM_ConfigClockSource(&htim8, &sClockSourceConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_UPDATE;
+  sMasterConfig.MasterOutputTrigger2 = TIM_TRGO2_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim8, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM8_Init 2 */
+
+  /* USER CODE END TIM8_Init 2 */
 
 }
 
@@ -829,6 +900,22 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    uint16_t value = HAL_ADC_GetValue(hadc);
+
+    if (adc_rank_index == 0)
+    {
+        joy_x_raw = value;
+        adc_rank_index = 1;
+    }
+    else
+    {
+        joy_y_raw = value;
+        adc_rank_index = 0;
+        joy_new_sample = 1;
+    }
+}
 
 /* USER CODE END 4 */
 

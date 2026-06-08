@@ -1,7 +1,11 @@
 var main_8h =
 [
-    [ "HORIX_GPIO_Port", "main_8h.html#afb975c8ff29309c1bf6aa1dfde6157d6", null ],
-    [ "HORIX_Pin", "main_8h.html#aeecd68c4268271a61a1ef01a4483bc4d", null ],
+    [ "HORIZONTAL_GPIO_Port", "main_8h.html#aec74f2f2e73c6d75b276001b2c4b4dc7", null ],
+    [ "HORIZONTAL_Pin", "main_8h.html#a82f41b32e550704c92f64f13f56b55be", null ],
+    [ "Motor1", "main_8h.html#ae53996f4532a3ce2b5265bc48988fdb2", null ],
+    [ "Motor2", "main_8h.html#a2eeb41e6e07b1131048eb915c8ff01f1", null ],
+    [ "Motor3", "main_8h.html#a6234fafa29d4a3a9bb19f248efc60c02", null ],
+    [ "Motor4", "main_8h.html#a47c12b1d989c867cb57abb8dd3cd8e77", null ],
     [ "Motor_1_Reset_GPIO_Port", "main_8h.html#a07a64339516b576dacccd6a96b4048e6", null ],
     [ "Motor_1_Reset_Pin", "main_8h.html#a61363956965e04ed0969b3f7b753c93e", null ],
     [ "Motor_2_Reset_EXTI_IRQn", "main_8h.html#ae2a5ed612cc9a7222070af6c288ab518", null ],
@@ -40,8 +44,10 @@ var main_8h =
     [ "USB_D__Pin", "main_8h.html#aadc4ff6ea2843f6f98c5947aaa78c84c", null ],
     [ "USB_D_A12_GPIO_Port", "main_8h.html#ae4e81a68bb03b5e2b8e01b0d873b4c33", null ],
     [ "USB_D_A12_Pin", "main_8h.html#a933c52c36aaaaf372ebca75204a11aec", null ],
-    [ "VERT_GPIO_Port", "main_8h.html#a990c1d9a3d7d9dbf0fbaeece64ec408c", null ],
-    [ "VERT_Pin", "main_8h.html#a335a676ab9addecefe9f3dcb2c1a948c", null ],
+    [ "VERTICAL_GPIO_Port", "main_8h.html#a34d226854b83a84a5f5edcb815863cd6", null ],
+    [ "VERTICAL_Pin", "main_8h.html#ada4ff8655128eb30424d71ac95f9894e", null ],
     [ "Error_Handler", "main_8h.html#a1730ffe1e560465665eb47d9264826f9", null ],
-    [ "HAL_TIM_MspPostInit", "main_8h.html#ae70bce6c39d0b570a7523b86738cec4b", null ]
+    [ "HAL_TIM_MspPostInit", "main_8h.html#ae70bce6c39d0b570a7523b86738cec4b", null ],
+    [ "hi2c1", "main_8h.html#af7b2c26e44dadaaa798a5c3d82914ba7", null ],
+    [ "huart3", "main_8h.html#ab7c63c1b0f65db92b6a4ea19edf957e1", null ]
 ];

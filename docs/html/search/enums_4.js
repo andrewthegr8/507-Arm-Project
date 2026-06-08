@@ -1,0 +1,10 @@
+var searchData=
+[
+  ['tcs34725_5fbool_5ft_0',['tcs34725_bool_t',['../group__tcs34725__base__driver.html#ga55951f3dfaf0a47ae9012bd3438f7abd',1,'driver_tcs34725.h']]],
+  ['tcs34725_5fgain_5ft_1',['tcs34725_gain_t',['../group__tcs34725__base__driver.html#gacfa9a59dab1f3f0d5bb4019165928989',1,'driver_tcs34725.h']]],
+  ['tcs34725_5fintegration_5ftime_5ft_2',['tcs34725_integration_time_t',['../group__tcs34725__base__driver.html#gaf252c1263209ae0fb5ca5c24907a9380',1,'driver_tcs34725.h']]],
+  ['tcs34725_5finterrupt_5fmode_5ft_3',['tcs34725_interrupt_mode_t',['../group__tcs34725__interrupt__driver.html#ga1597f4ea6e551e5fdca2a7ef5fb7c414',1,'driver_tcs34725.h']]],
+  ['tcs34725_5fwait_5ftime_5ft_4',['tcs34725_wait_time_t',['../group__tcs34725__base__driver.html#gacd956e75b4f0c985560043f7a88b92da',1,'driver_tcs34725.h']]],
+  ['tmc_5fcomm_5fmode_5',['TMC_Comm_Mode',['../_a_p_i___header_8h.html#ac48f21dae9cae50b48c769b4e3cce7fc',1,'API_Header.h']]],
+  ['tmcerror_6',['TMCError',['../_a_p_i___header_8h.html#a012dadea93845e0b0ed49549217b9403',1,'API_Header.h']]]
+];

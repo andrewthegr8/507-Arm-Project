@@ -1,6 +1,10 @@
 var searchData=
 [
-  ['tmc429_2ec_0',['TMC429.c',['../_t_m_c429_8c.html',1,'']]],
-  ['tmc429_2eh_1',['TMC429.h',['../_t_m_c429_8h.html',1,'']]],
-  ['tmc429_5fregister_2eh_2',['TMC429_Register.h',['../_t_m_c429___register_8h.html',1,'']]]
+  ['macros_2eh_0',['Macros.h',['../_macros_8h.html',1,'']]],
+  ['main_2ec_1',['main.c',['../main_8c.html',1,'']]],
+  ['main_2eh_2',['main.h',['../main_8h.html',1,'']]],
+  ['maneuvers_2ec_3',['maneuvers.c',['../maneuvers_8c.html',1,'']]],
+  ['maneuvers_2eh_4',['maneuvers.h',['../maneuvers_8h.html',1,'']]],
+  ['motion_2ec_5',['motion.c',['../motion_8c.html',1,'']]],
+  ['motion_2eh_6',['motion.h',['../motion_8h.html',1,'']]]
 ];

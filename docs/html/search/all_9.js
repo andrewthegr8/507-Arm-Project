@@ -7,6 +7,10 @@ var searchData=
   ['init429_4',['Init429',['../_t_m_c429_8c.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c'],['../_t_m_c429_8h.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c']]],
   ['inited_5',['inited',['../structtcs34725__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'tcs34725_handle_s']]],
   ['initialise_5fmonitor_5fhandles_6',['initialise_monitor_handles',['../syscalls_8c.html#a25c7f100d498300fff65568c2fcfe639',1,'syscalls.c']]],
-  ['interface_7',['interface',['../structtcs34725__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'tcs34725_info_s']]],
-  ['interrupt_20driver_20function_8',['tcs34725 interrupt driver function',['../group__tcs34725__interrupt__driver.html',1,'']]]
+  ['int16_7',['int16',['../_types_8h.html#aa0d0fdc87fd135ef2bedb030901cdb9c',1,'Types.h']]],
+  ['int32_8',['int32',['../_types_8h.html#ab7903878916593daecbeb95b98115ab0',1,'Types.h']]],
+  ['int8_9',['int8',['../_types_8h.html#aa79c2d3de4fcd200458c406f40b2ae64',1,'Types.h']]],
+  ['interface_10',['interface',['../structtcs34725__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'tcs34725_info_s']]],
+  ['interrupt_20driver_20function_11',['tcs34725 interrupt driver function',['../group__tcs34725__interrupt__driver.html',1,'']]],
+  ['isreflected_12',['isReflected',['../struct_c_r_c_type_def.html#abaa8bd7842fe7ec7d633c795dd1ae6c4',1,'CRCTypeDef']]]
 ];

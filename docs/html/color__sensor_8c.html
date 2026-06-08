@@ -102,6 +102,306 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('color__sensor_
   <div class="headertitle"><div class="title">color_sensor.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="color__sensor_8h_source.html">color_sensor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &lt;math.h&gt;</code><br />
+<code>#include &lt;stdarg.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for color_sensor.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="color__sensor_8c__incl.png" border="0" usemap="#a_core_2_src_2color__sensor_8c" loading="lazy" alt=""/></div>
+<map name="a_core_2_src_2color__sensor_8c" id="a_core_2_src_2color__sensor_8c">
+<area shape="rect" title=" " alt="" coords="218,5,380,32"/>
+<area shape="rect" href="color__sensor_8h.html" title=" " alt="" coords="78,80,184,107"/>
+<area shape="poly" title=" " alt="" coords="268,34,176,76,173,71,272,31"/>
+<area shape="rect" title=" " alt="" coords="194,229,254,256"/>
+<area shape="poly" title=" " alt="" coords="290,31,273,55,259,81,246,116,238,152,228,216,224,213,232,151,241,114,254,79,269,52,286,34"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="269,80,329,107"/>
+<area shape="poly" title=" " alt="" coords="300,30,301,65,296,63,297,35"/>
+<area shape="rect" title=" " alt="" coords="354,80,415,107"/>
+<area shape="poly" title=" " alt="" coords="314,30,361,70,355,70,313,35"/>
+<area shape="rect" title=" " alt="" coords="439,80,508,107"/>
+<area shape="poly" title=" " alt="" coords="329,30,431,73,426,74,329,35"/>
+<area shape="rect" title=" " alt="" coords="5,229,70,256"/>
+<area shape="poly" title=" " alt="" coords="106,109,82,129,58,156,47,185,41,215,36,213,41,184,54,153,79,125,110,105"/>
+<area shape="rect" href="driver__tcs34725_8h.html" title="driver tcs34725 header file" alt="" coords="69,155,193,181"/>
+<area shape="poly" title=" " alt="" coords="132,105,133,140,128,138,130,110"/>
+<area shape="poly" title=" " alt="" coords="117,181,67,222,64,218,112,183"/>
+<area shape="poly" title=" " alt="" coords="148,179,199,219,194,220,146,184"/>
+<area shape="rect" title=" " alt="" coords="99,229,163,256"/>
+<area shape="poly" title=" " alt="" coords="133,180,133,215,128,213,129,184"/>
+<area shape="rect" title=" " alt="" coords="268,155,388,181"/>
+<area shape="poly" title=" " alt="" coords="305,105,320,141,315,139,303,110"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a01c7836dfecb6f708a3e943cee2bfe91" id="r_a01c7836dfecb6f708a3e943cee2bfe91"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a01c7836dfecb6f708a3e943cee2bfe91">MIN_CLEAR</a>&#160;&#160;&#160;20u</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:aa0045094ff3843e1181266a1b50f464b" id="r_aa0045094ff3843e1181266a1b50f464b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memitem:a4fb62548c73a04c146c13f3cd7b63233" id="r_a4fb62548c73a04c146c13f3cd7b63233"><td class="memItemLeft">static <a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4fb62548c73a04c146c13f3cd7b63233">classify</a> (float r, float g, float b)</td></tr>
+<tr class="memitem:a9d3228731c63cc826c663a9a83705ed6" id="r_a9d3228731c63cc826c663a9a83705ed6"><td class="memItemLeft"><a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memitem:a56730e91b5a8838610cdcd0c24b0287a" id="r_a56730e91b5a8838610cdcd0c24b0287a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="memitem:a465561646e841095cb8228936be939fc" id="r_a465561646e841095cb8228936be939fc"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a465561646e841095cb8228936be939fc">my_i2c_write</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="memitem:a8c81f23fd68e03aff4a5912e912d4b84" id="r_a8c81f23fd68e03aff4a5912e912d4b84"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a> (void)</td></tr>
+<tr class="memitem:a452ab95a267e550a0f73cca1ccf7f88d" id="r_a452ab95a267e550a0f73cca1ccf7f88d"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a> (void)</td></tr>
+<tr class="memitem:a9ddddd20ec13dcafa912ee1d93f76a37" id="r_a9ddddd20ec13dcafa912ee1d93f76a37"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a> (uint32_t ms)</td></tr>
+<tr class="memitem:ae2fc163d9f509b203dd40a255c5cd28d" id="r_ae2fc163d9f509b203dd40a255c5cd28d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a> (const char *fmt,...)</td></tr>
+<tr class="memitem:af0fdd74cfb3bb4bf0cba4e5aa6bfbd24" id="r_af0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a> (uint16_t r, uint16_t g, uint16_t b, <a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a01c7836dfecb6f708a3e943cee2bfe91" name="a01c7836dfecb6f708a3e943cee2bfe91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01c7836dfecb6f708a3e943cee2bfe91">&#9670;&#160;</a></span>MIN_CLEAR</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MIN_CLEAR&#160;&#160;&#160;20u</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a4fb62548c73a04c146c13f3cd7b63233" name="a4fb62548c73a04c146c13f3cd7b63233"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fb62548c73a04c146c13f3cd7b63233">&#9670;&#160;</a></span>classify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> classify </td>
+          <td>(</td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>b</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0045094ff3843e1181266a1b50f464b" name="aa0045094ff3843e1181266a1b50f464b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0045094ff3843e1181266a1b50f464b">&#9670;&#160;</a></span>COLOR_SENSOR_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COLOR_SENSOR_Init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af0fdd74cfb3bb4bf0cba4e5aa6bfbd24" name="af0fdd74cfb3bb4bf0cba4e5aa6bfbd24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">&#9670;&#160;</a></span>COLOR_SENSOR_PrintRGB()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void COLOR_SENSOR_PrintRGB </td>
+          <td>(</td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9d3228731c63cc826c663a9a83705ed6" name="a9d3228731c63cc826c663a9a83705ed6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d3228731c63cc826c663a9a83705ed6">&#9670;&#160;</a></span>COLOR_SENSOR_Read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> COLOR_SENSOR_Read </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae2fc163d9f509b203dd40a255c5cd28d" name="ae2fc163d9f509b203dd40a255c5cd28d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae2fc163d9f509b203dd40a255c5cd28d">&#9670;&#160;</a></span>my_debug_print()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_debug_print </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>fmt</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a9ddddd20ec13dcafa912ee1d93f76a37" name="a9ddddd20ec13dcafa912ee1d93f76a37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ddddd20ec13dcafa912ee1d93f76a37">&#9670;&#160;</a></span>my_delay_ms()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_delay_ms </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>ms</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a452ab95a267e550a0f73cca1ccf7f88d" name="a452ab95a267e550a0f73cca1ccf7f88d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a452ab95a267e550a0f73cca1ccf7f88d">&#9670;&#160;</a></span>my_i2c_deinit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t my_i2c_deinit </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8c81f23fd68e03aff4a5912e912d4b84" name="a8c81f23fd68e03aff4a5912e912d4b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c81f23fd68e03aff4a5912e912d4b84">&#9670;&#160;</a></span>my_i2c_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t my_i2c_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56730e91b5a8838610cdcd0c24b0287a" name="a56730e91b5a8838610cdcd0c24b0287a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56730e91b5a8838610cdcd0c24b0287a">&#9670;&#160;</a></span>my_i2c_read()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t my_i2c_read </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a465561646e841095cb8228936be939fc" name="a465561646e841095cb8228936be939fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a465561646e841095cb8228936be939fc">&#9670;&#160;</a></span>my_i2c_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t my_i2c_write </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>addr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>buf</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>len</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

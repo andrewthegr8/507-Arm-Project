@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['s16_5fmax_0',['s16_MAX',['../_types_8h.html#ac83f98e4bc13cd888729bbca578c93e6',1,'Types.h']]],
+  ['s16_5fmin_1',['s16_MIN',['../_types_8h.html#a78fdbcf265c4b46632c388f9a011d909',1,'Types.h']]],
+  ['s24_5fmax_2',['s24_MAX',['../_types_8h.html#a118e6c531d62db6b9a4b3b0af61bffe4',1,'Types.h']]],
+  ['s24_5fmin_3',['s24_MIN',['../_types_8h.html#af0e2e8c1b24f158f94b18ddcb765dd92',1,'Types.h']]],
+  ['s32_5fmax_4',['s32_MAX',['../_types_8h.html#a664040685cc46e45906fdd8659e7a94e',1,'Types.h']]],
+  ['s32_5fmin_5',['s32_MIN',['../_types_8h.html#a9f8d99fb1e1273b3cb6740b9943c2f02',1,'Types.h']]],
+  ['s8_5fmax_6',['s8_MAX',['../_types_8h.html#a79591e42dc101916a2d690a3bc6424ee',1,'Types.h']]],
+  ['s8_5fmin_7',['s8_MIN',['../_types_8h.html#a428725a6501edc4dfee94ad82b8b5617',1,'Types.h']]],
+  ['sel_5fgpio_5fport_8',['SEL_GPIO_Port',['../main_8h.html#a78ac1ce2d47f841a7656ede1fa47b3be',1,'main.h']]],
+  ['sel_5fpin_9',['SEL_Pin',['../main_8h.html#a96079fef37a4047fbd86055327db91b7',1,'main.h']]],
+  ['servo_5fclose_10',['SERVO_CLOSE',['../servo_8c.html#ace7ff1b704ac6c6823df9d08ba8b69b0',1,'servo.c']]],
+  ['servo_5fopen_11',['SERVO_OPEN',['../servo_8c.html#acb91988ca85dd3b15b6f7bfc74c078f6',1,'servo.c']]],
+  ['short_12',['SHORT',['../_bits_8h.html#aec60338d042620d36de9d3126dfe7fbe',1,'Bits.h']]],
+  ['short0_5fmask_13',['SHORT0_MASK',['../_bits_8h.html#a062024206c45c5b1cfd81795b725bbf5',1,'Bits.h']]],
+  ['short0_5fshift_14',['SHORT0_SHIFT',['../_bits_8h.html#a82e503d76c464df2c1b7e4cb90f37bba',1,'Bits.h']]],
+  ['short1_5fmask_15',['SHORT1_MASK',['../_bits_8h.html#a8ea820c5cd3aa1d2eea7ff4a28f96ba0',1,'Bits.h']]],
+  ['short1_5fshift_16',['SHORT1_SHIFT',['../_bits_8h.html#ab7148bd1612fc03d2a0fa785ad261c64',1,'Bits.h']]],
+  ['short2_5fmask_17',['SHORT2_MASK',['../_bits_8h.html#a922cb2888b0714c1ef0b0070cf397ad7',1,'Bits.h']]],
+  ['short2_5fshift_18',['SHORT2_SHIFT',['../_bits_8h.html#ae66f48377c0d3791584e23c366085ba7',1,'Bits.h']]],
+  ['short3_5fmask_19',['SHORT3_MASK',['../_bits_8h.html#a5584183428d645ac8ee86f19d07123b5',1,'Bits.h']]],
+  ['short3_5fshift_20',['SHORT3_SHIFT',['../_bits_8h.html#a15da3f0cc0bb5d35392420c3ea7916f9',1,'Bits.h']]],
+  ['spi_5fdev_5ftmc429_21',['SPI_DEV_TMC429',['../_t_m_c429_8h.html#a164c1ef17f5b8ddeff75cbec4b86179e',1,'TMC429.h']]],
+  ['supply_5fvoltage_5fmax_22',['SUPPLY_VOLTAGE_MAX',['../driver__tcs34725_8c.html#a68eba8b601afe11f1b871d944976c035',1,'driver_tcs34725.c']]],
+  ['supply_5fvoltage_5fmin_23',['SUPPLY_VOLTAGE_MIN',['../driver__tcs34725_8c.html#aac8d8cbd899667d609787ef4cf37054d',1,'driver_tcs34725.c']]]
+];

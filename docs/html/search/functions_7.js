@@ -1,11 +1,6 @@
 var searchData=
 [
-  ['main_0',['main',['../main_8c.html#a840291bc02cba5474a4cb46a9b9566fe',1,'main.c']]],
-  ['memmanage_5fhandler_1',['MemManage_Handler',['../stm32h7xx__it_8c.html#a3150f74512510287a942624aa9b44cc5',1,'MemManage_Handler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a3150f74512510287a942624aa9b44cc5',1,'MemManage_Handler(void):&#160;stm32h7xx_it.c']]],
-  ['mpu_5fconfig_2',['MPU_Config',['../main_8c.html#a93ce41942d08d309203e0188cad7e54e',1,'main.c']]],
-  ['mx_5fgpio_5finit_3',['MX_GPIO_Init',['../main_8c.html#ae89fdd15729ad41a66911190fcbab23a',1,'main.c']]],
-  ['mx_5fi2c1_5finit_4',['MX_I2C1_Init',['../main_8c.html#a4230d11f81d0b16e112f1cc3f40cb42f',1,'main.c']]],
-  ['mx_5fspi1_5finit_5',['MX_SPI1_Init',['../main_8c.html#a28dbf2494083ac5f39daa87bf09e4eb3',1,'main.c']]],
-  ['mx_5ftim3_5finit_6',['MX_TIM3_Init',['../main_8c.html#a73ff2ff527606fb2be261e9f85aab83c',1,'main.c']]],
-  ['mx_5fusb_5fotg_5fhs_5fpcd_5finit_7',['MX_USB_OTG_HS_PCD_Init',['../main_8c.html#ab414bc70def9471e253b6592aea0fdb0',1,'main.c']]]
+  ['get_5fcurrent_5fpos_0',['get_current_pos',['../motion_8c.html#ada95337b862a2d0e29291eb61ac685a0',1,'get_current_pos(motor_config_t *motor):&#160;motion.c'],['../motion_8h.html#ada95337b862a2d0e29291eb61ac685a0',1,'get_current_pos(motor_config_t *motor):&#160;motion.c']]],
+  ['get_5fcurrent_5fvelocity_1',['get_current_velocity',['../motion_8c.html#a94f5f3bfc08ba85ec3bc4e2de740274f',1,'motion.c']]],
+  ['go_5fto_5fnext_5fwaypoint_2',['go_to_next_waypoint',['../maneuvers_8c.html#a51b2b5291716e4fb50a2877a45ae0ff8',1,'maneuvers.c']]]
 ];

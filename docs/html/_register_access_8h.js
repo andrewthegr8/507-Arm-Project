@@ -1,0 +1,25 @@
+var _register_access_8h =
+[
+    [ "TMCRegisterConstant", "struct_t_m_c_register_constant.html", "struct_t_m_c_register_constant" ],
+    [ "____", "_register_access_8h.html#a0b4daa7b938d40350dfc124df5dde591", null ],
+    [ "N_A", "_register_access_8h.html#a1db2da50e48d48d6cc41e3ff41071113", null ],
+    [ "TMC_ACCESS_DIRTY", "_register_access_8h.html#ab7bf3c3ea0569faa301549892d541c37", null ],
+    [ "TMC_ACCESS_FLAGS", "_register_access_8h.html#a885905a0148819416fb28410cc054b6c", null ],
+    [ "TMC_ACCESS_HW_PRESET", "_register_access_8h.html#aadd09ecc74b6823f349786613cab0a2d", null ],
+    [ "TMC_ACCESS_NONE", "_register_access_8h.html#ab44971b415fd1bd8fd16b85f3a7de84e", null ],
+    [ "TMC_ACCESS_R_FLAGS", "_register_access_8h.html#afc2eae2556b90d96f24b8a67cc26b048", null ],
+    [ "TMC_ACCESS_READ", "_register_access_8h.html#aa00f0c6a9e9d78184105874557bbca41", null ],
+    [ "TMC_ACCESS_RW", "_register_access_8h.html#ab2cf5506f2c257a5445cf5ea751d8be1", null ],
+    [ "TMC_ACCESS_RW_FLAGS", "_register_access_8h.html#a8699afffa1b4b0d0d88cdbdc154a129f", null ],
+    [ "TMC_ACCESS_RW_PRESET", "_register_access_8h.html#ae2b46256ddeb4230067256b51bea8cfb", null ],
+    [ "TMC_ACCESS_RW_SEPARATE", "_register_access_8h.html#a4bf7542eef05ab0e8a2a0cc96e111728", null ],
+    [ "TMC_ACCESS_RW_SPECIAL", "_register_access_8h.html#a7671750189afbfe74020ed5f30df6068", null ],
+    [ "TMC_ACCESS_W_PRESET", "_register_access_8h.html#a0a68eeac67d2149074f3f6191d60b80c", null ],
+    [ "TMC_ACCESS_WRITE", "_register_access_8h.html#a9bbc17f9c25f656ded4987d46ef6fe48", null ],
+    [ "TMC_IS_DIRTY", "_register_access_8h.html#a693219534d53ab0222781336324fa9af", null ],
+    [ "TMC_IS_PRESET", "_register_access_8h.html#abc4e7617dbd4a66c3efe62ed34ca6d33", null ],
+    [ "TMC_IS_READABLE", "_register_access_8h.html#af08f0d12a2110808e943d969103914a8", null ],
+    [ "TMC_IS_RESETTABLE", "_register_access_8h.html#a08cbb9fb1db72595e25b38131ee3dba0", null ],
+    [ "TMC_IS_RESTORABLE", "_register_access_8h.html#a70866cbed8c69a330b4aebc9a1e8287e", null ],
+    [ "TMC_IS_WRITABLE", "_register_access_8h.html#a9ed149c96912c0b202d8326509d7e923", null ]
+];

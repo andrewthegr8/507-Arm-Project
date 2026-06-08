@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['motionic_5fconfig_5ft_0',['MotionIC_Config_t',['../struct_motion_i_c___config__t.html',1,'']]]
+  ['configurationtypedef_0',['ConfigurationTypeDef',['../struct_configuration_type_def.html',1,'']]],
+  ['crctypedef_1',['CRCTypeDef',['../struct_c_r_c_type_def.html',1,'']]]
 ];

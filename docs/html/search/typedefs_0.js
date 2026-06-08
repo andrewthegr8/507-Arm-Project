@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['tcs34725_5fhandle_5ft_0',['tcs34725_handle_t',['../group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305',1,'driver_tcs34725.h']]],
-  ['tcs34725_5finfo_5ft_1',['tcs34725_info_t',['../group__tcs34725__base__driver.html#ga093057d187393d5b3e47f5498f8bc52c',1,'driver_tcs34725.h']]]
+  ['float32_5ft_0',['float32_t',['../_types_8h.html#a4611b605e45ab401f02cab15c5e38715',1,'Types.h']]],
+  ['float64_5ft_1',['float64_t',['../_types_8h.html#ac55f3ae81b5bc9053760baacf57e47f4',1,'Types.h']]]
 ];

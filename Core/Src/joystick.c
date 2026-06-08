@@ -10,6 +10,7 @@ void Joystick_Init(void)
 
 static uint16_t read_channel(uint32_t channel)
 {
+    HAL_ADC_Stop(&hadc1);
     ADC_ChannelConfTypeDef cfg = {0};
     cfg.Channel      = channel;
     cfg.Rank         = ADC_REGULAR_RANK_1;
@@ -21,11 +22,6 @@ static uint16_t read_channel(uint32_t channel)
     uint16_t val = HAL_ADC_GetValue(&hadc1);
     HAL_ADC_Stop(&hadc1);
     return val;
-}
-
-void Joystick_Init(void)
-{
-    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
 }
 
 uint16_t Joystick_ReadX(void)

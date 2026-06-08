@@ -264,6 +264,9 @@ int main(void)
   HAL_ADC_Start_IT(&hadc1);
   HAL_TIM_Base_Start(&htim8);
   double m2pos = 0;
+  //Servo_Init();
+  //Servo_Open();
+  uint16_t servo_pulse = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -271,9 +274,6 @@ int main(void)
   while (1)
   {
     //servo test
-    Servo_Init();
-    Servo_Open();
-    Servo_Close();
     //HAL_Delay(1000);
     //Servo_Close();
 
@@ -290,7 +290,7 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
     //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
     //execute_trajectory(motorConfigs, &test_trajectory1);
-    HAL_Delay(500);    
+    HAL_Delay(50000);    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees

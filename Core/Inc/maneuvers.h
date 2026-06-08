@@ -2,15 +2,23 @@
 #define MANEUVERS_H
 #include "motion.h"
 
+//Type to specify servo command for a given waypoint
+typedef enum {
+    NA = 0,
+    Open = 1,
+    Close = 2
+} servo_cmd_t;
+
 
 //type to store joint angles for a given waypoint
 typedef struct {
-    bool delay; //Whether to delay at this waypoint or not (used for waiting to close gripper after reaching block)
+    servo_cmd_t servo; //Servo command for this waypoint
     double joint1;
     double joint2;
     double joint3;
     double joint4;
 } waypoint_t;
+
 
 //type to store a trajectory, which is an array of waypoints and the number of waypoints in the trajectory
 typedef struct {

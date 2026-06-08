@@ -5,9 +5,8 @@
 
 extern TIM_HandleTypeDef htim15;
 
-#define SERVO_MIDDLE    1500u // 1.5ms equivalent in timer counts for 20 ms period (2000*1/50)
-#define SERVO_MIN_PULSE 1000u  // 1.0ms equivalent in timer counts for 20 ms period (2000*1/20)
-#define SERVO_MAX_PULSE 2000u  // 2.0ms equivalent in timer counts for 20 ms period (2000*1/10)
+#define SERVO_OPEN    1000u // 1.5ms equivalent in timer counts for 20 ms period (2000*1/50)
+#define SERVO_CLOSE   1500u  // 1.0ms equivalent in timer counts for 20 ms period (2000*1/20)
 
 void Servo_Init(void)
 {
@@ -16,15 +15,15 @@ void Servo_Init(void)
     
 void Servo_Open(void)
 {
-    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, SERVO_MIN_PULSE);
-}
-
-void Servo_Center(void)
-{
-    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, SERVO_MIDDLE);
+    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, SERVO_OPEN);
 }
 
 void Servo_Close(void)
 {
-    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, SERVO_MAX_PULSE);
+    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, SERVO_CLOSE);
+}
+
+void Servo_Pos(uint16_t pulse_width)
+{
+    __HAL_TIM_SET_COMPARE(&htim15, TIM_CHANNEL_1, pulse_width);
 }

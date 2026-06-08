@@ -23,6 +23,11 @@ static uint16_t read_channel(uint32_t channel)
     return val;
 }
 
+void Joystick_Init(void)
+{
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+}
+
 uint16_t Joystick_ReadX(void)
 {
     return read_channel(ADC_CHANNEL_17);

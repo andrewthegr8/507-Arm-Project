@@ -5,10 +5,10 @@
 #include <stdio.h>
 #include <string.h>
 extern UART_HandleTypeDef huart3;
-#define JOY_CENTER_X        32768
-#define JOY_CENTER_Y        32768
-#define JOY_DEADBAND        4000
-#define JOY_RELEASE_BAND    4000
+#define JOY_CENTER_X        2048
+#define JOY_CENTER_Y        2048
+#define JOY_DEADBAND        200
+#define JOY_RELEASE_BAND    200
 
 extern ADC_HandleTypeDef hadc1;
 
@@ -25,15 +25,16 @@ static uint16_t joy_y_raw = 0;
 
 void Joystick_ReadBoth(void)
 {
-    // Read X (rank 1, ch16)
+    // Read X (rank 1)
     HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, 100);
     joy_x_raw = HAL_ADC_GetValue(&hadc1);
+    HAL_ADC_Stop(&hadc1);
 
-    // Read Y (rank 2, ch17) — poll again for second conversion
+    // Read Y (rank 2)
+    HAL_ADC_Start(&hadc1);
     HAL_ADC_PollForConversion(&hadc1, 100);
     joy_y_raw = HAL_ADC_GetValue(&hadc1);
-
     HAL_ADC_Stop(&hadc1);
 }
 
@@ -68,7 +69,8 @@ void Joystick_UpdateManualControl(void)
 
     //JOYSTICK TESTING 
     char dbg[100];
-    int len = sprintf(dbg, "X: %d  Y: %d  BTN: %d\r\n", x, y, Joystick_ButtonPressed());
+    int len = sprintf(dbg, "RAW X: %u  RAW Y: %u  |  X: %d  Y: %d  BTN: %d\r\n",
+    joy_x_raw, joy_y_raw, x, y, Joystick_ButtonPressed());
     HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY);
     //END JOYSTICK TESTING
 

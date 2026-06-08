@@ -319,7 +319,11 @@ int main(void)
     */
   
     //HAL_Delay(500); 
-    Joystick_UpdateManualControl();
+    uint16_t x = Joystick_ReadX();
+    uint16_t y = Joystick_ReadY();
+    uint8_t  btn = Joystick_ReadButton();
+    printf("X: %u  Y: %u  BTN: %d\r\n", x, y, btn);
+    HAL_Delay(200);
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);

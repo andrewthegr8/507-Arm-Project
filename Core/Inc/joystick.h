@@ -3,18 +3,9 @@
 
 #include <stdint.h>
 
-typedef enum {
-    JOY_AXIS_NONE = 0,
-    JOY_AXIS_X,
-    JOY_AXIS_Y
-} JoystickAxis;
-
+uint16_t Joystick_ReadX(void);
+uint16_t Joystick_ReadY(void);
+uint8_t  Joystick_ReadButton(void);
 void Joystick_Init(void);
-uint16_t Joystick_ReadXRaw(void);
-uint16_t Joystick_ReadYRaw(void);
-int16_t Joystick_Get_XCentered(void);
-int16_t Joystick_Get_YCentered(void);
-uint8_t Joystick_ButtonPressed(void);
-void Joystick_UpdateManualControl(void);
-uint8_t Joystick_IsMoved(void);
+
 #endif

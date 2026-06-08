@@ -141,11 +141,7 @@ void Joystick_UpdateManualControl(void)
 */
 #include "joystick.h"
 #include "main.h"
-
-void Joystick_Init(void)
-{
-    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-}
+#include <stdio.h>
 
 extern ADC_HandleTypeDef hadc1;
 
@@ -162,6 +158,11 @@ static uint16_t read_channel(uint32_t channel)
     uint16_t val = HAL_ADC_GetValue(&hadc1);
     HAL_ADC_Stop(&hadc1);
     return val;
+}
+
+void Joystick_Init(void)
+{
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
 }
 
 uint16_t Joystick_ReadX(void)

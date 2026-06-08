@@ -290,8 +290,8 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
     //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
     //execute_trajectory(motorConfigs, &test_trajectory1);
-    COLOR_SENSOR_Read(&sensor_handle);
-    HAL_Delay(1000);    
+    //COLOR_SENSOR_Read(&sensor_handle);
+    //HAL_Delay(1000);    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //m2pos = get_current_pos(Motor2);
     //move_to_pos(Motor3, M_PI / 4); //Move to 90 degrees
@@ -322,7 +322,9 @@ int main(void)
     uint16_t x = Joystick_ReadX();
     uint16_t y = Joystick_ReadY();
     uint8_t  btn = Joystick_ReadButton();
-    printf("X: %u  Y: %u  BTN: %d\r\n", x, y, btn);
+    char dbg[64];
+    int len = sprintf(dbg, "X: %u  Y: %u  BTN: %d\r\n", x, y, btn);
+    HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY);
     HAL_Delay(200);
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);

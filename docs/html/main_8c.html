@@ -106,16 +106,104 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('main_8c.html',
 <p>: Main program body  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_t_m_c429_8h_source.html">TMC429.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_t_m_c429___register_8h_source.html">TMC429_Register.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="stepper__driver_8h_source.html">stepper_driver.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="driver__tcs34725_8h_source.html">driver_tcs34725.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="color__sensor_8h_source.html">color_sensor.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="servo_8h_source.html">servo.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="joystick_8h_source.html">joystick.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="motion_8h_source.html">motion.h</a>&quot;</code><br />
+<code>#include &lt;string.h&gt;</code><br />
+<code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &quot;<a class="el" href="fsm_8h_source.html">fsm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="maneuvers_8h_source.html">maneuvers.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for main.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="main_8c__incl.png" border="0" usemap="#a_core_2_src_2main_8c" loading="lazy" alt=""/></div>
-<!-- MAP 0 -->
+<map name="a_core_2_src_2main_8c" id="a_core_2_src_2main_8c">
+<area shape="rect" title=": Main program body" alt="" coords="918,5,1034,32"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="697,304,757,331"/>
+<area shape="poly" title=" " alt="" coords="915,24,875,31,828,41,781,58,738,82,686,120,647,159,635,180,629,203,631,227,641,255,660,278,686,297,680,297,656,282,637,257,626,228,624,202,630,178,643,156,683,116,735,78,779,53,827,36,874,26,920,22"/>
+<area shape="rect" href="_t_m_c429_8h.html" title=" " alt="" coords="651,229,734,256"/>
+<area shape="poly" title=" " alt="" coords="915,24,881,32,841,42,801,59,766,82,740,112,721,148,708,183,699,215,695,212,703,182,716,145,736,109,763,78,799,54,839,37,880,27,920,22"/>
+<area shape="rect" href="_t_m_c429___register_8h.html" title=" " alt="" coords="251,304,390,331"/>
+<area shape="poly" title=" " alt="" coords="916,27,813,47,754,63,696,82,591,133,492,193,409,251,349,296,346,292,406,247,489,189,588,129,694,78,752,57,812,42,920,25"/>
+<area shape="rect" href="stepper__driver_8h.html" title=" " alt="" coords="758,229,872,256"/>
+<area shape="poly" title=" " alt="" coords="915,21,882,28,845,38,810,56,782,82,774,97,770,114,773,150,785,185,801,217,796,215,780,187,768,151,765,113,769,95,778,78,807,51,843,33,881,23,920,20"/>
+<area shape="rect" href="driver__tcs34725_8h.html" title="driver tcs34725 header file" alt="" coords="1120,155,1244,181"/>
+<area shape="poly" title=" " alt="" coords="1034,26,1123,47,1161,61,1185,78,1193,93,1195,109,1192,141,1188,138,1190,109,1187,95,1181,82,1159,66,1122,52,1035,32"/>
+<area shape="rect" title=" " alt="" coords="1206,229,1266,256"/>
+<area shape="poly" title=" " alt="" coords="1034,21,1076,27,1121,38,1167,54,1209,78,1229,94,1242,110,1259,154,1260,186,1251,217,1247,214,1255,186,1254,155,1237,113,1225,98,1205,82,1164,59,1120,43,1075,32,1035,26"/>
+<area shape="rect" title=" " alt="" coords="1291,229,1355,256"/>
+<area shape="poly" title=" " alt="" coords="1034,17,1083,21,1138,31,1192,49,1242,78,1272,109,1294,145,1309,182,1319,216,1314,213,1304,184,1289,148,1267,112,1239,82,1190,54,1136,36,1083,26,1035,22"/>
+<area shape="rect" href="color__sensor_8h.html" title=" " alt="" coords="1064,80,1171,107"/>
+<area shape="poly" title=" " alt="" coords="1001,30,1082,72,1077,73,1001,35"/>
+<area shape="rect" href="servo_8h.html" title=" " alt="" coords="998,453,1062,480"/>
+<area shape="poly" title=" " alt="" coords="985,30,1013,88,1025,127,1030,167,1030,319,1031,439,1027,436,1024,319,1024,167,1020,128,1008,90,983,35"/>
+<area shape="rect" href="joystick_8h.html" title=" " alt="" coords="1370,80,1447,107"/>
+<area shape="poly" title=" " alt="" coords="1035,26,1351,77,1358,81,1352,81,1351,83,1035,31"/>
+<area shape="rect" href="motion_8h.html" title=" " alt="" coords="821,155,892,181"/>
+<area shape="poly" title=" " alt="" coords="968,31,878,145,874,141,964,34"/>
+<area shape="rect" href="fsm_8h.html" title=" " alt="" coords="933,155,988,181"/>
+<area shape="poly" title=" " alt="" coords="977,30,966,141,961,138,973,35"/>
+<area shape="rect" href="maneuvers_8h.html" title=" " alt="" coords="792,80,888,107"/>
+<area shape="poly" title=" " alt="" coords="950,34,879,75,876,70,955,31"/>
+<area shape="rect" title=" " alt="" coords="702,379,822,405"/>
+<area shape="poly" title=" " alt="" coords="734,329,752,366,747,364,732,334"/>
+<area shape="poly" title=" " alt="" coords="699,254,717,291,712,289,697,259"/>
+<area shape="rect" href="_a_p_i___header_8h.html" title=" " alt="" coords="414,304,589,331"/>
+<area shape="poly" title=" " alt="" coords="657,258,550,301,548,296,662,255"/>
+<area shape="poly" title=" " alt="" coords="649,253,401,303,400,298,653,251"/>
+<area shape="rect" href="_config_8h.html" title=" " alt="" coords="557,379,628,405"/>
+<area shape="poly" title=" " alt="" coords="518,329,568,369,562,369,517,334"/>
+<area shape="rect" href="_constants_8h.html" title=" " alt="" coords="582,453,674,480"/>
+<area shape="poly" title=" " alt="" coords="569,329,609,347,627,360,641,377,648,392,649,409,642,441,638,437,644,409,642,394,637,380,623,364,606,351,568,334"/>
+<area shape="rect" href="_types_8h.html" title=" " alt="" coords="352,453,419,480"/>
+<area shape="poly" title=" " alt="" coords="430,332,358,354,328,366,311,380,306,397,313,413,329,429,350,445,344,445,325,433,308,416,300,397,306,377,326,362,357,349,435,330"/>
+<area shape="rect" href="_macros_8h.html" title=" " alt="" coords="5,379,81,405"/>
+<area shape="poly" title=" " alt="" coords="411,331,269,352,97,381,95,376,268,346,416,328"/>
+<area shape="rect" href="_bits_8h.html" title=" " alt="" coords="105,379,160,405"/>
+<area shape="poly" title=" " alt="" coords="416,333,307,353,176,381,174,376,306,348,420,330"/>
+<area shape="rect" href="_c_r_c_8h.html" title=" " alt="" coords="184,379,246,405"/>
+<area shape="poly" title=" " alt="" coords="450,333,262,382,261,376,454,330"/>
+<area shape="rect" href="_register_access_8h.html" title=" " alt="" coords="320,379,446,405"/>
+<area shape="poly" title=" " alt="" coords="483,330,418,373,415,368,479,332"/>
+<area shape="rect" title=" " alt="" coords="470,379,533,405"/>
+<area shape="poly" title=" " alt="" coords="503,329,504,364,499,362,500,333"/>
+<area shape="poly" title=" " alt="" coords="600,404,618,440,613,438,597,408"/>
+<area shape="poly" title=" " alt="" coords="559,405,435,451,433,446,554,406"/>
+<area shape="rect" title=" " alt="" coords="400,528,468,555"/>
+<area shape="poly" title=" " alt="" coords="395,478,420,516,415,514,393,483"/>
+<area shape="rect" title=" " alt="" coords="300,528,375,555"/>
+<area shape="poly" title=" " alt="" coords="380,479,356,517,353,513,375,482"/>
+<area shape="rect" title=" " alt="" coords="963,528,1027,555"/>
+<area shape="poly" title=" " alt="" coords="420,469,948,532,946,537,420,475"/>
+<area shape="poly" title=" " alt="" coords="245,403,344,446,339,447,244,409"/>
+<area shape="poly" title=" " alt="" coords="802,255,755,296,752,292,797,258"/>
+<area shape="poly" title=" " alt="" coords="817,254,824,297,836,355,858,419,874,450,893,478,920,502,952,523,946,522,916,507,889,482,869,453,853,421,831,356,818,297,814,258"/>
+<area shape="poly" title=" " alt="" coords="1181,180,1174,240,1170,316,1170,393,1166,422,1157,443,1119,482,1082,509,1042,527,1041,522,1080,504,1116,478,1152,440,1161,421,1164,393,1164,316,1169,239,1178,184"/>
+<area shape="poly" title=" " alt="" coords="1192,179,1220,218,1215,216,1190,184"/>
+<area shape="poly" title=" " alt="" coords="1207,179,1287,222,1282,222,1206,185"/>
+<area shape="poly" title=" " alt="" coords="1117,105,1110,155,1105,205,1106,248,1112,324,1113,359,1109,396,1097,436,1076,481,1058,504,1035,522,1033,517,1054,500,1071,479,1092,435,1103,395,1107,359,1107,324,1101,249,1100,205,1104,154,1113,109"/>
+<area shape="poly" title=" " alt="" coords="1130,105,1163,143,1158,142,1128,110"/>
+<area shape="poly" title=" " alt="" coords="1026,479,1009,516,1006,512,1021,482"/>
+<area shape="poly" title=" " alt="" coords="1408,105,1400,165,1395,241,1395,394,1392,408,1384,422,1354,446,1311,468,1258,487,1142,517,1043,535,1042,530,1141,511,1256,482,1308,463,1351,442,1380,418,1387,406,1390,393,1390,241,1395,165,1404,109"/>
+<area shape="poly" title=" " alt="" coords="825,183,736,225,734,220,830,181"/>
+<area shape="poly" title=" " alt="" coords="865,179,895,237,907,276,912,316,912,393,918,429,933,462,953,491,973,518,969,516,949,495,929,465,913,430,907,394,907,316,902,277,890,239,863,184"/>
+<area shape="poly" title=" " alt="" coords="962,180,963,316,963,393,965,426,971,458,987,515,982,512,966,459,960,426,958,393,958,316,959,184"/>
+<area shape="poly" title=" " alt="" coords="844,105,853,140,848,138,842,110"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:testtype" id="r_testtype"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="structtesttype.html">testtype</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a793cd9403fa1b683e3da533bfa929788" id="r_a793cd9403fa1b683e3da533bfa929788"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a793cd9403fa1b683e3da533bfa929788">MICROSTEPS</a>&#160;&#160;&#160;32</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
@@ -132,26 +220,62 @@ Functions</h2></td></tr>
 <tr class="memdesc:a4230d11f81d0b16e112f1cc3f40cb42f"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C1 Initialization Function.  <br /></td></tr>
 <tr class="memitem:a73ff2ff527606fb2be261e9f85aab83c" id="r_a73ff2ff527606fb2be261e9f85aab83c"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a73ff2ff527606fb2be261e9f85aab83c">MX_TIM3_Init</a> (void)</td></tr>
 <tr class="memdesc:a73ff2ff527606fb2be261e9f85aab83c"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM3 Initialization Function.  <br /></td></tr>
+<tr class="memitem:ac9b592ca8ef85a0898f4e6540524aa38" id="r_ac9b592ca8ef85a0898f4e6540524aa38"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac9b592ca8ef85a0898f4e6540524aa38">MX_TIM15_Init</a> (void)</td></tr>
+<tr class="memdesc:ac9b592ca8ef85a0898f4e6540524aa38"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM15 Initialization Function.  <br /></td></tr>
+<tr class="memitem:a1c98cc38e233c6b46ca2bf9598a5fce8" id="r_a1c98cc38e233c6b46ca2bf9598a5fce8"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a1c98cc38e233c6b46ca2bf9598a5fce8">MX_USART3_UART_Init</a> (void)</td></tr>
+<tr class="memdesc:a1c98cc38e233c6b46ca2bf9598a5fce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">USART3 Initialization Function.  <br /></td></tr>
+<tr class="memitem:aaa163e37853e6fc971474824d9f655ca" id="r_aaa163e37853e6fc971474824d9f655ca"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#aaa163e37853e6fc971474824d9f655ca">MX_ADC1_Init</a> (void)</td></tr>
+<tr class="memdesc:aaa163e37853e6fc971474824d9f655ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">ADC1 Initialization Function.  <br /></td></tr>
+<tr class="memitem:a8d573a0bab10c15045c04f205089575e" id="r_a8d573a0bab10c15045c04f205089575e"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a8d573a0bab10c15045c04f205089575e">MX_TIM8_Init</a> (void)</td></tr>
+<tr class="memdesc:a8d573a0bab10c15045c04f205089575e"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM8 Initialization Function.  <br /></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <br /></td></tr>
+<tr class="memitem:af20a88180db1113be1e89266917d148b" id="r_af20a88180db1113be1e89266917d148b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af20a88180db1113be1e89266917d148b">HAL_ADC_ConvCpltCallback</a> (ADC_HandleTypeDef *hadc)</td></tr>
 <tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
 <tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a3653793595a3b6cf8459ab0052053beb" id="r_a3653793595a3b6cf8459ab0052053beb"><td class="memItemLeft"><a class="el" href="structtesttype.html">testtype</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3653793595a3b6cf8459ab0052053beb">testvar</a></td></tr>
+<tr class="memitem:a22b804736f5648d52f639b2647d4ed13" id="r_a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft">ADC_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a22b804736f5648d52f639b2647d4ed13">hadc1</a></td></tr>
 <tr class="memitem:af7b2c26e44dadaaa798a5c3d82914ba7" id="r_af7b2c26e44dadaaa798a5c3d82914ba7"><td class="memItemLeft">I2C_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#af7b2c26e44dadaaa798a5c3d82914ba7">hi2c1</a></td></tr>
 <tr class="memitem:a9c6222bae4d0328dd843ae099623b40b" id="r_a9c6222bae4d0328dd843ae099623b40b"><td class="memItemLeft">SPI_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a></td></tr>
 <tr class="memitem:aac3d2c59ee0e3bbae1b99529a154eb62" id="r_aac3d2c59ee0e3bbae1b99529a154eb62"><td class="memItemLeft">TIM_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#aac3d2c59ee0e3bbae1b99529a154eb62">htim3</a></td></tr>
+<tr class="memitem:a5faa27108379f799afb6984010bf0384" id="r_a5faa27108379f799afb6984010bf0384"><td class="memItemLeft">TIM_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a5faa27108379f799afb6984010bf0384">htim8</a></td></tr>
+<tr class="memitem:a859a9bb217bb4010bb2bffb6881478c0" id="r_a859a9bb217bb4010bb2bffb6881478c0"><td class="memItemLeft">TIM_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a859a9bb217bb4010bb2bffb6881478c0">htim15</a></td></tr>
+<tr class="memitem:ab7c63c1b0f65db92b6a4ea19edf957e1" id="r_ab7c63c1b0f65db92b6a4ea19edf957e1"><td class="memItemLeft">UART_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a></td></tr>
 <tr class="memitem:a0a95840304203648c1cce34ad1365090" id="r_a0a95840304203648c1cce34ad1365090"><td class="memItemLeft">PCD_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a0a95840304203648c1cce34ad1365090">hpcd_USB_OTG_HS</a></td></tr>
+<tr class="memitem:a254e78eb97719aba9ff760bfbeef7209" id="r_a254e78eb97719aba9ff760bfbeef7209"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a254e78eb97719aba9ff760bfbeef7209">adc_buffer</a> [2]</td></tr>
 <tr class="memitem:a893c8f7dc4b65e11c7030108d6670b00" id="r_a893c8f7dc4b65e11c7030108d6670b00"><td class="memItemLeft">static <a class="el" href="struct_motion_i_c___config__t.html">MotionIC_Config_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a893c8f7dc4b65e11c7030108d6670b00">motionICs</a> [2]</td></tr>
+<tr class="memitem:a92b74903a3f8455e4c7a909857087798" id="r_a92b74903a3f8455e4c7a909857087798"><td class="memItemLeft">static <a class="el" href="struct_stepper_driver_config__t.html">StepperDriverConfig_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a92b74903a3f8455e4c7a909857087798">stepperConfig</a></td></tr>
+<tr class="memitem:a53169ccb825328490c5797c25d83eb5f" id="r_a53169ccb825328490c5797c25d83eb5f"><td class="memItemLeft"><a class="el" href="structmotor__config__t.html">motor_config_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a> [4]</td></tr>
+<tr class="memitem:aeb2dde9172d7a2c20632fe52b9197b46" id="r_aeb2dde9172d7a2c20632fe52b9197b46"><td class="memItemLeft"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeb2dde9172d7a2c20632fe52b9197b46">sensor_handle</a></td></tr>
+<tr class="memitem:a51b235bb317650568ae0837bbc2f30c0" id="r_a51b235bb317650568ae0837bbc2f30c0"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a51b235bb317650568ae0837bbc2f30c0">joy_x_raw</a> = 0</td></tr>
+<tr class="memitem:a05a86384dd0298c276dedaee15e7a16a" id="r_a05a86384dd0298c276dedaee15e7a16a"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a05a86384dd0298c276dedaee15e7a16a">joy_y_raw</a> = 0</td></tr>
+<tr class="memitem:a2bedd987d0de20480e31c28b11dbc8a6" id="r_a2bedd987d0de20480e31c28b11dbc8a6"><td class="memItemLeft">volatile uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a2bedd987d0de20480e31c28b11dbc8a6">adc_rank_index</a> = 0</td></tr>
+<tr class="memitem:ab81532e2f01fd4090b366fe0ca48e460" id="r_ab81532e2f01fd4090b366fe0ca48e460"><td class="memItemLeft">volatile uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ab81532e2f01fd4090b366fe0ca48e460">joy_new_sample</a> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>: Main program body </p>
 <dl class="section attention"><dt>Attention</dt><dd></dd></dl>
 <p>Copyright (c) 2026 STMicroelectronics. All rights reserved.</p>
 <p>This software is licensed under terms that can be found in the LICENSE file in the root directory of this software component. If no LICENSE file comes with this software, it is provided AS-IS. </p>
-</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a793cd9403fa1b683e3da533bfa929788" name="a793cd9403fa1b683e3da533bfa929788"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a793cd9403fa1b683e3da533bfa929788">&#9670;&#160;</a></span>MICROSTEPS</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MICROSTEPS&#160;&#160;&#160;32</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a1730ffe1e560465665eb47d9264826f9" name="a1730ffe1e560465665eb47d9264826f9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1730ffe1e560465665eb47d9264826f9">&#9670;&#160;</a></span>Error_Handler()</h2>
 
@@ -174,6 +298,23 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af20a88180db1113be1e89266917d148b" name="af20a88180db1113be1e89266917d148b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af20a88180db1113be1e89266917d148b">&#9670;&#160;</a></span>HAL_ADC_ConvCpltCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HAL_ADC_ConvCpltCallback </td>
+          <td>(</td>
+          <td class="paramtype">ADC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>hadc</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -225,6 +366,48 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <p>Initializes and configures the Region and the memory to be protected</p>
+
+</div>
+</div>
+<a id="aaa163e37853e6fc971474824d9f655ca" name="aaa163e37853e6fc971474824d9f655ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaa163e37853e6fc971474824d9f655ca">&#9670;&#160;</a></span>MX_ADC1_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_ADC1_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>ADC1 Initialization Function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Common config</p>
+<p>Configure the ADC multi-mode</p>
+<p>Configure Regular Channel</p>
 
 </div>
 </div>
@@ -347,6 +530,45 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="ac9b592ca8ef85a0898f4e6540524aa38" name="ac9b592ca8ef85a0898f4e6540524aa38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9b592ca8ef85a0898f4e6540524aa38">&#9670;&#160;</a></span>MX_TIM15_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM15_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>TIM15 Initialization Function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a73ff2ff527606fb2be261e9f85aab83c" name="a73ff2ff527606fb2be261e9f85aab83c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a73ff2ff527606fb2be261e9f85aab83c">&#9670;&#160;</a></span>MX_TIM3_Init()</h2>
 
@@ -371,6 +593,84 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>TIM3 Initialization Function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8d573a0bab10c15045c04f205089575e" name="a8d573a0bab10c15045c04f205089575e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d573a0bab10c15045c04f205089575e">&#9670;&#160;</a></span>MX_TIM8_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_TIM8_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>TIM8 Initialization Function. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="retval"><dt>Return values</dt><dd>
+  <table class="retval">
+    <tr><td class="paramname">None</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a1c98cc38e233c6b46ca2bf9598a5fce8" name="a1c98cc38e233c6b46ca2bf9598a5fce8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c98cc38e233c6b46ca2bf9598a5fce8">&#9670;&#160;</a></span>MX_USART3_UART_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MX_USART3_UART_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>USART3 Initialization Function. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">None</td><td></td></tr>
@@ -455,6 +755,48 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a254e78eb97719aba9ff760bfbeef7209" name="a254e78eb97719aba9ff760bfbeef7209"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a254e78eb97719aba9ff760bfbeef7209">&#9670;&#160;</a></span>adc_buffer</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t adc_buffer[2]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2bedd987d0de20480e31c28b11dbc8a6" name="a2bedd987d0de20480e31c28b11dbc8a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bedd987d0de20480e31c28b11dbc8a6">&#9670;&#160;</a></span>adc_rank_index</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t adc_rank_index = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a22b804736f5648d52f639b2647d4ed13" name="a22b804736f5648d52f639b2647d4ed13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b804736f5648d52f639b2647d4ed13">&#9670;&#160;</a></span>hadc1</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADC_HandleTypeDef hadc1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af7b2c26e44dadaaa798a5c3d82914ba7" name="af7b2c26e44dadaaa798a5c3d82914ba7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af7b2c26e44dadaaa798a5c3d82914ba7">&#9670;&#160;</a></span>hi2c1</h2>
 
@@ -497,6 +839,20 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a859a9bb217bb4010bb2bffb6881478c0" name="a859a9bb217bb4010bb2bffb6881478c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a859a9bb217bb4010bb2bffb6881478c0">&#9670;&#160;</a></span>htim15</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef htim15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="aac3d2c59ee0e3bbae1b99529a154eb62" name="aac3d2c59ee0e3bbae1b99529a154eb62"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aac3d2c59ee0e3bbae1b99529a154eb62">&#9670;&#160;</a></span>htim3</h2>
 
@@ -505,6 +861,76 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">TIM_HandleTypeDef htim3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5faa27108379f799afb6984010bf0384" name="a5faa27108379f799afb6984010bf0384"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5faa27108379f799afb6984010bf0384">&#9670;&#160;</a></span>htim8</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">TIM_HandleTypeDef htim8</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab7c63c1b0f65db92b6a4ea19edf957e1" name="ab7c63c1b0f65db92b6a4ea19edf957e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7c63c1b0f65db92b6a4ea19edf957e1">&#9670;&#160;</a></span>huart3</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UART_HandleTypeDef huart3</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab81532e2f01fd4090b366fe0ca48e460" name="ab81532e2f01fd4090b366fe0ca48e460"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab81532e2f01fd4090b366fe0ca48e460">&#9670;&#160;</a></span>joy_new_sample</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t joy_new_sample = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a51b235bb317650568ae0837bbc2f30c0" name="a51b235bb317650568ae0837bbc2f30c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51b235bb317650568ae0837bbc2f30c0">&#9670;&#160;</a></span>joy_x_raw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t joy_x_raw = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a05a86384dd0298c276dedaee15e7a16a" name="a05a86384dd0298c276dedaee15e7a16a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a86384dd0298c276dedaee15e7a16a">&#9670;&#160;</a></span>joy_y_raw</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint16_t joy_y_raw = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -535,11 +961,122 @@ Variables</h2></td></tr>
 <div class="line">    { &amp;<a class="code hl_variable" href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a>, <a class="code hl_define" href="main_8h.html#acacb73ca1068ab52167fef6b00a30a7a">MP1_NSCS_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#aa99244813ab9c5c5f7f037b6a462d915">MP1_NSCS_Pin</a> },</div>
 <div class="line">    { &amp;<a class="code hl_variable" href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a>, <a class="code hl_define" href="main_8h.html#a729b6ea482b11617d59ae9181cd40dba">MP2_NSCS_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#a226821d2da282d1586e5cb177a517502">MP2_NSCS_Pin</a> }</div>
 <div class="line">}</div>
-<div class="ttc" id="amain_8c_html_a9c6222bae4d0328dd843ae099623b40b"><div class="ttname"><a href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a></div><div class="ttdeci">SPI_HandleTypeDef hspi1</div><div class="ttdef"><b>Definition</b> main.c:53</div></div>
-<div class="ttc" id="amain_8h_html_a226821d2da282d1586e5cb177a517502"><div class="ttname"><a href="main_8h.html#a226821d2da282d1586e5cb177a517502">MP2_NSCS_Pin</a></div><div class="ttdeci">#define MP2_NSCS_Pin</div><div class="ttdef"><b>Definition</b> main.h:83</div></div>
-<div class="ttc" id="amain_8h_html_a729b6ea482b11617d59ae9181cd40dba"><div class="ttname"><a href="main_8h.html#a729b6ea482b11617d59ae9181cd40dba">MP2_NSCS_GPIO_Port</a></div><div class="ttdeci">#define MP2_NSCS_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:84</div></div>
-<div class="ttc" id="amain_8h_html_aa99244813ab9c5c5f7f037b6a462d915"><div class="ttname"><a href="main_8h.html#aa99244813ab9c5c5f7f037b6a462d915">MP1_NSCS_Pin</a></div><div class="ttdeci">#define MP1_NSCS_Pin</div><div class="ttdef"><b>Definition</b> main.h:78</div></div>
-<div class="ttc" id="amain_8h_html_acacb73ca1068ab52167fef6b00a30a7a"><div class="ttname"><a href="main_8h.html#acacb73ca1068ab52167fef6b00a30a7a">MP1_NSCS_GPIO_Port</a></div><div class="ttdeci">#define MP1_NSCS_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:79</div></div>
+<div class="ttc" id="amain_8c_html_a9c6222bae4d0328dd843ae099623b40b"><div class="ttname"><a href="#a9c6222bae4d0328dd843ae099623b40b">hspi1</a></div><div class="ttdeci">SPI_HandleTypeDef hspi1</div><div class="ttdef"><b>Definition</b> main.c:66</div></div>
+<div class="ttc" id="amain_8h_html_a226821d2da282d1586e5cb177a517502"><div class="ttname"><a href="main_8h.html#a226821d2da282d1586e5cb177a517502">MP2_NSCS_Pin</a></div><div class="ttdeci">#define MP2_NSCS_Pin</div><div class="ttdef"><b>Definition</b> main.h:84</div></div>
+<div class="ttc" id="amain_8h_html_a729b6ea482b11617d59ae9181cd40dba"><div class="ttname"><a href="main_8h.html#a729b6ea482b11617d59ae9181cd40dba">MP2_NSCS_GPIO_Port</a></div><div class="ttdeci">#define MP2_NSCS_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:85</div></div>
+<div class="ttc" id="amain_8h_html_aa99244813ab9c5c5f7f037b6a462d915"><div class="ttname"><a href="main_8h.html#aa99244813ab9c5c5f7f037b6a462d915">MP1_NSCS_Pin</a></div><div class="ttdeci">#define MP1_NSCS_Pin</div><div class="ttdef"><b>Definition</b> main.h:79</div></div>
+<div class="ttc" id="amain_8h_html_acacb73ca1068ab52167fef6b00a30a7a"><div class="ttname"><a href="main_8h.html#acacb73ca1068ab52167fef6b00a30a7a">MP1_NSCS_GPIO_Port</a></div><div class="ttdeci">#define MP1_NSCS_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:80</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a53169ccb825328490c5797c25d83eb5f" name="a53169ccb825328490c5797c25d83eb5f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53169ccb825328490c5797c25d83eb5f">&#9670;&#160;</a></span>motorConfigs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmotor__config__t.html">motor_config_t</a> motorConfigs[4]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                            =</div>
+<div class="line">{</div>
+<div class="line">    { .motionIC = <a class="code hl_enumvalue" href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffad43c0fa9ed4e25a9c03b136eeccef752">MOTION_IC_1</a>, .MotionIC_motorNum = 0 },</div>
+<div class="line">    { .motionIC = <a class="code hl_enumvalue" href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffad43c0fa9ed4e25a9c03b136eeccef752">MOTION_IC_1</a>, .MotionIC_motorNum = 1 },</div>
+<div class="line">    { .motionIC = <a class="code hl_enumvalue" href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffad43c0fa9ed4e25a9c03b136eeccef752">MOTION_IC_1</a>, .MotionIC_motorNum = 2 },</div>
+<div class="line">    { .motionIC = <a class="code hl_enumvalue" href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffa481ac326fa2b4030eb6141afa7054f5f">MOTION_IC_2</a>, .MotionIC_motorNum = 0 }</div>
+<div class="line">}</div>
+<div class="ttc" id="a_t_m_c429_8h_html_a64bfad74fef17ca646254cdcbc5e71ffa481ac326fa2b4030eb6141afa7054f5f"><div class="ttname"><a href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffa481ac326fa2b4030eb6141afa7054f5f">MOTION_IC_2</a></div><div class="ttdeci">@ MOTION_IC_2</div><div class="ttdef"><b>Definition</b> TMC429.h:32</div></div>
+<div class="ttc" id="a_t_m_c429_8h_html_a64bfad74fef17ca646254cdcbc5e71ffad43c0fa9ed4e25a9c03b136eeccef752"><div class="ttname"><a href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ffad43c0fa9ed4e25a9c03b136eeccef752">MOTION_IC_1</a></div><div class="ttdeci">@ MOTION_IC_1</div><div class="ttdef"><b>Definition</b> TMC429.h:31</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="aeb2dde9172d7a2c20632fe52b9197b46" name="aeb2dde9172d7a2c20632fe52b9197b46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2dde9172d7a2c20632fe52b9197b46">&#9670;&#160;</a></span>sensor_handle</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> sensor_handle</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                = {</div>
+<div class="line">    .iic_init    = <a class="code hl_function" href="color__sensor_8c.html#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a>,</div>
+<div class="line">    .iic_deinit  = <a class="code hl_function" href="color__sensor_8c.html#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a>,</div>
+<div class="line">    .iic_read    = <a class="code hl_function" href="color__sensor_8c.html#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a>,</div>
+<div class="line">    .iic_write   = <a class="code hl_function" href="color__sensor_8c.html#a465561646e841095cb8228936be939fc">my_i2c_write</a>,</div>
+<div class="line">    .delay_ms    = <a class="code hl_function" href="color__sensor_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>,</div>
+<div class="line">    .debug_print = <a class="code hl_function" href="color__sensor_8c.html#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a>,</div>
+<div class="line">}</div>
+<div class="ttc" id="acolor__sensor_8c_html_a452ab95a267e550a0f73cca1ccf7f88d"><div class="ttname"><a href="color__sensor_8c.html#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a></div><div class="ttdeci">uint8_t my_i2c_deinit(void)</div><div class="ttdef"><b>Definition</b> color_sensor.c:96</div></div>
+<div class="ttc" id="acolor__sensor_8c_html_a465561646e841095cb8228936be939fc"><div class="ttname"><a href="color__sensor_8c.html#a465561646e841095cb8228936be939fc">my_i2c_write</a></div><div class="ttdeci">uint8_t my_i2c_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</div><div class="ttdef"><b>Definition</b> color_sensor.c:67</div></div>
+<div class="ttc" id="acolor__sensor_8c_html_a56730e91b5a8838610cdcd0c24b0287a"><div class="ttname"><a href="color__sensor_8c.html#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a></div><div class="ttdeci">uint8_t my_i2c_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</div><div class="ttdef"><b>Definition</b> color_sensor.c:54</div></div>
+<div class="ttc" id="acolor__sensor_8c_html_a8c81f23fd68e03aff4a5912e912d4b84"><div class="ttname"><a href="color__sensor_8c.html#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a></div><div class="ttdeci">uint8_t my_i2c_init(void)</div><div class="ttdef"><b>Definition</b> color_sensor.c:92</div></div>
+<div class="ttc" id="acolor__sensor_8c_html_a9ddddd20ec13dcafa912ee1d93f76a37"><div class="ttname"><a href="color__sensor_8c.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a></div><div class="ttdeci">void my_delay_ms(uint32_t ms)</div><div class="ttdef"><b>Definition</b> color_sensor.c:100</div></div>
+<div class="ttc" id="acolor__sensor_8c_html_ae2fc163d9f509b203dd40a255c5cd28d"><div class="ttname"><a href="color__sensor_8c.html#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a></div><div class="ttdeci">void my_debug_print(const char *fmt,...)</div><div class="ttdef"><b>Definition</b> color_sensor.c:104</div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a92b74903a3f8455e4c7a909857087798" name="a92b74903a3f8455e4c7a909857087798"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92b74903a3f8455e4c7a909857087798">&#9670;&#160;</a></span>stepperConfig</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_stepper_driver_config__t.html">StepperDriverConfig_t</a> stepperConfig</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">                                           =</div>
+<div class="line">{</div>
+<div class="line">    .sleepPort = <a class="code hl_define" href="main_8h.html#adac6e416c1cdec265aaec918a6367652">Motor_Sleep_GPIO_Port</a>,</div>
+<div class="line">    .sleepPin  = <a class="code hl_define" href="main_8h.html#a1dbf7f21d852a5ce7784c8694ac665e0">Motor_Sleep_Pin</a>,</div>
+<div class="line"> </div>
+<div class="line">    .enablePort = <a class="code hl_define" href="main_8h.html#a08950750f389ef6df4eec37fa1c41c41">Motor_Enable_GPIO_Port</a>,</div>
+<div class="line">    .enablePin  = <a class="code hl_define" href="main_8h.html#ad13528056a553a6a781721f3d51acdd4">Motor_Enable_Pin</a>,</div>
+<div class="line"> </div>
+<div class="line">    .decay1Port = <a class="code hl_define" href="main_8h.html#ab284aa2838bba6f5f63f36792c2b09ff">Motor_Decay1_GPIO_Port</a>,</div>
+<div class="line">    .decay1Pin  = <a class="code hl_define" href="main_8h.html#a6d6508807bee487818f84268dbd89774">Motor_Decay1_Pin</a>,</div>
+<div class="line"> </div>
+<div class="line">    .decay2Port = <a class="code hl_define" href="main_8h.html#ae2193bf98380731635dfb9ee6005fa0e">Motor_Decay_2_GPIO_Port</a>,</div>
+<div class="line">    .decay2Pin  = <a class="code hl_define" href="main_8h.html#a1844bf72f29a42295f48724a3ddb681f">Motor_Decay_2_Pin</a>,</div>
+<div class="line"> </div>
+<div class="line">    .drivers =</div>
+<div class="line">    {</div>
+<div class="line">        { <a class="code hl_define" href="main_8h.html#a07a64339516b576dacccd6a96b4048e6">Motor_1_Reset_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#a61363956965e04ed0969b3f7b753c93e">Motor_1_Reset_Pin</a> },</div>
+<div class="line">        { <a class="code hl_define" href="main_8h.html#a25a3315ed49960402e9d370249bdb693">Motor_2_Reset_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#aef46affde0fc1b3b84e77a872169bbd2">Motor_2_Reset_Pin</a> },</div>
+<div class="line">        { <a class="code hl_define" href="main_8h.html#a532a02703f49933ce19fbcd2086fe50e">Motor_3_Reset_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#ac2aa3923d518d596de1d79558dd32be4">Motor_3_Reset_Pin</a> },</div>
+<div class="line">        { <a class="code hl_define" href="main_8h.html#a52def8b622b164d278a6b19d9d830343">Motor_4_Reset_GPIO_Port</a>, <a class="code hl_define" href="main_8h.html#ab77865054da5869e6171bd9919edcc24">Motor_4_Reset_Pin</a> }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="ttc" id="amain_8h_html_a07a64339516b576dacccd6a96b4048e6"><div class="ttname"><a href="main_8h.html#a07a64339516b576dacccd6a96b4048e6">Motor_1_Reset_GPIO_Port</a></div><div class="ttdeci">#define Motor_1_Reset_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:93</div></div>
+<div class="ttc" id="amain_8h_html_a08950750f389ef6df4eec37fa1c41c41"><div class="ttname"><a href="main_8h.html#a08950750f389ef6df4eec37fa1c41c41">Motor_Enable_GPIO_Port</a></div><div class="ttdeci">#define Motor_Enable_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:64</div></div>
+<div class="ttc" id="amain_8h_html_a1844bf72f29a42295f48724a3ddb681f"><div class="ttname"><a href="main_8h.html#a1844bf72f29a42295f48724a3ddb681f">Motor_Decay_2_Pin</a></div><div class="ttdeci">#define Motor_Decay_2_Pin</div><div class="ttdef"><b>Definition</b> main.h:90</div></div>
+<div class="ttc" id="amain_8h_html_a1dbf7f21d852a5ce7784c8694ac665e0"><div class="ttname"><a href="main_8h.html#a1dbf7f21d852a5ce7784c8694ac665e0">Motor_Sleep_Pin</a></div><div class="ttdeci">#define Motor_Sleep_Pin</div><div class="ttdef"><b>Definition</b> main.h:65</div></div>
+<div class="ttc" id="amain_8h_html_a25a3315ed49960402e9d370249bdb693"><div class="ttname"><a href="main_8h.html#a25a3315ed49960402e9d370249bdb693">Motor_2_Reset_GPIO_Port</a></div><div class="ttdeci">#define Motor_2_Reset_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:95</div></div>
+<div class="ttc" id="amain_8h_html_a52def8b622b164d278a6b19d9d830343"><div class="ttname"><a href="main_8h.html#a52def8b622b164d278a6b19d9d830343">Motor_4_Reset_GPIO_Port</a></div><div class="ttdeci">#define Motor_4_Reset_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:68</div></div>
+<div class="ttc" id="amain_8h_html_a532a02703f49933ce19fbcd2086fe50e"><div class="ttname"><a href="main_8h.html#a532a02703f49933ce19fbcd2086fe50e">Motor_3_Reset_GPIO_Port</a></div><div class="ttdeci">#define Motor_3_Reset_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:98</div></div>
+<div class="ttc" id="amain_8h_html_a61363956965e04ed0969b3f7b753c93e"><div class="ttname"><a href="main_8h.html#a61363956965e04ed0969b3f7b753c93e">Motor_1_Reset_Pin</a></div><div class="ttdeci">#define Motor_1_Reset_Pin</div><div class="ttdef"><b>Definition</b> main.h:92</div></div>
+<div class="ttc" id="amain_8h_html_a6d6508807bee487818f84268dbd89774"><div class="ttname"><a href="main_8h.html#a6d6508807bee487818f84268dbd89774">Motor_Decay1_Pin</a></div><div class="ttdeci">#define Motor_Decay1_Pin</div><div class="ttdef"><b>Definition</b> main.h:88</div></div>
+<div class="ttc" id="amain_8h_html_ab284aa2838bba6f5f63f36792c2b09ff"><div class="ttname"><a href="main_8h.html#ab284aa2838bba6f5f63f36792c2b09ff">Motor_Decay1_GPIO_Port</a></div><div class="ttdeci">#define Motor_Decay1_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:89</div></div>
+<div class="ttc" id="amain_8h_html_ab77865054da5869e6171bd9919edcc24"><div class="ttname"><a href="main_8h.html#ab77865054da5869e6171bd9919edcc24">Motor_4_Reset_Pin</a></div><div class="ttdeci">#define Motor_4_Reset_Pin</div><div class="ttdef"><b>Definition</b> main.h:67</div></div>
+<div class="ttc" id="amain_8h_html_ac2aa3923d518d596de1d79558dd32be4"><div class="ttname"><a href="main_8h.html#ac2aa3923d518d596de1d79558dd32be4">Motor_3_Reset_Pin</a></div><div class="ttdeci">#define Motor_3_Reset_Pin</div><div class="ttdef"><b>Definition</b> main.h:97</div></div>
+<div class="ttc" id="amain_8h_html_ad13528056a553a6a781721f3d51acdd4"><div class="ttname"><a href="main_8h.html#ad13528056a553a6a781721f3d51acdd4">Motor_Enable_Pin</a></div><div class="ttdeci">#define Motor_Enable_Pin</div><div class="ttdef"><b>Definition</b> main.h:63</div></div>
+<div class="ttc" id="amain_8h_html_adac6e416c1cdec265aaec918a6367652"><div class="ttname"><a href="main_8h.html#adac6e416c1cdec265aaec918a6367652">Motor_Sleep_GPIO_Port</a></div><div class="ttdeci">#define Motor_Sleep_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:66</div></div>
+<div class="ttc" id="amain_8h_html_ae2193bf98380731635dfb9ee6005fa0e"><div class="ttname"><a href="main_8h.html#ae2193bf98380731635dfb9ee6005fa0e">Motor_Decay_2_GPIO_Port</a></div><div class="ttdeci">#define Motor_Decay_2_GPIO_Port</div><div class="ttdef"><b>Definition</b> main.h:91</div></div>
+<div class="ttc" id="amain_8h_html_aef46affde0fc1b3b84e77a872169bbd2"><div class="ttname"><a href="main_8h.html#aef46affde0fc1b3b84e77a872169bbd2">Motor_2_Reset_Pin</a></div><div class="ttdeci">#define Motor_2_Reset_Pin</div><div class="ttdef"><b>Definition</b> main.h:94</div></div>
 </div><!-- fragment -->
 </div>
 </div>

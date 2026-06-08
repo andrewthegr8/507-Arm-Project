@@ -1,5 +1,6 @@
 var stm32h7xx__it_8h =
 [
+    [ "ADC_IRQHandler", "stm32h7xx__it_8h.html#a06406eadf297fa89a6eaf9586b227a69", null ],
     [ "BusFault_Handler", "stm32h7xx__it_8h.html#a850cefb17a977292ae5eb4cafa9976c3", null ],
     [ "DebugMon_Handler", "stm32h7xx__it_8h.html#adbdfb05858cc36fc520974df37ec3cb0", null ],
     [ "EXTI9_5_IRQHandler", "stm32h7xx__it_8h.html#a7b2096b8b2643286dc3a7e5110e5ae85", null ],

@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['motionic_5ft_0',['MotionIC_t',['../_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ff',1,'TMC429.h']]]
+  ['colorresult_5ft_0',['ColorResult_t',['../color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da',1,'color_sensor.h']]],
+  ['configstate_1',['ConfigState',['../_config_8h.html#a68a217514c80f15824fb5b28c25c837f',1,'Config.h']]]
 ];

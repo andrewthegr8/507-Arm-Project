@@ -6,7 +6,7 @@ var fsm_8h =
       [ "S1_MANUAL_APPROACH", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a8e67b2a63e4e6d3c90a4d401e1ae89ee", null ],
       [ "S2_CLOSE_GRIPPER", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a335bb1bcec123e06e780ef23aeabf0f8", null ],
       [ "S3_READ_COLOR", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496ae02a7d9e21e646721e8c06f3cffc10be", null ],
-      [ "S4_PLAN_MOVE", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a247dc3e5086cb72ad83d27c3b4f82322", null ],
+      [ "S4_PLOT_MOVE", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a9bcc93a8fb847f6a427a4e49d09dbdfc", null ],
       [ "S5_MOVE_BLOCK", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a488281ab8222332c7cc38d33dff70da5", null ],
       [ "S6_RELEASE_BLOCK", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496ab8f5c6dc3640da24b36ee86da0055fbc", null ],
       [ "S7_RETURN_HOME", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a03e0aab11b51c6965926bce729c71f52", null ]

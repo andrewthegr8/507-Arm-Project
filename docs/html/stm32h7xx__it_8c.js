@@ -1,5 +1,6 @@
 var stm32h7xx__it_8c =
 [
+    [ "ADC_IRQHandler", "stm32h7xx__it_8c.html#a06406eadf297fa89a6eaf9586b227a69", null ],
     [ "BusFault_Handler", "stm32h7xx__it_8c.html#a850cefb17a977292ae5eb4cafa9976c3", null ],
     [ "DebugMon_Handler", "stm32h7xx__it_8c.html#adbdfb05858cc36fc520974df37ec3cb0", null ],
     [ "EXTI9_5_IRQHandler", "stm32h7xx__it_8c.html#a7b2096b8b2643286dc3a7e5110e5ae85", null ],
@@ -9,5 +10,6 @@ var stm32h7xx__it_8c =
     [ "PendSV_Handler", "stm32h7xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623", null ],
     [ "SVC_Handler", "stm32h7xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce", null ],
     [ "SysTick_Handler", "stm32h7xx__it_8c.html#ab5e09814056d617c521549e542639b7e", null ],
-    [ "UsageFault_Handler", "stm32h7xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647", null ]
+    [ "UsageFault_Handler", "stm32h7xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647", null ],
+    [ "hadc1", "stm32h7xx__it_8c.html#a22b804736f5648d52f639b2647d4ed13", null ]
 ];

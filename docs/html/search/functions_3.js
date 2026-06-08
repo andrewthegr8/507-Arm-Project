@@ -1,5 +1,8 @@
 var searchData=
 [
-  ['error_5fhandler_0',['Error_Handler',['../main_8c.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c'],['../main_8h.html#a1730ffe1e560465665eb47d9264826f9',1,'Error_Handler(void):&#160;main.c']]],
-  ['exti9_5f5_5firqhandler_1',['EXTI9_5_IRQHandler',['../stm32h7xx__it_8c.html#a7b2096b8b2643286dc3a7e5110e5ae85',1,'EXTI9_5_IRQHandler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a7b2096b8b2643286dc3a7e5110e5ae85',1,'EXTI9_5_IRQHandler(void):&#160;stm32h7xx_it.c']]]
+  ['classify_0',['classify',['../color__sensor_8c.html#a4fb62548c73a04c146c13f3cd7b63233',1,'color_sensor.c']]],
+  ['color_5fsensor_5finit_1',['COLOR_SENSOR_Init',['../color__sensor_8c.html#aa0045094ff3843e1181266a1b50f464b',1,'COLOR_SENSOR_Init(tcs34725_handle_t *handle):&#160;color_sensor.c'],['../color__sensor_8h.html#aa0045094ff3843e1181266a1b50f464b',1,'COLOR_SENSOR_Init(tcs34725_handle_t *handle):&#160;color_sensor.c']]],
+  ['color_5fsensor_5fprintrgb_2',['COLOR_SENSOR_PrintRGB',['../color__sensor_8c.html#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24',1,'COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color):&#160;color_sensor.c'],['../color__sensor_8h.html#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24',1,'COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color):&#160;color_sensor.c']]],
+  ['color_5fsensor_5fread_3',['COLOR_SENSOR_Read',['../color__sensor_8c.html#a9d3228731c63cc826c663a9a83705ed6',1,'COLOR_SENSOR_Read(tcs34725_handle_t *handle):&#160;color_sensor.c'],['../color__sensor_8h.html#a9d3228731c63cc826c663a9a83705ed6',1,'COLOR_SENSOR_Read(tcs34725_handle_t *handle):&#160;color_sensor.c']]],
+  ['compute_5fmotor_5fparams_4',['compute_motor_params',['../motion_8c.html#ac11bbe58749d2dcfb9508212a2f1afe9',1,'compute_motor_params(motor_config_t *motor, int microstep, int gearboxRatio, int stepsPerRev):&#160;motion.c'],['../motion_8h.html#ac11bbe58749d2dcfb9508212a2f1afe9',1,'compute_motor_params(motor_config_t *motor, int microstep, int gearboxRatio, int stepsPerRev):&#160;motion.c']]]
 ];

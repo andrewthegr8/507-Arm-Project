@@ -1,10 +1,25 @@
 var searchData=
 [
-  ['write429bytes_0',['Write429Bytes',['../_t_m_c429_8c.html#a86865d616854acebb75f7e9dfe4a1ec6',1,'Write429Bytes(uint8_t Address, uint8_t *Bytes):&#160;TMC429.c'],['../_t_m_c429_8h.html#a86865d616854acebb75f7e9dfe4a1ec6',1,'Write429Bytes(uint8_t Address, uint8_t *Bytes):&#160;TMC429.c']]],
-  ['write429datagram_1',['Write429Datagram',['../_t_m_c429_8c.html#a8991639672e224d03f640022e658affc',1,'Write429Datagram(uint8_t Address, uint8_t HighByte, uint8_t MidByte, uint8_t LowByte):&#160;TMC429.c'],['../_t_m_c429_8h.html#a8991639672e224d03f640022e658affc',1,'Write429Datagram(uint8_t Address, uint8_t HighByte, uint8_t MidByte, uint8_t LowByte):&#160;TMC429.c']]],
-  ['write429int_2',['Write429Int',['../_t_m_c429_8c.html#a7863536af17af2507bba7d34a6a000e7',1,'TMC429.c']]],
-  ['write429short_3',['Write429Short',['../_t_m_c429_8c.html#ad48045a5146646256c15e493bf67f8d2',1,'TMC429.c']]],
-  ['write429u16_4',['Write429U16',['../_t_m_c429_8h.html#a6e28b51e524ce6f005bdf13ede8b8046',1,'TMC429.h']]],
-  ['write429u24_5',['Write429U24',['../_t_m_c429_8h.html#a209e12b85077c5053fee2b3a6bcc5734',1,'TMC429.h']]],
-  ['write429zero_6',['Write429Zero',['../_t_m_c429_8c.html#a0da9a8c5a240e18e77fa36c74de33167',1,'Write429Zero(uint8_t Address):&#160;TMC429.c'],['../_t_m_c429_8h.html#a0da9a8c5a240e18e77fa36c74de33167',1,'Write429Zero(uint8_t Address):&#160;TMC429.c']]]
+  ['u10_5fmax_0',['u10_MAX',['../_types_8h.html#a4b288c158e9052bfb2ac64cf9e804786',1,'Types.h']]],
+  ['u12_5fmax_1',['u12_MAX',['../_types_8h.html#ae4b4fa86115864a74d3a55b9228a22a3',1,'Types.h']]],
+  ['u15_5fmax_2',['u15_MAX',['../_types_8h.html#a399c6a236c928514d4c4335ffd6468e7',1,'Types.h']]],
+  ['u16_3',['u16',['../_types_8h.html#ace9d960e74685e2cd84b36132dbbf8aa',1,'Types.h']]],
+  ['u16_5fmax_4',['u16_MAX',['../_types_8h.html#a859f1af2da9918bd81d8f8aedd21f118',1,'Types.h']]],
+  ['u18_5fmax_5',['u18_MAX',['../_types_8h.html#aba4380857c20080c63419cd6ba2a4a98',1,'Types.h']]],
+  ['u20_5fmax_6',['u20_MAX',['../_types_8h.html#aeaaa969c5e143e77cf7ac3788c42c1f1',1,'Types.h']]],
+  ['u22_5fmax_7',['u22_MAX',['../_types_8h.html#a0253945ed96ecdbb3aa8c97b334ff1d4',1,'Types.h']]],
+  ['u24_5fmax_8',['u24_MAX',['../_types_8h.html#ad1c77184d7e382acdef7ae738260408d',1,'Types.h']]],
+  ['u32_9',['u32',['../_types_8h.html#afaa62991928fb9fb18ff0db62a040aba',1,'Types.h']]],
+  ['u32_5fmax_10',['u32_MAX',['../_types_8h.html#aaaf5ea6d1a0798c91e3639d6636d0ba7',1,'Types.h']]],
+  ['u8_11',['u8',['../_types_8h.html#a92c50087ca0e64fa93fc59402c55f8ca',1,'Types.h']]],
+  ['u8_5fmax_12',['u8_MAX',['../_types_8h.html#adaf94d9cf7c50dcca44abc248cad51a5',1,'Types.h']]],
+  ['uint16_13',['uint16',['../_types_8h.html#ac2a9e79eb120216f855626495b7bd18a',1,'Types.h']]],
+  ['uint32_14',['uint32',['../_types_8h.html#acbd4acd0d29e2d6c43104827f77d9cd2',1,'Types.h']]],
+  ['uint8_15',['uint8',['../_types_8h.html#a33a5e996e7a90acefb8b1c0bea47e365',1,'Types.h']]],
+  ['unused_16',['UNUSED',['../_macros_8h.html#a86d500a34c624c2cae56bc25a31b12f3',1,'Macros.h']]],
+  ['usagefault_5fhandler_17',['UsageFault_Handler',['../stm32h7xx__it_8c.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a1d98923de2ed6b7309b66f9ba2971647',1,'UsageFault_Handler(void):&#160;stm32h7xx_it.c']]],
+  ['usb_5fd_5f_5fgpio_5fport_18',['USB_D__GPIO_Port',['../main_8h.html#a776fe0541b8ca3f6c0d0e712bbb4bf74',1,'main.h']]],
+  ['usb_5fd_5f_5fpin_19',['USB_D__Pin',['../main_8h.html#aadc4ff6ea2843f6f98c5947aaa78c84c',1,'main.h']]],
+  ['usb_5fd_5fa12_5fgpio_5fport_20',['USB_D_A12_GPIO_Port',['../main_8h.html#ae4e81a68bb03b5e2b8e01b0d873b4c33',1,'main.h']]],
+  ['usb_5fd_5fa12_5fpin_21',['USB_D_A12_Pin',['../main_8h.html#a933c52c36aaaaf372ebca75204a11aec',1,'main.h']]]
 ];

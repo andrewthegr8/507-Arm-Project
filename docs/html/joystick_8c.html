@@ -102,6 +102,154 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('joystick_8c.ht
   <div class="headertitle"><div class="title">joystick.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<div class="textblock"><code>#include &quot;<a class="el" href="joystick_8h_source.html">joystick.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for joystick.c:</div>
+<div class="dyncontent">
+<div class="center"><img src="joystick_8c__incl.png" border="0" usemap="#a_core_2_src_2joystick_8c" loading="lazy" alt=""/></div>
+<map name="a_core_2_src_2joystick_8c" id="a_core_2_src_2joystick_8c">
+<area shape="rect" title=" " alt="" coords="28,5,162,32"/>
+<area shape="rect" href="joystick_8h.html" title=" " alt="" coords="10,80,87,107"/>
+<area shape="poly" title=" " alt="" coords="85,35,67,68,62,66,88,30"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="117,80,177,107"/>
+<area shape="poly" title=" " alt="" coords="104,30,132,67,126,68,103,35"/>
+<area shape="rect" title=" " alt="" coords="5,155,70,181"/>
+<area shape="poly" title=" " alt="" coords="48,105,44,140,39,139,45,109"/>
+<area shape="rect" title=" " alt="" coords="93,155,214,181"/>
+<area shape="poly" title=" " alt="" coords="150,105,153,140,149,138,146,109"/>
+</map>
+</div>
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a1c156136f31ed243c7e1b85be8787345" id="r_a1c156136f31ed243c7e1b85be8787345"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1c156136f31ed243c7e1b85be8787345">Joystick_Init</a> (void)</td></tr>
+<tr class="memitem:a2cbece6007083b53f7e738eb95d9d827" id="r_a2cbece6007083b53f7e738eb95d9d827"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a2cbece6007083b53f7e738eb95d9d827">read_channel</a> (uint32_t channel)</td></tr>
+<tr class="memitem:a62d9d53ec04f4b239299e4c76fd987f3" id="r_a62d9d53ec04f4b239299e4c76fd987f3"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a62d9d53ec04f4b239299e4c76fd987f3">Joystick_ReadX</a> (void)</td></tr>
+<tr class="memitem:ab9de6a7ab4864dee1a32189edbd27acd" id="r_ab9de6a7ab4864dee1a32189edbd27acd"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#ab9de6a7ab4864dee1a32189edbd27acd">Joystick_ReadY</a> (void)</td></tr>
+<tr class="memitem:aea7b6258331a026b487d186a3948a426" id="r_aea7b6258331a026b487d186a3948a426"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#aea7b6258331a026b487d186a3948a426">Joystick_ReadButton</a> (void)</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a22b804736f5648d52f639b2647d4ed13" id="r_a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft">ADC_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a22b804736f5648d52f639b2647d4ed13">hadc1</a></td></tr>
+</table>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a1c156136f31ed243c7e1b85be8787345" name="a1c156136f31ed243c7e1b85be8787345"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c156136f31ed243c7e1b85be8787345">&#9670;&#160;</a></span>Joystick_Init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Joystick_Init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aea7b6258331a026b487d186a3948a426" name="aea7b6258331a026b487d186a3948a426"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea7b6258331a026b487d186a3948a426">&#9670;&#160;</a></span>Joystick_ReadButton()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t Joystick_ReadButton </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a62d9d53ec04f4b239299e4c76fd987f3" name="a62d9d53ec04f4b239299e4c76fd987f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a62d9d53ec04f4b239299e4c76fd987f3">&#9670;&#160;</a></span>Joystick_ReadX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Joystick_ReadX </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9de6a7ab4864dee1a32189edbd27acd" name="ab9de6a7ab4864dee1a32189edbd27acd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9de6a7ab4864dee1a32189edbd27acd">&#9670;&#160;</a></span>Joystick_ReadY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t Joystick_ReadY </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2cbece6007083b53f7e738eb95d9d827" name="a2cbece6007083b53f7e738eb95d9d827"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cbece6007083b53f7e738eb95d9d827">&#9670;&#160;</a></span>read_channel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint16_t read_channel </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>channel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
+<a id="a22b804736f5648d52f639b2647d4ed13" name="a22b804736f5648d52f639b2647d4ed13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a22b804736f5648d52f639b2647d4ed13">&#9670;&#160;</a></span>hadc1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">ADC_HandleTypeDef hadc1</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">

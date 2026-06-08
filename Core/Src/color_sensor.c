@@ -111,8 +111,8 @@ void my_delay_ms(uint32_t ms) {
 }
 
 void COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color) {
-    const char *color_names[] = {"RED", "ORANGE", "YELLOW", "GREEN", "BLUE", "PURPLE", "UNKNOWN"};
+    const char *color_names[] = {"RED\r\n", "ORANGE\r\n", "YELLOW\r\n", "GREEN\r\n", "BLUE\r\n", "PURPLE\r\n", "UNKNOWN\r\n"};
     char buf[64];
-    snprintf(buf, sizeof(buf), "r: %u\ng: %u\nb: %u\ncolor: %s\n", r, g, b, color_names[color]);
+    snprintf(buf, sizeof(buf), "r: %u\r\ng: %u\r\nb: %u\r\ncolor: %s\r\n", r, g, b, color_names[color]);
     HAL_UART_Transmit(&huart3, (uint8_t *)buf, strlen(buf), HAL_MAX_DELAY);
 }

@@ -4,6 +4,11 @@
 #include <stdint.h>
 #include "TMC429.h"
 
+/**
+ * @addtogroup MotionControl
+ * @{
+ */
+
 typedef struct {
     double rad_to_steps; //Steps (or microsteps) per radian
     double steps_sec_to_IC_units; //Steps (or microsteps) per second per rad/s
@@ -35,4 +40,7 @@ void Motor3_RunPositive(void);
 void Motor3_RunNegative(void);
 void Motor3_Stop(void);
 uint8_t PlanMoveFromColor(uint8_t color_id, uint8_t *target_bin);
+
+/** @} */
+
 #endif

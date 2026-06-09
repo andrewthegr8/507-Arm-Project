@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['driver_20function_0',['driver function',['../group__tcs34725__base__driver.html',1,'tcs34725 base driver function'],['../group__tcs34725__driver.html',1,'tcs34725 driver function'],['../group__tcs34725__extend__driver.html',1,'tcs34725 extend driver function'],['../group__tcs34725__interrupt__driver.html',1,'tcs34725 interrupt driver function'],['../group__tcs34725__link__driver.html',1,'tcs34725 link driver function']]]
+  ['color_20sensing_0',['Color Sensing',['../group___color_sensing.html',1,'']]],
+  ['control_1',['Control',['../group___motion_control.html',1,'Motion Control'],['../group___servo_control.html',1,'Servo Control']]]
 ];

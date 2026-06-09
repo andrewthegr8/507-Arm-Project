@@ -47,6 +47,11 @@ extern "C"{
 #endif
 
 /**
+ * @addtogroup ColorSensing
+ * @{
+ */
+
+/**
  * @defgroup tcs34725_driver tcs34725 driver function
  * @brief    tcs34725 driver modules
  * @{
@@ -650,6 +655,10 @@ uint8_t tcs34725_get_reg(tcs34725_handle_t *handle, uint8_t reg, uint8_t *buf, u
  * @}
  */
 
+ /**
+ * @}
+ */
+ 
 #ifdef __cplusplus
 }
 #endif

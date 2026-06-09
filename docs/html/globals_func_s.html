@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Globals</title>
+<title>4 DOF Robotic Arm: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -105,23 +122,23 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('globals_func_s
 
 <h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
 <li>SelectMotionIC()&#160;:&#160;<a class="el" href="_t_m_c429_8c.html#a6e5f4e4ed907df97a096276d33b05660">TMC429.c</a>, <a class="el" href="_t_m_c429_8h.html#a6e5f4e4ed907df97a096276d33b05660">TMC429.h</a></li>
-<li>Servo_Close()&#160;:&#160;<a class="el" href="servo_8c.html#a9950e77079624f863cd9f346f1c067d2">servo.c</a>, <a class="el" href="servo_8h.html#a9950e77079624f863cd9f346f1c067d2">servo.h</a></li>
-<li>Servo_Init()&#160;:&#160;<a class="el" href="servo_8c.html#a4363bf9b248b133828855ea668bdb3a4">servo.c</a>, <a class="el" href="servo_8h.html#a4363bf9b248b133828855ea668bdb3a4">servo.h</a></li>
-<li>Servo_Open()&#160;:&#160;<a class="el" href="servo_8c.html#aeafaf849b5879ec294add4fb53b99591">servo.c</a>, <a class="el" href="servo_8h.html#aeafaf849b5879ec294add4fb53b99591">servo.h</a></li>
-<li>Servo_Pos()&#160;:&#160;<a class="el" href="servo_8c.html#ac24b1a09b7b242c2ac54e952ff4c4878">servo.c</a>, <a class="el" href="servo_8h.html#ac24b1a09b7b242c2ac54e952ff4c4878">servo.h</a></li>
+<li>Servo_Close()&#160;:&#160;<a class="el" href="group___servo_control.html#ga9950e77079624f863cd9f346f1c067d2">servo.c</a>, <a class="el" href="group___servo_control.html#ga9950e77079624f863cd9f346f1c067d2">servo.h</a></li>
+<li>Servo_Init()&#160;:&#160;<a class="el" href="group___servo_control.html#ga4363bf9b248b133828855ea668bdb3a4">servo.c</a>, <a class="el" href="group___servo_control.html#ga4363bf9b248b133828855ea668bdb3a4">servo.h</a></li>
+<li>Servo_Open()&#160;:&#160;<a class="el" href="group___servo_control.html#gaeafaf849b5879ec294add4fb53b99591">servo.c</a>, <a class="el" href="group___servo_control.html#gaeafaf849b5879ec294add4fb53b99591">servo.h</a></li>
+<li>Servo_Pos()&#160;:&#160;<a class="el" href="group___servo_control.html#gac24b1a09b7b242c2ac54e952ff4c4878">servo.c</a>, <a class="el" href="group___servo_control.html#gac24b1a09b7b242c2ac54e952ff4c4878">servo.h</a></li>
 <li>Set429RampMode()&#160;:&#160;<a class="el" href="_t_m_c429_8c.html#a8257811715ce1abc318682c4e2f987a9">TMC429.c</a>, <a class="el" href="_t_m_c429_8h.html#a8257811715ce1abc318682c4e2f987a9">TMC429.h</a></li>
 <li>Set429SwitchMode()&#160;:&#160;<a class="el" href="_t_m_c429_8c.html#a307f653e02dc97c36a14d2b686ff1612">TMC429.c</a>, <a class="el" href="_t_m_c429_8h.html#a307f653e02dc97c36a14d2b686ff1612">TMC429.h</a></li>
-<li>set_max_accel()&#160;:&#160;<a class="el" href="motion_8c.html#a79cda17d2ccff36a626ab62d55901123">motion.c</a>, <a class="el" href="motion_8h.html#a79cda17d2ccff36a626ab62d55901123">motion.h</a></li>
+<li>set_max_accel()&#160;:&#160;<a class="el" href="group___motion_control.html#ga79cda17d2ccff36a626ab62d55901123">motion.c</a>, <a class="el" href="group___motion_control.html#ga79cda17d2ccff36a626ab62d55901123">motion.h</a></li>
 <li>SetAMax()&#160;:&#160;<a class="el" href="_t_m_c429_8c.html#ae4e37f2fadff616e4ca1e29160410433">TMC429.c</a>, <a class="el" href="_t_m_c429_8h.html#ae4e37f2fadff616e4ca1e29160410433">TMC429.h</a></li>
-<li>StepperDriver_Disable()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a81ff3b7ad84296590d26efb87ad5d756">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a81ff3b7ad84296590d26efb87ad5d756">stepper_driver.h</a></li>
-<li>StepperDriver_Enable()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#aae6658a8ef2b30428fe74b8a3bd8f6ba">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#aae6658a8ef2b30428fe74b8a3bd8f6ba">stepper_driver.h</a></li>
-<li>StepperDriver_Init()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a996b299aace5add78d448dda5ad917a4">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a996b299aace5add78d448dda5ad917a4">stepper_driver.h</a></li>
-<li>StepperDriver_Reset()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a0d5dfd8c36fa5954f9f8273e4cd02cb2">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a0d5dfd8c36fa5954f9f8273e4cd02cb2">stepper_driver.h</a></li>
-<li>StepperDriver_ResetAll()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#af98cbabb4ca867cf3fb1fc299dd3d030">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#af98cbabb4ca867cf3fb1fc299dd3d030">stepper_driver.h</a></li>
-<li>StepperDriver_SetDecay()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a8eb2730c80dd83db1f44fec689a818ed">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a8eb2730c80dd83db1f44fec689a818ed">stepper_driver.h</a></li>
-<li>StepperDriver_Sleep()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a4c9c6635bf35a971608291146009e467">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a4c9c6635bf35a971608291146009e467">stepper_driver.h</a></li>
-<li>StepperDriver_Wake()&#160;:&#160;<a class="el" href="stepper__driver_8c.html#a965d7990da9e43810c3f0a552b309c98">stepper_driver.c</a>, <a class="el" href="stepper__driver_8h.html#a965d7990da9e43810c3f0a552b309c98">stepper_driver.h</a></li>
-<li>StopAllMotion()&#160;:&#160;<a class="el" href="motion_8h.html#a432bad7ba23dcbdf11de56ab980455f0">motion.h</a></li>
+<li>StepperDriver_Disable()&#160;:&#160;<a class="el" href="group___motion_control.html#ga81ff3b7ad84296590d26efb87ad5d756">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga81ff3b7ad84296590d26efb87ad5d756">stepper_driver.h</a></li>
+<li>StepperDriver_Enable()&#160;:&#160;<a class="el" href="group___motion_control.html#gaae6658a8ef2b30428fe74b8a3bd8f6ba">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#gaae6658a8ef2b30428fe74b8a3bd8f6ba">stepper_driver.h</a></li>
+<li>StepperDriver_Init()&#160;:&#160;<a class="el" href="group___motion_control.html#ga996b299aace5add78d448dda5ad917a4">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga996b299aace5add78d448dda5ad917a4">stepper_driver.h</a></li>
+<li>StepperDriver_Reset()&#160;:&#160;<a class="el" href="group___motion_control.html#ga0d5dfd8c36fa5954f9f8273e4cd02cb2">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga0d5dfd8c36fa5954f9f8273e4cd02cb2">stepper_driver.h</a></li>
+<li>StepperDriver_ResetAll()&#160;:&#160;<a class="el" href="group___motion_control.html#gaf98cbabb4ca867cf3fb1fc299dd3d030">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#gaf98cbabb4ca867cf3fb1fc299dd3d030">stepper_driver.h</a></li>
+<li>StepperDriver_SetDecay()&#160;:&#160;<a class="el" href="group___motion_control.html#ga8eb2730c80dd83db1f44fec689a818ed">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga8eb2730c80dd83db1f44fec689a818ed">stepper_driver.h</a></li>
+<li>StepperDriver_Sleep()&#160;:&#160;<a class="el" href="group___motion_control.html#ga4c9c6635bf35a971608291146009e467">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga4c9c6635bf35a971608291146009e467">stepper_driver.h</a></li>
+<li>StepperDriver_Wake()&#160;:&#160;<a class="el" href="group___motion_control.html#ga965d7990da9e43810c3f0a552b309c98">stepper_driver.c</a>, <a class="el" href="group___motion_control.html#ga965d7990da9e43810c3f0a552b309c98">stepper_driver.h</a></li>
+<li>StopAllMotion()&#160;:&#160;<a class="el" href="group___motion_control.html#ga432bad7ba23dcbdf11de56ab980455f0">motion.h</a></li>
 <li>SVC_Handler()&#160;:&#160;<a class="el" href="stm32h7xx__it_8c.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce">stm32h7xx_it.c</a>, <a class="el" href="stm32h7xx__it_8h.html#a3e5ddb3df0d62f2dc357e64a3f04a6ce">stm32h7xx_it.h</a></li>
 <li>SystemClock_Config()&#160;:&#160;<a class="el" href="main_8c.html#a70af21c671abfcc773614a9a4f63d920">main.c</a></li>
 <li>SysTick_Handler()&#160;:&#160;<a class="el" href="stm32h7xx__it_8c.html#ab5e09814056d617c521549e542639b7e">stm32h7xx_it.c</a>, <a class="el" href="stm32h7xx__it_8h.html#ab5e09814056d617c521549e542639b7e">stm32h7xx_it.h</a></li>

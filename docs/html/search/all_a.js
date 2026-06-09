@@ -7,10 +7,12 @@ var searchData=
   ['joy_5fnew_5fsample_4',['joy_new_sample',['../main_8c.html#ab81532e2f01fd4090b366fe0ca48e460',1,'main.c']]],
   ['joy_5fx_5fraw_5',['joy_x_raw',['../main_8c.html#a51b235bb317650568ae0837bbc2f30c0',1,'main.c']]],
   ['joy_5fy_5fraw_6',['joy_y_raw',['../main_8c.html#a05a86384dd0298c276dedaee15e7a16a',1,'main.c']]],
-  ['joystick_2ec_7',['joystick.c',['../joystick_8c.html',1,'']]],
-  ['joystick_2eh_8',['joystick.h',['../joystick_8h.html',1,'']]],
-  ['joystick_5finit_9',['Joystick_Init',['../joystick_8c.html#a1c156136f31ed243c7e1b85be8787345',1,'Joystick_Init(void):&#160;joystick.c'],['../joystick_8h.html#a1c156136f31ed243c7e1b85be8787345',1,'Joystick_Init(void):&#160;joystick.c']]],
-  ['joystick_5freadbutton_10',['Joystick_ReadButton',['../joystick_8c.html#aea7b6258331a026b487d186a3948a426',1,'Joystick_ReadButton(void):&#160;joystick.c'],['../joystick_8h.html#aea7b6258331a026b487d186a3948a426',1,'Joystick_ReadButton(void):&#160;joystick.c']]],
-  ['joystick_5freadx_11',['Joystick_ReadX',['../joystick_8c.html#a62d9d53ec04f4b239299e4c76fd987f3',1,'Joystick_ReadX(void):&#160;joystick.c'],['../joystick_8h.html#a62d9d53ec04f4b239299e4c76fd987f3',1,'Joystick_ReadX(void):&#160;joystick.c']]],
-  ['joystick_5fready_12',['Joystick_ReadY',['../joystick_8c.html#ab9de6a7ab4864dee1a32189edbd27acd',1,'Joystick_ReadY(void):&#160;joystick.c'],['../joystick_8h.html#ab9de6a7ab4864dee1a32189edbd27acd',1,'Joystick_ReadY(void):&#160;joystick.c']]]
+  ['joystick_7',['Joystick',['../group___joystick.html',1,'']]],
+  ['joystick_2ec_8',['joystick.c',['../joystick_8c.html',1,'']]],
+  ['joystick_2eh_9',['joystick.h',['../joystick_8h.html',1,'']]],
+  ['joystick_5finit_10',['Joystick_Init',['../group___joystick.html#ga1c156136f31ed243c7e1b85be8787345',1,'Joystick_Init(void):&#160;joystick.c'],['../group___joystick.html#ga1c156136f31ed243c7e1b85be8787345',1,'Joystick_Init(void):&#160;joystick.c']]],
+  ['joystick_5fread_11',['Joystick_Read',['../group___joystick.html#gac04b6523bc3167ea885caa9befd3fa47',1,'Joystick_Read(void):&#160;joystick.c'],['../group___joystick.html#gac04b6523bc3167ea885caa9befd3fa47',1,'Joystick_Read(void):&#160;joystick.c']]],
+  ['joystick_5freadbutton_12',['Joystick_ReadButton',['../group___joystick.html#gaea7b6258331a026b487d186a3948a426',1,'Joystick_ReadButton(void):&#160;joystick.c'],['../group___joystick.html#gaea7b6258331a026b487d186a3948a426',1,'Joystick_ReadButton(void):&#160;joystick.c']]],
+  ['joystick_5freadx_13',['Joystick_ReadX',['../group___joystick.html#ga62d9d53ec04f4b239299e4c76fd987f3',1,'Joystick_ReadX(void):&#160;joystick.c'],['../group___joystick.html#ga62d9d53ec04f4b239299e4c76fd987f3',1,'Joystick_ReadX(void):&#160;joystick.c']]],
+  ['joystick_5fready_14',['Joystick_ReadY',['../group___joystick.html#gab9de6a7ab4864dee1a32189edbd27acd',1,'Joystick_ReadY(void):&#160;joystick.c'],['../group___joystick.html#gab9de6a7ab4864dee1a32189edbd27acd',1,'Joystick_ReadY(void):&#160;joystick.c']]]
 ];

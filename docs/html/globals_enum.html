@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Globals</title>
+<title>4 DOF Robotic Arm: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -102,12 +119,12 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('globals_enum.h
 <div class="textblock">Here is a list of all enums with links to the files they belong to:</div><br/>
 <div class="qindex"><a class="qindex" href="#index_c">C</a><div class="alphasepar"></div><a class="qindex" href="#index_m">M</a><div class="alphasepar"></div><a class="qindex" href="#index_r">R</a><div class="alphasepar"></div><a class="qindex" href="#index_s">S</a><div class="alphasepar"></div><a class="qindex" href="#index_t">T</a></div>
 <ul>
-<li>ColorResult_t&#160;:&#160;<a class="el" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">color_sensor.h</a></li>
+<li>ColorResult_t&#160;:&#160;<a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">color_sensor.h</a></li>
 <li>ConfigState&#160;:&#160;<a class="el" href="_config_8h.html#a68a217514c80f15824fb5b28c25c837f">Config.h</a></li>
 <li>MotionIC_t&#160;:&#160;<a class="el" href="_t_m_c429_8h.html#a64bfad74fef17ca646254cdcbc5e71ff">TMC429.h</a></li>
 <li>RobotState&#160;:&#160;<a class="el" href="fsm_8h.html#a8a4285c43463011b934d1dc0a3859496">fsm.h</a></li>
-<li>servo_cmd_t&#160;:&#160;<a class="el" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46e">maneuvers.h</a></li>
-<li>StepperID_t&#160;:&#160;<a class="el" href="stepper__driver_8h.html#abb5853ad05a2a0236d6b923bd4905efa">stepper_driver.h</a></li>
+<li>servo_cmd_t&#160;:&#160;<a class="el" href="group___motion_control.html#ga07e558fe752f54f3df3a53f56bd6e46e">maneuvers.h</a></li>
+<li>StepperID_t&#160;:&#160;<a class="el" href="group___motion_control.html#gabb5853ad05a2a0236d6b923bd4905efa">stepper_driver.h</a></li>
 <li>tcs34725_bool_t&#160;:&#160;<a class="el" href="group__tcs34725__base__driver.html#ga55951f3dfaf0a47ae9012bd3438f7abd">driver_tcs34725.h</a></li>
 <li>tcs34725_gain_t&#160;:&#160;<a class="el" href="group__tcs34725__base__driver.html#gacfa9a59dab1f3f0d5bb4019165928989">driver_tcs34725.h</a></li>
 <li>tcs34725_integration_time_t&#160;:&#160;<a class="el" href="group__tcs34725__base__driver.html#gaf252c1263209ae0fb5ca5c24907a9380">driver_tcs34725.h</a></li>

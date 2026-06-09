@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Core/Inc/color_sensor.h File Reference</title>
+<title>4 DOF Robotic Arm: Core/Inc/color_sensor.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -140,23 +157,23 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:aaad945fc0192d1c7701f251613ede7da" id="r_aaad945fc0192d1c7701f251613ede7da"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> { <br />
-&#160;&#160;<a class="el" href="#aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a> = 0
-, <a class="el" href="#aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a> = 1
-, <a class="el" href="#aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a> = 2
-, <a class="el" href="#aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a> = 3
+<tr class="memitem:gaaad945fc0192d1c7701f251613ede7da" id="r_gaaad945fc0192d1c7701f251613ede7da"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> { <br />
+&#160;&#160;<a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a> = 0
+, <a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a> = 1
+, <a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a> = 2
+, <a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a> = 3
 , <br />
-&#160;&#160;<a class="el" href="#aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a> = 4
-, <a class="el" href="#aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a> = 5
-, <a class="el" href="#aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a> = 6
+&#160;&#160;<a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a> = 4
+, <a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a> = 5
+, <a class="el" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a> = 6
 <br />
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa0045094ff3843e1181266a1b50f464b" id="r_aa0045094ff3843e1181266a1b50f464b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
-<tr class="memitem:a9d3228731c63cc826c663a9a83705ed6" id="r_a9d3228731c63cc826c663a9a83705ed6"><td class="memItemLeft"><a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
-<tr class="memitem:af0fdd74cfb3bb4bf0cba4e5aa6bfbd24" id="r_af0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a> (uint16_t r, uint16_t g, uint16_t b, <a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color)</td></tr>
+<tr class="memitem:gaa0045094ff3843e1181266a1b50f464b" id="r_gaa0045094ff3843e1181266a1b50f464b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#gaa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memitem:ga9d3228731c63cc826c663a9a83705ed6" id="r_ga9d3228731c63cc826c663a9a83705ed6"><td class="memItemLeft"><a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#ga9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memitem:gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24" id="r_gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a> (uint16_t r, uint16_t g, uint16_t b, <a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color)</td></tr>
 <tr class="memitem:a56730e91b5a8838610cdcd0c24b0287a" id="r_a56730e91b5a8838610cdcd0c24b0287a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
 <tr class="memitem:a465561646e841095cb8228936be939fc" id="r_a465561646e841095cb8228936be939fc"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a465561646e841095cb8228936be939fc">my_i2c_write</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
 <tr class="memitem:a8c81f23fd68e03aff4a5912e912d4b84" id="r_a8c81f23fd68e03aff4a5912e912d4b84"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a> (void)</td></tr>
@@ -164,96 +181,7 @@ Functions</h2></td></tr>
 <tr class="memitem:a9ddddd20ec13dcafa912ee1d93f76a37" id="r_a9ddddd20ec13dcafa912ee1d93f76a37"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a> (uint32_t ms)</td></tr>
 <tr class="memitem:ae2fc163d9f509b203dd40a255c5cd28d" id="r_ae2fc163d9f509b203dd40a255c5cd28d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a> (const char *fmt,...)</td></tr>
 </table>
-<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="aaad945fc0192d1c7701f251613ede7da" name="aaad945fc0192d1c7701f251613ede7da"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaad945fc0192d1c7701f251613ede7da">&#9670;&#160;</a></span>ColorResult_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950" name="aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950"></a>COLOR_RED&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423" name="aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423"></a>COLOR_ORANGE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29" name="aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29"></a>COLOR_YELLOW&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02" name="aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02"></a>COLOR_GREEN&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696" name="aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696"></a>COLOR_BLUE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc" name="aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc"></a>COLOR_PURPLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7" name="aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7"></a>COLOR_UNKNOWN&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="aa0045094ff3843e1181266a1b50f464b" name="aa0045094ff3843e1181266a1b50f464b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa0045094ff3843e1181266a1b50f464b">&#9670;&#160;</a></span>COLOR_SENSOR_Init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COLOR_SENSOR_Init </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="af0fdd74cfb3bb4bf0cba4e5aa6bfbd24" name="af0fdd74cfb3bb4bf0cba4e5aa6bfbd24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">&#9670;&#160;</a></span>COLOR_SENSOR_PrintRGB()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void COLOR_SENSOR_PrintRGB </td>
-          <td>(</td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>r</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>g</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>b</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a></td>          <td class="paramname"><span class="paramname"><em>color</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9d3228731c63cc826c663a9a83705ed6" name="a9d3228731c63cc826c663a9a83705ed6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d3228731c63cc826c663a9a83705ed6">&#9670;&#160;</a></span>COLOR_SENSOR_Read()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> COLOR_SENSOR_Read </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *</td>          <td class="paramname"><span class="paramname"><em>handle</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ae2fc163d9f509b203dd40a255c5cd28d" name="ae2fc163d9f509b203dd40a255c5cd28d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae2fc163d9f509b203dd40a255c5cd28d">&#9670;&#160;</a></span>my_debug_print()</h2>
 

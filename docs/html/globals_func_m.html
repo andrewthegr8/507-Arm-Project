@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Globals</title>
+<title>4 DOF Robotic Arm: Globals</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -106,18 +123,18 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('globals_func_m
 <h3 class="doxsection"><a id="index_m" name="index_m"></a>- m -</h3><ul>
 <li>main()&#160;:&#160;<a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe">main.c</a></li>
 <li>MemManage_Handler()&#160;:&#160;<a class="el" href="stm32h7xx__it_8c.html#a3150f74512510287a942624aa9b44cc5">stm32h7xx_it.c</a>, <a class="el" href="stm32h7xx__it_8h.html#a3150f74512510287a942624aa9b44cc5">stm32h7xx_it.h</a></li>
-<li>Motion_Init()&#160;:&#160;<a class="el" href="motion_8h.html#aad8ce1070ef0837cd67c0371c32df102">motion.h</a></li>
-<li>Motion_IsDone()&#160;:&#160;<a class="el" href="motion_8h.html#ad626ae5efd3dee0c8ff431f0fb93aeb7">motion.h</a></li>
-<li>Motion_StartMoveHome()&#160;:&#160;<a class="el" href="motion_8h.html#af581bef3a44766f3caa5375c47eb61a6">motion.h</a></li>
-<li>Motion_StartMoveToBin()&#160;:&#160;<a class="el" href="motion_8h.html#a03080c3cefedfbe583141e2424a1d310">motion.h</a></li>
-<li>Motor2_RunNegative()&#160;:&#160;<a class="el" href="motion_8h.html#a909c743864c4290e5035b3e8389c3f35">motion.h</a></li>
-<li>Motor2_RunPositive()&#160;:&#160;<a class="el" href="motion_8h.html#ab8ff2d57f376ec5d94c36a9a86e92f74">motion.h</a></li>
-<li>Motor2_Stop()&#160;:&#160;<a class="el" href="motion_8h.html#a2f87acc9975bbb6311aab837f46f0706">motion.h</a></li>
-<li>Motor3_RunNegative()&#160;:&#160;<a class="el" href="motion_8h.html#afac700545c290580b3c997d5873d4059">motion.h</a></li>
-<li>Motor3_RunPositive()&#160;:&#160;<a class="el" href="motion_8h.html#a8259fbc204953815ef37218884f1f61b">motion.h</a></li>
-<li>Motor3_Stop()&#160;:&#160;<a class="el" href="motion_8h.html#a473d7ee17aef88fbaa6a1d986f5ce0f5">motion.h</a></li>
-<li>move_at_velocity()&#160;:&#160;<a class="el" href="motion_8c.html#a529b49778637372c16c9ddabc8897b10">motion.c</a>, <a class="el" href="motion_8h.html#a63d13126156a93e0c229d6705031cfa5">motion.h</a></li>
-<li>move_to_pos()&#160;:&#160;<a class="el" href="motion_8c.html#a14459352b7d26cf765b07ae0044ac509">motion.c</a>, <a class="el" href="motion_8h.html#a14459352b7d26cf765b07ae0044ac509">motion.h</a></li>
+<li>Motion_Init()&#160;:&#160;<a class="el" href="group___motion_control.html#gaad8ce1070ef0837cd67c0371c32df102">motion.h</a></li>
+<li>Motion_IsDone()&#160;:&#160;<a class="el" href="group___motion_control.html#gad626ae5efd3dee0c8ff431f0fb93aeb7">motion.h</a></li>
+<li>Motion_StartMoveHome()&#160;:&#160;<a class="el" href="group___motion_control.html#gaf581bef3a44766f3caa5375c47eb61a6">motion.h</a></li>
+<li>Motion_StartMoveToBin()&#160;:&#160;<a class="el" href="group___motion_control.html#ga03080c3cefedfbe583141e2424a1d310">motion.h</a></li>
+<li>Motor2_RunNegative()&#160;:&#160;<a class="el" href="group___motion_control.html#ga909c743864c4290e5035b3e8389c3f35">motion.h</a></li>
+<li>Motor2_RunPositive()&#160;:&#160;<a class="el" href="group___motion_control.html#gab8ff2d57f376ec5d94c36a9a86e92f74">motion.h</a></li>
+<li>Motor2_Stop()&#160;:&#160;<a class="el" href="group___motion_control.html#ga2f87acc9975bbb6311aab837f46f0706">motion.h</a></li>
+<li>Motor3_RunNegative()&#160;:&#160;<a class="el" href="group___motion_control.html#gafac700545c290580b3c997d5873d4059">motion.h</a></li>
+<li>Motor3_RunPositive()&#160;:&#160;<a class="el" href="group___motion_control.html#ga8259fbc204953815ef37218884f1f61b">motion.h</a></li>
+<li>Motor3_Stop()&#160;:&#160;<a class="el" href="group___motion_control.html#ga473d7ee17aef88fbaa6a1d986f5ce0f5">motion.h</a></li>
+<li>move_at_velocity()&#160;:&#160;<a class="el" href="group___motion_control.html#ga63d13126156a93e0c229d6705031cfa5">motion.c</a>, <a class="el" href="group___motion_control.html#ga63d13126156a93e0c229d6705031cfa5">motion.h</a></li>
+<li>move_to_pos()&#160;:&#160;<a class="el" href="group___motion_control.html#ga14459352b7d26cf765b07ae0044ac509">motion.c</a>, <a class="el" href="group___motion_control.html#ga14459352b7d26cf765b07ae0044ac509">motion.h</a></li>
 <li>MPU_Config()&#160;:&#160;<a class="el" href="main_8c.html#a93ce41942d08d309203e0188cad7e54e">main.c</a></li>
 <li>MX_ADC1_Init()&#160;:&#160;<a class="el" href="main_8c.html#aaa163e37853e6fc971474824d9f655ca">main.c</a></li>
 <li>MX_GPIO_Init()&#160;:&#160;<a class="el" href="main_8c.html#ae89fdd15729ad41a66911190fcbab23a">main.c</a></li>

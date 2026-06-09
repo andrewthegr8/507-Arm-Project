@@ -5,6 +5,11 @@
 #include "main.h"
 #include <stdint.h>
 
+/**
+ * @addtogroup MotionControl
+ * @{
+ */
+
 //Motor drivers all share the same sleep, enable and decay pins, but each has its own reset pin
 typedef enum
 {
@@ -49,5 +54,7 @@ void StepperDriver_Reset(StepperID_t motor);
 void StepperDriver_ResetAll(void);
 
 void StepperDriver_SetDecay(GPIO_PinState decay1, GPIO_PinState decay2);
+
+/** @} */
 
 #endif

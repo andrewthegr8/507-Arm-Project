@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Core/Inc/color_sensor.h Source File</title>
+<title>4 DOF Robotic Arm: Core/Inc/color_sensor.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -107,50 +124,51 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('color__sensor_
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;<a class="code" href="driver__tcs34725_8h.html">driver_tcs34725.h</a>&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">    7</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">    8</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a>     = 0,</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">    9</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a>  = 1,</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">   10</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a>  = 2,</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">   11</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a>   = 3,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">   12</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a>    = 4,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">   13</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a>  = 5,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">   14</a></span>    <a class="code hl_enumvalue" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a> = 6,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>} <a class="code hl_enumeration" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>;</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">   13</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">   14</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a>     = 0,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">   15</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a>  = 1,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">   16</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a>  = 2,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">   17</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a>   = 3,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">   18</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a>    = 4,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">   19</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a>  = 5,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">   20</a></span>    <a class="code hl_enumvalue" href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a> = 6,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>} <a class="code hl_enumeration" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>;</div>
 </div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keywordtype">void</span>         <a class="code hl_function" href="color__sensor_8h.html#aa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a>(<a class="code hl_typedef" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle);</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><a class="code hl_enumeration" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> <a class="code hl_function" href="color__sensor_8h.html#a9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a>(<a class="code hl_typedef" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle);</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keywordtype">void</span> <a class="code hl_function" href="color__sensor_8h.html#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a>(uint16_t r, uint16_t g, uint16_t b, <a class="code hl_enumeration" href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color);</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a>(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a465561646e841095cb8228936be939fc">my_i2c_write</a>(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a>(<span class="keywordtype">void</span>);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="color__sensor_8h.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>(uint32_t ms);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keywordtype">void</span> <a class="code hl_function" href="color__sensor_8h.html#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *fmt, ...);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keywordtype">void</span>         <a class="code hl_function" href="group___color_sensing.html#gaa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a>(<a class="code hl_typedef" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><a class="code hl_enumeration" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> <a class="code hl_function" href="group___color_sensing.html#ga9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a>(<a class="code hl_typedef" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___color_sensing.html#gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a>(uint16_t r, uint16_t g, uint16_t b, <a class="code hl_enumeration" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a>(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a465561646e841095cb8228936be939fc">my_i2c_write</a>(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>uint8_t <a class="code hl_function" href="color__sensor_8h.html#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keywordtype">void</span> <a class="code hl_function" href="color__sensor_8h.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a>(uint32_t ms);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> <a class="code hl_function" href="color__sensor_8h.html#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a>(<span class="keyword">const</span> <span class="keywordtype">char</span> *fmt, ...);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif</span></div>
 <div class="ttc" id="acolor__sensor_8h_html_a452ab95a267e550a0f73cca1ccf7f88d"><div class="ttname"><a href="color__sensor_8h.html#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a></div><div class="ttdeci">uint8_t my_i2c_deinit(void)</div><div class="ttdef"><b>Definition</b> color_sensor.c:96</div></div>
 <div class="ttc" id="acolor__sensor_8h_html_a465561646e841095cb8228936be939fc"><div class="ttname"><a href="color__sensor_8h.html#a465561646e841095cb8228936be939fc">my_i2c_write</a></div><div class="ttdeci">uint8_t my_i2c_write(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</div><div class="ttdef"><b>Definition</b> color_sensor.c:67</div></div>
 <div class="ttc" id="acolor__sensor_8h_html_a56730e91b5a8838610cdcd0c24b0287a"><div class="ttname"><a href="color__sensor_8h.html#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a></div><div class="ttdeci">uint8_t my_i2c_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</div><div class="ttdef"><b>Definition</b> color_sensor.c:54</div></div>
 <div class="ttc" id="acolor__sensor_8h_html_a8c81f23fd68e03aff4a5912e912d4b84"><div class="ttname"><a href="color__sensor_8h.html#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a></div><div class="ttdeci">uint8_t my_i2c_init(void)</div><div class="ttdef"><b>Definition</b> color_sensor.c:92</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_a9d3228731c63cc826c663a9a83705ed6"><div class="ttname"><a href="color__sensor_8h.html#a9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a></div><div class="ttdeci">ColorResult_t COLOR_SENSOR_Read(tcs34725_handle_t *handle)</div><div class="ttdef"><b>Definition</b> color_sensor.c:37</div></div>
 <div class="ttc" id="acolor__sensor_8h_html_a9ddddd20ec13dcafa912ee1d93f76a37"><div class="ttname"><a href="color__sensor_8h.html#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a></div><div class="ttdeci">void my_delay_ms(uint32_t ms)</div><div class="ttdef"><b>Definition</b> color_sensor.c:100</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aa0045094ff3843e1181266a1b50f464b"><div class="ttname"><a href="color__sensor_8h.html#aa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a></div><div class="ttdeci">void COLOR_SENSOR_Init(tcs34725_handle_t *handle)</div><div class="ttdef"><b>Definition</b> color_sensor.c:9</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7da"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7da">ColorResult_t</a></div><div class="ttdeci">ColorResult_t</div><div class="ttdef"><b>Definition</b> color_sensor.h:7</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a></div><div class="ttdeci">@ COLOR_ORANGE</div><div class="ttdef"><b>Definition</b> color_sensor.h:9</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a></div><div class="ttdeci">@ COLOR_BLUE</div><div class="ttdef"><b>Definition</b> color_sensor.h:12</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a></div><div class="ttdeci">@ COLOR_PURPLE</div><div class="ttdef"><b>Definition</b> color_sensor.h:13</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a></div><div class="ttdeci">@ COLOR_RED</div><div class="ttdef"><b>Definition</b> color_sensor.h:8</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a></div><div class="ttdeci">@ COLOR_UNKNOWN</div><div class="ttdef"><b>Definition</b> color_sensor.h:14</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a></div><div class="ttdeci">@ COLOR_YELLOW</div><div class="ttdef"><b>Definition</b> color_sensor.h:10</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02"><div class="ttname"><a href="color__sensor_8h.html#aaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a></div><div class="ttdeci">@ COLOR_GREEN</div><div class="ttdef"><b>Definition</b> color_sensor.h:11</div></div>
 <div class="ttc" id="acolor__sensor_8h_html_ae2fc163d9f509b203dd40a255c5cd28d"><div class="ttname"><a href="color__sensor_8h.html#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a></div><div class="ttdeci">void my_debug_print(const char *fmt,...)</div><div class="ttdef"><b>Definition</b> color_sensor.c:104</div></div>
-<div class="ttc" id="acolor__sensor_8h_html_af0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><div class="ttname"><a href="color__sensor_8h.html#af0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a></div><div class="ttdeci">void COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color)</div><div class="ttdef"><b>Definition</b> color_sensor.c:113</div></div>
 <div class="ttc" id="adriver__tcs34725_8h_html"><div class="ttname"><a href="driver__tcs34725_8h.html">driver_tcs34725.h</a></div><div class="ttdoc">driver tcs34725 header file</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ga9d3228731c63cc826c663a9a83705ed6"><div class="ttname"><a href="group___color_sensing.html#ga9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a></div><div class="ttdeci">ColorResult_t COLOR_SENSOR_Read(tcs34725_handle_t *handle)</div><div class="ttdef"><b>Definition</b> color_sensor.c:37</div></div>
+<div class="ttc" id="agroup___color_sensing_html_gaa0045094ff3843e1181266a1b50f464b"><div class="ttname"><a href="group___color_sensing.html#gaa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a></div><div class="ttdeci">void COLOR_SENSOR_Init(tcs34725_handle_t *handle)</div><div class="ttdef"><b>Definition</b> color_sensor.c:9</div></div>
+<div class="ttc" id="agroup___color_sensing_html_gaaad945fc0192d1c7701f251613ede7da"><div class="ttname"><a href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a></div><div class="ttdeci">ColorResult_t</div><div class="ttdef"><b>Definition</b> color_sensor.h:13</div></div>
+<div class="ttc" id="agroup___color_sensing_html_gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><div class="ttname"><a href="group___color_sensing.html#gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a></div><div class="ttdeci">void COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color)</div><div class="ttdef"><b>Definition</b> color_sensor.c:113</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa0d36904c1e8ef3978abfe51c57b70423">COLOR_ORANGE</a></div><div class="ttdeci">@ COLOR_ORANGE</div><div class="ttdef"><b>Definition</b> color_sensor.h:15</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa1340428efccb140dcbdb71aa6176f696">COLOR_BLUE</a></div><div class="ttdeci">@ COLOR_BLUE</div><div class="ttdef"><b>Definition</b> color_sensor.h:18</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa278276a8155620ed5e155c80d35316cc">COLOR_PURPLE</a></div><div class="ttdeci">@ COLOR_PURPLE</div><div class="ttdef"><b>Definition</b> color_sensor.h:19</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daa592503b9434c1e751a92f3fc536d7950">COLOR_RED</a></div><div class="ttdeci">@ COLOR_RED</div><div class="ttdef"><b>Definition</b> color_sensor.h:14</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daaa9cdbd17e722d6c38919ad074dc0d4c7">COLOR_UNKNOWN</a></div><div class="ttdeci">@ COLOR_UNKNOWN</div><div class="ttdef"><b>Definition</b> color_sensor.h:20</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daab03862907066c68204ee9df1ee04aa29">COLOR_YELLOW</a></div><div class="ttdeci">@ COLOR_YELLOW</div><div class="ttdef"><b>Definition</b> color_sensor.h:16</div></div>
+<div class="ttc" id="agroup___color_sensing_html_ggaaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02"><div class="ttname"><a href="group___color_sensing.html#ggaaad945fc0192d1c7701f251613ede7daacfa9d8bbffc418447ed826f286abca02">COLOR_GREEN</a></div><div class="ttdeci">@ COLOR_GREEN</div><div class="ttdef"><b>Definition</b> color_sensor.h:17</div></div>
 <div class="ttc" id="agroup__tcs34725__base__driver_html_gabf62ca691ea0ce399b24299ff2ad7305"><div class="ttname"><a href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a></div><div class="ttdeci">struct tcs34725_handle_s tcs34725_handle_t</div><div class="ttdoc">tcs34725 handle structure definition</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

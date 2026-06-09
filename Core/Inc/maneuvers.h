@@ -2,6 +2,12 @@
 #define MANEUVERS_H
 #include "motion.h"
 
+/**
+ * @defgroup MotionControl Motion Control
+ * @brief Color sensor reading and classification.
+ * @{
+ */
+
 //Type to specify servo command for a given waypoint
 typedef enum {
     NA = 0,
@@ -30,6 +36,6 @@ extern trajectory_t test_trajectory1; //Make trajectories accesisble from main
 
 void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory);
 
+/** @} */
+
 #endif
-
-

@@ -1,5 +1,5 @@
 var searchData=
 [
   ['pendsv_5fhandler_0',['PendSV_Handler',['../stm32h7xx__it_8c.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a6303e1f258cbdc1f970ce579cc015623',1,'PendSV_Handler(void):&#160;stm32h7xx_it.c']]],
-  ['planmovefromcolor_1',['PlanMoveFromColor',['../motion_8h.html#a491198babf55a6495cf62837b64123d1',1,'motion.h']]]
+  ['planmovefromcolor_1',['PlanMoveFromColor',['../group___motion_control.html#ga491198babf55a6495cf62837b64123d1',1,'motion.h']]]
 ];

@@ -7,7 +7,7 @@ var searchData=
   ['test1_4',['test1',['../structtesttype.html#a19dcf9b52976babd140d30eecd7cddcb',1,'testtype']]],
   ['test2_5',['test2',['../structtesttype.html#af83e789c5e440a8fae56ad74d35422d9',1,'testtype']]],
   ['test3_6',['test3',['../structtesttype.html#aa4fea1d49786f1844ac20bd3844f01ee',1,'testtype']]],
-  ['test_5ftrajectory1_7',['test_trajectory1',['../maneuvers_8c.html#a2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c'],['../maneuvers_8h.html#a2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c']]],
+  ['test_5ftrajectory1_7',['test_trajectory1',['../group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c'],['../group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c']]],
   ['testvar_8',['testvar',['../main_8c.html#a3653793595a3b6cf8459ab0052053beb',1,'main.c']]],
   ['tolerance_9',['tolerance',['../maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27',1,'maneuvers.c']]]
 ];

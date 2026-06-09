@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Core/Inc/maneuvers.h Source File</title>
+<title>4 DOF Robotic Arm: Core/Inc/maneuvers.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -105,62 +122,62 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('maneuvers_8h_s
 <a href="maneuvers_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef MANEUVERS_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define MANEUVERS_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;<a class="code" href="motion_8h.html">motion.h</a>&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment">//Type to specify servo command for a given waypoint</span></div>
-<div class="foldopen" id="foldopen00006" data-start="{" data-end="};">
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno"><a class="line" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46e">    6</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">    7</a></span>    <a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a> = 0,</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">    8</a></span>    <a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a> = 1,</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">    9</a></span>    <a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a> = 2</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>} <a class="code hl_enumeration" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a>;</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">//Type to specify servo command for a given waypoint</span></div>
+<div class="foldopen" id="foldopen00012" data-start="{" data-end="};">
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="group___motion_control.html#ga07e558fe752f54f3df3a53f56bd6e46e">   12</a></span><span class="keyword">typedef</span> <span class="keyword">enum</span> {</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">   13</a></span>    <a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a> = 0,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">   14</a></span>    <a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a> = 1,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">   15</a></span>    <a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a> = 2</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>} <a class="code hl_enumeration" href="group___motion_control.html#ga07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a>;</div>
 </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">//type to store joint angles for a given waypoint</span></div>
-<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="structwaypoint__t.html">   14</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">   15</a></span>    <a class="code hl_enumeration" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a> <a class="code hl_variable" href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">servo</a>; <span class="comment">//Servo command for this waypoint</span></div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">   16</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">joint1</a>;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">   17</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">joint2</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">   18</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">joint3</a>;</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">   19</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">joint4</a>;</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>} <a class="code hl_struct" href="structwaypoint__t.html">waypoint_t</a>;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment">//type to store joint angles for a given waypoint</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structwaypoint__t.html">   20</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">   21</a></span>    <a class="code hl_enumeration" href="group___motion_control.html#ga07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a> <a class="code hl_variable" href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">servo</a>; <span class="comment">//Servo command for this waypoint</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">   22</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">joint1</a>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">   23</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">joint2</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">   24</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">joint3</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">   25</a></span>    <span class="keywordtype">double</span> <a class="code hl_variable" href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">joint4</a>;</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>} <a class="code hl_struct" href="structwaypoint__t.html">waypoint_t</a>;</div>
 </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">//type to store a trajectory, which is an array of waypoints and the number of waypoints in the trajectory</span></div>
-<div class="foldopen" id="foldopen00024" data-start="{" data-end="};">
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structtrajectory__t.html">   24</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">   25</a></span>    <a class="code hl_struct" href="structwaypoint__t.html">waypoint_t</a> <a class="code hl_variable" href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">waypoints</a>[15]; <span class="comment">//max number of waypoints in a trajectory</span></div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">   26</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">num_waypoints</a>;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>} <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a>;</div>
-</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="keyword">extern</span> <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a> <a class="code hl_variable" href="maneuvers_8c.html#a2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a>; <span class="comment">//Make trajectories accesisble from main</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keywordtype">void</span> <a class="code hl_function" href="maneuvers_8h.html#a7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a>(<a class="code hl_struct" href="structmotor__config__t.html">motor_config_t</a> *<a class="code hl_variable" href="main_8c.html#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a>, <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a> *trajectory);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">//type to store a trajectory, which is an array of waypoints and the number of waypoints in the trajectory</span></div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structtrajectory__t.html">   30</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">   31</a></span>    <a class="code hl_struct" href="structwaypoint__t.html">waypoint_t</a> <a class="code hl_variable" href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">waypoints</a>[15]; <span class="comment">//max number of waypoints in a trajectory</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">   32</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">num_waypoints</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>} <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a>;</div>
+</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="keyword">extern</span> <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a> <a class="code hl_variable" href="group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a>; <span class="comment">//Make trajectories accesisble from main</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="keywordtype">void</span> <a class="code hl_function" href="group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a>(<a class="code hl_struct" href="structmotor__config__t.html">motor_config_t</a> *<a class="code hl_variable" href="main_8c.html#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a>, <a class="code hl_struct" href="structtrajectory__t.html">trajectory_t</a> *trajectory);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="agroup___motion_control_html_ga07e558fe752f54f3df3a53f56bd6e46e"><div class="ttname"><a href="group___motion_control.html#ga07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a></div><div class="ttdeci">servo_cmd_t</div><div class="ttdef"><b>Definition</b> maneuvers.h:12</div></div>
+<div class="ttc" id="agroup___motion_control_html_ga2b7fe5dfbdb30b0f739b25272836e48d"><div class="ttname"><a href="group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></div><div class="ttdeci">trajectory_t test_trajectory1</div><div class="ttdoc">Define trajectory arrays.</div><div class="ttdef"><b>Definition</b> maneuvers.c:11</div></div>
+<div class="ttc" id="agroup___motion_control_html_ga7a09a98efff3d3c1f120ae657d867ed0"><div class="ttname"><a href="group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a></div><div class="ttdeci">void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory)</div><div class="ttdef"><b>Definition</b> maneuvers.c:84</div></div>
+<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a></div><div class="ttdeci">@ Close</div><div class="ttdef"><b>Definition</b> maneuvers.h:15</div></div>
+<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a></div><div class="ttdeci">@ NA</div><div class="ttdef"><b>Definition</b> maneuvers.h:13</div></div>
+<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a></div><div class="ttdeci">@ Open</div><div class="ttdef"><b>Definition</b> maneuvers.h:14</div></div>
 <div class="ttc" id="amain_8c_html_a53169ccb825328490c5797c25d83eb5f"><div class="ttname"><a href="main_8c.html#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a></div><div class="ttdeci">motor_config_t motorConfigs[4]</div><div class="ttdef"><b>Definition</b> main.c:109</div></div>
-<div class="ttc" id="amaneuvers_8c_html_a2b7fe5dfbdb30b0f739b25272836e48d"><div class="ttname"><a href="maneuvers_8c.html#a2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></div><div class="ttdeci">trajectory_t test_trajectory1</div><div class="ttdoc">Define trajectory arrays.</div><div class="ttdef"><b>Definition</b> maneuvers.c:11</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46e"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46e">servo_cmd_t</a></div><div class="ttdeci">servo_cmd_t</div><div class="ttdef"><b>Definition</b> maneuvers.h:6</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a></div><div class="ttdeci">@ Close</div><div class="ttdef"><b>Definition</b> maneuvers.h:9</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a></div><div class="ttdeci">@ NA</div><div class="ttdef"><b>Definition</b> maneuvers.h:7</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a></div><div class="ttdeci">@ Open</div><div class="ttdef"><b>Definition</b> maneuvers.h:8</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a7a09a98efff3d3c1f120ae657d867ed0"><div class="ttname"><a href="maneuvers_8h.html#a7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a></div><div class="ttdeci">void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory)</div><div class="ttdef"><b>Definition</b> maneuvers.c:84</div></div>
 <div class="ttc" id="amotion_8h_html"><div class="ttname"><a href="motion_8h.html">motion.h</a></div></div>
-<div class="ttc" id="astructmotor__config__t_html"><div class="ttname"><a href="structmotor__config__t.html">motor_config_t</a></div><div class="ttdef"><b>Definition</b> motion.h:7</div></div>
-<div class="ttc" id="astructtrajectory__t_html"><div class="ttname"><a href="structtrajectory__t.html">trajectory_t</a></div><div class="ttdef"><b>Definition</b> maneuvers.h:24</div></div>
-<div class="ttc" id="astructtrajectory__t_html_a09e351363aef27eb776c7c76f30a01f6"><div class="ttname"><a href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">trajectory_t::waypoints</a></div><div class="ttdeci">waypoint_t waypoints[15]</div><div class="ttdef"><b>Definition</b> maneuvers.h:25</div></div>
-<div class="ttc" id="astructtrajectory__t_html_abbc8aaf7190c6ea780f733202fc9ee51"><div class="ttname"><a href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">trajectory_t::num_waypoints</a></div><div class="ttdeci">int num_waypoints</div><div class="ttdef"><b>Definition</b> maneuvers.h:26</div></div>
-<div class="ttc" id="astructwaypoint__t_html"><div class="ttname"><a href="structwaypoint__t.html">waypoint_t</a></div><div class="ttdef"><b>Definition</b> maneuvers.h:14</div></div>
-<div class="ttc" id="astructwaypoint__t_html_a5157d1664af7ea3b183e0b59912a3a52"><div class="ttname"><a href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">waypoint_t::servo</a></div><div class="ttdeci">servo_cmd_t servo</div><div class="ttdef"><b>Definition</b> maneuvers.h:15</div></div>
-<div class="ttc" id="astructwaypoint__t_html_a6e4759da2e6eeaeca7b78cf745895ba9"><div class="ttname"><a href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">waypoint_t::joint1</a></div><div class="ttdeci">double joint1</div><div class="ttdef"><b>Definition</b> maneuvers.h:16</div></div>
-<div class="ttc" id="astructwaypoint__t_html_ab1e8c190d6976c01aa4dc403edd5a48e"><div class="ttname"><a href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">waypoint_t::joint2</a></div><div class="ttdeci">double joint2</div><div class="ttdef"><b>Definition</b> maneuvers.h:17</div></div>
-<div class="ttc" id="astructwaypoint__t_html_abd61fc81d943c71f420bde4be6d4e228"><div class="ttname"><a href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">waypoint_t::joint4</a></div><div class="ttdeci">double joint4</div><div class="ttdef"><b>Definition</b> maneuvers.h:19</div></div>
-<div class="ttc" id="astructwaypoint__t_html_ae63b3bf235822314a41e06b06bf7cdcc"><div class="ttname"><a href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">waypoint_t::joint3</a></div><div class="ttdeci">double joint3</div><div class="ttdef"><b>Definition</b> maneuvers.h:18</div></div>
+<div class="ttc" id="astructmotor__config__t_html"><div class="ttname"><a href="structmotor__config__t.html">motor_config_t</a></div><div class="ttdef"><b>Definition</b> motion.h:12</div></div>
+<div class="ttc" id="astructtrajectory__t_html"><div class="ttname"><a href="structtrajectory__t.html">trajectory_t</a></div><div class="ttdef"><b>Definition</b> maneuvers.h:30</div></div>
+<div class="ttc" id="astructtrajectory__t_html_a09e351363aef27eb776c7c76f30a01f6"><div class="ttname"><a href="structtrajectory__t.html#a09e351363aef27eb776c7c76f30a01f6">trajectory_t::waypoints</a></div><div class="ttdeci">waypoint_t waypoints[15]</div><div class="ttdef"><b>Definition</b> maneuvers.h:31</div></div>
+<div class="ttc" id="astructtrajectory__t_html_abbc8aaf7190c6ea780f733202fc9ee51"><div class="ttname"><a href="structtrajectory__t.html#abbc8aaf7190c6ea780f733202fc9ee51">trajectory_t::num_waypoints</a></div><div class="ttdeci">int num_waypoints</div><div class="ttdef"><b>Definition</b> maneuvers.h:32</div></div>
+<div class="ttc" id="astructwaypoint__t_html"><div class="ttname"><a href="structwaypoint__t.html">waypoint_t</a></div><div class="ttdef"><b>Definition</b> maneuvers.h:20</div></div>
+<div class="ttc" id="astructwaypoint__t_html_a5157d1664af7ea3b183e0b59912a3a52"><div class="ttname"><a href="structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52">waypoint_t::servo</a></div><div class="ttdeci">servo_cmd_t servo</div><div class="ttdef"><b>Definition</b> maneuvers.h:21</div></div>
+<div class="ttc" id="astructwaypoint__t_html_a6e4759da2e6eeaeca7b78cf745895ba9"><div class="ttname"><a href="structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9">waypoint_t::joint1</a></div><div class="ttdeci">double joint1</div><div class="ttdef"><b>Definition</b> maneuvers.h:22</div></div>
+<div class="ttc" id="astructwaypoint__t_html_ab1e8c190d6976c01aa4dc403edd5a48e"><div class="ttname"><a href="structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e">waypoint_t::joint2</a></div><div class="ttdeci">double joint2</div><div class="ttdef"><b>Definition</b> maneuvers.h:23</div></div>
+<div class="ttc" id="astructwaypoint__t_html_abd61fc81d943c71f420bde4be6d4e228"><div class="ttname"><a href="structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228">waypoint_t::joint4</a></div><div class="ttdeci">double joint4</div><div class="ttdef"><b>Definition</b> maneuvers.h:25</div></div>
+<div class="ttc" id="astructwaypoint__t_html_ae63b3bf235822314a41e06b06bf7cdcc"><div class="ttname"><a href="structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc">waypoint_t::joint3</a></div><div class="ttdeci">double joint3</div><div class="ttdef"><b>Definition</b> maneuvers.h:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

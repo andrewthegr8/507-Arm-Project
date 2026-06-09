@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Mecha05 Robotic Arm: Core/Src/maneuvers.c File Reference</title>
+<title>4 DOF Robotic Arm: Core/Src/maneuvers.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -16,12 +16,9 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
-<script type="text/javascript">
-document.addEventListener('DOMContentLoaded', init_search);
-</script>
 <script type="module">
 import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-const theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'default';
+const theme = 'default';
 mermaid.initialize({ startOnLoad: true, theme: theme });
 </script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
@@ -33,22 +30,10 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">Mecha05 Robotic Arm
+   <div id="projectname">4 DOF Robotic Arm
    </div>
-   <div id="projectbrief">ME 507 Term Project</div>
+   <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
-    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
-        <span class="left">
-          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
-          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
-               onfocus="searchBox.OnSearchFieldFocus(true)" 
-               onblur="searchBox.OnSearchFieldFocus(false)" 
-               onkeyup="searchBox.OnSearchFieldChange(event)"/>
-          </span><span class="right">
-            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
-          </span>
-        </div>
-</td>
  </tr>
  </tbody>
 </table>
@@ -61,6 +46,38 @@ let searchBox = new SearchBox("searchBox", "search/",'.html');
 <script type="text/javascript">
 document.addEventListener('DOMContentLoaded', codefold.init);
 </script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+document.addEventListener('DOMContentLoaded', () => {
+  initMenu('',true);
+  init_search();
+});
+</script>
+<div id="main-nav-mobile">
+<div class="sm sm-dox"><input id="main-menu-state" type="checkbox"/>
+<label class="main-menu-btn" for="main-menu-state">
+<span class="main-menu-btn-icon"></span> Toggle main menu visibility</label>
+<span id="searchBoxPos1" style="position:absolute;right:8px;top:8px;height:36px;"></span>
+</div>
+</div><!-- main-nav-mobile -->
+<div id="main-nav">
+  <ul class="sm sm-dox" id="main-menu">
+    <li id="searchBoxPos2" style="float:right">
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect" class="search-icon" onmouseover="return searchBox.OnSearchSelectShow()" onmouseout="return searchBox.OnSearchSelectHide()"><span class="search-icon-dropdown"></span></span>
+          <input type="text" id="MSearchField" value="" placeholder="Search" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><div id="MSearchCloseImg" class="close-icon"></div></a>
+          </span>
+        </div>
+    </li>
+  </ul>
+</div><!-- main-nav -->
 </div><!-- top -->
 <div id="side-nav" class="ui-resizable side-nav-resizable">
   <div id="nav-tree">
@@ -173,12 +190,12 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:a401d97b84994bdf87f85d04f283995e0" id="r_a401d97b84994bdf87f85d04f283995e0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a401d97b84994bdf87f85d04f283995e0">q_at_waypoint</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
 <tr class="memitem:a51b2b5291716e4fb50a2877a45ae0ff8" id="r_a51b2b5291716e4fb50a2877a45ae0ff8"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a51b2b5291716e4fb50a2877a45ae0ff8">go_to_next_waypoint</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
-<tr class="memitem:a7a09a98efff3d3c1f120ae657d867ed0" id="r_a7a09a98efff3d3c1f120ae657d867ed0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
+<tr class="memitem:ga7a09a98efff3d3c1f120ae657d867ed0" id="r_ga7a09a98efff3d3c1f120ae657d867ed0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a2b7fe5dfbdb30b0f739b25272836e48d" id="r_a2b7fe5dfbdb30b0f739b25272836e48d"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></td></tr>
-<tr class="memdesc:a2b7fe5dfbdb30b0f739b25272836e48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define trajectory arrays.  <br /></td></tr>
+<tr class="memitem:ga2b7fe5dfbdb30b0f739b25272836e48d" id="r_ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></td></tr>
+<tr class="memdesc:ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define trajectory arrays.  <br /></td></tr>
 <tr class="memitem:a97eab6d709b80585fe9e8a54b1e3da27" id="r_a97eab6d709b80585fe9e8a54b1e3da27"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a97eab6d709b80585fe9e8a54b1e3da27">tolerance</a> = 0.2</td></tr>
 <tr class="memitem:a76c59413569196f3ce8985ad5d2b9efe" id="r_a76c59413569196f3ce8985ad5d2b9efe"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a76c59413569196f3ce8985ad5d2b9efe">current_waypoint_index</a> = 0</td></tr>
 <tr class="memitem:a15fa8f110ca05fa8ea9c012c8c4a5fce" id="r_a15fa8f110ca05fa8ea9c012c8c4a5fce"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a15fa8f110ca05fa8ea9c012c8c4a5fce">M1_at_target</a> = false</td></tr>
@@ -202,27 +219,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a7a09a98efff3d3c1f120ae657d867ed0" name="a7a09a98efff3d3c1f120ae657d867ed0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7a09a98efff3d3c1f120ae657d867ed0">&#9670;&#160;</a></span>execute_trajectory()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void execute_trajectory </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="structmotor__config__t.html">motor_config_t</a> *</td>          <td class="paramname"><span class="paramname"><em>motorConfigs</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="structtrajectory__t.html">trajectory_t</a> *</td>          <td class="paramname"><span class="paramname"><em>trajectory</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a51b2b5291716e4fb50a2877a45ae0ff8" name="a51b2b5291716e4fb50a2877a45ae0ff8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51b2b5291716e4fb50a2877a45ae0ff8">&#9670;&#160;</a></span>go_to_next_waypoint()</h2>
 
@@ -389,40 +385,6 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2b7fe5dfbdb30b0f739b25272836e48d" name="a2b7fe5dfbdb30b0f739b25272836e48d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b7fe5dfbdb30b0f739b25272836e48d">&#9670;&#160;</a></span>test_trajectory1</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> test_trajectory1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                              = {</div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, -M_PI / 4, M_PI / 4},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, -M_PI / 2, M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 0.0, -M_PI / 2, M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 9}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 4}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 2, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 2, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, 0.0, 2*M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, 0.0, 0.0} </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 10</div>
-<div class="line">}</div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a></div><div class="ttdeci">@ Close</div><div class="ttdef"><b>Definition</b> maneuvers.h:9</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a></div><div class="ttdeci">@ NA</div><div class="ttdef"><b>Definition</b> maneuvers.h:7</div></div>
-<div class="ttc" id="amaneuvers_8h_html_a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291"><div class="ttname"><a href="maneuvers_8h.html#a07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a></div><div class="ttdeci">@ Open</div><div class="ttdef"><b>Definition</b> maneuvers.h:8</div></div>
-</div><!-- fragment -->
-<p>Define trajectory arrays. </p>
 
 </div>
 </div>

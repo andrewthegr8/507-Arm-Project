@@ -19,5 +19,6 @@ var searchData=
   ['fsm_5fupdate_16',['FSM_Update',['../fsm_8c.html#a79b65e2d23f9434583370a533ff85c88',1,'FSM_Update(void):&#160;fsm.c'],['../fsm_8h.html#a79b65e2d23f9434583370a533ff85c88',1,'FSM_Update(void):&#160;fsm.c']]],
   ['function_17',['function',['../group__tcs34725__base__driver.html',1,'tcs34725 base driver function'],['../group__tcs34725__driver.html',1,'tcs34725 driver function'],['../group__tcs34725__extend__driver.html',1,'tcs34725 extend driver function'],['../group__tcs34725__interrupt__driver.html',1,'tcs34725 interrupt driver function'],['../group__tcs34725__link__driver.html',1,'tcs34725 link driver function']]],
   ['functions_2ec_18',['Functions.c',['../_functions_8c.html',1,'']]],
-  ['functions_2eh_19',['Functions.h',['../_functions_8h.html',1,'']]]
+  ['functions_2eh_19',['Functions.h',['../_functions_8h.html',1,'']]],
+  ['future_20improvements_20',['Future Improvements',['../index.html#autotoc_md6',1,'']]]
 ];

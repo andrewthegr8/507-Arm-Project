@@ -328,12 +328,23 @@ int main(void)
     char dbg[64];
     int len = sprintf(dbg, "X: %u  Y: %u  BTN: %d\r\n ISR: %081X\r\n", Joystick_ReadX(), Joystick_ReadY(), Joystick_ReadButton(), ADC1->ISR);
     HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY); */
-    if (joy_new_sample) {
+
+
+
+    /*if (joy_new_sample) {
         joy_new_sample = 0;
         int len = sprintf(sendbuff, "X: %u  Y: %u  BTN: %d\r\n", joy_x_raw, joy_y_raw, Joystick_ReadButton());
         HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
     }
+    HAL_Delay(200);*/
+
+    HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
     HAL_Delay(200);
+    int len = sprintf(sendbuff, "X: %lu  Y: %lu\r\n", adc_buffer[0], adc_buffer[1]);
+    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
+
+
+
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);

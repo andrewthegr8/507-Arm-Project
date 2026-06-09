@@ -267,7 +267,8 @@ int main(void)
 
   //HAL_ADC_Start_IT(&hadc1);
   HAL_StatusTypeDef dma_status = HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
-  HAL_TIM_Base_Start(&htim8);
+  HAL_NVIC_DisableIRQ(ADC_IRQn);
+  //HAL_TIM_Base_Start(&htim8);
   double m2pos = 0;
   //Servo_Init();
   //Servo_Open();
@@ -331,17 +332,12 @@ int main(void)
 
 
 
-    /*if (joy_new_sample) {
+    if (joy_new_sample) {
         joy_new_sample = 0;
         int len = sprintf(sendbuff, "X: %u  Y: %u  BTN: %d\r\n", joy_x_raw, joy_y_raw, Joystick_ReadButton());
         HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
     }
-    HAL_Delay(200);*/
-
-    HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
     HAL_Delay(200);
-    int len = sprintf(sendbuff, "X: %lu  Y: %lu\r\n", adc_buffer[0], adc_buffer[1]);
-    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
 
 
 
@@ -454,13 +450,13 @@ static void MX_ADC1_Init(void)
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
   hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.ContinuousConvMode = ENABLE;
   hadc1.Init.NbrOfConversion = 2;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
-  hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T8_TRGO;
-  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
+  hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+  hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
   hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
@@ -980,6 +976,13 @@ static void MX_GPIO_Init(void)
 {
     joy_x_raw = adc_buffer[0];  // rank 1, IN17
     joy_y_raw = adc_buffer[1];  // rank 2, IN16
+    joy_new_sample = 1;
+}
+
+void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    joy_x_raw = adc_buffer[0];
+    joy_y_raw = adc_buffer[1];
     joy_new_sample = 1;
 }
 

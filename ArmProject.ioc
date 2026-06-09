@@ -1,11 +1,11 @@
 #MicroXplorer Configuration settings - do not modify
 ADC1.Channel-0\#ChannelRegularConversion=ADC_CHANNEL_17
 ADC1.Channel-2\#ChannelRegularConversion=ADC_CHANNEL_16
-ADC1.ContinuousConvMode=DISABLE
+ADC1.ContinuousConvMode=ENABLE
 ADC1.ConversionDataManagement=ADC_CONVERSIONDATA_DMA_CIRCULAR
 ADC1.DiscontinuousConvMode=DISABLE
-ADC1.EOCSelection=ADC_EOC_SINGLE_CONV
-ADC1.ExternalTrigConv=ADC_EXTERNALTRIG_T8_TRGO
+ADC1.EOCSelection=ADC_EOC_SEQ_CONV
+ADC1.ExternalTrigConv=ADC_SOFTWARE_START
 ADC1.IPParameters=Rank-0\#ChannelRegularConversion,Channel-0\#ChannelRegularConversion,SamplingTime-0\#ChannelRegularConversion,OffsetNumber-0\#ChannelRegularConversion,OffsetSignedSaturation-0\#ChannelRegularConversion,NbrOfConversionFlag,Resolution,ContinuousConvMode,NbrOfConversion,master,ConversionDataManagement,EOCSelection,ExternalTrigConv,Rank-2\#ChannelRegularConversion,Channel-2\#ChannelRegularConversion,SamplingTime-2\#ChannelRegularConversion,OffsetNumber-2\#ChannelRegularConversion,DiscontinuousConvMode
 ADC1.NbrOfConversion=2
 ADC1.NbrOfConversionFlag=1
@@ -287,7 +287,7 @@ ProjectManager.ToolChainLocation=
 ProjectManager.UAScriptAfterPath=
 ProjectManager.UAScriptBeforePath=
 ProjectManager.UnderRoot=false
-ProjectManager.functionlistsort=1-SystemClock_Config-RCC-false-HAL-false,2-MX_GPIO_Init-GPIO-false-HAL-true,4-MX_SPI1_Init-SPI1-false-HAL-true,5-MX_USB_OTG_HS_PCD_Init-USB_OTG_HS-false-HAL-true,6-MX_I2C1_Init-I2C1-false-HAL-true,7-MX_TIM3_Init-TIM3-false-HAL-true,8-MX_TIM15_Init-TIM15-false-HAL-true,9-MX_USART3_UART_Init-USART3-false-HAL-true,10-MX_ADC1_Init-ADC1-false-HAL-true,11-MX_TIM8_Init-TIM8-false-HAL-true,0-MX_DMA_Init-DMA-false-HAL-true
+ProjectManager.functionlistsort=1-SystemClock_Config-RCC-false-HAL-false,2-MX_GPIO_Init-GPIO-false-HAL-true,4-MX_SPI1_Init-SPI1-false-HAL-true,5-MX_USB_OTG_HS_PCD_Init-USB_OTG_HS-false-HAL-true,6-MX_I2C1_Init-I2C1-false-HAL-true,7-MX_TIM3_Init-TIM3-false-HAL-true,8-MX_TIM15_Init-TIM15-false-HAL-true,9-MX_USART3_UART_Init-USART3-false-HAL-true,10-MX_ADC1_Init-ADC1-false-HAL-true,11-MX_TIM8_Init-TIM8-false-HAL-true,3-MX_DMA_Init-DMA-false-HAL-true
 RCC.ADCFreq_Value=43555664.0625
 RCC.AHB12Freq_Value=64000000
 RCC.AHB4Freq_Value=64000000

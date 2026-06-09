@@ -60,6 +60,7 @@ testtype testvar;
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
+DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -138,6 +139,7 @@ volatile uint8_t joy_new_sample = 0;
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
+static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_I2C1_Init(void);
@@ -187,6 +189,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USB_OTG_HS_PCD_Init();
   MX_I2C1_Init();
@@ -261,7 +264,8 @@ int main(void)
   adc_rank_index = 0;
   joy_new_sample = 0;
 
-  HAL_ADC_Start_IT(&hadc1);
+  //HAL_ADC_Start_IT(&hadc1);
+  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
   HAL_TIM_Base_Start(&htim8);
   double m2pos = 0;
   //Servo_Init();
@@ -319,11 +323,16 @@ int main(void)
     */
   
     //HAL_Delay(500); 
-    Joystick_Read();
+    /* Joystick_Read();
     char dbg[64];
-    int len = sprintf(dbg, "X: %u  Y: %u  BTN: %d\r\n", Joystick_ReadX(), Joystick_ReadY(), Joystick_ReadButton());
-    HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY);
-    HAL_Delay(200);
+    int len = sprintf(dbg, "X: %u  Y: %u  BTN: %d\r\n ISR: %081X\r\n", Joystick_ReadX(), Joystick_ReadY(), Joystick_ReadButton(), ADC1->ISR);
+    HAL_UART_Transmit(&huart3, (uint8_t *)dbg, len, HAL_MAX_DELAY); */
+    if (joy_new_sample) {
+        joy_new_sample = 0;
+        int len = sprintf(sendbuff, "X: %u  Y: %u  BTN: %d\r\n", joy_x_raw, joy_y_raw, Joystick_ReadButton());
+        HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
+    }
+    //HAL_Delay(200);
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);
@@ -440,7 +449,7 @@ static void MX_ADC1_Init(void)
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_EXTERNALTRIG_T8_TRGO;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_RISING;
-  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
+  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
   hadc1.Init.OversamplingMode = DISABLE;
@@ -459,7 +468,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_16;
+  sConfig.Channel = ADC_CHANNEL_17;
   sConfig.Rank = ADC_REGULAR_RANK_1;
   sConfig.SamplingTime = ADC_SAMPLETIME_1CYCLE_5;
   sConfig.SingleDiff = ADC_SINGLE_ENDED;
@@ -473,7 +482,7 @@ static void MX_ADC1_Init(void)
 
   /** Configure Regular Channel
   */
-  sConfig.Channel = ADC_CHANNEL_17;
+  sConfig.Channel = ADC_CHANNEL_16;
   sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
@@ -838,6 +847,22 @@ static void MX_USB_OTG_HS_PCD_Init(void)
 }
 
 /**
+  * Enable DMA controller clock
+  */
+static void MX_DMA_Init(void)
+{
+
+  /* DMA controller clock enable */
+  __HAL_RCC_DMA1_CLK_ENABLE();
+
+  /* DMA interrupt init */
+  /* DMA1_Stream0_IRQn interrupt configuration */
+  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
+  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
+
+}
+
+/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -923,7 +948,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+/* void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
     uint16_t value = HAL_ADC_GetValue(hadc);
 
@@ -938,6 +963,12 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
         adc_rank_index = 0;
         joy_new_sample = 1;
     }
+} */
+ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
+{
+    joy_x_raw = adc_buffer[0];  // rank 1, IN17
+    joy_y_raw = adc_buffer[1];  // rank 2, IN16
+    joy_new_sample = 1;
 }
 
 /* USER CODE END 4 */

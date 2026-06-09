@@ -75,7 +75,7 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
-volatile uint16_t adc_buffer[2];
+volatile uint32_t adc_buffer[2];
 static MotionIC_Config_t motionICs[2] =
 {
     { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin },
@@ -199,7 +199,7 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
-  Joystick_Init();
+  //Joystick_Init();
   //FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
@@ -260,12 +260,13 @@ int main(void)
   Servo_Init();
 
   HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+  HAL_Delay(10);  // let ADC settle after calibration
 
-  adc_rank_index = 0;
+  //adc_rank_index = 0;
   joy_new_sample = 0;
 
   //HAL_ADC_Start_IT(&hadc1);
-  HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
+  HAL_StatusTypeDef dma_status = HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
   HAL_TIM_Base_Start(&htim8);
   double m2pos = 0;
   //Servo_Init();
@@ -332,7 +333,7 @@ int main(void)
         int len = sprintf(sendbuff, "X: %u  Y: %u  BTN: %d\r\n", joy_x_raw, joy_y_raw, Joystick_ReadButton());
         HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
     }
-    //HAL_Delay(200);
+    HAL_Delay(200);
     //char_count = sprintf(sendbuff, "Sent motor 1 command - 90 degrees\r\n"); 
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //pos = get_current_pos(&motorConfigs[0]);

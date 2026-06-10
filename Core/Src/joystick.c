@@ -37,6 +37,8 @@ extern ADC_HandleTypeDef hadc1;
 
 static uint16_t joy_x_raw = 0;
 static uint16_t joy_y_raw = 0;
+uint8_t x_dir = 0;
+uint8_t y_dir = 0;
 
 static uint16_t Joystick_ReadADCChannel(uint32_t channel)
 {
@@ -81,18 +83,26 @@ void Joystick_Init(void)
 
 void Joystick_Read(void)
 {
-    joy_x_raw = Joystick_ReadADCChannel(ADC_CHANNEL_16);
-    joy_y_raw = Joystick_ReadADCChannel(ADC_CHANNEL_17);
+    joy_y_raw = Joystick_ReadADCChannel(ADC_CHANNEL_16);
+    joy_x_raw = Joystick_ReadADCChannel(ADC_CHANNEL_17);
+    if (joy_x_raw > 3000) x_dir = 1;
+    else if (joy_x_raw < 1000) x_dir = 2;
+    else x_dir = 0;
+
+    if (joy_y_raw > 3000) y_dir = 2;
+    else if (joy_y_raw < 1000) y_dir = 1;
+    else y_dir = 0;
+
 }
 
 uint16_t Joystick_ReadX(void)
 {
-    return joy_x_raw;
+    return x_dir;
 }
 
 uint16_t Joystick_ReadY(void)
 {
-    return joy_y_raw;
+    return y_dir;
 }
 
 uint8_t Joystick_ReadButton(void)

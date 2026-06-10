@@ -23,6 +23,66 @@ trajectory_t test_trajectory1 = {
     },
     .num_waypoints = 10
 };
+trajectory_t red_trajectory = {  
+    .waypoints = {
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
+        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
+        {NA, -M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, -M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, -M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
+        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+    },
+    .num_waypoints = 10
+};
+trajectory_t yellow_trajectory = {
+    .waypoints = {
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
+        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
+        {NA, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, -3*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
+        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+    },
+    .num_waypoints = 10
+  };
+trajectory_t green_trajectory = {  
+    .waypoints = {
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
+        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
+        {NA, -5*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, -5*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, -5*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
+        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+    },
+    .num_waypoints = 10
+};
+trajectory_t blue_trajectory = {  
+    .waypoints = {
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
+        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
+        {NA, -7*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, -7*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, -7*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
+        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+    },
+    .num_waypoints = 10
+};
 
 static double tolerance = 0.2; //tolerance (in radians) for checking if at position
 static int current_waypoint_index = 0; //index of current waypoint in trajectory

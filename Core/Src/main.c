@@ -189,7 +189,7 @@ int main(void)
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
   //Joystick_Init();
-  //FSM_Init();
+  FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
 

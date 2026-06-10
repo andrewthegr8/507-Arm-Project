@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['x_5fval_0',['x_val',['../joystick_8c.html#aa76fc4f729788491bce3bae011023d0d',1,'joystick.c']]]
+  ['x_5fdir_0',['x_dir',['../joystick_8c.html#a39e485349b339483b850d2f02486094c',1,'joystick.c']]]
 ];

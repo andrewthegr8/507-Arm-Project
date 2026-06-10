@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>4 DOF Robotic Arm: Core/Src/main.c File Reference</title>
+<title>Robotic Arm: Core/Src/main.c File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">4 DOF Robotic Arm
+   <div id="projectname">Robotic Arm
    </div>
    <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
@@ -247,7 +247,6 @@ Functions</h2></td></tr>
 <tr class="memdesc:a8d573a0bab10c15045c04f205089575e"><td class="mdescLeft">&#160;</td><td class="mdescRight">TIM8 Initialization Function.  <br /></td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft">int&#160;</td><td class="memItemRight"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 <tr class="memdesc:a840291bc02cba5474a4cb46a9b9566fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The application entry point.  <br /></td></tr>
-<tr class="memitem:af20a88180db1113be1e89266917d148b" id="r_af20a88180db1113be1e89266917d148b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af20a88180db1113be1e89266917d148b">HAL_ADC_ConvCpltCallback</a> (ADC_HandleTypeDef *hadc)</td></tr>
 <tr class="memitem:a1730ffe1e560465665eb47d9264826f9" id="r_a1730ffe1e560465665eb47d9264826f9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1730ffe1e560465665eb47d9264826f9">Error_Handler</a> (void)</td></tr>
 <tr class="memdesc:a1730ffe1e560465665eb47d9264826f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">This function is executed in case of error occurrence.  <br /></td></tr>
 </table><table class="memberdecls">
@@ -262,15 +261,10 @@ Variables</h2></td></tr>
 <tr class="memitem:a859a9bb217bb4010bb2bffb6881478c0" id="r_a859a9bb217bb4010bb2bffb6881478c0"><td class="memItemLeft">TIM_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a859a9bb217bb4010bb2bffb6881478c0">htim15</a></td></tr>
 <tr class="memitem:ab7c63c1b0f65db92b6a4ea19edf957e1" id="r_ab7c63c1b0f65db92b6a4ea19edf957e1"><td class="memItemLeft">UART_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#ab7c63c1b0f65db92b6a4ea19edf957e1">huart3</a></td></tr>
 <tr class="memitem:a0a95840304203648c1cce34ad1365090" id="r_a0a95840304203648c1cce34ad1365090"><td class="memItemLeft">PCD_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a0a95840304203648c1cce34ad1365090">hpcd_USB_OTG_HS</a></td></tr>
-<tr class="memitem:a254e78eb97719aba9ff760bfbeef7209" id="r_a254e78eb97719aba9ff760bfbeef7209"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a254e78eb97719aba9ff760bfbeef7209">adc_buffer</a> [2]</td></tr>
 <tr class="memitem:a893c8f7dc4b65e11c7030108d6670b00" id="r_a893c8f7dc4b65e11c7030108d6670b00"><td class="memItemLeft">static <a class="el" href="struct_motion_i_c___config__t.html">MotionIC_Config_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a893c8f7dc4b65e11c7030108d6670b00">motionICs</a> [2]</td></tr>
 <tr class="memitem:a92b74903a3f8455e4c7a909857087798" id="r_a92b74903a3f8455e4c7a909857087798"><td class="memItemLeft">static <a class="el" href="struct_stepper_driver_config__t.html">StepperDriverConfig_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a92b74903a3f8455e4c7a909857087798">stepperConfig</a></td></tr>
 <tr class="memitem:a53169ccb825328490c5797c25d83eb5f" id="r_a53169ccb825328490c5797c25d83eb5f"><td class="memItemLeft"><a class="el" href="structmotor__config__t.html">motor_config_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a> [4]</td></tr>
 <tr class="memitem:aeb2dde9172d7a2c20632fe52b9197b46" id="r_aeb2dde9172d7a2c20632fe52b9197b46"><td class="memItemLeft"><a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#aeb2dde9172d7a2c20632fe52b9197b46">sensor_handle</a></td></tr>
-<tr class="memitem:a51b235bb317650568ae0837bbc2f30c0" id="r_a51b235bb317650568ae0837bbc2f30c0"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a51b235bb317650568ae0837bbc2f30c0">joy_x_raw</a> = 0</td></tr>
-<tr class="memitem:a05a86384dd0298c276dedaee15e7a16a" id="r_a05a86384dd0298c276dedaee15e7a16a"><td class="memItemLeft">volatile uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a05a86384dd0298c276dedaee15e7a16a">joy_y_raw</a> = 0</td></tr>
-<tr class="memitem:a2bedd987d0de20480e31c28b11dbc8a6" id="r_a2bedd987d0de20480e31c28b11dbc8a6"><td class="memItemLeft">volatile uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a2bedd987d0de20480e31c28b11dbc8a6">adc_rank_index</a> = 0</td></tr>
-<tr class="memitem:ab81532e2f01fd4090b366fe0ca48e460" id="r_ab81532e2f01fd4090b366fe0ca48e460"><td class="memItemLeft">volatile uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ab81532e2f01fd4090b366fe0ca48e460">joy_new_sample</a> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>: Main program body </p>
@@ -315,23 +309,6 @@ Variables</h2></td></tr>
   </table>
   </dd>
 </dl>
-
-</div>
-</div>
-<a id="af20a88180db1113be1e89266917d148b" name="af20a88180db1113be1e89266917d148b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af20a88180db1113be1e89266917d148b">&#9670;&#160;</a></span>HAL_ADC_ConvCpltCallback()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void HAL_ADC_ConvCpltCallback </td>
-          <td>(</td>
-          <td class="paramtype">ADC_HandleTypeDef *</td>          <td class="paramname"><span class="paramname"><em>hadc</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>
@@ -424,7 +401,6 @@ Variables</h2></td></tr>
 </dl>
 <p>Common config</p>
 <p>Configure the ADC multi-mode</p>
-<p>Configure Regular Channel</p>
 <p>Configure Regular Channel</p>
 
 </div>
@@ -773,34 +749,6 @@ Variables</h2></td></tr>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a254e78eb97719aba9ff760bfbeef7209" name="a254e78eb97719aba9ff760bfbeef7209"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a254e78eb97719aba9ff760bfbeef7209">&#9670;&#160;</a></span>adc_buffer</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint16_t adc_buffer[2]</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a2bedd987d0de20480e31c28b11dbc8a6" name="a2bedd987d0de20480e31c28b11dbc8a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bedd987d0de20480e31c28b11dbc8a6">&#9670;&#160;</a></span>adc_rank_index</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t adc_rank_index = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a22b804736f5648d52f639b2647d4ed13" name="a22b804736f5648d52f639b2647d4ed13"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a22b804736f5648d52f639b2647d4ed13">&#9670;&#160;</a></span>hadc1</h2>
 
@@ -907,48 +855,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">UART_HandleTypeDef huart3</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="ab81532e2f01fd4090b366fe0ca48e460" name="ab81532e2f01fd4090b366fe0ca48e460"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab81532e2f01fd4090b366fe0ca48e460">&#9670;&#160;</a></span>joy_new_sample</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t joy_new_sample = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a51b235bb317650568ae0837bbc2f30c0" name="a51b235bb317650568ae0837bbc2f30c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a51b235bb317650568ae0837bbc2f30c0">&#9670;&#160;</a></span>joy_x_raw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint16_t joy_x_raw = 0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a05a86384dd0298c276dedaee15e7a16a" name="a05a86384dd0298c276dedaee15e7a16a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05a86384dd0298c276dedaee15e7a16a">&#9670;&#160;</a></span>joy_y_raw</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint16_t joy_y_raw = 0</td>
         </tr>
       </table>
 </div><div class="memdoc">

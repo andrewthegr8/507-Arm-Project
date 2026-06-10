@@ -24,7 +24,7 @@
 */
 var NAVTREE =
 [
-  [ "4 DOF Robotic Arm", "index.html", [
+  [ "Robotic Arm", "index.html", [
     [ "Project Overview", "index.html", "index" ],
     [ "Topics", "topics.html", "topics" ],
     [ "Data Structures", "annotated.html", [
@@ -55,7 +55,7 @@ var NAVTREEINDEX =
 "_a_p_i___header_8h.html",
 "_t_m_c429___register_8h.html#a92369bf0f3985f1fa5227dcb2d6e261e",
 "group___motion_control.html#ga432bad7ba23dcbdf11de56ab980455f0",
-"stm32h7xx__hal__msp_8c.html#a0e553b32211877322f949b14801bbfa7"
+"stm32h7xx__hal__msp_8c.html#a2ec8d9b09854c732e2feed549278f048"
 ];
 
 const SYNCONMSG = 'click to disable panel synchronization';

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>4 DOF Robotic Arm: Project Overview</title>
+<title>Robotic Arm: Project Overview</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -30,7 +30,7 @@ mermaid.initialize({ startOnLoad: true, theme: theme });
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">4 DOF Robotic Arm
+   <div id="projectname">Robotic Arm
    </div>
    <div id="projectbrief">ME 507 Mecha05 Term Project</div>
   </td>
@@ -123,17 +123,41 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('index.html',''
 <p>Authors: Ethan Dickson, Andrew Jones, &amp; Sara Chamness</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
 Introduction</h1>
-<ul>
-<li>Autonomous block sorting</li>
-<li>Color sensing</li>
-<li>Trajectory planning</li>
-<li>Servo gripper control</li>
-<li>C (not C++)</li>
-</ul>
+<p>This website documents the complete design of a 4.5 DOF robotic arm. Our team created this robot for our term project in ME 507 at Cal Poly, San Luis Obispo.</p>
+<p>The robot is a semi autonomous color-sorting device. The arm consists of four joints mobilized by stepper motors and a gripper controlled by a servo motor. It was designed to pick up small foam blocks and sort them by color. To operate the device, the user manipulates a joystick to direct the robot to the block, then presses the select button on the joystick. A color sensor mounted on the end effector reads the color and the robot autonomously brings the block to a predetermined location based on its color.</p>
+<p>The system is built around a custom-designed PCB featuring an STM32H7 microcontroller. The project was developed using the STM32 ecosystem, and the firmware was implemented in C. The project utilizes open-source hardware drivers for interfacing with more complex electronics components, as well as the STM HAL library to work simplify communication with the microcontroller.</p>
+<p>Photo!!!</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Hardware</h1>
 <h2>Mechanical Design</h2>
-<p>Super cool stuff</p>
+<p>photo(s)</p><ul>
+<li>3D printed components<ul>
+<li>any special fits, design choices, etc. maybe link to (repo wiht) CAD files??</li>
+</ul>
+</li>
+<li>end effector</li>
+<li>stepper sizing and selection (spreadsheet and calcs)</li>
+<li>servo</li>
+<li>power supply</li>
+<li>wiring (connectors, cables, etc.)</li>
+<li>wiring diagrams?</li>
+</ul>
+<p>The robot arm was designed in SolidWorks and 3D printed out of PLA at the Cal Poly Makerspace. This minimized manufacturing costs and complexity for a custom design and allowed for easy iteration. The arm houses the four stepper motors at each of the joints, as well as the servo motor on the end effector. The end effector uses small gears to open the gripper, and the color sensor is mounted on the end effector. With the motors installed, the arm should be mounted on a flat surface to ensure stability. (do we use any screws? or is it all press fits?)</p>
+<p>The stepper motors (numbered 1-4) were sized by calculating the anticipated dynamic load on each motor. Motor 1 must bear the greatest load since it supports the weight and motion of the other motors and accessory components.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Required Motor Torques (Ncm)  </th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">Motor  </td><td class="markdownTableBodyNone">Static  </td><td class="markdownTableBodyNone">Dynamic  </td><td class="markdownTableBodyNone">Total  </td><td class="markdownTableBodyNone">FS (holding)  </td><td class="markdownTableBodyNone">FS (curve)  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T0  </td><td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">4.491381202  </td><td class="markdownTableBodyNone">4.05471914  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T1  </td><td class="markdownTableBodyNone">167.195754  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">203.2648367  </td><td class="markdownTableBodyNone">1.593979585  </td><td class="markdownTableBodyNone">1.106930267  </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">T2  </td><td class="markdownTableBodyNone">68.52285  </td><td class="markdownTableBodyNone">12.12007253  </td><td class="markdownTableBodyNone">80.64292253  </td><td class="markdownTableBodyNone">2.008855767  </td><td class="markdownTableBodyNone">1.813550345  </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T3  </td><td class="markdownTableBodyNone">14.95044  </td><td class="markdownTableBodyNone">1.518964704  </td><td class="markdownTableBodyNone">16.4694047  </td><td class="markdownTableBodyNone">1.420816382  </td><td class="markdownTableBodyNone">-  </td></tr>
+</table>
 <h2>Electrical Design</h2>
 <ul>
 <li>PCB</li>
@@ -141,6 +165,7 @@ Hardware</h1>
 <li>TMC429 Motion Controller</li>
 <li>TCS34725 Color Sensor</li>
 <li>Servo Gripper</li>
+<li>overdesigned - power, # of motors, USB, limit switches</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Software Architecture</h1>
@@ -170,6 +195,7 @@ Future Improvements</h1>
 <li>limit switches</li>
 <li>object detection?</li>
 <li>greater range of motion with the joystick?</li>
+<li>more motors with the extra motor drivers?</li>
 </ul>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 References</h1>

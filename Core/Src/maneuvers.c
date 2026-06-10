@@ -24,6 +24,22 @@ trajectory_t test_trajectory1 = {
     .num_waypoints = 10
 };
 
+trajectory_t trajectory1 = {
+    .waypoints = {
+        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
+        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
+        {NA, -M_PI / 4, 0.0, -M_PI / 2, M_PI / 2}, //rotate
+        {NA, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
+        {Close, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {NA, -M_PI / 4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
+        {NA, -M_PI / 2, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, -M_PI / 2, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, 0.0, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
+        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+    },
+    .num_waypoints = 10
+};
+
 static double tolerance = 0.2; //tolerance (in radians) for checking if at position
 static int current_waypoint_index = 0; //index of current waypoint in trajectory
 //Bools to track if each motor is at its target position for the current waypoint

@@ -7,6 +7,10 @@
 
 extern tcs34725_handle_t sensor_handle;
 extern motor_config_t motorConfigs[4];
+extern trajectory_t red_trajectory;
+extern trajectory_t green_trajectory;
+extern trajectory_t yellow_trajectory;
+extern trajectory_t blue_trajectory;
 
 static FSM_State current_state;
 static ColorResult_t detected_color;

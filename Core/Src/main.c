@@ -339,6 +339,7 @@ int main(void)
     //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //HAL_Delay(2000);
+    FSM_Update();
         
     /* USER CODE END WHILE */
 

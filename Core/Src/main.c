@@ -60,7 +60,6 @@ testtype testvar;
 
 /* Private variables ---------------------------------------------------------*/
 ADC_HandleTypeDef hadc1;
-DMA_HandleTypeDef hdma_adc1;
 
 I2C_HandleTypeDef hi2c1;
 
@@ -75,7 +74,6 @@ UART_HandleTypeDef huart3;
 PCD_HandleTypeDef hpcd_USB_OTG_HS;
 
 /* USER CODE BEGIN PV */
-volatile uint32_t adc_buffer[2];
 static MotionIC_Config_t motionICs[2] =
 {
     { &hspi1, MP1_NSCS_GPIO_Port, MP1_NSCS_Pin },
@@ -126,20 +124,12 @@ tcs34725_handle_t sensor_handle = {
     .debug_print = my_debug_print,
 };
 
-//Joystick interrupt variables
-volatile uint16_t joy_x_raw = 0;
-volatile uint16_t joy_y_raw = 0;
-
-volatile uint8_t adc_rank_index = 0;
-volatile uint8_t joy_new_sample = 0;
-
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 static void MPU_Config(void);
 static void MX_GPIO_Init(void);
-static void MX_DMA_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_USB_OTG_HS_PCD_Init(void);
 static void MX_I2C1_Init(void);
@@ -189,7 +179,6 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_DMA_Init();
   MX_SPI1_Init();
   MX_USB_OTG_HS_PCD_Init();
   MX_I2C1_Init();
@@ -259,16 +248,7 @@ int main(void)
 
   Servo_Init();
 
-  HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
-  HAL_Delay(10);  // let ADC settle after calibration
-
-  //adc_rank_index = 0;
-  joy_new_sample = 0;
-
-  //HAL_ADC_Start_IT(&hadc1);
-  HAL_StatusTypeDef dma_status = HAL_ADC_Start_DMA(&hadc1, (uint32_t*)adc_buffer, 2);
-  HAL_NVIC_DisableIRQ(ADC_IRQn);
-  //HAL_TIM_Base_Start(&htim8);
+  Joystick_Init();
   double m2pos = 0;
   //Servo_Init();
   //Servo_Open();
@@ -332,12 +312,17 @@ int main(void)
 
 
 
-    if (joy_new_sample) {
-        joy_new_sample = 0;
-        int len = sprintf(sendbuff, "X: %u  Y: %u  BTN: %d\r\n", joy_x_raw, joy_y_raw, Joystick_ReadButton());
-        HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
-    }
-    HAL_Delay(200);
+    Joystick_Read();
+
+    int len = sprintf(sendbuff,
+                      "X: %u  Y: %u  BTN: %d\r\n",
+                      Joystick_ReadX(),
+                      Joystick_ReadY(),
+                      Joystick_ReadButton());
+
+    HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
+
+    HAL_Delay(100);
 
 
 
@@ -449,15 +434,15 @@ static void MX_ADC1_Init(void)
   hadc1.Instance = ADC1;
   hadc1.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
   hadc1.Init.Resolution = ADC_RESOLUTION_12B;
-  hadc1.Init.ScanConvMode = ADC_SCAN_ENABLE;
-  hadc1.Init.EOCSelection = ADC_EOC_SEQ_CONV;
+  hadc1.Init.ScanConvMode = ADC_SCAN_DISABLE;
+  hadc1.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
   hadc1.Init.LowPowerAutoWait = DISABLE;
-  hadc1.Init.ContinuousConvMode = ENABLE;
-  hadc1.Init.NbrOfConversion = 2;
+  hadc1.Init.ContinuousConvMode = DISABLE;
+  hadc1.Init.NbrOfConversion = 1;
   hadc1.Init.DiscontinuousConvMode = DISABLE;
   hadc1.Init.ExternalTrigConv = ADC_SOFTWARE_START;
   hadc1.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DMA_CIRCULAR;
+  hadc1.Init.ConversionDataManagement = ADC_CONVERSIONDATA_DR;
   hadc1.Init.Overrun = ADC_OVR_DATA_PRESERVED;
   hadc1.Init.LeftBitShift = ADC_LEFTBITSHIFT_NONE;
   hadc1.Init.OversamplingMode = DISABLE;
@@ -483,15 +468,6 @@ static void MX_ADC1_Init(void)
   sConfig.OffsetNumber = ADC_OFFSET_NONE;
   sConfig.Offset = 0;
   sConfig.OffsetSignedSaturation = DISABLE;
-  if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
-  {
-    Error_Handler();
-  }
-
-  /** Configure Regular Channel
-  */
-  sConfig.Channel = ADC_CHANNEL_16;
-  sConfig.Rank = ADC_REGULAR_RANK_2;
   if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
   {
     Error_Handler();
@@ -855,22 +831,6 @@ static void MX_USB_OTG_HS_PCD_Init(void)
 }
 
 /**
-  * Enable DMA controller clock
-  */
-static void MX_DMA_Init(void)
-{
-
-  /* DMA controller clock enable */
-  __HAL_RCC_DMA1_CLK_ENABLE();
-
-  /* DMA interrupt init */
-  /* DMA1_Stream0_IRQn interrupt configuration */
-  HAL_NVIC_SetPriority(DMA1_Stream0_IRQn, 0, 0);
-  HAL_NVIC_EnableIRQ(DMA1_Stream0_IRQn);
-
-}
-
-/**
   * @brief GPIO Initialization Function
   * @param None
   * @retval None
@@ -956,35 +916,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-/* void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-    uint16_t value = HAL_ADC_GetValue(hadc);
 
-    if (adc_rank_index == 0)
-    {
-        joy_x_raw = value;
-        adc_rank_index = 1;
-    }
-    else
-    {
-        joy_y_raw = value;
-        adc_rank_index = 0;
-        joy_new_sample = 1;
-    }
-} */
- void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
-{
-    joy_x_raw = adc_buffer[0];  // rank 1, IN17
-    joy_y_raw = adc_buffer[1];  // rank 2, IN16
-    joy_new_sample = 1;
-}
-
-void HAL_ADC_ConvHalfCpltCallback(ADC_HandleTypeDef *hadc)
-{
-    joy_x_raw = adc_buffer[0];
-    joy_y_raw = adc_buffer[1];
-    joy_new_sample = 1;
-}
 
 /* USER CODE END 4 */
 

@@ -33,13 +33,67 @@ uint8_t Joystick_ReadButton(void)
 #include "joystick.h"
 #include "main.h"
 
-extern volatile uint16_t joy_x_raw;
-extern volatile uint16_t joy_y_raw;
+extern ADC_HandleTypeDef hadc1;
 
-void Joystick_Init(void) {}
+static uint16_t joy_x_raw = 0;
+static uint16_t joy_y_raw = 0;
 
-uint16_t Joystick_ReadX(void) { return joy_x_raw; }
-uint16_t Joystick_ReadY(void) { return joy_y_raw; }
+static uint16_t Joystick_ReadADCChannel(uint32_t channel)
+{
+    ADC_ChannelConfTypeDef sConfig = {0};
+
+    sConfig.Channel = channel;
+    sConfig.Rank = ADC_REGULAR_RANK_1;
+    sConfig.SamplingTime = ADC_SAMPLETIME_64CYCLES_5;
+    sConfig.SingleDiff = ADC_SINGLE_ENDED;
+    sConfig.OffsetNumber = ADC_OFFSET_NONE;
+    sConfig.Offset = 0;
+    sConfig.OffsetSignedSaturation = DISABLE;
+
+    if (HAL_ADC_ConfigChannel(&hadc1, &sConfig) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    if (HAL_ADC_Start(&hadc1) != HAL_OK)
+    {
+        Error_Handler();
+    }
+
+    if (HAL_ADC_PollForConversion(&hadc1, 10) != HAL_OK)
+    {
+        HAL_ADC_Stop(&hadc1);
+        Error_Handler();
+    }
+
+    uint16_t value = (uint16_t)HAL_ADC_GetValue(&hadc1);
+
+    HAL_ADC_Stop(&hadc1);
+
+    return value;
+}
+
+void Joystick_Init(void)
+{
+    HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
+    HAL_Delay(10);
+}
+
+void Joystick_Read(void)
+{
+    joy_x_raw = Joystick_ReadADCChannel(ADC_CHANNEL_16);
+    joy_y_raw = Joystick_ReadADCChannel(ADC_CHANNEL_17);
+}
+
+uint16_t Joystick_ReadX(void)
+{
+    return joy_x_raw;
+}
+
+uint16_t Joystick_ReadY(void)
+{
+    return joy_y_raw;
+}
 
 uint8_t Joystick_ReadButton(void)
 {

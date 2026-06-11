@@ -1,13 +1,14 @@
 var searchData=
 [
-  ['table_0',['table',['../struct_c_r_c_type_def.html#ad9c27e43f90db8aedacdaf24f52413da',1,'CRCTypeDef']]],
-  ['target_5fbin_1',['target_bin',['../struct_robot_context.html#ad1bb917e504c378aa456aa451d64c9c4',1,'RobotContext']]],
-  ['temperature_5fmax_2',['temperature_max',['../structtcs34725__info__s.html#a3366a5dce9b829e03c3d321c2b4df3f6',1,'tcs34725_info_s']]],
-  ['temperature_5fmin_3',['temperature_min',['../structtcs34725__info__s.html#a8f9dbe66ac0b66ebae0a36fcb4ba368e',1,'tcs34725_info_s']]],
-  ['test1_4',['test1',['../structtesttype.html#a19dcf9b52976babd140d30eecd7cddcb',1,'testtype']]],
-  ['test2_5',['test2',['../structtesttype.html#af83e789c5e440a8fae56ad74d35422d9',1,'testtype']]],
-  ['test3_6',['test3',['../structtesttype.html#aa4fea1d49786f1844ac20bd3844f01ee',1,'testtype']]],
-  ['test_5ftrajectory1_7',['test_trajectory1',['../group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c'],['../group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d',1,'test_trajectory1:&#160;maneuvers.c']]],
-  ['testvar_8',['testvar',['../main_8c.html#a3653793595a3b6cf8459ab0052053beb',1,'main.c']]],
-  ['tolerance_9',['tolerance',['../maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27',1,'maneuvers.c']]]
+  ['sensor_5fhandle_0',['sensor_handle',['../fsm_8c.html#aeb2dde9172d7a2c20632fe52b9197b46',1,'sensor_handle:&#160;main.c'],['../main_8c.html#aeb2dde9172d7a2c20632fe52b9197b46',1,'sensor_handle:&#160;main.c']]],
+  ['servo_1',['servo',['../structwaypoint__t.html#a5157d1664af7ea3b183e0b59912a3a52',1,'waypoint_t']]],
+  ['shadowregister_2',['shadowRegister',['../struct_configuration_type_def.html#a1054f56d41b7d725d5cb1bfc71c75356',1,'ConfigurationTypeDef']]],
+  ['sleeppin_3',['sleepPin',['../struct_stepper_driver_config__t.html#a28f101d0574bdd57ab10134b1712c2ed',1,'StepperDriverConfig_t']]],
+  ['sleepport_4',['sleepPort',['../struct_stepper_driver_config__t.html#a30da6069550d738b87c433196c24fc5a',1,'StepperDriverConfig_t']]],
+  ['sqrttable_5',['sqrttable',['../_functions_8c.html#ab0b5c2a7f2d65eaf4fb954d8a85b79f5',1,'Functions.c']]],
+  ['state_6',['state',['../struct_configuration_type_def.html#a3ea62c8c565ffa698cb3e366dbee84fc',1,'ConfigurationTypeDef']]],
+  ['stepperconfig_7',['stepperConfig',['../main_8c.html#a92b74903a3f8455e4c7a909857087798',1,'stepperConfig:&#160;main.c'],['../stepper__driver_8c.html#a26ffb735fdc3372f0b5ab867c9afee8f',1,'stepperConfig:&#160;stepper_driver.c']]],
+  ['steps_5fsec_5fto_5fic_5funits_8',['steps_sec_to_IC_units',['../structmotor__config__t.html#a5b1666008c2748b156d932dcbc230c67',1,'motor_config_t']]],
+  ['supply_5fvoltage_5fmax_5fv_9',['supply_voltage_max_v',['../structtcs34725__info__s.html#a3d2b12bcac7a85ea8646bff9debe8660',1,'tcs34725_info_s']]],
+  ['supply_5fvoltage_5fmin_5fv_10',['supply_voltage_min_v',['../structtcs34725__info__s.html#ad8bde6ddadaf43d951e62f3befb9d35a',1,'tcs34725_info_s']]]
 ];

@@ -6,5 +6,6 @@ var maneuvers_8h =
       [ "Close", "group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4", null ]
     ] ],
     [ "execute_trajectory", "group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0", null ],
+    [ "GetClawPose", "group___motion_control.html#ga60449194b01b9b6490ef2d9d6ba07da6", null ],
     [ "test_trajectory1", "group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d", null ]
 ];

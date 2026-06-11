@@ -1,14 +1,26 @@
 var maneuvers_8c =
 [
+    [ "L0", "maneuvers_8c.html#ad5111479796248b13cf12b3a93721f35", null ],
+    [ "L1", "maneuvers_8c.html#a1ce864b284ac751ffd8a0d98d5ccab55", null ],
+    [ "L2", "maneuvers_8c.html#ab983f03862f557a786ccc43b26522e16", null ],
+    [ "L3", "maneuvers_8c.html#a7771a73a8014204aeeecaaf58527b670", null ],
     [ "NUM_MOTORS", "maneuvers_8c.html#a52b56a381e777b55e1b59019d9ee072e", null ],
+    [ "ComputeEndEffectorPosition", "maneuvers_8c.html#ac7eb2d48d9ff4f17763d0b6cce009adc", null ],
     [ "execute_trajectory", "group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0", null ],
+    [ "GetClawPose", "group___motion_control.html#ga60449194b01b9b6490ef2d9d6ba07da6", null ],
     [ "go_to_next_waypoint", "maneuvers_8c.html#a51b2b5291716e4fb50a2877a45ae0ff8", null ],
     [ "q_at_waypoint", "maneuvers_8c.html#a401d97b84994bdf87f85d04f283995e0", null ],
+    [ "blue_trajectory", "maneuvers_8c.html#a6d11631546d4aac99acc263764ff7152", null ],
     [ "current_waypoint_index", "maneuvers_8c.html#a76c59413569196f3ce8985ad5d2b9efe", null ],
+    [ "green_trajectory", "maneuvers_8c.html#ab7a3c365cdab47ff57e64b5ef19953ec", null ],
+    [ "initial_pose", "maneuvers_8c.html#a3e6957f8a0b994399021a786227a04c3", null ],
     [ "M1_at_target", "maneuvers_8c.html#a15fa8f110ca05fa8ea9c012c8c4a5fce", null ],
     [ "M2_at_target", "maneuvers_8c.html#ad5ab62048aa6d5d927c0fc4a13181337", null ],
     [ "M3_at_target", "maneuvers_8c.html#a69a111bc7b2e4566fe3d722a95c7900d", null ],
     [ "M4_at_target", "maneuvers_8c.html#afcd5d50707dc7cdacd089c4af2c96da4", null ],
+    [ "red_trajectory", "maneuvers_8c.html#af3236793aae21d0ee907b4537039bfa3", null ],
     [ "test_trajectory1", "group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d", null ],
-    [ "tolerance", "maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27", null ]
+    [ "tolerance", "maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27", null ],
+    [ "trajectory1", "maneuvers_8c.html#ad9ab595152735b7a3fade73a86b449e3", null ],
+    [ "yellow_trajectory", "maneuvers_8c.html#a1aee2e8905d1c6909ddc94ef9eadd8c5", null ]
 ];

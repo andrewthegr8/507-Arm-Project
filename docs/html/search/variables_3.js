@@ -1,11 +1,12 @@
 var searchData=
 [
-  ['debug_5fprint_0',['debug_print',['../structtcs34725__handle__s.html#a769d5b3a6c14790a0e126e8fe70b384b',1,'tcs34725_handle_s']]],
-  ['decay1pin_1',['decay1Pin',['../struct_stepper_driver_config__t.html#a0e44adbce64e106a4f9731fd152b24ab',1,'StepperDriverConfig_t']]],
-  ['decay1port_2',['decay1Port',['../struct_stepper_driver_config__t.html#a42da025d6e825182c79829f0a7e131d6',1,'StepperDriverConfig_t']]],
-  ['decay2pin_3',['decay2Pin',['../struct_stepper_driver_config__t.html#aa8658627ebed4a77566046a9f4ef239e',1,'StepperDriverConfig_t']]],
-  ['decay2port_4',['decay2Port',['../struct_stepper_driver_config__t.html#a07f5e0fc2ad0ab9f5a079997362f4ab5',1,'StepperDriverConfig_t']]],
-  ['delay_5fms_5',['delay_ms',['../structtcs34725__handle__s.html#a406c9433252b7366de417b7a60915c81',1,'tcs34725_handle_s']]],
-  ['driver_5fversion_6',['driver_version',['../structtcs34725__info__s.html#a41b0bd442708b70d252c50b92c75265a',1,'tcs34725_info_s']]],
-  ['drivers_7',['drivers',['../struct_stepper_driver_config__t.html#ab2012bfcca224f8185dad8bed1df2174',1,'StepperDriverConfig_t']]]
+  ['callback_0',['callback',['../struct_configuration_type_def.html#a235976cb76b276081244fd7bfc9c989c',1,'ConfigurationTypeDef']]],
+  ['channel_1',['channel',['../struct_configuration_type_def.html#a715f5cb061d11eb75981741eda4dafcd',1,'ConfigurationTypeDef']]],
+  ['chip_5fname_2',['chip_name',['../structtcs34725__info__s.html#af890958c72bd715cc6454a10dc846ae6',1,'tcs34725_info_s']]],
+  ['configindex_3',['configIndex',['../struct_configuration_type_def.html#a7fae342092e0da2760d75e240c3b0dce',1,'ConfigurationTypeDef']]],
+  ['crctables_4',['CRCTables',['../_c_r_c_8c.html#a67da2e812767527420ab1747f13c4ae7',1,'CRC.c']]],
+  ['cspin_5',['csPin',['../struct_motion_i_c___config__t.html#ac616d516dbeccaea86e466851606fec7',1,'MotionIC_Config_t']]],
+  ['csport_6',['csPort',['../struct_motion_i_c___config__t.html#a0d72e36d0c7eb817a22c67d67cbd7718',1,'MotionIC_Config_t']]],
+  ['current_5fstate_7',['current_state',['../fsm_8c.html#a35411d78ff98f7f6a40fd15c4897fcee',1,'fsm.c']]],
+  ['current_5fwaypoint_5findex_8',['current_waypoint_index',['../maneuvers_8c.html#a76c59413569196f3ce8985ad5d2b9efe',1,'maneuvers.c']]]
 ];

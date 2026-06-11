@@ -25,7 +25,7 @@ photo(s)
 - wiring (connectors, cables, etc.)
 - wiring diagrams?
 
-The robot arm was designed in SolidWorks and 3D printed out of PLA at the Cal Poly Makerspace. This minimized manufacturing costs and complexity for a custom design and allowed for easy iteration. The arm houses the four stepper motors at each of the joints, as well as the servo motor on the end effector. The end effector uses small gears to open the gripper, and the color sensor is mounted on the end effector. With the motors installed, the arm should be mounted on a flat surface to ensure stability. (do we use any screws? or is it all press fits?)
+The robot arm was designed in SolidWorks and 3D printed out of PLA at the Cal Poly Makerspace. 3D printing minimized manufacturing costs and complexity and allowed for easy iteration. The arm houses the four stepper motors at each of the joints, as well as a servo motor on the end effector. The steppers are mounted to the fixed portion of each joint using screws and the shaft is press fit into the rotating component. The end effector uses small 3D-printed gears to open the gripper, and the color sensor is mounted on the end effector. The arm is mounted on plywood for stability.
 
 The stepper motors (numbered 1-4) were sized by calculating the anticipated dynamic load on each motor. Motor 1 must bear the greatest load since it supports the weight and motion of the other motors and accessory components.
 
@@ -37,6 +37,8 @@ The stepper motors (numbered 1-4) were sized by calculating the anticipated dyna
 | T2                           | 68.52285   | 12.12007253 | 80.64292253 | 2.008855767  | 1.813550345 |
 | T3                           | 14.95044   | 1.518964704 | 16.4694047  | 1.420816382  | -           |
 
+The system runs on 12 V and 6 A and is powered by the bench top power supply available in the Mechatronics Lab. An XT-30 cable serves as the connector between from the power supply and the PCB. All peripheral devices connect to the board using jst or dupont connectors.
+
 ### Electrical Design
 
 - PCB
@@ -45,6 +47,16 @@ The stepper motors (numbered 1-4) were sized by calculating the anticipated dyna
 - TCS34725 Color Sensor
 - Servo Gripper
 - overdesigned - power, # of motors, USB, limit switches
+
+The system runs off a custom-designed PCB. The following are key components:
+- Power distribution:
+    - 5 V switching regulator takes in up to 42 V DC power and outputs 5 V. The 5 V rail powers the servo motor.
+    - 
+- STM32H7 microcontroller
+    This MCU was selected for its advanced features compared to the STM32FH with marginal cost increase. It has a double precision floating-point unit and a higher clock speed.
+- The
+
+PCB was designed in Fusion 360 Electronics. The board was manufacutred and assembled by JLCPCB.
 
 ## Software Architecture
 

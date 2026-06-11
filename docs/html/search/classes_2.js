@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['robotcontext_0',['RobotContext',['../struct_robot_context.html',1,'']]]
+  ['jointangles_5ft_0',['JointAngles_t',['../struct_joint_angles__t.html',1,'']]]
 ];

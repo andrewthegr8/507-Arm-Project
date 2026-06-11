@@ -1,18 +1,11 @@
 var fsm_8h =
 [
-    [ "RobotContext", "struct_robot_context.html", "struct_robot_context" ],
-    [ "RobotState", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496", [
-      [ "S0_IDLE", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a24360c358245ae99f0e48ab5822de411", null ],
-      [ "S1_MANUAL_APPROACH", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a8e67b2a63e4e6d3c90a4d401e1ae89ee", null ],
-      [ "S2_CLOSE_GRIPPER", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a335bb1bcec123e06e780ef23aeabf0f8", null ],
-      [ "S3_READ_COLOR", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496ae02a7d9e21e646721e8c06f3cffc10be", null ],
-      [ "S4_PLOT_MOVE", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a9bcc93a8fb847f6a427a4e49d09dbdfc", null ],
-      [ "S5_MOVE_BLOCK", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a488281ab8222332c7cc38d33dff70da5", null ],
-      [ "S6_RELEASE_BLOCK", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496ab8f5c6dc3640da24b36ee86da0055fbc", null ],
-      [ "S7_RETURN_HOME", "fsm_8h.html#a8a4285c43463011b934d1dc0a3859496a03e0aab11b51c6965926bce729c71f52", null ]
+    [ "FSM_State", "fsm_8h.html#a1e9380b44bbaa28088fa61c77bcde490", [
+      [ "STATE_INIT", "fsm_8h.html#a1e9380b44bbaa28088fa61c77bcde490a98d2a2153b4ae0445fa0b114d65b94d9", null ],
+      [ "STATE_JOYSTICK", "fsm_8h.html#a1e9380b44bbaa28088fa61c77bcde490a81a27a62c9d29883324be07483fdd10a", null ],
+      [ "STATE_GETCOLOR", "fsm_8h.html#a1e9380b44bbaa28088fa61c77bcde490a5501351df32f18a7afd45a82b4a7fa9f", null ],
+      [ "STATE_MOVEBLOCK", "fsm_8h.html#a1e9380b44bbaa28088fa61c77bcde490a52c5ae9de0d1302cfbbe0f2cea97a944", null ]
     ] ],
-    [ "FSM_GetState", "fsm_8h.html#af3c5c6b595908248f8cc3a7f19091ebd", null ],
     [ "FSM_Init", "fsm_8h.html#a3ee94969f8f72065406ca3d0a3cfab30", null ],
-    [ "FSM_SetState", "fsm_8h.html#a5588e5490c8484cae694fe0b0da1baac", null ],
     [ "FSM_Update", "fsm_8h.html#a79b65e2d23f9434583370a533ff85c88", null ]
 ];

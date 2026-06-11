@@ -1,9 +1,11 @@
 var searchData=
 [
-  ['joint1_0',['joint1',['../structwaypoint__t.html#a6e4759da2e6eeaeca7b78cf745895ba9',1,'waypoint_t']]],
-  ['joint2_1',['joint2',['../structwaypoint__t.html#ab1e8c190d6976c01aa4dc403edd5a48e',1,'waypoint_t']]],
-  ['joint3_2',['joint3',['../structwaypoint__t.html#ae63b3bf235822314a41e06b06bf7cdcc',1,'waypoint_t']]],
-  ['joint4_3',['joint4',['../structwaypoint__t.html#abd61fc81d943c71f420bde4be6d4e228',1,'waypoint_t']]],
-  ['joy_5fx_5fraw_4',['joy_x_raw',['../joystick_8c.html#a11bb6a9d3d032f1dd6f6b4057e5a7d44',1,'joystick.c']]],
-  ['joy_5fy_5fraw_5',['joy_y_raw',['../joystick_8c.html#a9a0777be2c7c4da1dd85bf1eefdb2767',1,'joystick.c']]]
+  ['iic_5fdeinit_0',['iic_deinit',['../structtcs34725__handle__s.html#af6963bbad902ca6e43942b48c07986c3',1,'tcs34725_handle_s']]],
+  ['iic_5finit_1',['iic_init',['../structtcs34725__handle__s.html#a8826dd07625f8d90859ce9bd09628d61',1,'tcs34725_handle_s']]],
+  ['iic_5fread_2',['iic_read',['../structtcs34725__handle__s.html#af4ef726288b88f51a846483803a1249b',1,'tcs34725_handle_s']]],
+  ['iic_5fwrite_3',['iic_write',['../structtcs34725__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5',1,'tcs34725_handle_s']]],
+  ['inited_4',['inited',['../structtcs34725__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'tcs34725_handle_s']]],
+  ['initial_5fpose_5',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../maneuvers_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],
+  ['interface_6',['interface',['../structtcs34725__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'tcs34725_info_s']]],
+  ['isreflected_7',['isReflected',['../struct_c_r_c_type_def.html#abaa8bd7842fe7ec7d633c795dd1ae6c4',1,'CRCTypeDef']]]
 ];

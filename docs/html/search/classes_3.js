@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['stepperdriver_5ft_0',['StepperDriver_t',['../struct_stepper_driver__t.html',1,'']]],
-  ['stepperdriverconfig_5ft_1',['StepperDriverConfig_t',['../struct_stepper_driver_config__t.html',1,'']]]
+  ['motionic_5fconfig_5ft_0',['MotionIC_Config_t',['../struct_motion_i_c___config__t.html',1,'']]],
+  ['motor_5fconfig_5ft_1',['motor_config_t',['../structmotor__config__t.html',1,'']]]
 ];

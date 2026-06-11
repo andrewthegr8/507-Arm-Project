@@ -30,65 +30,52 @@ trajectory_t test_trajectory1 = {
     },
     .num_waypoints = 10
 };
+
+trajectory_t initial_pose = {
+    .waypoints = {
+        {NA, 0.0, M_PI/2, 0.0, -M_PI/2}, //Initial pose to start in B4 joystick control
+    },
+    .num_waypoints = 1
+};
 trajectory_t red_trajectory = {  
     .waypoints = {
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
-        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {Close, 0.0, 0.0, M_PI / 4, M_PI / 4}, //lift block
         {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
         {NA, -M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
         {NA, -M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
-        {Open, -M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
-        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+        {Open, -M_PI/4, M_PI/3, -M_PI / 3, 0}, //Rotate Home
     },
-    .num_waypoints = 10
+    .num_waypoints = 5
 };
 trajectory_t yellow_trajectory = {
     .waypoints = {
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
-        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {Close, 0.0, 0.0, M_PI / 4, M_PI / 4}, //lift block
         {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
         {NA, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
         {NA, -3*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
         {Open, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
-        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
     },
-    .num_waypoints = 10
+    .num_waypoints = 5
   };
 trajectory_t green_trajectory = {  
     .waypoints = {
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
-        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {Close, 0.0, 0.0, M_PI / 4, M_PI / 4}, //lift block
         {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
-        {NA, -5*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
-        {NA, -5*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
-        {Open, -5*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
-        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+        {NA, 3*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, 3*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, 3*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
     },
-    .num_waypoints = 10
+    .num_waypoints = 5
 };
 trajectory_t blue_trajectory = {  
     .waypoints = {
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 4},
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //Take 2 steps to get end effector close and parallel to grouns
-        {NA, 0.0, 0.0, -M_PI / 2, M_PI / 2}, //rotate
-        {NA, 0.0, 0.0, -M_PI / 4, M_PI / 9}, //Reach out to grab block
-        {Close, 0.0, 0.0, -M_PI / 4, M_PI / 4}, //lift block
+        {Close, 0.0, 0.0, M_PI / 4, M_PI / 4}, //lift block
         {NA, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //lift block waaay up
-        {NA, -7*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
-        {NA, -7*M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
-        {Open, -7*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
-        {NA, 0.0, 0.0, 0.0, 0.0} //Return to home position
+        {NA, M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, //Rotate to new position above bin
+        {NA, M_PI/4, M_PI/3, -M_PI / 3, 0}, //Extend over bin
+        {Open, M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, //Rotate Home
     },
-    .num_waypoints = 10
+    .num_waypoints = 5
 };
 
 trajectory_t trajectory1 = {
@@ -144,12 +131,12 @@ static bool go_to_next_waypoint(motor_config_t *motorConfigs, trajectory_t *traj
     M4_at_target = false;
     current_waypoint_index++; //Bump up waypoint index to move to the next waypoint in the trajectory
     if (trajectory->waypoints[current_waypoint_index].servo == Open) {
-        HAL_Delay(2000); //Delay to give time for servo to open before moving the arm
+        HAL_Delay(1000); //Delay to give time for servo to open before moving the arm
         Servo_Open();
         HAL_Delay(5000); //Delay to give time for servo to open before moving the arm
     }
     else if (trajectory->waypoints[current_waypoint_index].servo == Close) {
-        HAL_Delay(2000); //Delay to give time for servo to open before moving the arm
+        HAL_Delay(1000); //Delay to give time for servo to open before moving the arm
         Servo_Close();
         HAL_Delay(5000); //Delay to give time for servo to close before moving the arm
     }
@@ -166,6 +153,16 @@ static bool go_to_next_waypoint(motor_config_t *motorConfigs, trajectory_t *traj
 
 void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory) {
     current_waypoint_index = 0; //Start at the first waypoint
+    if (trajectory->waypoints[current_waypoint_index].servo == Open) {
+        HAL_Delay(1000); //Delay to give time for servo to open before moving the arm
+        Servo_Open();
+        HAL_Delay(5000); //Delay to give time for servo to open before moving the arm
+    }
+    else if (trajectory->waypoints[current_waypoint_index].servo == Close) {
+        HAL_Delay(1000); //Delay to give time for servo to open before moving the arm
+        Servo_Close();
+        HAL_Delay(5000); //Delay to give time for servo to close before moving the arm
+    }
     //Send first waypoint positions
     move_to_pos(&motorConfigs[0], trajectory->waypoints[current_waypoint_index].joint1);
     move_to_pos(&motorConfigs[1], trajectory->waypoints[current_waypoint_index].joint2);

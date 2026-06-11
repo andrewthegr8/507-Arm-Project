@@ -188,6 +188,11 @@ int main(void)
   MX_ADC1_Init();
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
+  Joystick_Init();
+  while (!Joystick_ReadButton()) {
+    __NOP();
+  }
+
   //Joystick_Init();
   FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
@@ -248,11 +253,14 @@ int main(void)
 
   Servo_Init();
 
-  Joystick_Init();
   double m2pos = 0;
   //Servo_Init();
   //Servo_Open();
   uint16_t servo_pulse = 0;
+  HAL_Delay(2000);
+  while (!Joystick_ReadButton()) {
+    __NOP();
+  }
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -277,7 +285,6 @@ int main(void)
     //SelectMotionIC(MOTION_IC_1);
     //zero_motors(motorConfigs, 4); //Set current position of all motors to be the zero position
     //execute_trajectory(motorConfigs, &test_trajectory1);
-    //COLOR_SENSOR_Read(&sensor_handle);
     //HAL_Delay(1000);    
     //move_to_pos(Motor2, M_PI / 4); //Move to 90 degrees
     //m2pos = get_current_pos(Motor2);
@@ -340,6 +347,7 @@ int main(void)
     //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //HAL_Delay(2000);
+    COLOR_SENSOR_Read(&sensor_handle);
     FSM_Update();
         
     /* USER CODE END WHILE */

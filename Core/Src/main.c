@@ -189,7 +189,7 @@ int main(void)
   MX_TIM8_Init();
   /* USER CODE BEGIN 2 */
   //Joystick_Init();
-  //FSM_Init();
+  FSM_Init();
   //Init the TMC429 chips. Initializer function sets these in setp/dir mode, which is what we want.
   TMC429_SetMotionICs(motionICs);
 
@@ -312,7 +312,7 @@ int main(void)
 
 
 
-    Joystick_Read();
+    /* Joystick_Read();
 
     int len = sprintf(sendbuff,
                       "X: %u  Y: %u  BTN: %d\r\n",
@@ -322,7 +322,7 @@ int main(void)
 
     HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, len, HAL_MAX_DELAY);
 
-    HAL_Delay(100);
+    HAL_Delay(100); */
 
 
 
@@ -339,6 +339,7 @@ int main(void)
     //char_count = sprintf(sendbuff, "Motor 1 position: %f\r\n", pos);
     //HAL_UART_Transmit(&huart3, (uint8_t *)sendbuff, char_count, HAL_MAX_DELAY);
     //HAL_Delay(2000);
+    FSM_Update();
         
     /* USER CODE END WHILE */
 

@@ -23,12 +23,20 @@ static ColorResult_t detected_color;
 
 double newpos; //Variable to store new position for joystick control
 
+/**
+ * @brief Initialize FSM state and detected color value.
+ */
 void FSM_Init(void)
 {
     current_state = STATE_INIT;
     detected_color = COLOR_UNKNOWN;
 }
 
+/**
+ * @brief Main FSM update function. Handles state transitions and actions.
+ *
+ * This should be called regularly from the main loop.
+ */
 void FSM_Update(void)
 {
     switch (current_state)

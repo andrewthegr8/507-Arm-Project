@@ -8,7 +8,14 @@ typedef enum {
     STATE_MOVEBLOCK,
 } FSM_State;
 
+/**
+ * @brief Initialize the finite state machine for the arm controller.
+ */
 void FSM_Init(void);
+
+/**
+ * @brief Periodic update tick for the FSM. Call from main loop or scheduler.
+ */
 void FSM_Update(void);
 
 #endif

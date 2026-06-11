@@ -30,6 +30,11 @@ uint8_t Joystick_ReadButton(void)
     return (HAL_GPIO_ReadPin(SEL_GPIO_Port, SEL_Pin) == GPIO_PIN_RESET);
 } */
 
+/**
+ * @file joystick.c
+ * @brief ADC-backed joystick driver providing simple directional state.
+ */
+
 #include "joystick.h"
 #include "main.h"
 
@@ -40,6 +45,11 @@ static uint16_t joy_y_raw = 0;
 uint8_t x_dir = 0;
 uint8_t y_dir = 0;
 
+/**
+ * @brief Read a single ADC channel from the configured ADC instance.
+ * @param channel ADC channel identifier (e.g. ADC_CHANNEL_16).
+ * @return Raw 12/16-bit ADC sample.
+ */
 static uint16_t Joystick_ReadADCChannel(uint32_t channel)
 {
     ADC_ChannelConfTypeDef sConfig = {0};
@@ -77,12 +87,19 @@ static uint16_t Joystick_ReadADCChannel(uint32_t channel)
 
 void Joystick_Init(void)
 {
+    /**
+     * @brief Calibrate ADC used by joystick and perform a short settling delay.
+     */
     HAL_ADCEx_Calibration_Start(&hadc1, ADC_CALIB_OFFSET, ADC_SINGLE_ENDED);
     HAL_Delay(10);
 }
 
 void Joystick_Read(void)
 {
+}
+    /**
+     * @brief Sample joystick ADC channels and update direction flags.
+     */
     joy_y_raw = Joystick_ReadADCChannel(ADC_CHANNEL_16);
     joy_x_raw = Joystick_ReadADCChannel(ADC_CHANNEL_17);
     if (joy_x_raw > 3000) x_dir = 1;
@@ -107,5 +124,9 @@ uint16_t Joystick_ReadY(void)
 
 uint8_t Joystick_ReadButton(void)
 {
+    /**
+     * @brief Read the joystick push-button (select) state.
+     * @return 1 when pressed, 0 when released.
+     */
     return (HAL_GPIO_ReadPin(SEL_GPIO_Port, SEL_Pin) == GPIO_PIN_RESET);
 }

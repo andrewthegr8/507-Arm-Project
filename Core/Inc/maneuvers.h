@@ -54,7 +54,18 @@ typedef struct
 
 extern trajectory_t test_trajectory1; //Make trajectories accesisble from main
 
+/**
+ * @brief Execute the provided trajectory on the given motors.
+ * @param motorConfigs Array of motor configuration structures.
+ * @param trajectory Pointer to the trajectory to execute.
+ */
 void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory);
+
+/**
+ * @brief Compute the end-effector pose (x,y,z,r) from motor configurations.
+ * @param motorConfigs Array of motor configuration structures.
+ * @param pose Output structure populated with the computed pose.
+ */
 void GetClawPose(motor_config_t *motorConfigs, EndEffectorPose_t *pose);
 
 /** @} */

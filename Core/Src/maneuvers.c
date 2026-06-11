@@ -1,11 +1,18 @@
 #include "maneuvers.h"
 #include "motion.h"
+#include <math.h>
 #include <stdbool.h>
 #include "main.h"
 #include "servo.h"
 #include "stm32h7xx_hal_def.h"
 
 #define NUM_MOTORS 4 //Number of motors in the system
+
+//Robot dimensions
+#define L0  0.0
+#define L1  1.0
+#define L2  1.0
+#define L3  1.0
 
 ///Define trajectory arrays
 trajectory_t test_trajectory1 = {
@@ -99,3 +106,58 @@ void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory) 
         }
     }
 }
+
+/*
+ * Computes end-effector position from joint angles.
+ *
+ * angles: pointer to theta0-theta3 joint angles, in radians
+ * pose:   pointer to output x, y, z position
+ */
+static void ComputeEndEffectorPosition(const JointAngles_t *angles,
+                                      EndEffectorPose_t *pose)
+{
+    
+    double theta0 = angles->theta0;
+    double theta1 = angles->theta1;
+    double theta2 = angles->theta2;
+    double theta3 = angles->theta3;
+
+    double theta12  = theta1 + theta2;
+    double theta123 = theta12 + theta3;
+
+    double s0 = sin(theta0);
+    double c0 = cos(theta0);
+
+
+    double s1 = sin(theta1);
+    double c1 = cos(theta1);
+    double s12  = sin(theta12);
+    double c12  = cos(theta12);
+    double s123 = sin(theta123);
+    double c123 = cos(theta123);
+
+    double radial =
+        (L1 * c1) +
+        (L2 * c12) +
+        (L3 * c123);
+
+    pose->x = -s0 * radial;
+    pose->y =  c0 * radial;
+    pose->z =
+        L0 +
+        (L1 * s1) +
+        (L2 * s12) +
+        (L3 * s123);
+}
+
+void GetClawPose(motor_config_t *motorConfigs, EndEffectorPose_t *pose) {
+    JointAngles_t angles = {
+        .theta0 = get_current_pos(&motorConfigs[0]),
+        .theta1 = get_current_pos(&motorConfigs[1]),
+        .theta2 = get_current_pos(&motorConfigs[2]),
+        .theta3 = get_current_pos(&motorConfigs[3])
+    };
+    ComputeEndEffectorPosition(&angles, pose);
+}
+
+

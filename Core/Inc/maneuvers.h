@@ -32,9 +32,29 @@ typedef struct {
     int num_waypoints;
 } trajectory_t;
 
+
+/*
+ * Joint angles must be in radians.
+ */
+typedef struct
+{
+    double theta0;
+    double theta1;
+    double theta2;
+    double theta3;
+} JointAngles_t;
+
+typedef struct
+{
+    double x;
+    double y;
+    double z;
+} EndEffectorPose_t;
+
 extern trajectory_t test_trajectory1; //Make trajectories accesisble from main
 
 void execute_trajectory(motor_config_t *motorConfigs, trajectory_t *trajectory);
+void GetClawPose(motor_config_t *motorConfigs, EndEffectorPose_t *pose);
 
 /** @} */
 

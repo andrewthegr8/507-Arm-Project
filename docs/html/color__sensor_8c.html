@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('color__sensor_
   <div class="headertitle"><div class="title">color_sensor.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>High-level color sensing and classification routines using TCS34725.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="color__sensor_8h_source.html">color_sensor.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="main_8h_source.html">main.h</a>&quot;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
@@ -128,7 +131,29 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('color__sensor_
 Include dependency graph for color_sensor.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="color__sensor_8c__incl.png" border="0" usemap="#a_core_2_src_2color__sensor_8c" loading="lazy" alt=""/></div>
-<!-- MAP 0 -->
+<map name="a_core_2_src_2color__sensor_8c" id="a_core_2_src_2color__sensor_8c">
+<area shape="rect" title="High&#45;level color sensing and classification routines using TCS34725." alt="" coords="218,5,380,32"/>
+<area shape="rect" href="color__sensor_8h.html" title=" " alt="" coords="78,80,184,107"/>
+<area shape="poly" title=" " alt="" coords="268,34,176,76,173,71,272,31"/>
+<area shape="rect" title=" " alt="" coords="194,229,254,256"/>
+<area shape="poly" title=" " alt="" coords="290,31,273,55,259,81,246,116,238,152,228,216,224,213,232,151,241,114,254,79,269,52,286,34"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="269,80,329,107"/>
+<area shape="poly" title=" " alt="" coords="300,30,301,65,296,63,297,35"/>
+<area shape="rect" title=" " alt="" coords="354,80,415,107"/>
+<area shape="poly" title=" " alt="" coords="314,30,361,70,355,70,313,35"/>
+<area shape="rect" title=" " alt="" coords="439,80,508,107"/>
+<area shape="poly" title=" " alt="" coords="329,30,431,73,426,74,329,35"/>
+<area shape="rect" title=" " alt="" coords="5,229,70,256"/>
+<area shape="poly" title=" " alt="" coords="106,109,82,129,58,156,47,185,41,215,36,213,41,184,54,153,79,125,110,105"/>
+<area shape="rect" href="driver__tcs34725_8h.html" title="driver tcs34725 header file" alt="" coords="69,155,193,181"/>
+<area shape="poly" title=" " alt="" coords="132,105,133,140,128,138,130,110"/>
+<area shape="poly" title=" " alt="" coords="117,181,67,222,64,218,112,183"/>
+<area shape="poly" title=" " alt="" coords="148,179,199,219,194,220,146,184"/>
+<area shape="rect" title=" " alt="" coords="99,229,163,256"/>
+<area shape="poly" title=" " alt="" coords="133,180,133,215,128,213,129,184"/>
+<area shape="rect" title=" " alt="" coords="268,155,388,181"/>
+<area shape="poly" title=" " alt="" coords="305,105,320,141,315,139,303,110"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
@@ -138,17 +163,24 @@ Macros</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaa0045094ff3843e1181266a1b50f464b" id="r_gaa0045094ff3843e1181266a1b50f464b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#gaa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memdesc:gaa0045094ff3843e1181266a1b50f464b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the TCS34725 sensor for use by this module.  <br /></td></tr>
 <tr class="memitem:a4fb62548c73a04c146c13f3cd7b63233" id="r_a4fb62548c73a04c146c13f3cd7b63233"><td class="memItemLeft">static <a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a4fb62548c73a04c146c13f3cd7b63233">classify</a> (float r, float g, float b)</td></tr>
+<tr class="memdesc:a4fb62548c73a04c146c13f3cd7b63233"><td class="mdescLeft">&#160;</td><td class="mdescRight">Classify a normalized RGB triple into a color enum.  <br /></td></tr>
 <tr class="memitem:ga9d3228731c63cc826c663a9a83705ed6" id="r_ga9d3228731c63cc826c663a9a83705ed6"><td class="memItemLeft"><a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#ga9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memdesc:ga9d3228731c63cc826c663a9a83705ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read raw RGB and clear values from the sensor and classify the color.  <br /></td></tr>
 <tr class="memitem:a56730e91b5a8838610cdcd0c24b0287a" id="r_a56730e91b5a8838610cdcd0c24b0287a"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a56730e91b5a8838610cdcd0c24b0287a">my_i2c_read</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
+<tr class="memdesc:a56730e91b5a8838610cdcd0c24b0287a"><td class="mdescLeft">&#160;</td><td class="mdescRight">I2C read wrapper used by the TCS34725 driver.  <br /></td></tr>
 <tr class="memitem:a465561646e841095cb8228936be939fc" id="r_a465561646e841095cb8228936be939fc"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a465561646e841095cb8228936be939fc">my_i2c_write</a> (uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len)</td></tr>
 <tr class="memitem:a8c81f23fd68e03aff4a5912e912d4b84" id="r_a8c81f23fd68e03aff4a5912e912d4b84"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a8c81f23fd68e03aff4a5912e912d4b84">my_i2c_init</a> (void)</td></tr>
 <tr class="memitem:a452ab95a267e550a0f73cca1ccf7f88d" id="r_a452ab95a267e550a0f73cca1ccf7f88d"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a452ab95a267e550a0f73cca1ccf7f88d">my_i2c_deinit</a> (void)</td></tr>
 <tr class="memitem:a9ddddd20ec13dcafa912ee1d93f76a37" id="r_a9ddddd20ec13dcafa912ee1d93f76a37"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9ddddd20ec13dcafa912ee1d93f76a37">my_delay_ms</a> (uint32_t ms)</td></tr>
 <tr class="memitem:ae2fc163d9f509b203dd40a255c5cd28d" id="r_ae2fc163d9f509b203dd40a255c5cd28d"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ae2fc163d9f509b203dd40a255c5cd28d">my_debug_print</a> (const char *fmt,...)</td></tr>
 <tr class="memitem:gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24" id="r_gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___color_sensing.html#gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a> (uint16_t r, uint16_t g, uint16_t b, <a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color)</td></tr>
+<tr class="memdesc:gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an RGB printout and classification over the debug UART.  <br /></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High-level color sensing and classification routines using TCS34725. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a01c7836dfecb6f708a3e943cee2bfe91" name="a01c7836dfecb6f708a3e943cee2bfe91"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a01c7836dfecb6f708a3e943cee2bfe91">&#9670;&#160;</a></span>MIN_CLEAR</h2>
 
@@ -196,6 +228,17 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Classify a normalized RGB triple into a color enum. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>Normalized red component (0..1). </td></tr>
+    <tr><td class="paramname">g</td><td>Normalized green component (0..1). </td></tr>
+    <tr><td class="paramname">b</td><td>Normalized blue component (0..1). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="group___color_sensing.html#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> The classified color or COLOR_UNKNOWN. </dd></dl>
+
 </div>
 </div>
 <a id="ae2fc163d9f509b203dd40a255c5cd28d" name="ae2fc163d9f509b203dd40a255c5cd28d"></a>
@@ -216,6 +259,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Simple printf-style debug output over UART. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fmt</td><td>printf-style format string followed by arguments.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -233,6 +282,12 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Millisecond delay callback used by the driver. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ms</td><td>Delay length in milliseconds.</td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -250,6 +305,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional I2C de-initialization hook for the driver. </p><dl class="section return"><dt>Returns</dt><dd>0 on success.</dd></dl>
 
 </div>
 </div>
@@ -267,6 +323,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>Optional I2C initialization hook for the driver. </p><dl class="section return"><dt>Returns</dt><dd>0 on success.</dd></dl>
+<p>CubeMX configures I2C before <a class="el" href="main_8c.html#a840291bc02cba5474a4cb46a9b9566fe" title="The application entry point.">main()</a>, so this implementation is a no-op.</p>
 
 </div>
 </div>
@@ -299,6 +357,19 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>I2C read wrapper used by the TCS34725 driver. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register address to read from. </td></tr>
+    <tr><td class="paramname">buf</td><td>Destination buffer for read bytes. </td></tr>
+    <tr><td class="paramname">len</td><td>Number of bytes to read. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, non-zero on failure (driver expects 0=success).</dd></dl>
+<p>The driver expects this signature: uint8_t iic_read(uint8_t addr, uint8_t reg, uint8_t *buf, uint16_t len) </p>
+
 </div>
 </div>
 <a id="a465561646e841095cb8228936be939fc" name="a465561646e841095cb8228936be939fc"></a>
@@ -329,6 +400,16 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>I2C write wrapper used by the TCS34725 driver. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addr</td><td>I2C device address. </td></tr>
+    <tr><td class="paramname">reg</td><td>Register address to write to. </td></tr>
+    <tr><td class="paramname">buf</td><td>Buffer containing bytes to write; if NULL and len==0 the register address is transmitted alone. </td></tr>
+    <tr><td class="paramname">len</td><td>Number of bytes to write. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>0 on success, non-zero on failure.</dd></dl>
 
 </div>
 </div>

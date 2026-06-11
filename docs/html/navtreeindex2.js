@@ -139,12 +139,13 @@ var NAVTREEINDEX2 =
 "index.html#autotoc_md6":[0,5],
 "index.html#autotoc_md7":[0,6],
 "joystick_8c.html":[3,0,0,1,4],
+"joystick_8c.html#a08391953e5151a61b58032740db26ef1":[3,0,0,1,4,7],
 "joystick_8c.html#a1100772fbf5199cd13ccccf1c12bbb39":[3,0,0,1,4,10],
-"joystick_8c.html#a11bb6a9d3d032f1dd6f6b4057e5a7d44":[3,0,0,1,4,7],
-"joystick_8c.html#a12f02ebe23bfa74f940dd28cd093a082":[3,0,0,1,4,2],
+"joystick_8c.html#a12f02ebe23bfa74f940dd28cd093a082":[3,0,0,1,4,3],
 "joystick_8c.html#a22b804736f5648d52f639b2647d4ed13":[3,0,0,1,4,6],
 "joystick_8c.html#a39e485349b339483b850d2f02486094c":[3,0,0,1,4,9],
-"joystick_8c.html#a9a0777be2c7c4da1dd85bf1eefdb2767":[3,0,0,1,4,8],
+"joystick_8c.html#a5019d72d7ba65be7f811fba213175922":[3,0,0,1,4,0],
+"joystick_8c.html#abcd1a7040d210e10134cdd27c3b996ec":[3,0,0,1,4,8],
 "joystick_8h.html":[3,0,0,0,4],
 "joystick_8h_source.html":[3,0,0,0,4],
 "main_8c.html":[3,0,0,1,5],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "motion_8c.html#a2368e20d446b5abc7e62f36b9b66e07c":[3,0,0,1,7,0],
 "motion_8c.html#a32a33471c5e124e5dbaae68742d75d6a":[3,0,0,1,7,1],
 "motion_8c.html#a705873a2ae65c9f70349b5e5b759b640":[3,0,0,1,7,3],
-"motion_8c.html#a94f5f3bfc08ba85ec3bc4e2de740274f":[3,0,0,1,7,7],
-"motion_8c.html#ab235a8c84a6779336ad91707e969ab1d":[3,0,0,1,7,2]
+"motion_8c.html#a94f5f3bfc08ba85ec3bc4e2de740274f":[3,0,0,1,7,7]
 };

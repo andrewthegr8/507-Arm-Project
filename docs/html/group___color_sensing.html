@@ -126,7 +126,10 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('group___color_
 Collaboration diagram for Color Sensing:</div>
 <div class="dyncontent">
 <div class="center"><img src="group___color_sensing.png" border="0" usemap="#agroup______color__sensing" loading="lazy" alt=""/></div>
-<!-- MAP 0 -->
+<map name="agroup______color__sensing" id="agroup______color__sensing">
+<area shape="rect" title="Color sensor reading and classification." alt="" coords="5,5,109,32"/>
+<area shape="rect" href="group__tcs34725__driver.html" title="tcs34725 driver modules" alt="" coords="157,5,317,32"/>
+</map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-groups" class="groupheader"><a id="groups" name="groups"></a>
@@ -151,8 +154,11 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:gaa0045094ff3843e1181266a1b50f464b" id="r_gaa0045094ff3843e1181266a1b50f464b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaa0045094ff3843e1181266a1b50f464b">COLOR_SENSOR_Init</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memdesc:gaa0045094ff3843e1181266a1b50f464b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the color sensor and enable RGB/C readings.  <br /></td></tr>
 <tr class="memitem:ga9d3228731c63cc826c663a9a83705ed6" id="r_ga9d3228731c63cc826c663a9a83705ed6"><td class="memItemLeft"><a class="el" href="#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ga9d3228731c63cc826c663a9a83705ed6">COLOR_SENSOR_Read</a> (<a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305">tcs34725_handle_t</a> *handle)</td></tr>
+<tr class="memdesc:ga9d3228731c63cc826c663a9a83705ed6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read raw RGB(C) values and classify the detected color.  <br /></td></tr>
 <tr class="memitem:gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24" id="r_gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24">COLOR_SENSOR_PrintRGB</a> (uint16_t r, uint16_t g, uint16_t b, <a class="el" href="#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> color)</td></tr>
+<tr class="memdesc:gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Send an RGB printout and classification over the debug UART.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Color sensor reading and classification. </p>
@@ -196,6 +202,22 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize the color sensor and enable RGB/C readings. </p>
+<p>Initialize the TCS34725 sensor for use by this module.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Pointer to an initialized <a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305" title="tcs34725 handle structure definition">tcs34725_handle_t</a> for the device.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Initialize the color sensor and enable RGB/C readings.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Pointer to the sensor driver handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24" name="gaf0fdd74cfb3bb4bf0cba4e5aa6bfbd24"></a>
@@ -227,6 +249,17 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Send an RGB printout and classification over the debug UART. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">r</td><td>Raw red channel value. </td></tr>
+    <tr><td class="paramname">g</td><td>Raw green channel value. </td></tr>
+    <tr><td class="paramname">b</td><td>Raw blue channel value. </td></tr>
+    <tr><td class="paramname">color</td><td>Classified color to print (<a class="el" href="#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a>). </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga9d3228731c63cc826c663a9a83705ed6" name="ga9d3228731c63cc826c663a9a83705ed6"></a>
@@ -243,6 +276,24 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Read raw RGB(C) values and classify the detected color. </p>
+<p>Read raw RGB and clear values from the sensor and classify the color.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Pointer to the <a class="el" href="group__tcs34725__base__driver.html#gabf62ca691ea0ce399b24299ff2ad7305" title="tcs34725 handle structure definition">tcs34725_handle_t</a> for the device. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> enum value representing the classified color.</dd></dl>
+<p>Read raw RGB(C) values and classify the detected color.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">handle</td><td>Pointer to the sensor driver handle. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="#gaaad945fc0192d1c7701f251613ede7da">ColorResult_t</a> The detected color enum or COLOR_UNKNOWN on error/low light. </dd></dl>
 
 </div>
 </div>

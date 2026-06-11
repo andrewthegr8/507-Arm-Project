@@ -148,41 +148,37 @@ Enumerations</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga7a09a98efff3d3c1f120ae657d867ed0" id="r_ga7a09a98efff3d3c1f120ae657d867ed0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
-<tr class="memdesc:ga7a09a98efff3d3c1f120ae657d867ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a trajectory from its first waypoint through completion.  <br /></td></tr>
+<tr class="memdesc:ga7a09a98efff3d3c1f120ae657d867ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute the provided trajectory on the given motors.  <br /></td></tr>
 <tr class="memitem:ga60449194b01b9b6490ef2d9d6ba07da6" id="r_ga60449194b01b9b6490ef2d9d6ba07da6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga60449194b01b9b6490ef2d9d6ba07da6">GetClawPose</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="struct_end_effector_pose__t.html">EndEffectorPose_t</a> *pose)</td></tr>
-<tr class="memdesc:ga60449194b01b9b6490ef2d9d6ba07da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the current claw (end-effector) pose using live motor positions.  <br /></td></tr>
+<tr class="memdesc:ga60449194b01b9b6490ef2d9d6ba07da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the end-effector pose (x,y,z,r) from motor configurations.  <br /></td></tr>
 <tr class="memitem:gac11bbe58749d2dcfb9508212a2f1afe9" id="r_gac11bbe58749d2dcfb9508212a2f1afe9"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gac11bbe58749d2dcfb9508212a2f1afe9">compute_motor_params</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motor, int microstep, int gearboxRatio, int stepsPerRev)</td></tr>
-<tr class="memdesc:gac11bbe58749d2dcfb9508212a2f1afe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute conversion parameters used for a motor instance.  <br /></td></tr>
+<tr class="memdesc:gac11bbe58749d2dcfb9508212a2f1afe9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute internal motor conversion parameters based on microstepping and gearing.  <br /></td></tr>
 <tr class="memitem:gada95337b862a2d0e29291eb61ac685a0" id="r_gada95337b862a2d0e29291eb61ac685a0"><td class="memItemLeft">double&#160;</td><td class="memItemRight"><a class="el" href="#gada95337b862a2d0e29291eb61ac685a0">get_current_pos</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motor)</td></tr>
-<tr class="memdesc:gada95337b862a2d0e29291eb61ac685a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read the current motor position from the controller and return radians.  <br /></td></tr>
+<tr class="memdesc:gada95337b862a2d0e29291eb61ac685a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get the current motor position in radians.  <br /></td></tr>
 <tr class="memitem:ga14459352b7d26cf765b07ae0044ac509" id="r_ga14459352b7d26cf765b07ae0044ac509"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga14459352b7d26cf765b07ae0044ac509">move_to_pos</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motor, double target_pos_rad)</td></tr>
-<tr class="memdesc:ga14459352b7d26cf765b07ae0044ac509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command a motor to move to an absolute joint position (radians).  <br /></td></tr>
+<tr class="memdesc:ga14459352b7d26cf765b07ae0044ac509"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the motor to the specified angular position (blocking or non-blocking depending on implementation).  <br /></td></tr>
 <tr class="memitem:ga63d13126156a93e0c229d6705031cfa5" id="r_ga63d13126156a93e0c229d6705031cfa5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga63d13126156a93e0c229d6705031cfa5">move_at_velocity</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motor, double target_vel_rad_per_sec)</td></tr>
-<tr class="memdesc:ga63d13126156a93e0c229d6705031cfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command a motor to move at a target angular velocity (rad/s).  <br /></td></tr>
+<tr class="memdesc:ga63d13126156a93e0c229d6705031cfa5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command the motor to run at a given angular velocity.  <br /></td></tr>
 <tr class="memitem:ga79cda17d2ccff36a626ab62d55901123" id="r_ga79cda17d2ccff36a626ab62d55901123"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga79cda17d2ccff36a626ab62d55901123">set_max_accel</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motor, double max_accel_rad_s2)</td></tr>
-<tr class="memdesc:ga79cda17d2ccff36a626ab62d55901123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the motor's maximum acceleration (rad/s^2) in the controller.  <br /></td></tr>
+<tr class="memdesc:ga79cda17d2ccff36a626ab62d55901123"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the maximum acceleration for the motor.  <br /></td></tr>
 <tr class="memitem:ga3d6163ecfcdb7a67d78f51287d5c2ece" id="r_ga3d6163ecfcdb7a67d78f51287d5c2ece"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga3d6163ecfcdb7a67d78f51287d5c2ece">zero_motors</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, int num_motors)</td></tr>
-<tr class="memdesc:ga3d6163ecfcdb7a67d78f51287d5c2ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero the controller position registers for all motors in the array.  <br /></td></tr>
-<tr class="memitem:gaad8ce1070ef0837cd67c0371c32df102" id="r_gaad8ce1070ef0837cd67c0371c32df102"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaad8ce1070ef0837cd67c0371c32df102">Motion_Init</a> (void)</td></tr>
-<tr class="memitem:ga03080c3cefedfbe583141e2424a1d310" id="r_ga03080c3cefedfbe583141e2424a1d310"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga03080c3cefedfbe583141e2424a1d310">Motion_StartMoveToBin</a> (uint8_t bin)</td></tr>
-<tr class="memitem:gaf581bef3a44766f3caa5375c47eb61a6" id="r_gaf581bef3a44766f3caa5375c47eb61a6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaf581bef3a44766f3caa5375c47eb61a6">Motion_StartMoveHome</a> (void)</td></tr>
-<tr class="memitem:gad626ae5efd3dee0c8ff431f0fb93aeb7" id="r_gad626ae5efd3dee0c8ff431f0fb93aeb7"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#gad626ae5efd3dee0c8ff431f0fb93aeb7">Motion_IsDone</a> (void)</td></tr>
-<tr class="memitem:ga432bad7ba23dcbdf11de56ab980455f0" id="r_ga432bad7ba23dcbdf11de56ab980455f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga432bad7ba23dcbdf11de56ab980455f0">StopAllMotion</a> (void)</td></tr>
-<tr class="memitem:gab8ff2d57f376ec5d94c36a9a86e92f74" id="r_gab8ff2d57f376ec5d94c36a9a86e92f74"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gab8ff2d57f376ec5d94c36a9a86e92f74">Motor2_RunPositive</a> (void)</td></tr>
-<tr class="memitem:ga909c743864c4290e5035b3e8389c3f35" id="r_ga909c743864c4290e5035b3e8389c3f35"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga909c743864c4290e5035b3e8389c3f35">Motor2_RunNegative</a> (void)</td></tr>
-<tr class="memitem:ga2f87acc9975bbb6311aab837f46f0706" id="r_ga2f87acc9975bbb6311aab837f46f0706"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga2f87acc9975bbb6311aab837f46f0706">Motor2_Stop</a> (void)</td></tr>
-<tr class="memitem:ga8259fbc204953815ef37218884f1f61b" id="r_ga8259fbc204953815ef37218884f1f61b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga8259fbc204953815ef37218884f1f61b">Motor3_RunPositive</a> (void)</td></tr>
-<tr class="memitem:gafac700545c290580b3c997d5873d4059" id="r_gafac700545c290580b3c997d5873d4059"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gafac700545c290580b3c997d5873d4059">Motor3_RunNegative</a> (void)</td></tr>
-<tr class="memitem:ga473d7ee17aef88fbaa6a1d986f5ce0f5" id="r_ga473d7ee17aef88fbaa6a1d986f5ce0f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga473d7ee17aef88fbaa6a1d986f5ce0f5">Motor3_Stop</a> (void)</td></tr>
-<tr class="memitem:ga491198babf55a6495cf62837b64123d1" id="r_ga491198babf55a6495cf62837b64123d1"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ga491198babf55a6495cf62837b64123d1">PlanMoveFromColor</a> (uint8_t color_id, uint8_t *target_bin)</td></tr>
+<tr class="memdesc:ga3d6163ecfcdb7a67d78f51287d5c2ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zero the motor positions for a set of motors.  <br /></td></tr>
 <tr class="memitem:ga996b299aace5add78d448dda5ad917a4" id="r_ga996b299aace5add78d448dda5ad917a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga996b299aace5add78d448dda5ad917a4">StepperDriver_Init</a> (<a class="el" href="struct_stepper_driver_config__t.html">StepperDriverConfig_t</a> *config)</td></tr>
+<tr class="memdesc:ga996b299aace5add78d448dda5ad917a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize stepper driver control pins and put drivers into a safe state.  <br /></td></tr>
 <tr class="memitem:gaae6658a8ef2b30428fe74b8a3bd8f6ba" id="r_gaae6658a8ef2b30428fe74b8a3bd8f6ba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaae6658a8ef2b30428fe74b8a3bd8f6ba">StepperDriver_Enable</a> (void)</td></tr>
+<tr class="memdesc:gaae6658a8ef2b30428fe74b8a3bd8f6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert the driver's enable pin to enable outputs.  <br /></td></tr>
 <tr class="memitem:ga81ff3b7ad84296590d26efb87ad5d756" id="r_ga81ff3b7ad84296590d26efb87ad5d756"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga81ff3b7ad84296590d26efb87ad5d756">StepperDriver_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga81ff3b7ad84296590d26efb87ad5d756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deassert the driver's enable pin to disable outputs.  <br /></td></tr>
 <tr class="memitem:ga965d7990da9e43810c3f0a552b309c98" id="r_ga965d7990da9e43810c3f0a552b309c98"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga965d7990da9e43810c3f0a552b309c98">StepperDriver_Wake</a> (void)</td></tr>
+<tr class="memdesc:ga965d7990da9e43810c3f0a552b309c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake stepper drivers by asserting the sleep pin.  <br /></td></tr>
 <tr class="memitem:ga4c9c6635bf35a971608291146009e467" id="r_ga4c9c6635bf35a971608291146009e467"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga4c9c6635bf35a971608291146009e467">StepperDriver_Sleep</a> (void)</td></tr>
+<tr class="memdesc:ga4c9c6635bf35a971608291146009e467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put stepper drivers to sleep by deasserting the sleep pin.  <br /></td></tr>
 <tr class="memitem:ga0d5dfd8c36fa5954f9f8273e4cd02cb2" id="r_ga0d5dfd8c36fa5954f9f8273e4cd02cb2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga0d5dfd8c36fa5954f9f8273e4cd02cb2">StepperDriver_Reset</a> (<a class="el" href="#gabb5853ad05a2a0236d6b923bd4905efa">StepperID_t</a> motor)</td></tr>
+<tr class="memdesc:ga0d5dfd8c36fa5954f9f8273e4cd02cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset a single stepper driver (pulse reset line).  <br /></td></tr>
 <tr class="memitem:gaf98cbabb4ca867cf3fb1fc299dd3d030" id="r_gaf98cbabb4ca867cf3fb1fc299dd3d030"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaf98cbabb4ca867cf3fb1fc299dd3d030">StepperDriver_ResetAll</a> (void)</td></tr>
+<tr class="memdesc:gaf98cbabb4ca867cf3fb1fc299dd3d030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all stepper driver reset lines.  <br /></td></tr>
 <tr class="memitem:ga8eb2730c80dd83db1f44fec689a818ed" id="r_ga8eb2730c80dd83db1f44fec689a818ed"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga8eb2730c80dd83db1f44fec689a818ed">StepperDriver_SetDecay</a> (GPIO_PinState decay1, GPIO_PinState decay2)</td></tr>
+<tr class="memdesc:ga8eb2730c80dd83db1f44fec689a818ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure decay selection pins.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -204,6 +200,26 @@ Predefined trajectories</h2></td></tr>
 <tr class="memitem:ga6d11631546d4aac99acc263764ff7152" id="r_ga6d11631546d4aac99acc263764ff7152"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ga6d11631546d4aac99acc263764ff7152">blue_trajectory</a></td></tr>
 <tr class="memdesc:ga6d11631546d4aac99acc263764ff7152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory to place blocks in the blue bin.  <br /></td></tr>
 <tr class="memitem:gad9ab595152735b7a3fade73a86b449e3" id="r_gad9ab595152735b7a3fade73a86b449e3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#gad9ab595152735b7a3fade73a86b449e3">trajectory1</a></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-member-group" class="groupheader"><a id="member-group" name="member-group"></a>
+High-level Motion Control Helpers</h2></td></tr>
+<tr class="memitem:gaad8ce1070ef0837cd67c0371c32df102" id="r_gaad8ce1070ef0837cd67c0371c32df102"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaad8ce1070ef0837cd67c0371c32df102">Motion_Init</a> (void)</td></tr>
+<tr class="memdesc:gaad8ce1070ef0837cd67c0371c32df102"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize motion subsystem and motion ICs.  <br /></td></tr>
+<tr class="memitem:ga03080c3cefedfbe583141e2424a1d310" id="r_ga03080c3cefedfbe583141e2424a1d310"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga03080c3cefedfbe583141e2424a1d310">Motion_StartMoveToBin</a> (uint8_t bin)</td></tr>
+<tr class="memdesc:ga03080c3cefedfbe583141e2424a1d310"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a move to a predefined bin index.  <br /></td></tr>
+<tr class="memitem:gaf581bef3a44766f3caa5375c47eb61a6" id="r_gaf581bef3a44766f3caa5375c47eb61a6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gaf581bef3a44766f3caa5375c47eb61a6">Motion_StartMoveHome</a> (void)</td></tr>
+<tr class="memdesc:gaf581bef3a44766f3caa5375c47eb61a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start a move to the home position.  <br /></td></tr>
+<tr class="memitem:gad626ae5efd3dee0c8ff431f0fb93aeb7" id="r_gad626ae5efd3dee0c8ff431f0fb93aeb7"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#gad626ae5efd3dee0c8ff431f0fb93aeb7">Motion_IsDone</a> (void)</td></tr>
+<tr class="memdesc:gad626ae5efd3dee0c8ff431f0fb93aeb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Query whether the current motion has completed.  <br /></td></tr>
+<tr class="memitem:ga432bad7ba23dcbdf11de56ab980455f0" id="r_ga432bad7ba23dcbdf11de56ab980455f0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga432bad7ba23dcbdf11de56ab980455f0">StopAllMotion</a> (void)</td></tr>
+<tr class="memdesc:ga432bad7ba23dcbdf11de56ab980455f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Immediately stop all motion.  <br /></td></tr>
+<tr class="memitem:gab8ff2d57f376ec5d94c36a9a86e92f74" id="r_gab8ff2d57f376ec5d94c36a9a86e92f74"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gab8ff2d57f376ec5d94c36a9a86e92f74">Motor2_RunPositive</a> (void)</td></tr>
+<tr class="memitem:ga909c743864c4290e5035b3e8389c3f35" id="r_ga909c743864c4290e5035b3e8389c3f35"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga909c743864c4290e5035b3e8389c3f35">Motor2_RunNegative</a> (void)</td></tr>
+<tr class="memitem:ga2f87acc9975bbb6311aab837f46f0706" id="r_ga2f87acc9975bbb6311aab837f46f0706"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga2f87acc9975bbb6311aab837f46f0706">Motor2_Stop</a> (void)</td></tr>
+<tr class="memitem:ga8259fbc204953815ef37218884f1f61b" id="r_ga8259fbc204953815ef37218884f1f61b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga8259fbc204953815ef37218884f1f61b">Motor3_RunPositive</a> (void)</td></tr>
+<tr class="memitem:gafac700545c290580b3c997d5873d4059" id="r_gafac700545c290580b3c997d5873d4059"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#gafac700545c290580b3c997d5873d4059">Motor3_RunNegative</a> (void)</td></tr>
+<tr class="memitem:ga473d7ee17aef88fbaa6a1d986f5ce0f5" id="r_ga473d7ee17aef88fbaa6a1d986f5ce0f5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ga473d7ee17aef88fbaa6a1d986f5ce0f5">Motor3_Stop</a> (void)</td></tr>
+<tr class="memitem:ga491198babf55a6495cf62837b64123d1" id="r_ga491198babf55a6495cf62837b64123d1"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#ga491198babf55a6495cf62837b64123d1">PlanMoveFromColor</a> (uint8_t color_id, uint8_t *target_bin)</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Color sensor reading and classification. </p>
@@ -277,7 +293,18 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute conversion parameters used for a motor instance. </p>
+<p>Compute internal motor conversion parameters based on microstepping and gearing. </p>
+<p>Compute conversion parameters used for a motor instance.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Pointer to <a class="el" href="structmotor__config__t.html">motor_config_t</a> to populate. </td></tr>
+    <tr><td class="paramname">microstep</td><td>Microstep setting (e.g. 1,2,4,...). </td></tr>
+    <tr><td class="paramname">gearboxRatio</td><td>Gearbox ratio applied to the motor. </td></tr>
+    <tr><td class="paramname">stepsPerRev</td><td>Native full steps per motor revolution.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Compute internal motor conversion parameters based on microstepping and gearing.</p>
 <p>Call at runtime once per motor to compute the conversions between radians and controller step units, and to populate acceleration/velocity conversion factors stored in <code class="param">motor</code>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -310,7 +337,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Execute a trajectory from its first waypoint through completion. </p>
+<p>Execute the provided trajectory on the given motors. </p>
+<p>Execute a trajectory from its first waypoint through completion.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorConfigs</td><td>Array of motor configuration structures. </td></tr>
+    <tr><td class="paramname">trajectory</td><td>Pointer to the trajectory to execute.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Execute the provided trajectory on the given motors.</p>
 <p>This function blocks until the entire trajectory has been executed. It handles any initial servo command, sends the initial joint commands, then repeatedly waits until the current waypoint is reached before advancing to the next waypoint.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -337,7 +373,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Read the current motor position from the controller and return radians. </p>
+<p>Get the current motor position in radians. </p>
+<p>Read the current motor position from the controller and return radians.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Pointer to <a class="el" href="structmotor__config__t.html">motor_config_t</a> for the motor. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Motor position in radians.</dd></dl>
+<p>Get the current motor position in radians.</p>
 <p>Reads the 24-bit signed XACTUAL register from the TMC429 and converts it to radians using the motor's <span class="tt">rad_to_steps</span> factor.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -368,7 +413,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Compute the current claw (end-effector) pose using live motor positions. </p>
+<p>Compute the end-effector pose (x,y,z,r) from motor configurations. </p>
+<p>Compute the current claw (end-effector) pose using live motor positions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorConfigs</td><td>Array of motor configuration structures. </td></tr>
+    <tr><td class="paramname">pose</td><td>Output structure populated with the computed pose.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Compute the end-effector pose (x,y,z,r) from motor configurations.</p>
 <p>This helper reads the current joint positions from <span class="tt"><a class="el" href="fsm_8c.html#a53169ccb825328490c5797c25d83eb5f">motorConfigs</a></span>, assembles a <span class="tt"><a class="el" href="struct_joint_angles__t.html">JointAngles_t</a></span>, and calls <span class="tt"><a class="el" href="maneuvers_8c.html#ac7eb2d48d9ff4f17763d0b6cce009adc" title="Compute end-effector Cartesian pose from joint angles.">ComputeEndEffectorPosition</a></span> to fill <span class="tt">pose</span>.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -395,6 +449,8 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize motion subsystem and motion ICs. </p>
+
 </div>
 </div>
 <a id="gad626ae5efd3dee0c8ff431f0fb93aeb7" name="gad626ae5efd3dee0c8ff431f0fb93aeb7"></a>
@@ -411,6 +467,9 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Query whether the current motion has completed. </p>
+<dl class="section return"><dt>Returns</dt><dd>1 if done, 0 otherwise. </dd></dl>
 
 </div>
 </div>
@@ -429,6 +488,8 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Start a move to the home position. </p>
+
 </div>
 </div>
 <a id="ga03080c3cefedfbe583141e2424a1d310" name="ga03080c3cefedfbe583141e2424a1d310"></a>
@@ -445,6 +506,14 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Start a move to a predefined bin index. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">bin</td><td>Target bin index. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -569,7 +638,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Command a motor to move at a target angular velocity (rad/s). </p>
+<p>Command the motor to run at a given angular velocity. </p>
+<p>Command a motor to move at a target angular velocity (rad/s).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Pointer to <a class="el" href="structmotor__config__t.html">motor_config_t</a> for the motor. </td></tr>
+    <tr><td class="paramname">target_vel_rad_per_sec</td><td>Target angular velocity in rad/s.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Command the motor to run at a given angular velocity.</p>
 <p>Converts the requested angular velocity to controller internal units and writes the VTARGET register for the given motor channel.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -600,7 +678,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Command a motor to move to an absolute joint position (radians). </p>
+<p>Move the motor to the specified angular position (blocking or non-blocking depending on implementation). </p>
+<p>Command a motor to move to an absolute joint position (radians).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Pointer to <a class="el" href="structmotor__config__t.html">motor_config_t</a> for the motor. </td></tr>
+    <tr><td class="paramname">target_pos_rad</td><td>Target position in radians.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Move the motor to the specified angular position (blocking or non-blocking depending on implementation).</p>
 <p>Converts <code class="param">target_pos_rad</code> into controller step units and writes the XTARGET register for the motor channel on the selected TMC429.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -652,7 +739,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Set the motor's maximum acceleration (rad/s^2) in the controller. </p>
+<p>Set the maximum acceleration for the motor. </p>
+<p>Set the motor's maximum acceleration (rad/s^2) in the controller.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Pointer to <a class="el" href="structmotor__config__t.html">motor_config_t</a> for the motor. </td></tr>
+    <tr><td class="paramname">max_accel_rad_s2</td><td>Maximum acceleration in rad/s^2.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Set the maximum acceleration for the motor.</p>
 <p>Converts <code class="param">max_accel_rad_s2</code> into the controller's acceleration register units and writes the AMax register for the motor channel.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -679,6 +775,8 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Deassert the driver's enable pin to disable outputs. </p>
+
 </div>
 </div>
 <a id="gaae6658a8ef2b30428fe74b8a3bd8f6ba" name="gaae6658a8ef2b30428fe74b8a3bd8f6ba"></a>
@@ -695,6 +793,8 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Assert the driver's enable pin to enable outputs. </p>
 
 </div>
 </div>
@@ -713,6 +813,14 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initialize stepper driver control pins and put drivers into a safe state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>Pointer to configuration describing GPIO pins for drivers. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga0d5dfd8c36fa5954f9f8273e4cd02cb2" name="ga0d5dfd8c36fa5954f9f8273e4cd02cb2"></a>
@@ -730,6 +838,15 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Reset a single stepper driver (pulse reset line). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motor</td><td>Motor index (<a class="el" href="#gabb5853ad05a2a0236d6b923bd4905efa">StepperID_t</a>) to reset. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Contains a 1 ms delay to satisfy reset timing requirements. </dd></dl>
+
 </div>
 </div>
 <a id="gaf98cbabb4ca867cf3fb1fc299dd3d030" name="gaf98cbabb4ca867cf3fb1fc299dd3d030"></a>
@@ -746,6 +863,9 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reset all stepper driver reset lines. </p>
+<dl class="section note"><dt>Note</dt><dd>Contains a 1 ms delay. </dd></dl>
 
 </div>
 </div>
@@ -768,6 +888,15 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Configure decay selection pins. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">decay1</td><td>Pin state for decay1. </td></tr>
+    <tr><td class="paramname">decay2</td><td>Pin state for decay2. </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="ga4c9c6635bf35a971608291146009e467" name="ga4c9c6635bf35a971608291146009e467"></a>
@@ -784,6 +913,8 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Put stepper drivers to sleep by deasserting the sleep pin. </p>
 
 </div>
 </div>
@@ -802,6 +933,8 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Wake stepper drivers by asserting the sleep pin. </p>
+
 </div>
 </div>
 <a id="ga432bad7ba23dcbdf11de56ab980455f0" name="ga432bad7ba23dcbdf11de56ab980455f0"></a>
@@ -818,6 +951,8 @@ Predefined trajectories</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Immediately stop all motion. </p>
 
 </div>
 </div>
@@ -840,7 +975,16 @@ Predefined trajectories</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Zero the controller position registers for all motors in the array. </p>
+<p>Zero the motor positions for a set of motors. </p>
+<p>Zero the controller position registers for all motors in the array.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorConfigs</td><td>Array of <a class="el" href="structmotor__config__t.html">motor_config_t</a> structures. </td></tr>
+    <tr><td class="paramname">num_motors</td><td>Number of motors in the array.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Zero the motor positions for a set of motors.</p>
 <p>Useful for homing procedures where the current physical position should be declared as the zero reference. Temporarily switches the controller to velocity mode to allow direct modification of the XACTUAL register.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

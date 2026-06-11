@@ -124,19 +124,37 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('stepper__drive
 Include dependency graph for stepper_driver.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="stepper__driver_8c__incl.png" border="0" usemap="#a_core_2_src_2stepper__driver_8c" loading="lazy" alt=""/></div>
-<!-- MAP 0 -->
+<map name="a_core_2_src_2stepper__driver_8c" id="a_core_2_src_2stepper__driver_8c">
+<area shape="rect" title=" " alt="" coords="23,5,193,32"/>
+<area shape="rect" href="stepper__driver_8h.html" title=" " alt="" coords="51,80,165,107"/>
+<area shape="poly" title=" " alt="" coords="109,30,111,65,106,64,107,35"/>
+<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="35,155,96,181"/>
+<area shape="poly" title=" " alt="" coords="102,105,83,143,78,140,99,109"/>
+<area shape="rect" title=" " alt="" coords="120,155,184,181"/>
+<area shape="poly" title=" " alt="" coords="117,105,139,141,134,141,115,110"/>
+<area shape="rect" title=" " alt="" coords="5,229,126,256"/>
+<area shape="poly" title=" " alt="" coords="67,180,68,214,63,213,64,184"/>
+</map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:ga996b299aace5add78d448dda5ad917a4" id="r_ga996b299aace5add78d448dda5ad917a4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga996b299aace5add78d448dda5ad917a4">StepperDriver_Init</a> (<a class="el" href="struct_stepper_driver_config__t.html">StepperDriverConfig_t</a> *config)</td></tr>
+<tr class="memdesc:ga996b299aace5add78d448dda5ad917a4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize stepper driver control pins and put drivers into a safe state.  <br /></td></tr>
 <tr class="memitem:gaae6658a8ef2b30428fe74b8a3bd8f6ba" id="r_gaae6658a8ef2b30428fe74b8a3bd8f6ba"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#gaae6658a8ef2b30428fe74b8a3bd8f6ba">StepperDriver_Enable</a> (void)</td></tr>
+<tr class="memdesc:gaae6658a8ef2b30428fe74b8a3bd8f6ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assert the driver's enable pin to enable outputs.  <br /></td></tr>
 <tr class="memitem:ga81ff3b7ad84296590d26efb87ad5d756" id="r_ga81ff3b7ad84296590d26efb87ad5d756"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga81ff3b7ad84296590d26efb87ad5d756">StepperDriver_Disable</a> (void)</td></tr>
+<tr class="memdesc:ga81ff3b7ad84296590d26efb87ad5d756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Deassert the driver's enable pin to disable outputs.  <br /></td></tr>
 <tr class="memitem:ga965d7990da9e43810c3f0a552b309c98" id="r_ga965d7990da9e43810c3f0a552b309c98"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga965d7990da9e43810c3f0a552b309c98">StepperDriver_Wake</a> (void)</td></tr>
+<tr class="memdesc:ga965d7990da9e43810c3f0a552b309c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Wake stepper drivers by asserting the sleep pin.  <br /></td></tr>
 <tr class="memitem:ga4c9c6635bf35a971608291146009e467" id="r_ga4c9c6635bf35a971608291146009e467"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga4c9c6635bf35a971608291146009e467">StepperDriver_Sleep</a> (void)</td></tr>
+<tr class="memdesc:ga4c9c6635bf35a971608291146009e467"><td class="mdescLeft">&#160;</td><td class="mdescRight">Put stepper drivers to sleep by deasserting the sleep pin.  <br /></td></tr>
 <tr class="memitem:ga0d5dfd8c36fa5954f9f8273e4cd02cb2" id="r_ga0d5dfd8c36fa5954f9f8273e4cd02cb2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga0d5dfd8c36fa5954f9f8273e4cd02cb2">StepperDriver_Reset</a> (<a class="el" href="group___motion_control.html#gabb5853ad05a2a0236d6b923bd4905efa">StepperID_t</a> motor)</td></tr>
+<tr class="memdesc:ga0d5dfd8c36fa5954f9f8273e4cd02cb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset a single stepper driver (pulse reset line).  <br /></td></tr>
 <tr class="memitem:gaf98cbabb4ca867cf3fb1fc299dd3d030" id="r_gaf98cbabb4ca867cf3fb1fc299dd3d030"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#gaf98cbabb4ca867cf3fb1fc299dd3d030">StepperDriver_ResetAll</a> (void)</td></tr>
+<tr class="memdesc:gaf98cbabb4ca867cf3fb1fc299dd3d030"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reset all stepper driver reset lines.  <br /></td></tr>
 <tr class="memitem:ga8eb2730c80dd83db1f44fec689a818ed" id="r_ga8eb2730c80dd83db1f44fec689a818ed"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga8eb2730c80dd83db1f44fec689a818ed">StepperDriver_SetDecay</a> (GPIO_PinState decay1, GPIO_PinState decay2)</td></tr>
+<tr class="memdesc:ga8eb2730c80dd83db1f44fec689a818ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure decay selection pins.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>

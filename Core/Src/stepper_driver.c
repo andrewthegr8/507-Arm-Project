@@ -2,15 +2,19 @@
 
 static StepperDriverConfig_t *stepperConfig;
 
+/**
+ * @brief Initialize stepper driver control pins and put drivers into a safe state.
+ * @param config Pointer to configuration describing GPIO pins for drivers.
+ */
 void StepperDriver_Init(StepperDriverConfig_t *config)
 {
     stepperConfig = config;
 
-    // Put drivers in a known disabled/sleeping state
+    /* Put drivers in a known disabled/sleeping state */
     StepperDriver_Disable();
     StepperDriver_Sleep();
 
-    // Release all reset pins
+    /* Release all reset pins */
     for (uint8_t i = 0; i < 4; i++)
     {
         HAL_GPIO_WritePin(
@@ -21,6 +25,9 @@ void StepperDriver_Init(StepperDriverConfig_t *config)
     }
 }
 
+/**
+ * @brief Assert the driver's enable pin to enable outputs.
+ */
 void StepperDriver_Enable(void)
 {
     HAL_GPIO_WritePin(
@@ -30,6 +37,9 @@ void StepperDriver_Enable(void)
     );
 }
 
+/**
+ * @brief Deassert the driver's enable pin to disable outputs.
+ */
 void StepperDriver_Disable(void)
 {
     HAL_GPIO_WritePin(
@@ -39,6 +49,9 @@ void StepperDriver_Disable(void)
     );
 }
 
+/**
+ * @brief Wake stepper drivers by asserting the sleep pin.
+ */
 void StepperDriver_Wake(void)
 {
     HAL_GPIO_WritePin(
@@ -48,6 +61,9 @@ void StepperDriver_Wake(void)
     );
 }
 
+/**
+ * @brief Put stepper drivers to sleep by deasserting the sleep pin.
+ */
 void StepperDriver_Sleep(void)
 {
     HAL_GPIO_WritePin(
@@ -57,6 +73,11 @@ void StepperDriver_Sleep(void)
     );
 }
 
+/**
+ * @brief Reset a single stepper driver (pulse reset line).
+ * @param motor Motor index (StepperID_t) to reset.
+ * @note Contains a 1 ms delay to satisfy reset timing requirements.
+ */
 void StepperDriver_Reset(StepperID_t motor)
 //Warning: Contains a 1 ms delay
 {
@@ -75,6 +96,10 @@ void StepperDriver_Reset(StepperID_t motor)
     );
 }
 
+/**
+ * @brief Reset all stepper driver reset lines.
+ * @note Contains a 1 ms delay.
+ */
 void StepperDriver_ResetAll(void)
 //Warning: Contains a 1 ms delay
 {
@@ -98,6 +123,11 @@ void StepperDriver_ResetAll(void)
     }
 }
 
+/**
+ * @brief Configure decay selection pins.
+ * @param decay1 Pin state for decay1.
+ * @param decay2 Pin state for decay2.
+ */
 void StepperDriver_SetDecay(GPIO_PinState decay1, GPIO_PinState decay2)
 {
     HAL_GPIO_WritePin(stepperConfig->decay1Port, stepperConfig->decay1Pin, decay1);

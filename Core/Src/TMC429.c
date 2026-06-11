@@ -37,34 +37,57 @@ extern SPI_HandleTypeDef hspi1;
 static MotionIC_Config_t *motionICs; //Pointer to where the motion IC configs are stored. This is set by the user in main.c
 static MotionIC_t activeMotionIC = MOTION_IC_1; //Default to motion IC 1
 
+/**
+ * @brief Store board-specific TMC429 configurations.
+ * @param configs Pointer to an array of MotionIC_Config_t describing the chips.
+ *
+ * The provided array should contain at least the configurations for each
+ * motion IC used on the board. This function stores the pointer for later
+ * use by the SPI helper routines.
+ */
 void TMC429_SetMotionICs(MotionIC_Config_t *configs) {
-//Function to setup the motion IC configs.
-    motionICs = configs;
+	//Function to setup the motion IC configs.
+	motionICs = configs;
 }
 
-//Chip select function
+/**
+ * @brief Select which TMC429 chip subsequent SPI transfers will target.
+ * @param ic MotionIC_t selecting a configured motion IC index.
+ *
+ * This function deasserts both chip-select lines then records the active
+ * motion IC. The active IC's CS will be asserted by the SPI helper when
+ * performing transfers.
+ */
 void SelectMotionIC(MotionIC_t ic)
 {
 	// Deassert both chip-selects first
 	HAL_GPIO_WritePin(motionICs[0].csPort, motionICs[0].csPin, GPIO_PIN_SET);
 	HAL_GPIO_WritePin(motionICs[1].csPort, motionICs[1].csPin, GPIO_PIN_SET);
 
-    activeMotionIC = ic;
+	activeMotionIC = ic;
 }
 
 
 
-//Function for SPI communication. sends/recieves one byte and handles the chip select line
+/**
+ * @brief Perform a 4-byte SPI transmit/receive using the active motion IC's SPI handle and CS.
+ * @param p_SPI_DeviceHandle Optional device handle (unused in this HAL-based implementation).
+ * @param rx 4-byte buffer to receive data into.
+ * @param tx 4-byte buffer containing data to transmit.
+ *
+ * This helper lowers the selected chip's CS line, performs a 4-byte
+ * full-duplex transmit/receive and then raises CS.
+ */
 void ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t * rx, uint8_t * tx)
 {
 
-    MotionIC_Config_t * ICconfig = &motionICs[activeMotionIC]; //Get config for active motion IC
+	MotionIC_Config_t * ICconfig = &motionICs[activeMotionIC]; //Get config for active motion IC
 
-    HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_RESET); //Set CS line low
+	HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_RESET); //Set CS line low
 
-    HAL_SPI_TransmitReceive(ICconfig->hspi, tx, rx, 4, HAL_MAX_DELAY);
+	HAL_SPI_TransmitReceive(ICconfig->hspi, tx, rx, 4, HAL_MAX_DELAY);
     
-    HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_SET); //Set the CS line high
+	HAL_GPIO_WritePin(ICconfig->csPort, ICconfig->csPin, GPIO_PIN_SET); //Set the CS line high
 
 }
 

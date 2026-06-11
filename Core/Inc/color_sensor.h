@@ -20,8 +20,26 @@ typedef enum {
     COLOR_UNKNOWN = 6,
 } ColorResult_t;
 
-void         COLOR_SENSOR_Init(tcs34725_handle_t *handle);
+/**
+ * @brief Initialize the color sensor and enable RGB/C readings.
+ * @param handle Pointer to an initialized tcs34725_handle_t for the device.
+ */
+void COLOR_SENSOR_Init(tcs34725_handle_t *handle);
+
+/**
+ * @brief Read raw RGB(C) values and classify the detected color.
+ * @param handle Pointer to the tcs34725_handle_t for the device.
+ * @return ColorResult_t enum value representing the classified color.
+ */
 ColorResult_t COLOR_SENSOR_Read(tcs34725_handle_t *handle);
+
+/**
+ * @brief Send an RGB printout and classification over the debug UART.
+ * @param r Raw red channel value.
+ * @param g Raw green channel value.
+ * @param b Raw blue channel value.
+ * @param color Classified color to print (ColorResult_t).
+ */
 void COLOR_SENSOR_PrintRGB(uint16_t r, uint16_t g, uint16_t b, ColorResult_t color);
 
 /**

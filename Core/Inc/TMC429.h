@@ -26,25 +26,46 @@
 	#define SPI_DEV_TMC429 (&hspi1) //Both chips on the same SPI bus, so we can use the same handle for both
 
 	//We need to add functionality so that we can select which TMC chip we want to talk to
+	/**
+	 * @brief Identifier for which TMC429 motion IC is being addressed.
+	 */
 	typedef enum
 	{
 		MOTION_IC_1 = 0,
 		MOTION_IC_2 = 1
 	} MotionIC_t;
 
+	/**
+	 * @brief Configuration structure describing a TMC429 SPI device and its CS pin.
+	 */
 	typedef struct
 	{
-		SPI_HandleTypeDef *hspi;
-		GPIO_TypeDef *csPort;
-		uint16_t csPin;
+		SPI_HandleTypeDef *hspi; /**< SPI handle used to communicate with this chip */
+		GPIO_TypeDef *csPort;   /**< Chip select GPIO port */
+		uint16_t csPin;         /**< Chip select GPIO pin */
 	} MotionIC_Config_t;
 
 
 
 	// user must provide this function
+	/**
+	 * @brief Select which TMC429 device (chip) subsequent SPI operations target.
+	 * @param ic MotionIC_t enum identifying the target chip.
+	 */
 	void SelectMotionIC(MotionIC_t ic);
+
+	/**
+	 * @brief Provide board-specific configuration for the two motion ICs.
+	 * @param configs Pointer to an array (or single) MotionIC_Config_t structures.
+	 */
 	void TMC429_SetMotionICs(MotionIC_Config_t *configs);
 
+	/**
+	 * @brief Low-level SPI read/write helper; user board must provide an implementation.
+	 * @param p_SPI_DeviceHandle Pointer to a SPI device handle (may be ignored)
+	 * @param rx Pointer to receive byte(s) buffer.
+	 * @param tx Pointer to transmit byte(s) buffer.
+	 */
 	void ReadWriteSPI(void* p_SPI_DeviceHandle, uint8_t * rx, uint8_t * tx);
 
 	// TMC429 library functions

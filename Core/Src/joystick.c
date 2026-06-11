@@ -96,7 +96,6 @@ void Joystick_Init(void)
 
 void Joystick_Read(void)
 {
-}
     /**
      * @brief Sample joystick ADC channels and update direction flags.
      */

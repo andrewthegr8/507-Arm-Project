@@ -252,6 +252,7 @@ int main(void)
   uint32_t adc;
 
   Servo_Init();
+  Servo_Open();
 
   double m2pos = 0;
   //Servo_Init();

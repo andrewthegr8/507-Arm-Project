@@ -9,7 +9,7 @@ The robot is a semi autonomous color-sorting device. The arm consists of four jo
 
 The system is built around a custom-designed PCB featuring an STM32H7 microcontroller. The project was developed using the STM32 ecosystem, and the firmware was implemented in C. The project utilizes open-source hardware drivers for interfacing with more complex electronics components, as well as the STM HAL library to work simplify communication with the microcontroller.
 
-Photo!!!
+/image
 
 ## Hardware
 

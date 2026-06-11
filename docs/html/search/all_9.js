@@ -7,7 +7,7 @@ var searchData=
   ['improvements_4',['Future Improvements',['../index.html#autotoc_md6',1,'']]],
   ['init429_5',['Init429',['../_t_m_c429_8c.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c'],['../_t_m_c429_8h.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c']]],
   ['inited_6',['inited',['../structtcs34725__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'tcs34725_handle_s']]],
-  ['initial_5fpose_7',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../maneuvers_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],
+  ['initial_5fpose_7',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../group___motion_control.html#ga3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],
   ['initialise_5fmonitor_5fhandles_8',['initialise_monitor_handles',['../syscalls_8c.html#a25c7f100d498300fff65568c2fcfe639',1,'syscalls.c']]],
   ['int16_9',['int16',['../_types_8h.html#aa0d0fdc87fd135ef2bedb030901cdb9c',1,'Types.h']]],
   ['int32_10',['int32',['../_types_8h.html#ab7903878916593daecbeb95b98115ab0',1,'Types.h']]],

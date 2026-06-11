@@ -5,7 +5,7 @@ var searchData=
   ['iic_5fread_2',['iic_read',['../structtcs34725__handle__s.html#af4ef726288b88f51a846483803a1249b',1,'tcs34725_handle_s']]],
   ['iic_5fwrite_3',['iic_write',['../structtcs34725__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5',1,'tcs34725_handle_s']]],
   ['inited_4',['inited',['../structtcs34725__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'tcs34725_handle_s']]],
-  ['initial_5fpose_5',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../maneuvers_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],
+  ['initial_5fpose_5',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../group___motion_control.html#ga3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],
   ['interface_6',['interface',['../structtcs34725__info__s.html#aebaa6c28dd4f2c3dc27566fcb910fd28',1,'tcs34725_info_s']]],
   ['isreflected_7',['isReflected',['../struct_c_r_c_type_def.html#abaa8bd7842fe7ec7d633c795dd1ae6c4',1,'CRCTypeDef']]]
 ];

@@ -233,7 +233,7 @@ var searchData=
   ['tmcerror_230',['TMCError',['../_a_p_i___header_8h.html#a012dadea93845e0b0ed49549217b9403',1,'API_Header.h']]],
   ['tmcregisterconstant_231',['TMCRegisterConstant',['../struct_t_m_c_register_constant.html',1,'']]],
   ['tolerance_232',['tolerance',['../maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27',1,'maneuvers.c']]],
-  ['trajectory1_233',['trajectory1',['../maneuvers_8c.html#ad9ab595152735b7a3fade73a86b449e3',1,'maneuvers.c']]],
+  ['trajectory1_233',['trajectory1',['../group___motion_control.html#gad9ab595152735b7a3fade73a86b449e3',1,'maneuvers.c']]],
   ['trajectory_5ft_234',['trajectory_t',['../structtrajectory__t.html',1,'']]],
   ['true_235',['TRUE',['../_t_m_c429_8c.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE:&#160;TMC429.c'],['../_types_8h.html#aa8cecfc5c5c054d2875c03e77b7be15d',1,'TRUE:&#160;Types.h']]],
   ['types_2eh_236',['Types.h',['../_types_8h.html',1,'']]]

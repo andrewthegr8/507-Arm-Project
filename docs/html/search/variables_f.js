@@ -13,5 +13,5 @@ var searchData=
   ['theta2_10',['theta2',['../struct_joint_angles__t.html#a9e69d3405be2f92e5c51252adb09d25d',1,'JointAngles_t']]],
   ['theta3_11',['theta3',['../struct_joint_angles__t.html#a3e9893485a25687993de73b8533251ad',1,'JointAngles_t']]],
   ['tolerance_12',['tolerance',['../maneuvers_8c.html#a97eab6d709b80585fe9e8a54b1e3da27',1,'maneuvers.c']]],
-  ['trajectory1_13',['trajectory1',['../maneuvers_8c.html#ad9ab595152735b7a3fade73a86b449e3',1,'maneuvers.c']]]
+  ['trajectory1_13',['trajectory1',['../group___motion_control.html#gad9ab595152735b7a3fade73a86b449e3',1,'maneuvers.c']]]
 ];

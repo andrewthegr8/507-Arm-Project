@@ -34,7 +34,7 @@ var searchData=
   ['bit8_31',['BIT8',['../_bits_8h.html#a0e80e65237843fa1ff15c68cd78066f8',1,'Bits.h']]],
   ['bit9_32',['BIT9',['../_bits_8h.html#a3aa20ab5eb33383fa31b0e94f4401cdf',1,'Bits.h']]],
   ['bits_2eh_33',['Bits.h',['../_bits_8h.html',1,'']]],
-  ['blue_5ftrajectory_34',['blue_trajectory',['../fsm_8c.html#a6d11631546d4aac99acc263764ff7152',1,'blue_trajectory:&#160;maneuvers.c'],['../maneuvers_8c.html#a6d11631546d4aac99acc263764ff7152',1,'blue_trajectory:&#160;maneuvers.c']]],
+  ['blue_5ftrajectory_34',['blue_trajectory',['../fsm_8c.html#a6d11631546d4aac99acc263764ff7152',1,'blue_trajectory:&#160;maneuvers.c'],['../group___motion_control.html#ga6d11631546d4aac99acc263764ff7152',1,'blue_trajectory:&#160;maneuvers.c']]],
   ['busfault_5fhandler_35',['BusFault_Handler',['../stm32h7xx__it_8c.html#a850cefb17a977292ae5eb4cafa9976c3',1,'BusFault_Handler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a850cefb17a977292ae5eb4cafa9976c3',1,'BusFault_Handler(void):&#160;stm32h7xx_it.c']]],
   ['byte_36',['BYTE',['../_bits_8h.html#a9b7073baad817bd76a33a6ea18d20dcb',1,'Bits.h']]],
   ['byte0_5fmask_37',['BYTE0_MASK',['../_bits_8h.html#ad30907571100ce4c5e8993f6a862beb7',1,'Bits.h']]],

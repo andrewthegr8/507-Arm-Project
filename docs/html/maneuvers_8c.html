@@ -119,6 +119,9 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('maneuvers_8c.h
   <div class="headertitle"><div class="title">maneuvers.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>High-level motion/trajectory utilities for the robot arm.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &quot;<a class="el" href="maneuvers_8h_source.html">maneuvers.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="motion_8h_source.html">motion.h</a>&quot;</code><br />
 <code>#include &lt;math.h&gt;</code><br />
@@ -130,95 +133,67 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('maneuvers_8c.h
 Include dependency graph for maneuvers.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="maneuvers_8c__incl.png" border="0" usemap="#a_core_2_src_2maneuvers_8c" loading="lazy" alt=""/></div>
-<map name="a_core_2_src_2maneuvers_8c" id="a_core_2_src_2maneuvers_8c">
-<area shape="rect" title=" " alt="" coords="820,5,972,32"/>
-<area shape="rect" href="maneuvers_8h.html" title=" " alt="" coords="762,80,859,107"/>
-<area shape="poly" title=" " alt="" coords="883,31,838,72,835,68,879,34"/>
-<area shape="rect" href="motion_8h.html" title=" " alt="" coords="743,155,814,181"/>
-<area shape="poly" title=" " alt="" coords="820,34,784,53,767,66,753,81,748,95,749,111,762,143,757,141,744,112,743,95,748,79,763,62,781,48,824,31"/>
-<area shape="rect" title=" " alt="" coords="235,528,309,555"/>
-<area shape="poly" title=" " alt="" coords="817,26,601,44,332,73,206,92,103,114,63,127,33,140,14,153,8,167,8,393,14,426,30,453,54,475,84,494,118,508,154,519,222,534,217,535,152,524,116,513,82,498,51,480,26,456,9,428,3,394,3,166,10,150,30,135,61,122,101,109,205,87,331,67,601,38,822,23"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="770,304,830,331"/>
-<area shape="poly" title=" " alt="" coords="894,30,873,107,811,291,807,288,868,106,891,34"/>
-<area shape="rect" title=" " alt="" coords="933,80,995,107"/>
-<area shape="poly" title=" " alt="" coords="908,30,945,69,939,68,907,35"/>
-<area shape="rect" href="servo_8h.html" title=" " alt="" coords="966,155,1031,181"/>
-<area shape="poly" title=" " alt="" coords="942,30,980,49,996,62,1009,79,1015,94,1016,110,1011,142,1007,139,1011,110,1010,95,1004,81,992,66,977,53,942,35"/>
-<area shape="rect" title=" " alt="" coords="1070,80,1215,107"/>
-<area shape="poly" title=" " alt="" coords="939,30,1088,75,1082,76,939,35"/>
-<area shape="poly" title=" " alt="" coords="807,105,792,142,788,139,803,109"/>
-<area shape="rect" title=" " alt="" coords="865,528,930,555"/>
-<area shape="poly" title=" " alt="" coords="786,179,845,303,862,340,875,378,890,450,897,514,893,511,884,451,869,379,857,342,840,305,784,184"/>
-<area shape="rect" href="_t_m_c429_8h.html" title=" " alt="" coords="706,229,788,256"/>
-<area shape="poly" title=" " alt="" coords="775,180,760,217,756,213,771,184"/>
-<area shape="rect" href="_a_p_i___header_8h.html" title=" " alt="" coords="411,304,586,331"/>
-<area shape="poly" title=" " alt="" coords="703,257,557,302,555,297,708,255"/>
-<area shape="rect" href="_t_m_c429___register_8h.html" title=" " alt="" coords="248,304,386,331"/>
-<area shape="poly" title=" " alt="" coords="703,253,403,304,401,299,707,249"/>
-<area shape="poly" title=" " alt="" coords="757,254,784,292,779,291,755,259"/>
-<area shape="rect" href="_config_8h.html" title=" " alt="" coords="509,379,579,405"/>
-<area shape="poly" title=" " alt="" coords="508,329,531,366,525,365,506,334"/>
-<area shape="rect" href="_constants_8h.html" title=" " alt="" coords="336,453,429,480"/>
-<area shape="poly" title=" " alt="" coords="408,331,321,351,284,365,262,380,257,390,256,399,268,417,292,433,324,448,319,448,290,437,264,421,251,401,252,389,258,377,282,360,319,346,413,328"/>
-<area shape="rect" href="_types_8h.html" title=" " alt="" coords="601,453,668,480"/>
-<area shape="poly" title=" " alt="" coords="587,324,638,342,661,357,680,377,686,394,682,412,661,444,658,440,677,410,680,395,675,380,657,361,636,347,587,329"/>
-<area shape="rect" href="_macros_8h.html" title=" " alt="" coords="42,379,118,405"/>
-<area shape="poly" title=" " alt="" coords="408,332,284,353,134,381,132,376,283,348,413,330"/>
-<area shape="rect" href="_bits_8h.html" title=" " alt="" coords="142,379,197,405"/>
-<area shape="poly" title=" " alt="" coords="434,333,217,381,213,382,211,377,215,376,437,329"/>
-<area shape="rect" href="_c_r_c_8h.html" title=" " alt="" coords="604,379,666,405"/>
-<area shape="poly" title=" " alt="" coords="523,329,600,371,595,371,522,334"/>
-<area shape="rect" href="_register_access_8h.html" title=" " alt="" coords="272,379,397,405"/>
-<area shape="poly" title=" " alt="" coords="468,332,379,374,376,369,473,330"/>
-<area shape="rect" title=" " alt="" coords="422,379,485,405"/>
-<area shape="poly" title=" " alt="" coords="493,330,471,367,467,363,489,333"/>
-<area shape="poly" title=" " alt="" coords="518,405,426,449,424,444,513,407"/>
-<area shape="poly" title=" " alt="" coords="561,403,610,444,605,443,559,408"/>
-<area shape="poly" title=" " alt="" coords="669,475,853,527,848,527,668,480"/>
-<area shape="rect" title=" " alt="" coords="600,528,669,555"/>
-<area shape="poly" title=" " alt="" coords="637,479,637,514,633,511,633,482"/>
-<area shape="poly" title=" " alt="" coords="603,475,325,532,324,527,598,474"/>
-<area shape="poly" title=" " alt="" coords="636,404,637,439,633,436,633,408"/>
-<area shape="rect" title=" " alt="" coords="740,379,860,405"/>
-<area shape="poly" title=" " alt="" coords="802,329,802,365,798,361,798,333"/>
-<area shape="poly" title=" " alt="" coords="997,180,984,240,978,278,976,316,976,394,971,429,957,463,939,493,920,518,918,514,935,490,952,461,965,428,971,393,971,316,973,277,979,239,993,184"/>
-</map>
+<!-- MAP 0 -->
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a52b56a381e777b55e1b59019d9ee072e" id="r_a52b56a381e777b55e1b59019d9ee072e"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a52b56a381e777b55e1b59019d9ee072e">NUM_MOTORS</a>&#160;&#160;&#160;4</td></tr>
-<tr class="memitem:ad5111479796248b13cf12b3a93721f35" id="r_ad5111479796248b13cf12b3a93721f35"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad5111479796248b13cf12b3a93721f35">L0</a>&#160;&#160;&#160;0.0</td></tr>
-<tr class="memitem:a1ce864b284ac751ffd8a0d98d5ccab55" id="r_a1ce864b284ac751ffd8a0d98d5ccab55"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>&#160;&#160;&#160;1.0</td></tr>
-<tr class="memitem:ab983f03862f557a786ccc43b26522e16" id="r_ab983f03862f557a786ccc43b26522e16"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab983f03862f557a786ccc43b26522e16">L2</a>&#160;&#160;&#160;1.0</td></tr>
-<tr class="memitem:a7771a73a8014204aeeecaaf58527b670" id="r_a7771a73a8014204aeeecaaf58527b670"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7771a73a8014204aeeecaaf58527b670">L3</a>&#160;&#160;&#160;1.0</td></tr>
+<tr class="memdesc:a52b56a381e777b55e1b59019d9ee072e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of actuated motors in the system.  <br /></td></tr>
+<tr class="memitem:ad5111479796248b13cf12b3a93721f35" id="r_ad5111479796248b13cf12b3a93721f35"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ad5111479796248b13cf12b3a93721f35">L0</a>&#160;&#160;&#160;153</td></tr>
+<tr class="memdesc:ad5111479796248b13cf12b3a93721f35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Base offset (along Z).  <br /></td></tr>
+<tr class="memitem:a1ce864b284ac751ffd8a0d98d5ccab55" id="r_a1ce864b284ac751ffd8a0d98d5ccab55"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a1ce864b284ac751ffd8a0d98d5ccab55">L1</a>&#160;&#160;&#160;121</td></tr>
+<tr class="memdesc:a1ce864b284ac751ffd8a0d98d5ccab55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of first link.  <br /></td></tr>
+<tr class="memitem:ab983f03862f557a786ccc43b26522e16" id="r_ab983f03862f557a786ccc43b26522e16"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#ab983f03862f557a786ccc43b26522e16">L2</a>&#160;&#160;&#160;121</td></tr>
+<tr class="memdesc:ab983f03862f557a786ccc43b26522e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of second link.  <br /></td></tr>
+<tr class="memitem:a7771a73a8014204aeeecaaf58527b670" id="r_a7771a73a8014204aeeecaaf58527b670"><td class="memItemLeft">#define&#160;</td><td class="memItemRight"><a class="el" href="#a7771a73a8014204aeeecaaf58527b670">L3</a>&#160;&#160;&#160;150</td></tr>
+<tr class="memdesc:a7771a73a8014204aeeecaaf58527b670"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of third link.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a401d97b84994bdf87f85d04f283995e0" id="r_a401d97b84994bdf87f85d04f283995e0"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a401d97b84994bdf87f85d04f283995e0">q_at_waypoint</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
+<tr class="memdesc:a401d97b84994bdf87f85d04f283995e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check whether all motors are within tolerance of the current waypoint targets.  <br /></td></tr>
 <tr class="memitem:a51b2b5291716e4fb50a2877a45ae0ff8" id="r_a51b2b5291716e4fb50a2877a45ae0ff8"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a51b2b5291716e4fb50a2877a45ae0ff8">go_to_next_waypoint</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
+<tr class="memdesc:a51b2b5291716e4fb50a2877a45ae0ff8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Advance to the next waypoint and command motors and servos accordingly.  <br /></td></tr>
 <tr class="memitem:ga7a09a98efff3d3c1f120ae657d867ed0" id="r_ga7a09a98efff3d3c1f120ae657d867ed0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga7a09a98efff3d3c1f120ae657d867ed0">execute_trajectory</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="structtrajectory__t.html">trajectory_t</a> *trajectory)</td></tr>
+<tr class="memdesc:ga7a09a98efff3d3c1f120ae657d867ed0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Execute a trajectory from its first waypoint through completion.  <br /></td></tr>
 <tr class="memitem:ac7eb2d48d9ff4f17763d0b6cce009adc" id="r_ac7eb2d48d9ff4f17763d0b6cce009adc"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ac7eb2d48d9ff4f17763d0b6cce009adc">ComputeEndEffectorPosition</a> (const <a class="el" href="struct_joint_angles__t.html">JointAngles_t</a> *angles, <a class="el" href="struct_end_effector_pose__t.html">EndEffectorPose_t</a> *pose)</td></tr>
+<tr class="memdesc:ac7eb2d48d9ff4f17763d0b6cce009adc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute end-effector Cartesian pose from joint angles.  <br /></td></tr>
 <tr class="memitem:ga60449194b01b9b6490ef2d9d6ba07da6" id="r_ga60449194b01b9b6490ef2d9d6ba07da6"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga60449194b01b9b6490ef2d9d6ba07da6">GetClawPose</a> (<a class="el" href="structmotor__config__t.html">motor_config_t</a> *motorConfigs, <a class="el" href="struct_end_effector_pose__t.html">EndEffectorPose_t</a> *pose)</td></tr>
+<tr class="memdesc:ga60449194b01b9b6490ef2d9d6ba07da6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the current claw (end-effector) pose using live motor positions.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ga2b7fe5dfbdb30b0f739b25272836e48d" id="r_ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></td></tr>
-<tr class="memdesc:ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Define trajectory arrays.  <br /></td></tr>
-<tr class="memitem:a3e6957f8a0b994399021a786227a04c3" id="r_a3e6957f8a0b994399021a786227a04c3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a3e6957f8a0b994399021a786227a04c3">initial_pose</a></td></tr>
-<tr class="memitem:af3236793aae21d0ee907b4537039bfa3" id="r_af3236793aae21d0ee907b4537039bfa3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3236793aae21d0ee907b4537039bfa3">red_trajectory</a></td></tr>
-<tr class="memitem:a1aee2e8905d1c6909ddc94ef9eadd8c5" id="r_a1aee2e8905d1c6909ddc94ef9eadd8c5"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a1aee2e8905d1c6909ddc94ef9eadd8c5">yellow_trajectory</a></td></tr>
-<tr class="memitem:ab7a3c365cdab47ff57e64b5ef19953ec" id="r_ab7a3c365cdab47ff57e64b5ef19953ec"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ab7a3c365cdab47ff57e64b5ef19953ec">green_trajectory</a></td></tr>
-<tr class="memitem:a6d11631546d4aac99acc263764ff7152" id="r_a6d11631546d4aac99acc263764ff7152"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#a6d11631546d4aac99acc263764ff7152">blue_trajectory</a></td></tr>
-<tr class="memitem:ad9ab595152735b7a3fade73a86b449e3" id="r_ad9ab595152735b7a3fade73a86b449e3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="#ad9ab595152735b7a3fade73a86b449e3">trajectory1</a></td></tr>
 <tr class="memitem:a97eab6d709b80585fe9e8a54b1e3da27" id="r_a97eab6d709b80585fe9e8a54b1e3da27"><td class="memItemLeft">static double&#160;</td><td class="memItemRight"><a class="el" href="#a97eab6d709b80585fe9e8a54b1e3da27">tolerance</a> = 0.2</td></tr>
+<tr class="memdesc:a97eab6d709b80585fe9e8a54b1e3da27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tolerance (radians) used to decide whether a motor reached target.  <br /></td></tr>
 <tr class="memitem:a76c59413569196f3ce8985ad5d2b9efe" id="r_a76c59413569196f3ce8985ad5d2b9efe"><td class="memItemLeft">static int&#160;</td><td class="memItemRight"><a class="el" href="#a76c59413569196f3ce8985ad5d2b9efe">current_waypoint_index</a> = 0</td></tr>
+<tr class="memdesc:a76c59413569196f3ce8985ad5d2b9efe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the currently active waypoint within the current trajectory.  <br /></td></tr>
 <tr class="memitem:a15fa8f110ca05fa8ea9c012c8c4a5fce" id="r_a15fa8f110ca05fa8ea9c012c8c4a5fce"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a15fa8f110ca05fa8ea9c012c8c4a5fce">M1_at_target</a> = false</td></tr>
+<tr class="memdesc:a15fa8f110ca05fa8ea9c012c8c4a5fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Per-motor flags that indicate if the motor reached the current waypoint target.  <br /></td></tr>
 <tr class="memitem:ad5ab62048aa6d5d927c0fc4a13181337" id="r_ad5ab62048aa6d5d927c0fc4a13181337"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ad5ab62048aa6d5d927c0fc4a13181337">M2_at_target</a> = false</td></tr>
 <tr class="memitem:a69a111bc7b2e4566fe3d722a95c7900d" id="r_a69a111bc7b2e4566fe3d722a95c7900d"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a69a111bc7b2e4566fe3d722a95c7900d">M3_at_target</a> = false</td></tr>
 <tr class="memitem:afcd5d50707dc7cdacd089c4af2c96da4" id="r_afcd5d50707dc7cdacd089c4af2c96da4"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#afcd5d50707dc7cdacd089c4af2c96da4">M4_at_target</a> = false</td></tr>
+<tr id="var-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Predefined trajectories</div></td></tr>
+<tr><td colspan="2" class="ititle"><div class="groupText"><p>Collection of commonly used waypoint sequences for testing and gameplay (bin placement, initial poses, demo routines, etc.). </p>
+</div></td></tr>
+<tr class="memitem:ga2b7fe5dfbdb30b0f739b25272836e48d" id="r_ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga2b7fe5dfbdb30b0f739b25272836e48d">test_trajectory1</a></td></tr>
+<tr class="memdesc:ga2b7fe5dfbdb30b0f739b25272836e48d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Example test trajectory with multiple waypoints used for development.  <br /></td></tr>
+<tr class="memitem:ga3e6957f8a0b994399021a786227a04c3" id="r_ga3e6957f8a0b994399021a786227a04c3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga3e6957f8a0b994399021a786227a04c3">initial_pose</a></td></tr>
+<tr class="memdesc:ga3e6957f8a0b994399021a786227a04c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initial pose used to start joystick control.  <br /></td></tr>
+<tr class="memitem:gaf3236793aae21d0ee907b4537039bfa3" id="r_gaf3236793aae21d0ee907b4537039bfa3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#gaf3236793aae21d0ee907b4537039bfa3">red_trajectory</a></td></tr>
+<tr class="memdesc:gaf3236793aae21d0ee907b4537039bfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory to place blocks in the red bin.  <br /></td></tr>
+<tr class="memitem:ga1aee2e8905d1c6909ddc94ef9eadd8c5" id="r_ga1aee2e8905d1c6909ddc94ef9eadd8c5"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga1aee2e8905d1c6909ddc94ef9eadd8c5">yellow_trajectory</a></td></tr>
+<tr class="memdesc:ga1aee2e8905d1c6909ddc94ef9eadd8c5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory to place blocks in the yellow bin.  <br /></td></tr>
+<tr class="memitem:gab7a3c365cdab47ff57e64b5ef19953ec" id="r_gab7a3c365cdab47ff57e64b5ef19953ec"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#gab7a3c365cdab47ff57e64b5ef19953ec">green_trajectory</a></td></tr>
+<tr class="memdesc:gab7a3c365cdab47ff57e64b5ef19953ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory to place blocks in the green bin.  <br /></td></tr>
+<tr class="memitem:ga6d11631546d4aac99acc263764ff7152" id="r_ga6d11631546d4aac99acc263764ff7152"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#ga6d11631546d4aac99acc263764ff7152">blue_trajectory</a></td></tr>
+<tr class="memdesc:ga6d11631546d4aac99acc263764ff7152"><td class="mdescLeft">&#160;</td><td class="mdescRight">Trajectory to place blocks in the blue bin.  <br /></td></tr>
+<tr class="memitem:gad9ab595152735b7a3fade73a86b449e3" id="r_gad9ab595152735b7a3fade73a86b449e3"><td class="memItemLeft"><a class="el" href="structtrajectory__t.html">trajectory_t</a>&#160;</td><td class="memItemRight"><a class="el" href="group___motion_control.html#gad9ab595152735b7a3fade73a86b449e3">trajectory1</a></td></tr>
 </table>
-<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High-level motion/trajectory utilities for the robot arm. </p>
+<p>This module exposes predefined trajectories and routines to execute them on the arm's motors. It also provides kinematic helpers to compute the end-effector pose from joint angles. </p>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="ad5111479796248b13cf12b3a93721f35" name="ad5111479796248b13cf12b3a93721f35"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad5111479796248b13cf12b3a93721f35">&#9670;&#160;</a></span>L0</h2>
 
@@ -226,10 +201,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define L0&#160;&#160;&#160;0.0</td>
+          <td class="memname">#define L0&#160;&#160;&#160;153</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Base offset (along Z). </p>
 
 </div>
 </div>
@@ -240,10 +217,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define L1&#160;&#160;&#160;1.0</td>
+          <td class="memname">#define L1&#160;&#160;&#160;121</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Length of first link. </p>
 
 </div>
 </div>
@@ -254,10 +233,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define L2&#160;&#160;&#160;1.0</td>
+          <td class="memname">#define L2&#160;&#160;&#160;121</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Length of second link. </p>
 
 </div>
 </div>
@@ -268,10 +249,12 @@ Variables</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define L3&#160;&#160;&#160;1.0</td>
+          <td class="memname">#define L3&#160;&#160;&#160;150</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Length of third link. </p>
 
 </div>
 </div>
@@ -286,6 +269,8 @@ Variables</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Number of actuated motors in the system. </p>
 
 </div>
 </div>
@@ -317,6 +302,17 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Compute end-effector Cartesian pose from joint angles. </p>
+<p>Performs forward kinematics for the 4-DOF arm. The input angles are in radians and correspond to the revolute joints theta0..theta3. The computed pose includes x, y, z coordinates and the radial projection <span class="tt">r</span>.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">angles</td><td>Pointer to <span class="tt"><a class="el" href="struct_joint_angles__t.html">JointAngles_t</a></span> containing <span class="tt">theta0</span>..<span class="tt">theta3</span> in radians. </td></tr>
+    <tr><td class="paramname">pose</td><td>Output pointer to <span class="tt"><a class="el" href="struct_end_effector_pose__t.html">EndEffectorPose_t</a></span> that will be populated. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>Link lengths L0..L3 are used from this translation unit. </dd></dl>
+
 </div>
 </div>
 <a id="a51b2b5291716e4fb50a2877a45ae0ff8" name="a51b2b5291716e4fb50a2877a45ae0ff8"></a>
@@ -345,6 +341,17 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Advance to the next waypoint and command motors and servos accordingly. </p>
+<p>This routine updates internal "at target" flags, increments the internal waypoint index, issues servo open/close commands for the upcoming waypoint (with modest delays to allow actuation), and commands each motor to move to its next joint target.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorConfigs</td><td>Pointer to an array of <span class="tt"><a class="el" href="structmotor__config__t.html">motor_config_t</a></span> (length &gt;= NUM_MOTORS). </td></tr>
+    <tr><td class="paramname">trajectory</td><td>Pointer to the trajectory being executed. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if there is a next waypoint and motors were commanded; false if the trajectory has completed. </dd></dl>
 
 </div>
 </div>
@@ -375,36 +382,20 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Check whether all motors are within tolerance of the current waypoint targets. </p>
+<p>This function updates the per-motor "_at_target" flags the first time the motor is observed within the configured tolerance and then returns true once all motors are marked as at-target.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">motorConfigs</td><td>Pointer to an array of <span class="tt"><a class="el" href="structmotor__config__t.html">motor_config_t</a></span> of length at least <span class="tt"><a class="el" href="#a52b56a381e777b55e1b59019d9ee072e" title="Number of actuated motors in the system.">NUM_MOTORS</a></span>. </td></tr>
+    <tr><td class="paramname">trajectory</td><td>Pointer to the active <span class="tt"><a class="el" href="structtrajectory__t.html">trajectory_t</a></span> whose <span class="tt">waypoints</span> contain target positions. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if all motors have reached their target positions for the current waypoint. </dd></dl>
+
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="a6d11631546d4aac99acc263764ff7152" name="a6d11631546d4aac99acc263764ff7152"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d11631546d4aac99acc263764ff7152">&#9670;&#160;</a></span>blue_trajectory</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> blue_trajectory</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                             = {  </div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, 0.0, 0.0, M_PI / 4, M_PI / 4}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, M_PI/4, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 5</div>
-<div class="line">}</div>
-<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a></div><div class="ttdeci">@ Close</div><div class="ttdef"><b>Definition</b> maneuvers.h:15</div></div>
-<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a></div><div class="ttdeci">@ NA</div><div class="ttdef"><b>Definition</b> maneuvers.h:13</div></div>
-<div class="ttc" id="agroup___motion_control_html_gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291"><div class="ttname"><a href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a></div><div class="ttdeci">@ Open</div><div class="ttdef"><b>Definition</b> maneuvers.h:14</div></div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a76c59413569196f3ce8985ad5d2b9efe" name="a76c59413569196f3ce8985ad5d2b9efe"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a76c59413569196f3ce8985ad5d2b9efe">&#9670;&#160;</a></span>current_waypoint_index</h2>
 
@@ -425,50 +416,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ab7a3c365cdab47ff57e64b5ef19953ec" name="ab7a3c365cdab47ff57e64b5ef19953ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7a3c365cdab47ff57e64b5ef19953ec">&#9670;&#160;</a></span>green_trajectory</h2>
+<p>Index of the currently active waypoint within the current trajectory. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> green_trajectory</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                              = {  </div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, 0.0, 0.0, M_PI / 4, M_PI / 4}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 3*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 3*M_PI/4, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, 3*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 5</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a3e6957f8a0b994399021a786227a04c3" name="a3e6957f8a0b994399021a786227a04c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e6957f8a0b994399021a786227a04c3">&#9670;&#160;</a></span>initial_pose</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> initial_pose</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                          = {</div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, M_PI/2, 0.0, -M_PI/2}, </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 1</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 </div>
 </div>
 <a id="a15fa8f110ca05fa8ea9c012c8c4a5fce" name="a15fa8f110ca05fa8ea9c012c8c4a5fce"></a>
@@ -490,6 +439,8 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Per-motor flags that indicate if the motor reached the current waypoint target. </p>
 
 </div>
 </div>
@@ -559,30 +510,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="af3236793aae21d0ee907b4537039bfa3" name="af3236793aae21d0ee907b4537039bfa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3236793aae21d0ee907b4537039bfa3">&#9670;&#160;</a></span>red_trajectory</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> red_trajectory</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                            = {  </div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, 0.0, 0.0, M_PI / 4, M_PI / 4}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI/4, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, -M_PI/4, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 5</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-</div>
-</div>
 <a id="a97eab6d709b80585fe9e8a54b1e3da27" name="a97eab6d709b80585fe9e8a54b1e3da27"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a97eab6d709b80585fe9e8a54b1e3da27">&#9670;&#160;</a></span>tolerance</h2>
 
@@ -603,59 +530,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-</div>
-</div>
-<a id="ad9ab595152735b7a3fade73a86b449e3" name="ad9ab595152735b7a3fade73a86b449e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad9ab595152735b7a3fade73a86b449e3">&#9670;&#160;</a></span>trajectory1</h2>
+<p>Tolerance (radians) used to decide whether a motor reached target. </p>
 
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> trajectory1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                         = {</div>
-<div class="line">    .waypoints = {</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, -M_PI / 4, M_PI / 4},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, -M_PI / 2, M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 0.0, -M_PI / 2, M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 9}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, -M_PI / 4, 0.0, -M_PI / 4, M_PI / 4}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 2, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -M_PI / 2, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, 0.0, 2*M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">        {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 0.0, 0.0, 0.0} </div>
-<div class="line">    },</div>
-<div class="line">    .num_waypoints = 10</div>
-<div class="line">}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a1aee2e8905d1c6909ddc94ef9eadd8c5" name="a1aee2e8905d1c6909ddc94ef9eadd8c5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1aee2e8905d1c6909ddc94ef9eadd8c5">&#9670;&#160;</a></span>yellow_trajectory</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="structtrajectory__t.html">trajectory_t</a> yellow_trajectory</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">                             = {</div>
-<div class="line">  .waypoints = {</div>
-<div class="line">      {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eab0d2fc8a61cc30fce240ad6df88447d4">Close</a>, 0.0, 0.0, M_PI / 4, M_PI / 4}, </div>
-<div class="line">      {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, 0.0, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">      {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, -M_PI / 2}, </div>
-<div class="line">      {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac75245149c3f64d74430b8996b1e0558">NA</a>, -3*M_PI/4, M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">      {<a class="code hl_enumvalue" href="group___motion_control.html#gga07e558fe752f54f3df3a53f56bd6e46eac8e6944e998ac466c3cc4a648dde8291">Open</a>, -3*M_PI/4, 2*M_PI/3, -M_PI / 3, 0}, </div>
-<div class="line">  },</div>
-<div class="line">  .num_waypoints = 5</div>
-<div class="line">}</div>
-</div><!-- fragment -->
 </div>
 </div>
 </div><!-- contents -->

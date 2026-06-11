@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Robotic Arm: Project Overview</title>
+<link rel="icon" href="favicon.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -126,10 +127,17 @@ Introduction</h1>
 <p>This website documents the complete design of a 4.5 DOF robotic arm. Our team created this robot for our term project in ME 507 at Cal Poly, San Luis Obispo.</p>
 <p>The robot is a semi autonomous color-sorting device. The arm consists of four joints mobilized by stepper motors and a gripper controlled by a servo motor. It was designed to pick up small foam blocks and sort them by color. To operate the device, the user manipulates a joystick to direct the robot to the block, then presses the select button on the joystick. A color sensor mounted on the end effector reads the color and the robot autonomously brings the block to a predetermined location based on its color.</p>
 <p>The system is built around a custom-designed PCB featuring an STM32H7 microcontroller. The project was developed using the STM32 ecosystem, and the firmware was implemented in C. The project utilizes open-source hardware drivers for interfacing with more complex electronics components, as well as the STM HAL library to work simplify communication with the microcontroller.</p>
-<p>Photo!!!</p>
+<div class="image">
+<img src="RobotWithBlocks.png" alt=""/>
+<div class="caption">
+Top View of Robot with Blocks</div></div>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Hardware</h1>
 <h2>Mechanical Design</h2>
+<div class="image">
+<img src="CAD-ISO.png" alt=""/>
+<div class="caption">
+Isometric View of CAD</div></div>
 <p>photo(s)</p><ul>
 <li>3D printed components<ul>
 <li>any special fits, design choices, etc. maybe link to (repo wiht) CAD files??</li>

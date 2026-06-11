@@ -6,6 +6,7 @@
 <meta name="generator" content="Doxygen 1.17.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <title>Robotic Arm: Core/Src/joystick.c File Reference</title>
+<link rel="icon" href="favicon.png" type="image/x-icon" />
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="codefolding.js"></script>
 <script type="text/javascript" src="clipboard.js"></script>
@@ -128,17 +129,7 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('joystick_8c.ht
 Include dependency graph for joystick.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="joystick_8c__incl.png" border="0" usemap="#a_core_2_src_2joystick_8c" loading="lazy" alt=""/></div>
-<map name="a_core_2_src_2joystick_8c" id="a_core_2_src_2joystick_8c">
-<area shape="rect" title="ADC&#45;backed joystick driver providing simple directional state." alt="" coords="28,5,162,32"/>
-<area shape="rect" href="joystick_8h.html" title=" " alt="" coords="10,80,87,107"/>
-<area shape="poly" title=" " alt="" coords="85,35,67,68,62,66,88,30"/>
-<area shape="rect" href="main_8h.html" title=": Header for main.c file. This file contains the common defines of the application." alt="" coords="117,80,177,107"/>
-<area shape="poly" title=" " alt="" coords="104,30,132,67,126,68,103,35"/>
-<area shape="rect" title=" " alt="" coords="5,155,70,181"/>
-<area shape="poly" title=" " alt="" coords="48,105,44,140,39,139,45,109"/>
-<area shape="rect" title=" " alt="" coords="93,155,214,181"/>
-<area shape="poly" title=" " alt="" coords="150,105,153,140,149,138,146,109"/>
-</map>
+<!-- MAP 0 -->
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
@@ -147,43 +138,21 @@ Functions</h2></td></tr>
 <tr class="memdesc:a12f02ebe23bfa74f940dd28cd093a082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Read a single ADC channel from the configured ADC instance.  <br /></td></tr>
 <tr class="memitem:ga1c156136f31ed243c7e1b85be8787345" id="r_ga1c156136f31ed243c7e1b85be8787345"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___joystick.html#ga1c156136f31ed243c7e1b85be8787345">Joystick_Init</a> (void)</td></tr>
 <tr class="memitem:gac04b6523bc3167ea885caa9befd3fa47" id="r_gac04b6523bc3167ea885caa9befd3fa47"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="group___joystick.html#gac04b6523bc3167ea885caa9befd3fa47">Joystick_Read</a> (void)</td></tr>
-<tr class="memitem:a5019d72d7ba65be7f811fba213175922" id="r_a5019d72d7ba65be7f811fba213175922"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a5019d72d7ba65be7f811fba213175922">if</a> (<a class="el" href="#a08391953e5151a61b58032740db26ef1">joy_x_raw</a>, 3000)</td></tr>
+<tr class="memitem:ga62d9d53ec04f4b239299e4c76fd987f3" id="r_ga62d9d53ec04f4b239299e4c76fd987f3"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="group___joystick.html#ga62d9d53ec04f4b239299e4c76fd987f3">Joystick_ReadX</a> (void)</td></tr>
 <tr class="memitem:gab9de6a7ab4864dee1a32189edbd27acd" id="r_gab9de6a7ab4864dee1a32189edbd27acd"><td class="memItemLeft">uint16_t&#160;</td><td class="memItemRight"><a class="el" href="group___joystick.html#gab9de6a7ab4864dee1a32189edbd27acd">Joystick_ReadY</a> (void)</td></tr>
 <tr class="memitem:gaea7b6258331a026b487d186a3948a426" id="r_gaea7b6258331a026b487d186a3948a426"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="group___joystick.html#gaea7b6258331a026b487d186a3948a426">Joystick_ReadButton</a> (void)</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a22b804736f5648d52f639b2647d4ed13" id="r_a22b804736f5648d52f639b2647d4ed13"><td class="memItemLeft">ADC_HandleTypeDef&#160;</td><td class="memItemRight"><a class="el" href="#a22b804736f5648d52f639b2647d4ed13">hadc1</a></td></tr>
-<tr class="memitem:a08391953e5151a61b58032740db26ef1" id="r_a08391953e5151a61b58032740db26ef1"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a08391953e5151a61b58032740db26ef1">joy_x_raw</a> = 0</td></tr>
-<tr class="memitem:abcd1a7040d210e10134cdd27c3b996ec" id="r_abcd1a7040d210e10134cdd27c3b996ec"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#abcd1a7040d210e10134cdd27c3b996ec">joy_y_raw</a> = 0</td></tr>
-<tr class="memdesc:abcd1a7040d210e10134cdd27c3b996ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sample joystick ADC channels and update direction flags.  <br /></td></tr>
+<tr class="memitem:a11bb6a9d3d032f1dd6f6b4057e5a7d44" id="r_a11bb6a9d3d032f1dd6f6b4057e5a7d44"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a11bb6a9d3d032f1dd6f6b4057e5a7d44">joy_x_raw</a> = 0</td></tr>
+<tr class="memitem:a9a0777be2c7c4da1dd85bf1eefdb2767" id="r_a9a0777be2c7c4da1dd85bf1eefdb2767"><td class="memItemLeft">static uint16_t&#160;</td><td class="memItemRight"><a class="el" href="#a9a0777be2c7c4da1dd85bf1eefdb2767">joy_y_raw</a> = 0</td></tr>
 <tr class="memitem:a39e485349b339483b850d2f02486094c" id="r_a39e485349b339483b850d2f02486094c"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a39e485349b339483b850d2f02486094c">x_dir</a> = 0</td></tr>
 <tr class="memitem:a1100772fbf5199cd13ccccf1c12bbb39" id="r_a1100772fbf5199cd13ccccf1c12bbb39"><td class="memItemLeft">uint8_t&#160;</td><td class="memItemRight"><a class="el" href="#a1100772fbf5199cd13ccccf1c12bbb39">y_dir</a> = 0</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>ADC-backed joystick driver providing simple directional state. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a5019d72d7ba65be7f811fba213175922" name="a5019d72d7ba65be7f811fba213175922"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5019d72d7ba65be7f811fba213175922">&#9670;&#160;</a></span>if()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">if </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a08391953e5151a61b58032740db26ef1">joy_x_raw</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">3000</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a12f02ebe23bfa74f940dd28cd093a082" name="a12f02ebe23bfa74f940dd28cd093a082"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a12f02ebe23bfa74f940dd28cd093a082">&#9670;&#160;</a></span>Joystick_ReadADCChannel()</h2>
 
@@ -241,8 +210,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a08391953e5151a61b58032740db26ef1" name="a08391953e5151a61b58032740db26ef1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08391953e5151a61b58032740db26ef1">&#9670;&#160;</a></span>joy_x_raw</h2>
+<a id="a11bb6a9d3d032f1dd6f6b4057e5a7d44" name="a11bb6a9d3d032f1dd6f6b4057e5a7d44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11bb6a9d3d032f1dd6f6b4057e5a7d44">&#9670;&#160;</a></span>joy_x_raw</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -251,7 +220,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">joy_x_raw = 0</td>
+          <td class="memname">uint16_t joy_x_raw = 0</td>
         </tr>
       </table>
   </td>
@@ -263,8 +232,8 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="abcd1a7040d210e10134cdd27c3b996ec" name="abcd1a7040d210e10134cdd27c3b996ec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abcd1a7040d210e10134cdd27c3b996ec">&#9670;&#160;</a></span>joy_y_raw</h2>
+<a id="a9a0777be2c7c4da1dd85bf1eefdb2767" name="a9a0777be2c7c4da1dd85bf1eefdb2767"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0777be2c7c4da1dd85bf1eefdb2767">&#9670;&#160;</a></span>joy_y_raw</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -273,7 +242,7 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">joy_y_raw = 0</td>
+          <td class="memname">uint16_t joy_y_raw = 0</td>
         </tr>
       </table>
   </td>
@@ -282,8 +251,6 @@ Variables</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Sample joystick ADC channels and update direction flags. </p>
 
 </div>
 </div>

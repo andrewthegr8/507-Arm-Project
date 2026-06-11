@@ -259,6 +259,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   {
+    
     //servo test
     //HAL_Delay(1000);
     //Servo_Close();

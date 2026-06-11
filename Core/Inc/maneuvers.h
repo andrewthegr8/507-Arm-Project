@@ -49,6 +49,7 @@ typedef struct
     double x;
     double y;
     double z;
+    double r;
 } EndEffectorPose_t;
 
 extern trajectory_t test_trajectory1; //Make trajectories accesisble from main

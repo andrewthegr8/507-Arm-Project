@@ -224,6 +224,7 @@ static void ComputeEndEffectorPosition(const JointAngles_t *angles,
         (L1 * s1) +
         (L2 * s12) +
         (L3 * s123);
+    pose->r = radial;
 }
 
 void GetClawPose(motor_config_t *motorConfigs, EndEffectorPose_t *pose) {

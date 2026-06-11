@@ -119,101 +119,50 @@ document.addEventListener('DOMContentLoaded',() => { initNavTree('fsm_8h.html','
   <div class="headertitle"><div class="title">fsm.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for fsm.h:</div>
-<div class="dyncontent">
-<div class="center"><img src="fsm_8h__incl.png" border="0" usemap="#a_core_2_inc_2fsm_8h" loading="lazy" alt=""/></div>
-<map name="a_core_2_inc_2fsm_8h" id="a_core_2_inc_2fsm_8h">
-<area shape="rect" title=" " alt="" coords="5,5,114,32"/>
-<area shape="rect" title=" " alt="" coords="27,80,92,107"/>
-<area shape="poly" title=" " alt="" coords="61,30,62,65,57,64,58,35"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
+<div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="fsm_8h__dep__incl.png" border="0" usemap="#a_core_2_inc_2fsm_8hdep" loading="lazy" alt=""/></div>
-<map name="a_core_2_inc_2fsm_8hdep" id="a_core_2_inc_2fsm_8hdep">
-<area shape="rect" title=" " alt="" coords="74,5,183,32"/>
-<area shape="rect" href="fsm_8c.html" title=" " alt="" coords="5,80,116,107"/>
-<area shape="poly" title=" " alt="" coords="109,43,74,82,70,78,104,44"/>
-<area shape="rect" href="main_8c.html" title=": Main program body" alt="" coords="140,80,256,107"/>
-<area shape="poly" title=" " alt="" coords="152,41,189,80,183,80,150,46"/>
-</map>
+<!-- MAP 0 -->
 </div>
 </div>
 <p><a href="fsm_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-nested-classes" class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Data Structures</h2></td></tr>
-<tr class="memitem:RobotContext" id="r_RobotContext"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_robot_context.html">RobotContext</a></td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a8a4285c43463011b934d1dc0a3859496" id="r_a8a4285c43463011b934d1dc0a3859496"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a> { <br />
-&#160;&#160;<a class="el" href="#a8a4285c43463011b934d1dc0a3859496a24360c358245ae99f0e48ab5822de411">S0_IDLE</a> = 0
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496a8e67b2a63e4e6d3c90a4d401e1ae89ee">S1_MANUAL_APPROACH</a>
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496a335bb1bcec123e06e780ef23aeabf0f8">S2_CLOSE_GRIPPER</a>
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496ae02a7d9e21e646721e8c06f3cffc10be">S3_READ_COLOR</a>
-, <br />
-&#160;&#160;<a class="el" href="#a8a4285c43463011b934d1dc0a3859496a9bcc93a8fb847f6a427a4e49d09dbdfc">S4_PLOT_MOVE</a>
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496a488281ab8222332c7cc38d33dff70da5">S5_MOVE_BLOCK</a>
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496ab8f5c6dc3640da24b36ee86da0055fbc">S6_RELEASE_BLOCK</a>
-, <a class="el" href="#a8a4285c43463011b934d1dc0a3859496a03e0aab11b51c6965926bce729c71f52">S7_RETURN_HOME</a>
-<br />
+<tr class="memitem:a1e9380b44bbaa28088fa61c77bcde490" id="r_a1e9380b44bbaa28088fa61c77bcde490"><td class="memItemLeft">enum &#160;</td><td class="memItemRight"><a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490">FSM_State</a> { <a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490a98d2a2153b4ae0445fa0b114d65b94d9">STATE_INIT</a> = 0
+, <a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490a81a27a62c9d29883324be07483fdd10a">STATE_JOYSTICK</a>
+, <a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490a5501351df32f18a7afd45a82b4a7fa9f">STATE_GETCOLOR</a>
+, <a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490a52c5ae9de0d1302cfbbe0f2cea97a944">STATE_MOVEBLOCK</a>
  }</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a3ee94969f8f72065406ca3d0a3cfab30" id="r_a3ee94969f8f72065406ca3d0a3cfab30"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3ee94969f8f72065406ca3d0a3cfab30">FSM_Init</a> (void)</td></tr>
 <tr class="memitem:a79b65e2d23f9434583370a533ff85c88" id="r_a79b65e2d23f9434583370a533ff85c88"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a79b65e2d23f9434583370a533ff85c88">FSM_Update</a> (void)</td></tr>
-<tr class="memitem:a5588e5490c8484cae694fe0b0da1baac" id="r_a5588e5490c8484cae694fe0b0da1baac"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5588e5490c8484cae694fe0b0da1baac">FSM_SetState</a> (<a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a> new_state)</td></tr>
-<tr class="memitem:af3c5c6b595908248f8cc3a7f19091ebd" id="r_af3c5c6b595908248f8cc3a7f19091ebd"><td class="memItemLeft"><a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a>&#160;</td><td class="memItemRight"><a class="el" href="#af3c5c6b595908248f8cc3a7f19091ebd">FSM_GetState</a> (void)</td></tr>
 </table>
 <a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
-<a id="a8a4285c43463011b934d1dc0a3859496" name="a8a4285c43463011b934d1dc0a3859496"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8a4285c43463011b934d1dc0a3859496">&#9670;&#160;</a></span>RobotState</h2>
+<a id="a1e9380b44bbaa28088fa61c77bcde490" name="a1e9380b44bbaa28088fa61c77bcde490"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e9380b44bbaa28088fa61c77bcde490">&#9670;&#160;</a></span>FSM_State</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a></td>
+          <td class="memname">enum <a class="el" href="#a1e9380b44bbaa28088fa61c77bcde490">FSM_State</a></td>
         </tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a24360c358245ae99f0e48ab5822de411" name="a8a4285c43463011b934d1dc0a3859496a24360c358245ae99f0e48ab5822de411"></a>S0_IDLE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a8e67b2a63e4e6d3c90a4d401e1ae89ee" name="a8a4285c43463011b934d1dc0a3859496a8e67b2a63e4e6d3c90a4d401e1ae89ee"></a>S1_MANUAL_APPROACH&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a335bb1bcec123e06e780ef23aeabf0f8" name="a8a4285c43463011b934d1dc0a3859496a335bb1bcec123e06e780ef23aeabf0f8"></a>S2_CLOSE_GRIPPER&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496ae02a7d9e21e646721e8c06f3cffc10be" name="a8a4285c43463011b934d1dc0a3859496ae02a7d9e21e646721e8c06f3cffc10be"></a>S3_READ_COLOR&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a9bcc93a8fb847f6a427a4e49d09dbdfc" name="a8a4285c43463011b934d1dc0a3859496a9bcc93a8fb847f6a427a4e49d09dbdfc"></a>S4_PLOT_MOVE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a488281ab8222332c7cc38d33dff70da5" name="a8a4285c43463011b934d1dc0a3859496a488281ab8222332c7cc38d33dff70da5"></a>S5_MOVE_BLOCK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496ab8f5c6dc3640da24b36ee86da0055fbc" name="a8a4285c43463011b934d1dc0a3859496ab8f5c6dc3640da24b36ee86da0055fbc"></a>S6_RELEASE_BLOCK&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8a4285c43463011b934d1dc0a3859496a03e0aab11b51c6965926bce729c71f52" name="a8a4285c43463011b934d1dc0a3859496a03e0aab11b51c6965926bce729c71f52"></a>S7_RETURN_HOME&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1e9380b44bbaa28088fa61c77bcde490a98d2a2153b4ae0445fa0b114d65b94d9" name="a1e9380b44bbaa28088fa61c77bcde490a98d2a2153b4ae0445fa0b114d65b94d9"></a>STATE_INIT&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1e9380b44bbaa28088fa61c77bcde490a81a27a62c9d29883324be07483fdd10a" name="a1e9380b44bbaa28088fa61c77bcde490a81a27a62c9d29883324be07483fdd10a"></a>STATE_JOYSTICK&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1e9380b44bbaa28088fa61c77bcde490a5501351df32f18a7afd45a82b4a7fa9f" name="a1e9380b44bbaa28088fa61c77bcde490a5501351df32f18a7afd45a82b4a7fa9f"></a>STATE_GETCOLOR&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1e9380b44bbaa28088fa61c77bcde490a52c5ae9de0d1302cfbbe0f2cea97a944" name="a1e9380b44bbaa28088fa61c77bcde490a52c5ae9de0d1302cfbbe0f2cea97a944"></a>STATE_MOVEBLOCK&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="af3c5c6b595908248f8cc3a7f19091ebd" name="af3c5c6b595908248f8cc3a7f19091ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af3c5c6b595908248f8cc3a7f19091ebd">&#9670;&#160;</a></span>FSM_GetState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a> FSM_GetState </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="a3ee94969f8f72065406ca3d0a3cfab30" name="a3ee94969f8f72065406ca3d0a3cfab30"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3ee94969f8f72065406ca3d0a3cfab30">&#9670;&#160;</a></span>FSM_Init()</h2>
 
@@ -224,23 +173,6 @@ Functions</h2></td></tr>
           <td class="memname">void FSM_Init </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5588e5490c8484cae694fe0b0da1baac" name="a5588e5490c8484cae694fe0b0da1baac"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5588e5490c8484cae694fe0b0da1baac">&#9670;&#160;</a></span>FSM_SetState()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void FSM_SetState </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="#a8a4285c43463011b934d1dc0a3859496">RobotState</a></td>          <td class="paramname"><span class="paramname"><em>new_state</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>

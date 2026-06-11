@@ -60,9 +60,3 @@ Thumbs.db
 !.mxproject
 !*.ioc
 !*.ld
-
-# Doxygen
-html/
-latex/
-docs/html/
-docs/latex/

@@ -70,9 +70,21 @@ PCB was designed in Fusion 360 Electronics. The board was manufacutred and assem
 - wrappers / HALs
 - main/fsm?
 
-<!-- ### Finite State Machine 
+\image html FSM.png "Finite State Machine for Robotic Arm Operation"
 
-Description of robot states. -->
+The Finite State Machine depicted above was implemented to structure and organize timing of the full functionality of the arm. The following states make up the FSM:
+
+### State 1: Init
+The init state runs once at startup and immediately commands the arm to move to its predefined initial pose by calling execute_trajectory with the initial_pose trajectory defined in maneuvers.c. This ensures the arm is in a known, safe configuration before the operator begins manual control. Once the trajectory completes, the FSM unconditionally transitions to the joystick state.
+
+### State 2: Joystick
+This state is the operator's primary interface for positioning the arm over a target block. On every run of main.c in this state, Joystick_Read is called from joystick.c, which uses HAL_ADC_ConfigChannel to toggle ADC1 between channel 16 (Y axis) and channel 17 (X axis), reading each in sequence via HAL_ADC_Start and HAL_ADC_PollForConversion. The raw 12-bit ADC values are filtered to eliminate noise and produce directional outputs of 0, 1, or 2 for each axis (no move, negative move, positive move). Back in fsm.c, these directional values drive move_to_pos calls on Motor 1 and Motor 2 from motion.c, with the new target position limited within predefined joint limits defined by to avoid cable tangling and grounding of the arm. The button is read via HAL_GPIO_ReadPin on the SEL pin, and a button press transitions the FSM to the get color state.
+
+### State 3: Get Color
+This state polls the TCS34725 color sensor until a valid color reading is returned. FSM_Update calls COLOR_SENSOR_Read in color_sensor.c. This function uses the tcs34725_read_rgbc vendor driver (driver_tcs34725.c) over I2C. The raw RGBC values are normalized by dividing by the clear channel, then passed to the classify function which computes the HSV hue angle and maps it to a ColorResult_t enum value defined in color_sensor.h. If the clear channel is below MIN_CLEAR or the saturation ratio is below 0.15, COLOR_UNKNOWN is returned and the state loops, re-reading until a valid result is obtained. Once reading of red, yellow, green, or blue is detected, it is stored in the detected_color variable in fsm.c and the FSM transitions to the move block state.
+
+### State 4: Move Block
+This state executes the full pick-and-place trajectory corresponding to the detected color. At entry, the current joint positions of Motor 1 and Motor 2 are captured via get_current_pos and written into the first two waypoints of the selected trajectory, ensuring the arm starts its motion from wherever the operator left it rather than transitioning to a fixed start position. Based on detected_color, one of four trajectories — red_trajectory, yellow_trajectory, green_trajectory, or blue_trajectory — defined in maneuvers.c is passed to execute_trajectory, which steps through each waypoint sequentially, commanding all four motors via move_to_pos and blocking until all motors reaches their target within a radian tolerance before advancing. Gripper open and close commands are embedded directly in the waypoint sequence via the servo field, triggering Servo_Open or Servo_Close from servo.c at the appropriate steps. Once the final waypoint is reached and the arm returns home, the FSM transitions back to the init state to reset for the next block.
 
 ### Motion Control
 

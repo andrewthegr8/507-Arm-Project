@@ -137,6 +137,7 @@ var NAVTREEINDEX2 =
 "index.html#autotoc_md4":[0,3],
 "index.html#autotoc_md5":[0,4],
 "index.html#autotoc_md6":[0,5],
+"index.html#autotoc_md7":[0,6],
 "joystick_8c.html":[3,0,0,1,4],
 "joystick_8c.html#a1100772fbf5199cd13ccccf1c12bbb39":[3,0,0,1,4,10],
 "joystick_8c.html#a11bb6a9d3d032f1dd6f6b4057e5a7d44":[3,0,0,1,4,7],
@@ -248,6 +249,5 @@ var NAVTREEINDEX2 =
 "motion_8c.html#a32a33471c5e124e5dbaae68742d75d6a":[3,0,0,1,7,1],
 "motion_8c.html#a705873a2ae65c9f70349b5e5b759b640":[3,0,0,1,7,3],
 "motion_8c.html#a94f5f3bfc08ba85ec3bc4e2de740274f":[3,0,0,1,7,7],
-"motion_8c.html#ab235a8c84a6779336ad91707e969ab1d":[3,0,0,1,7,2],
-"motion_8c.html#aebe3da0d5fc50c3c8ae27b2aceb5e63e":[3,0,0,1,7,4]
+"motion_8c.html#ab235a8c84a6779336ad91707e969ab1d":[3,0,0,1,7,2]
 };

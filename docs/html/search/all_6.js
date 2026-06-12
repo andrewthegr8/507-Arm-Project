@@ -19,5 +19,5 @@ var searchData=
   ['function_16',['function',['../group__tcs34725__base__driver.html',1,'tcs34725 base driver function'],['../group__tcs34725__driver.html',1,'tcs34725 driver function'],['../group__tcs34725__extend__driver.html',1,'tcs34725 extend driver function'],['../group__tcs34725__interrupt__driver.html',1,'tcs34725 interrupt driver function'],['../group__tcs34725__link__driver.html',1,'tcs34725 link driver function']]],
   ['functions_2ec_17',['Functions.c',['../_functions_8c.html',1,'']]],
   ['functions_2eh_18',['Functions.h',['../_functions_8h.html',1,'']]],
-  ['future_20improvements_19',['Future Improvements',['../index.html#autotoc_md5',1,'']]]
+  ['future_20improvements_19',['Future Improvements',['../index.html#autotoc_md6',1,'']]]
 ];

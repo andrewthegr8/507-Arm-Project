@@ -4,7 +4,7 @@ var searchData=
   ['iic_5finit_1',['iic_init',['../structtcs34725__handle__s.html#a8826dd07625f8d90859ce9bd09628d61',1,'tcs34725_handle_s']]],
   ['iic_5fread_2',['iic_read',['../structtcs34725__handle__s.html#af4ef726288b88f51a846483803a1249b',1,'tcs34725_handle_s']]],
   ['iic_5fwrite_3',['iic_write',['../structtcs34725__handle__s.html#adca3ee7a793bbf510d5267daf0fcf1c5',1,'tcs34725_handle_s']]],
-  ['improvements_4',['Future Improvements',['../index.html#autotoc_md5',1,'']]],
+  ['improvements_4',['Future Improvements',['../index.html#autotoc_md6',1,'']]],
   ['init429_5',['Init429',['../_t_m_c429_8c.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c'],['../_t_m_c429_8h.html#a8301ac7f272d51ac0c84d7be55a9f410',1,'Init429(void):&#160;TMC429.c']]],
   ['inited_6',['inited',['../structtcs34725__handle__s.html#a19bedf28d2b9748f6a62d9ae93f4e68f',1,'tcs34725_handle_s']]],
   ['initial_5fpose_7',['initial_pose',['../fsm_8c.html#a3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c'],['../group___motion_control.html#ga3e6957f8a0b994399021a786227a04c3',1,'initial_pose:&#160;maneuvers.c']]],

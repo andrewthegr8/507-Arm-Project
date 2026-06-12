@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardware_0',['Hardware',['../index.html#autotoc_md2',1,'']]]
+  ['future_20improvements_0',['Future Improvements',['../index.html#autotoc_md6',1,'']]]
 ];

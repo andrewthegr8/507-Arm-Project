@@ -10,7 +10,7 @@ var searchData=
   ['readwrite429_7',['ReadWrite429',['../_t_m_c429_8c.html#a8c3da7c2fab63dfd98da7db40e886be1',1,'ReadWrite429(uint8_t *Read, uint8_t *Write):&#160;TMC429.c'],['../_t_m_c429_8h.html#a8c3da7c2fab63dfd98da7db40e886be1',1,'ReadWrite429(uint8_t *Read, uint8_t *Write):&#160;TMC429.c']]],
   ['readwritespi_8',['ReadWriteSPI',['../_t_m_c429_8c.html#a42cfafe73cc8e3965d18bc1c97f0a8ea',1,'ReadWriteSPI(void *p_SPI_DeviceHandle, uint8_t *rx, uint8_t *tx):&#160;TMC429.c'],['../_t_m_c429_8h.html#a42cfafe73cc8e3965d18bc1c97f0a8ea',1,'ReadWriteSPI(void *p_SPI_DeviceHandle, uint8_t *rx, uint8_t *tx):&#160;TMC429.c']]],
   ['red_5ftrajectory_9',['red_trajectory',['../fsm_8c.html#af3236793aae21d0ee907b4537039bfa3',1,'red_trajectory:&#160;maneuvers.c'],['../group___motion_control.html#gaf3236793aae21d0ee907b4537039bfa3',1,'red_trajectory:&#160;maneuvers.c']]],
-  ['references_10',['References',['../index.html#autotoc_md6',1,'']]],
+  ['references_10',['References',['../index.html#autotoc_md7',1,'']]],
   ['registeraccess_2eh_11',['RegisterAccess.h',['../_register_access_8h.html',1,'']]],
   ['reset_12',['reset',['../struct_configuration_type_def.html#a90ad9c7f0028a8c9cad556adbb2dbb0a',1,'ConfigurationTypeDef']]],
   ['resetpin_13',['resetPin',['../struct_stepper_driver__t.html#a212b9b6733825694a03abcce6902e1c5',1,'StepperDriver_t']]],

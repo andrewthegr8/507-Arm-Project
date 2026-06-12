@@ -3,37 +3,38 @@ Authors: Ethan Dickson, Andrew Jones, & Sara Chamness
 
 ## Introduction
 
-This website documents the design of a 4.5 DOF robotic arm. Our team created this robot for our term project in ME 507 at Cal Poly, San Luis Obispo.
+This website documents the design of a 4.5 DOF robotic arm. This was an academic project created as the term project for ME 507 at Cal Poly, San Luis Obispo.
 
-The robot is a semi autonomous color-sorting device. The arm consists of four joints mobilized by stepper motors and a gripper controlled by a servo motor. It was designed to pick up small foam blocks and sort them by color. To operate the device, the user manipulates a joystick to direct the robot to the block, then presses the select button on the joystick. A color sensor mounted on the end effector reads the color and the robot autonomously brings the block to a predetermined location based on its color.
+The robot is a semi autonomous color-sorting device. It consists of four joints mobilized by stepper motors and a gripper controlled by a servo motor. It is designed to pick up foam blocks and sort them by color. To operate the device, the user aligns the arm in the horizontal position and presses the select button on a joystick to zero the motors. They manipulate the joystick to move the robot to the block, then press the button again. A color sensor mounted on the end effector reads the block color and the robot autonomously brings the block to the designated location based on its color.
 
 The system is built around a custom-designed PCB featuring an STM32H7 microcontroller. The project was developed using the STM32 ecosystem, and the firmware was implemented in C. The project utilizes open-source hardware drivers for interfacing with more complex electronics components, as well as the STM HAL library to work simplify communication with the microcontroller.
 
 \image html RobotWithBlocks.png "Top View of Robot with Blocks" width=50%
 
-## Hardware
+## Mechanical Design
 
-
-
-### Mechanical Design
-
-\image html CAD-ISO.png "Isometric View of CAD"
+\image html CAD-ISO.png "Isometric View of CAD" width=70%
 
 The robot arm was designed in SolidWorks and 3D printed out of PLA at the Cal Poly Makerspace. 3D printing minimized manufacturing costs and complexity and allowed for easy iteration. The arm houses the four stepper motors at each of the joints, as well as a servo motor on the end effector. The steppers are mounted to the fixed portion of each joint using screws and the shaft is press fit into the rotating component. The end effector uses small 3D-printed gears to open the gripper, and the color sensor is mounted on the end effector. The arm is mounted on plywood for stability.
 
 The stepper motors (numbered 1-4) were sized by calculating the anticipated dynamic load on each motor. Motor 1 must bear the greatest load since it supports the weight and motion of the other motors and accessory components.
 
-| Required Motor Torques (Ncm) |            |             |             |              |             |
-|------------------------------|------------|-------------|-------------|--------------|-------------|
-| Motor                        | Static     | Dynamic     | Total       | FS (holding) | FS (curve)  |
-| T0                           | 0          | 36.0690827  | 36.0690827  | 4.491381202  | 4.05471914  |
-| T1                           | 167.195754 | 36.0690827  | 203.2648367 | 1.593979585  | 1.106930267 |
-| T2                           | 68.52285   | 12.12007253 | 80.64292253 | 2.008855767  | 1.813550345 |
-| T3                           | 14.95044   | 1.518964704 | 16.4694047  | 1.420816382  | -           |
+<div align="center">
+
+Table: Required Motor Torques (Ncm)
+
+| Motor | Static | Dynamic | Total | FS (holding) | FS (curve) |
+|------|--------|---------|-------|--------------|------------|
+| 1 | 0 | 36.0690827 | 36.0690827 | 4.491381202 | 4.05471914 |
+| 2 | 167.195754 | 36.0690827 | 203.2648367 | 1.593979585 | 1.106930267 |
+| 3 | 68.52285 | 12.12007253 | 80.64292253 | 2.008855767 | 1.813550345 |
+| 4 | 14.95044 | 1.518964704 | 16.4694047 | 1.420816382 | - |
+
+</div>
 
 The system runs on 12 V and 6 A and is powered by the bench top power supply available in the Mechatronics Lab. An XT-30 cable serves as the connector between from the power supply and the PCB. All peripheral devices connect to the board using jst or dupont connectors.
 
-### Electrical Design
+## Electrical Design
 
 The system runs off a custom PCB designed in Fusion 360 Electronics and manufacutred by JLCPCB. All SMD components were assembled by JLC, and PTH components were soldered by hand. Key features and components are as follows:
 - Power distribution
@@ -66,16 +67,16 @@ The firmware is written in C. Hardware drivers from open-source resources were u
 
 photo???? Description of robot states??
 
-### Motion Control
+## Motion Control
 
 Motion control is done by specifying a target postion, rather than kinematics or inverse kinematics. The stepper motors and motion-planning chips made this possible and greatly reduce the computational complexity of the robot motion. For the autonomous motion, each desired path is defined by a trajector struct. The struct contains a series of waypoints that map out the path. When the execute_trajectory function is run, the MCU and motion planning chips sequentially feed the positions of each motor at each waypoint to the motor drivers. This design made implementing autonomous motion very simple, since new trajectories could be easily created by defining a series of waypoitns and the angles/motor positions at each waypoint.
 
 
-### Joystick Readings
+## Joystick Readings
 
 The joystick drives two degrees of the robot motion. Horizonal movement of the joystick rotates the base (motor 1) and vertical movement of the joystick rotates motor ?? The joystick readings are filtered so that the joystick must be more than halfway to the maximum or minimum position in any direction in order for the reading to be accepted and used to direct motion. This filters out noise in the readings and ensures only deliberate manipulation of the joystick moves the motors. The joystick can be used to move both motors 1 and ?? at once if it is moved at an angle.
 
-### Color Detection
+## Color Detection
 
 The MCU receives RBG and clear readings from the color sensor over I2C. The RBG results are normalized against the clear values. The code uses the normalized values to compute a hue angle between 0 and 360 degrees. The angles are mapped into six categories and used to determine the object color: red, orange, yellow, green, blue, and purple. We found that red, yellow, green, and blue objects were more consistenly classifiable, and so only those four colors were shown during the demo.
 
@@ -92,6 +93,10 @@ video!!!
 ## Future Improvements
 
 Future improvements to the design could include adding limit switches to the motors so that the home postition does not have to be set manually. The servo grip on the blocks could also be improved. More joysticks could be added and kinematics could be integrated to allow for more advanced path planning. Object detection could also be integrated to make the system fully autonomous.
+- better routing
+- more resolution on the joystick motion (maybe 2 joystick to contorl all 4 motors)
+- adding limit switches to create an absolute zero for the system
+- redesign of the gripper
 
 ## References
 

@@ -135,26 +135,24 @@ Top View of Robot with Blocks</div></div>
 Hardware</h1>
 <h2>Mechanical Design</h2>
 <div class="image">
-<img src="CAD-ISO.png" alt=""/>
+<img src="CAD-ISO.png" alt="" width="70%"/>
 <div class="caption">
 Isometric View of CAD</div></div>
 <p>The robot arm was designed in SolidWorks and 3D printed out of PLA at the Cal Poly Makerspace. 3D printing minimized manufacturing costs and complexity and allowed for easy iteration. The arm houses the four stepper motors at each of the joints, as well as a servo motor on the end effector. The steppers are mounted to the fixed portion of each joint using screws and the shaft is press fit into the rotating component. The end effector uses small 3D-printed gears to open the gripper, and the color sensor is mounted on the end effector. The arm is mounted on plywood for stability.</p>
 <p>The stepper motors (numbered 1-4) were sized by calculating the anticipated dynamic load on each motor. Motor 1 must bear the greatest load since it supports the weight and motion of the other motors and accessory components.</p>
-<table class="markdownTable">
+<div align="center"></div><div align="center">Table: Required Motor Torques (Ncm)</div><div align="center"><table class="markdownTable">
 <tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Required Motor Torques (Ncm)  </th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th><th class="markdownTableHeadNone"></th></tr>
+<th class="markdownTableHeadNone">Motor  </th><th class="markdownTableHeadNone">Static  </th><th class="markdownTableHeadNone">Dynamic  </th><th class="markdownTableHeadNone">Total  </th><th class="markdownTableHeadNone">FS (holding)  </th><th class="markdownTableHeadNone">FS (curve)  </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">Motor  </td><td class="markdownTableBodyNone">Static  </td><td class="markdownTableBodyNone">Dynamic  </td><td class="markdownTableBodyNone">Total  </td><td class="markdownTableBodyNone">FS (holding)  </td><td class="markdownTableBodyNone">FS (curve)  </td></tr>
-<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">T0  </td><td class="markdownTableBodyNone">0  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">4.491381202  </td><td class="markdownTableBodyNone">4.05471914  </td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">T1  </td><td class="markdownTableBodyNone">167.195754  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">203.2648367  </td><td class="markdownTableBodyNone">1.593979585  </td><td class="markdownTableBodyNone">1.106930267  </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">T2  </td><td class="markdownTableBodyNone">68.52285  </td><td class="markdownTableBodyNone">12.12007253  </td><td class="markdownTableBodyNone">80.64292253  </td><td class="markdownTableBodyNone">2.008855767  </td><td class="markdownTableBodyNone">1.813550345  </td></tr>
+<td class="markdownTableBodyNone">T1  </td><td class="markdownTableBodyNone">167.195754  </td><td class="markdownTableBodyNone">36.0690827  </td><td class="markdownTableBodyNone">203.2648367  </td><td class="markdownTableBodyNone">1.593979585  </td><td class="markdownTableBodyNone">1.106930267  </td></tr>
 <tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">T2  </td><td class="markdownTableBodyNone">68.52285  </td><td class="markdownTableBodyNone">12.12007253  </td><td class="markdownTableBodyNone">80.64292253  </td><td class="markdownTableBodyNone">2.008855767  </td><td class="markdownTableBodyNone">1.813550345  </td></tr>
+<tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">T3  </td><td class="markdownTableBodyNone">14.95044  </td><td class="markdownTableBodyNone">1.518964704  </td><td class="markdownTableBodyNone">16.4694047  </td><td class="markdownTableBodyNone">1.420816382  </td><td class="markdownTableBodyNone">-  </td></tr>
 </table>
-<p>The system runs on 12 V and 6 A and is powered by the bench top power supply available in the Mechatronics Lab. An XT-30 cable serves as the connector between from the power supply and the PCB. All peripheral devices connect to the board using jst or dupont connectors.</p>
+</div><div align="center"></div><p>The system runs on 12 V and 6 A and is powered by the bench top power supply available in the Mechatronics Lab. An XT-30 cable serves as the connector between from the power supply and the PCB. All peripheral devices connect to the board using jst or dupont connectors.</p>
 <h2>Electrical Design</h2>
 <p>The system runs off a custom PCB designed in Fusion 360 Electronics and manufacutred by JLCPCB. All SMD components were assembled by JLC, and PTH components were soldered by hand. Key features and components are as follows:</p><ul>
 <li>Power distribution The board was designed to handle 24 V. We discovered during implementation that 12 V was sufficient, but the power distribution includes the following:<ul>
@@ -186,9 +184,17 @@ Software Architecture</h1>
 Results</h1>
 <p>video!!!</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
+Challenges</h1>
+<ul>
+<li>SPI bugs (expecting/sending different bit sizes, bug in the driver, reset pin high)</li>
+<li>joystick interrupts not working</li>
+<li>SWD finicky</li>
+<li>mechanical mounting of color sensor/gripping sequence</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
 Future Improvements</h1>
 <p>Future improvements to the design could include adding limit switches to the motors so that the home postition does not have to be set manually. The servo grip on the blocks could also be improved. More joysticks could be added and kinematics could be integrated to allow for more advanced path planning. Object detection could also be integrated to make the system fully autonomous.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
 References</h1>
 <ol type="1">
 <li>TMC429 Datasheet</li>

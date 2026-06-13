@@ -134,6 +134,36 @@ The SWD interface between the MCU and the ST-Link also had occasional connectivi
 The final system successfully demonstrated the main goals of the project: joystick-assisted block selection, color detection, gripping, and autonomous sorting. During operation, the user could manually position the arm over a foam block, trigger the color-sorting sequence, and allow the robot to complete the pick-and-place motion automatically.
 
 
+Demo Video 1:
+
+\htmlonly
+<div align="center">
+<iframe width="640" height="360"
+src="https://www.youtube.com/embed/xEQVzRaxtds"
+title="ME 507 Robotic Arm RGB Demo"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+allowfullscreen>
+</iframe>
+</div>
+\endhtmlonly
+
+
+Demo Video 2:
+
+\htmlonly
+<div align="center">
+  <iframe width="640" height="360"
+    src="https://www.youtube.com/embed/d1UqmxpobEM"
+    title="ME 507 Robotic Arm Demo"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+\endhtmlonly
+
+
 ## Future Improvements
 
 Future improvements to the design include adding limit switches to automate the homing routine for each motor. This would make startup more reliable and reduce the need for manual alignment before operation.

@@ -63,22 +63,37 @@ The system uses a TCS34725 Color Sensor breakout board for block color detection
 
 ## Software Architecture
 
-The firmware is written in C. Hardware drivers from open-source resources were utilized for interfacing with the motion planning chip and the color sensor. Custom drivers, wrappers, and functions were written to simplify use of each component. Execution of tasks and functions and task logic is implemented via a finitie state machine. The state machine is called from main. The state machine is described by the state-transition diagram below:
+The firmware is written in C. Hardware drivers from open-source resources were integrated for interfacing with motion planning chips and the color sensor. Custom drivers, wrappers, and functions were written to simplify use of each component. The arm's functionality is separated into two phases, joystick-controlled block locating and autonomous block sorting. Execution of tasks, functions, and task logic for both phases is implemented via a finite state machine. The state machine, described in the image below, is called from main in the continuous while loop. The state machine is described by the state-transition diagram below:
 
-photo???? Description of robot states??
+\image html FSM.png "State Transition Diagram for the Finite State Machine for Robotic Arm Operation"
 
 ## Motion Control
 
-Motion control is done by specifying a target postion, rather than kinematics or inverse kinematics. The stepper motors and motion-planning chips made this possible and greatly reduce the computational complexity of the robot motion. For the autonomous motion, each desired path is defined by a trajector struct. The struct contains a series of waypoints that map out the path. When the execute_trajectory function is run, the MCU and motion planning chips sequentially feed the positions of each motor at each waypoint to the motor drivers. This design made implementing autonomous motion very simple, since new trajectories could be easily created by defining a series of waypoitns and the angles/motor positions at each waypoint.
+Motion control is done by specifying a target postion, rather than kinematics or inverse kinematics. The stepper motors and motion-planning chips made this possible and greatly reduce the computational complexity of the robot motion. For the autonomous motion, each desired path is defined by a trajectory struct. The struct contains a series of waypoints that map out the path. When the execute_trajectory function runs, the MCU and motion planning chips sequentially feed the positions of each motor at each waypoint to the motor drivers. This design made implementing autonomous motion very simple, since new trajectories could be easily created by defining a series of waypoints and the angles/motor positions at each waypoint.
 
 
 ## Joystick Readings
 
-The joystick drives two degrees of the robot motion. Horizonal movement of the joystick rotates the base (motor 1) and vertical movement of the joystick rotates motor ?? The joystick readings are filtered so that the joystick must be more than halfway to the maximum or minimum position in any direction in order for the reading to be accepted and used to direct motion. This filters out noise in the readings and ensures only deliberate manipulation of the joystick moves the motors. The joystick can be used to move both motors 1 and ?? at once if it is moved at an angle.
+The first phase of motion is driven by the joystick, which controls two joints of the arm. Left-right movement of the joystick rotates the base (motor 1) and up-down movement of the joystick rotates motor 2. The joystick readings are filtered so that the joystick must be more than halfway to the maximum or minimum position in any direction in order for the reading to be accepted and used to direct motion. This filters out noise in the readings and ensures only deliberate manipulation of the joystick moves the motors. The joystick can be used to move both motors 1 and 2 at once if it is moved at an angle.
 
 ## Color Detection
 
 The MCU receives RBG and clear readings from the color sensor over I2C. The RBG results are normalized against the clear values. The code uses the normalized values to compute a hue angle between 0 and 360 degrees. The angles are mapped into six categories and used to determine the object color: red, orange, yellow, green, blue, and purple. We found that red, yellow, green, and blue objects were more consistenly classifiable, and so only those four colors were shown during the demo.
+
+## Finite State Machine 
+The following states organize timing and execution of the full functionality of the arm:
+
+### State 1: Init
+The init state runs once at startup and immediately commands the arm to move to its predefined initial pose by calling execute_trajectory with the initial_pose trajectory defined in maneuvers.c. This ensures the arm is in a known, safe configuration before the operator begins manual control. Once the trajectory completes, the FSM unconditionally transitions to the joystick state.
+
+### State 2: Joystick
+This state is the operator's primary interface for positioning the arm over a target block. On every run of main.c in this state, Joystick_Read is called from joystick.c, which uses HAL_ADC_ConfigChannel to toggle ADC1 between channel 16 (Y axis) and channel 17 (X axis), reading each in sequence via HAL_ADC_Start and HAL_ADC_PollForConversion. The raw 12-bit ADC values are filtered to eliminate noise and produce directional outputs of 0, 1, or 2 for each axis (no move, negative move, positive move). Back in fsm.c, these directional values drive move_to_pos calls on Motor 1 and Motor 2 from motion.c, with the new target position limited within predefined joint limits defined by to avoid cable tangling and grounding of the arm. The button is read via HAL_GPIO_ReadPin on the SEL pin, and a button press transitions the FSM to the get color state.
+
+### State 3: Get Color
+This state polls the TCS34725 color sensor until a valid color reading is returned. FSM_Update calls COLOR_SENSOR_Read in color_sensor.c. This function uses the tcs34725_read_rgbc vendor driver (driver_tcs34725.c) over I2C. The raw RGBC values are normalized by dividing by the clear channel, then passed to the classify function which computes the HSV hue angle and maps it to a ColorResult_t enum value defined in color_sensor.h. If the clear channel is below MIN_CLEAR or the saturation ratio is below 0.15, COLOR_UNKNOWN is returned and the state loops, re-reading until a valid result is obtained. Once reading of red, yellow, green, or blue is detected, it is stored in the detected_color variable in fsm.c and the FSM transitions to the move block state.
+
+### State 4: Move Block
+This state executes the full pick-and-place trajectory corresponding to the detected color. At entry, the current joint positions of Motor 1 and Motor 2 are captured via get_current_pos and written into the first two waypoints of the selected trajectory, ensuring the arm starts its motion from wherever the operator left it rather than transitioning to a fixed start position. Based on detected_color, one of four trajectories — red_trajectory, yellow_trajectory, green_trajectory, or blue_trajectory — defined in maneuvers.c is passed to execute_trajectory, which steps through each waypoint sequentially, commanding all four motors via move_to_pos and blocking until all motors reaches their target within a radian tolerance before advancing. Gripper open and close commands are embedded directly in the waypoint sequence via the servo field, triggering Servo_Open or Servo_Close from servo.c at the appropriate steps. Once the final waypoint is reached and the arm returns home, the FSM transitions back to the init state to reset for the next block.
 
 ## Results
 

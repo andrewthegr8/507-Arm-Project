@@ -12,8 +12,6 @@ https://andrewthegr8.github.io/507-Arm-Project/
 
 The `docs` folder contains the Doxygen-generated project documentation and homepage content. The documentation describes the mechanical design, electrical design, software architecture, finite state machine, challenges, results, and future improvements for the robotic arm.
 
-Please see the project documentation at: https://andrewthegr8.github.io/507-Arm-Project/
-
 ## Core Files
 
 The `Core` folder contains the main STM32 project source files. This includes the main program loop, finite state machine logic, interrupt configuration, and peripheral initialization generated and modified through the STM32 development environment.

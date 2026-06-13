@@ -11,7 +11,7 @@ To operate the device, the user first aligns the arm horizontally and presses th
 
 The system is built around a custom-designed PCB featuring an STM32H7 microcontroller. The project was developed using the STM32 ecosystem, and the firmware was implemented in C. The system uses open-source hardware drivers to interface with more complex electronic components, along with the STM HAL library to simplify communication with the microcontroller.
 
-The project repository is linked here: [Robotic Arm Repository](https://github.com/andrewthegr8/507-Arm-Project).
+The project repository is linked here: [507-Arm-Project](https://github.com/andrewthegr8/507-Arm-Project).
 
 \image html RobotWithBlocks.png "Top View of Robot with Blocks" width=50%
 

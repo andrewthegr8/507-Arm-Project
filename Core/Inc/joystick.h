@@ -19,9 +19,10 @@ uint8_t  Joystick_ReadButton(void);
 
 #include <stdint.h>
 
-/**
+
+ /**
  * @defgroup Joystick Joystick
- * @brief Color sensor reading and classification.
+ * @brief Reads and interprets the X-axis, Y-axis, and select-button outputs from the joystick. The processed joystick values are used to control motion commands for the robotic arm.
  * @{
  */
 

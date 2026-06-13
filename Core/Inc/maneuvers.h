@@ -4,7 +4,7 @@
 
 /**
  * @defgroup MotionControl Motion Control
- * @brief Color sensor reading and classification.
+ * @brief Handles and excecutes motion commands from the MCU.
  * @{
  */
 

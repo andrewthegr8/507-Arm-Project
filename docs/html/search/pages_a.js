@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['references_0',['References',['../index.html#autotoc_md11',1,'']]],
-  ['results_1',['Results',['../index.html#autotoc_md9',1,'']]]
+  ['software_20architecture_0',['Software Architecture',['../index.html#autotoc_md4',1,'']]]
 ];

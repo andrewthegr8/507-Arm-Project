@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['future_20improvements_0',['Future Improvements',['../index.html#autotoc_md6',1,'']]]
+  ['design_0',['Design',['../index.html#autotoc_md3',1,'Electrical Design'],['../index.html#autotoc_md2',1,'Mechanical Design']]]
 ];

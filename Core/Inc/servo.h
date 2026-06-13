@@ -4,6 +4,7 @@
 
 /**
  * @addtogroup ServoControl Servo Control
+ * @brief Executes commands to the servo-powered gripper.
  * @{
  */
 

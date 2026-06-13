@@ -6,6 +6,6 @@ var searchData=
   ['adc_5firqhandler_3',['ADC_IRQHandler',['../stm32h7xx__it_8c.html#a06406eadf297fa89a6eaf9586b227a69',1,'ADC_IRQHandler(void):&#160;stm32h7xx_it.c'],['../stm32h7xx__it_8h.html#a06406eadf297fa89a6eaf9586b227a69',1,'ADC_IRQHandler(void):&#160;stm32h7xx_it.c']]],
   ['address_4',['address',['../struct_t_m_c_register_constant.html#af3f726014b044194def151079f1f2d89',1,'TMCRegisterConstant']]],
   ['api_5fheader_2eh_5',['API_Header.h',['../_a_p_i___header_8h.html',1,'']]],
-  ['architecture_6',['Software Architecture',['../index.html#autotoc_md3',1,'']]],
+  ['architecture_6',['Software Architecture',['../index.html#autotoc_md4',1,'']]],
   ['array_5fsize_7',['ARRAY_SIZE',['../_macros_8h.html#a6242a25f9d996f0cc4f4cdb911218b75',1,'Macros.h']]]
 ];

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hardware_0',['Hardware',['../index.html#autotoc_md2',1,'']]]
+  ['electrical_20design_0',['Electrical Design',['../index.html#autotoc_md3',1,'']]]
 ];

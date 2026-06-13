@@ -6,7 +6,7 @@
 
 /**
  * @defgroup ColorSensing Color Sensing
- * @brief Color sensor reading and classification.
+ * @brief Color sensor reading and color classification. Determines whether the reading is red, orange, yellow, green, blue, or purple.
  * @{
  */
  

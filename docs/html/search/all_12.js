@@ -43,7 +43,7 @@ var searchData=
   ['short3_5fshift_40',['SHORT3_SHIFT',['../_bits_8h.html#a15da3f0cc0bb5d35392420c3ea7916f9',1,'Bits.h']]],
   ['sleeppin_41',['sleepPin',['../struct_stepper_driver_config__t.html#a28f101d0574bdd57ab10134b1712c2ed',1,'StepperDriverConfig_t']]],
   ['sleepport_42',['sleepPort',['../struct_stepper_driver_config__t.html#a30da6069550d738b87c433196c24fc5a',1,'StepperDriverConfig_t']]],
-  ['software_20architecture_43',['Software Architecture',['../index.html#autotoc_md3',1,'']]],
+  ['software_20architecture_43',['Software Architecture',['../index.html#autotoc_md4',1,'']]],
   ['spi_5fdev_5ftmc429_44',['SPI_DEV_TMC429',['../_t_m_c429_8h.html#a164c1ef17f5b8ddeff75cbec4b86179e',1,'TMC429.h']]],
   ['sqrttable_45',['sqrttable',['../_functions_8c.html#ab0b5c2a7f2d65eaf4fb954d8a85b79f5',1,'Functions.c']]],
   ['state_46',['state',['../struct_configuration_type_def.html#a3ea62c8c565ffa698cb3e366dbee84fc',1,'ConfigurationTypeDef']]],
